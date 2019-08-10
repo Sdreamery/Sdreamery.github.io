@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.seanxia.cn/"/>
-  <updated>2019-08-10T13:46:33.741Z</updated>
+  <updated>2019-08-10T13:46:33.883Z</updated>
   <id>http://www.seanxia.cn/</id>
   
   <author>
@@ -17,16 +17,16 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>流式框架Flink（一）</title>
-    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html"/>
-    <id>http://www.seanxia.cn/大数据/31afedf9.html</id>
+    <title>流式框架Flink（二）</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html"/>
+    <id>http://www.seanxia.cn/大数据/1b90121.html</id>
     <published>2019-01-01T16:00:00.000Z</published>
-    <updated>2019-08-10T13:46:33.741Z</updated>
+    <updated>2019-08-10T13:46:33.883Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架和分布式处理引擎。Flink设计为运行在所有常见的集群环境中，并且以内存速度和任意规模执行计算。&lt;/p&gt;
-&lt;p&gt;官网：&lt;a href=&quot;https://flink.apache.org&quot; rel=&quot;external nofollow&quot; target=&quot;_blank&quot;&gt;https://flink.apache.org&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架。&lt;/p&gt;
+&lt;p&gt;我们来谈谈 Flink 的编程模型与部署。&lt;/p&gt;
     
     </summary>
     
@@ -40,16 +40,16 @@
   </entry>
   
   <entry>
-    <title>流式框架Flink（二）</title>
-    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html"/>
-    <id>http://www.seanxia.cn/大数据/1b90121.html</id>
+    <title>流式框架Flink（一）</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html"/>
+    <id>http://www.seanxia.cn/大数据/31afedf9.html</id>
     <published>2019-01-01T16:00:00.000Z</published>
-    <updated>2019-08-10T13:46:33.883Z</updated>
+    <updated>2019-08-10T13:46:33.741Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架。&lt;/p&gt;
-&lt;p&gt;我们来谈谈 Flink 的编程模型与部署。&lt;/p&gt;
+      &lt;p&gt;Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架和分布式处理引擎。Flink设计为运行在所有常见的集群环境中，并且以内存速度和任意规模执行计算。&lt;/p&gt;
+&lt;p&gt;官网：&lt;a href=&quot;https://flink.apache.org&quot; rel=&quot;external nofollow&quot; target=&quot;_blank&quot;&gt;https://flink.apache.org&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -244,6 +244,28 @@
   </entry>
   
   <entry>
+    <title>SparkShuffle调优</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/3243dc0c.html"/>
+    <id>http://www.seanxia.cn/大数据/3243dc0c.html</id>
+    <published>2018-01-15T16:00:00.000Z</published>
+    <updated>2019-08-10T13:45:28.622Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;SparkShuffle在使用时，默认的配置中有些配置可能不适合实际中的业务处理，需要我们手动进行调整优化。这里列举了一些常用的 SparkShuffle 调优策略和建议。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+      <category term="SparkShuffle" scheme="http://www.seanxia.cn/tags/SparkShuffle/"/>
+    
+      <category term="调优" scheme="http://www.seanxia.cn/tags/%E8%B0%83%E4%BC%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Spark计算框架（四）</title>
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/240bf582.html"/>
     <id>http://www.seanxia.cn/大数据/240bf582.html</id>
@@ -263,28 +285,6 @@
       <category term="SparkShuffle" scheme="http://www.seanxia.cn/tags/SparkShuffle/"/>
     
       <category term="广播变量" scheme="http://www.seanxia.cn/tags/%E5%B9%BF%E6%92%AD%E5%8F%98%E9%87%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SparkShuffle调优</title>
-    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/3243dc0c.html"/>
-    <id>http://www.seanxia.cn/大数据/3243dc0c.html</id>
-    <published>2018-01-15T16:00:00.000Z</published>
-    <updated>2019-08-10T13:45:28.622Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;SparkShuffle在使用时，默认的配置中有些配置可能不适合实际中的业务处理，需要我们手动进行调整优化。这里列举了一些常用的 SparkShuffle 调优策略和建议。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-    
-      <category term="SparkShuffle" scheme="http://www.seanxia.cn/tags/SparkShuffle/"/>
-    
-      <category term="调优" scheme="http://www.seanxia.cn/tags/%E8%B0%83%E4%BC%98/"/>
     
   </entry>
   
