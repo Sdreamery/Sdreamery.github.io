@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.seanxia.cn/"/>
-  <updated>2019-08-10T13:46:33.741Z</updated>
+  <updated>2019-08-10T15:47:18.130Z</updated>
   <id>http://www.seanxia.cn/</id>
   
   <author>
@@ -17,34 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>流式框架Flink（一）</title>
-    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html"/>
-    <id>http://www.seanxia.cn/大数据/31afedf9.html</id>
-    <published>2019-01-01T16:00:00.000Z</published>
-    <updated>2019-08-10T13:46:33.741Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架和分布式处理引擎。Flink设计为运行在所有常见的集群环境中，并且以内存速度和任意规模执行计算。&lt;/p&gt;
-&lt;p&gt;官网：&lt;a href=&quot;https://flink.apache.org&quot; rel=&quot;external nofollow&quot; target=&quot;_blank&quot;&gt;https://flink.apache.org&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-    
-      <category term="flink" scheme="http://www.seanxia.cn/tags/flink/"/>
-    
-      <category term="流式处理" scheme="http://www.seanxia.cn/tags/%E6%B5%81%E5%BC%8F%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
     <title>流式框架Flink（二）</title>
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html"/>
     <id>http://www.seanxia.cn/大数据/1b90121.html</id>
     <published>2019-01-01T16:00:00.000Z</published>
-    <updated>2019-08-10T13:46:33.883Z</updated>
+    <updated>2019-08-10T15:47:18.130Z</updated>
     
     <summary type="html">
     
@@ -63,11 +40,34 @@
   </entry>
   
   <entry>
+    <title>流式框架Flink（一）</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html"/>
+    <id>http://www.seanxia.cn/大数据/31afedf9.html</id>
+    <published>2019-01-01T16:00:00.000Z</published>
+    <updated>2019-08-10T15:47:18.130Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架和分布式处理引擎。Flink设计为运行在所有常见的集群环境中，并且以内存速度和任意规模执行计算。&lt;/p&gt;
+&lt;p&gt;官网：&lt;a href=&quot;https://flink.apache.org&quot; rel=&quot;external nofollow&quot; target=&quot;_blank&quot;&gt;https://flink.apache.org&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+      <category term="flink" scheme="http://www.seanxia.cn/tags/flink/"/>
+    
+      <category term="流式处理" scheme="http://www.seanxia.cn/tags/%E6%B5%81%E5%BC%8F%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SparkMLlib 随机森林</title>
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/1ca1f555.html"/>
     <id>http://www.seanxia.cn/大数据/1ca1f555.html</id>
     <published>2018-05-21T16:00:00.000Z</published>
-    <updated>2019-08-10T13:45:28.620Z</updated>
+    <updated>2019-08-10T15:47:18.103Z</updated>
     
     <summary type="html">
     
@@ -91,7 +91,7 @@
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/a4a0dc78.html"/>
     <id>http://www.seanxia.cn/大数据/a4a0dc78.html</id>
     <published>2018-05-14T16:00:00.000Z</published>
-    <updated>2019-08-10T14:56:42.348Z</updated>
+    <updated>2019-08-10T15:47:15.650Z</updated>
     
     <summary type="html">
     
@@ -114,7 +114,7 @@
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/30277e10.html"/>
     <id>http://www.seanxia.cn/大数据/30277e10.html</id>
     <published>2018-05-11T16:00:00.000Z</published>
-    <updated>2019-08-10T13:45:28.620Z</updated>
+    <updated>2019-08-10T15:47:09.137Z</updated>
     
     <summary type="html">
     
@@ -136,7 +136,7 @@
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31efd837.html"/>
     <id>http://www.seanxia.cn/大数据/31efd837.html</id>
     <published>2018-05-09T16:00:00.000Z</published>
-    <updated>2019-08-10T13:45:28.619Z</updated>
+    <updated>2019-08-10T15:47:08.489Z</updated>
     
     <summary type="html">
     
@@ -159,7 +159,7 @@
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/800c7c16.html"/>
     <id>http://www.seanxia.cn/大数据/800c7c16.html</id>
     <published>2018-05-05T16:00:00.000Z</published>
-    <updated>2019-08-10T13:45:28.621Z</updated>
+    <updated>2019-08-10T15:47:10.105Z</updated>
     
     <summary type="html">
     
@@ -181,7 +181,7 @@
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/91aae295.html"/>
     <id>http://www.seanxia.cn/大数据/91aae295.html</id>
     <published>2018-02-19T16:00:00.000Z</published>
-    <updated>2019-08-10T13:45:30.230Z</updated>
+    <updated>2019-08-10T15:47:18.105Z</updated>
     
     <summary type="html">
     
@@ -203,7 +203,7 @@
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/2e9b7b1c.html"/>
     <id>http://www.seanxia.cn/大数据/2e9b7b1c.html</id>
     <published>2018-02-02T16:00:00.000Z</published>
-    <updated>2019-08-10T13:45:50.869Z</updated>
+    <updated>2019-08-10T15:47:18.113Z</updated>
     
     <summary type="html">
     
@@ -226,7 +226,7 @@
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/4b9530c5.html"/>
     <id>http://www.seanxia.cn/大数据/4b9530c5.html</id>
     <published>2018-01-20T16:00:00.000Z</published>
-    <updated>2019-08-10T13:45:42.588Z</updated>
+    <updated>2019-08-10T15:47:18.112Z</updated>
     
     <summary type="html">
     
@@ -244,11 +244,33 @@
   </entry>
   
   <entry>
+    <title>SparkShuffle调优</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/3243dc0c.html"/>
+    <id>http://www.seanxia.cn/大数据/3243dc0c.html</id>
+    <published>2018-01-15T16:00:00.000Z</published>
+    <updated>2019-08-10T15:47:18.104Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;SparkShuffle在使用时，默认的配置中有些配置可能不适合实际中的业务处理，需要我们手动进行调整优化。这里列举了一些常用的 SparkShuffle 调优策略和建议。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+      <category term="SparkShuffle" scheme="http://www.seanxia.cn/tags/SparkShuffle/"/>
+    
+      <category term="调优" scheme="http://www.seanxia.cn/tags/%E8%B0%83%E4%BC%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Spark计算框架（四）</title>
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/240bf582.html"/>
     <id>http://www.seanxia.cn/大数据/240bf582.html</id>
     <published>2018-01-15T16:00:00.000Z</published>
-    <updated>2019-08-10T13:45:49.665Z</updated>
+    <updated>2019-08-10T15:47:18.114Z</updated>
     
     <summary type="html">
     
@@ -267,33 +289,11 @@
   </entry>
   
   <entry>
-    <title>SparkShuffle调优</title>
-    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/3243dc0c.html"/>
-    <id>http://www.seanxia.cn/大数据/3243dc0c.html</id>
-    <published>2018-01-15T16:00:00.000Z</published>
-    <updated>2019-08-10T13:45:28.622Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;SparkShuffle在使用时，默认的配置中有些配置可能不适合实际中的业务处理，需要我们手动进行调整优化。这里列举了一些常用的 SparkShuffle 调优策略和建议。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-    
-      <category term="SparkShuffle" scheme="http://www.seanxia.cn/tags/SparkShuffle/"/>
-    
-      <category term="调优" scheme="http://www.seanxia.cn/tags/%E8%B0%83%E4%BC%98/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Spark计算框架（三）</title>
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/9326ece7.html"/>
     <id>http://www.seanxia.cn/大数据/9326ece7.html</id>
     <published>2018-01-07T16:00:00.000Z</published>
-    <updated>2019-08-10T13:45:44.444Z</updated>
+    <updated>2019-08-10T15:47:18.107Z</updated>
     
     <summary type="html">
     
@@ -317,7 +317,7 @@
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/de384fb5.html"/>
     <id>http://www.seanxia.cn/大数据/de384fb5.html</id>
     <published>2017-12-18T16:00:00.000Z</published>
-    <updated>2019-08-10T13:45:41.292Z</updated>
+    <updated>2019-08-10T15:47:18.111Z</updated>
     
     <summary type="html">
     
@@ -339,7 +339,7 @@
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/53ca074f.html"/>
     <id>http://www.seanxia.cn/大数据/53ca074f.html</id>
     <published>2017-12-15T16:00:00.000Z</published>
-    <updated>2019-08-10T13:45:38.621Z</updated>
+    <updated>2019-08-10T15:47:18.109Z</updated>
     
     <summary type="html">
     
@@ -362,7 +362,7 @@
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/b6b65a25.html"/>
     <id>http://www.seanxia.cn/大数据/b6b65a25.html</id>
     <published>2017-11-01T16:00:00.000Z</published>
-    <updated>2019-08-10T13:46:30.976Z</updated>
+    <updated>2019-08-10T15:47:18.129Z</updated>
     
     <summary type="html">
     
@@ -385,7 +385,7 @@
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/efe707af.html"/>
     <id>http://www.seanxia.cn/大数据/efe707af.html</id>
     <published>2017-10-27T16:00:00.000Z</published>
-    <updated>2019-08-10T13:46:41.242Z</updated>
+    <updated>2019-08-10T15:47:18.133Z</updated>
     
     <summary type="html">
     
@@ -432,7 +432,7 @@
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/b468623c.html"/>
     <id>http://www.seanxia.cn/大数据/b468623c.html</id>
     <published>2017-10-15T16:00:00.000Z</published>
-    <updated>2019-08-10T13:45:28.457Z</updated>
+    <updated>2019-08-10T15:46:49.590Z</updated>
     
     <summary type="html">
     
@@ -454,7 +454,7 @@
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/dd52d826.html"/>
     <id>http://www.seanxia.cn/大数据/dd52d826.html</id>
     <published>2017-10-14T16:00:00.000Z</published>
-    <updated>2019-08-10T13:45:28.456Z</updated>
+    <updated>2019-08-10T15:46:49.591Z</updated>
     
     <summary type="html">
     

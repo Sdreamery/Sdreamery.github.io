@@ -16,19 +16,19 @@
 <meta property="og:site_name" content="书凡先生">
 <meta property="og:description" content="机器学习算法中，有种依据概率原则进行分类的朴素贝叶斯算法，正如气象学家预测天气一样，朴素贝叶斯算法就是应用先前事件的有关数据来估计未来事件发生的概率。如：70%降水概率。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g1gd81ol52j20av02p3yv.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g1ghe05o09j20k408aq4i.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g1gd93ud4vj20bg03lwer.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g1gd9ep0v3j209q03idg7.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g1gd9tnnujj209w0683zu.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g1gep26ugsj20cc02tdgz.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g1gepuj2yvj20ap01c0sz.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g1geq0t5psj20dh02rab3.jpg">
-<meta property="og:updated_time" content="2019-08-10T13:45:28.621Z">
+<meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd81ol52j20av02p3yv.jpg">
+<meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1ghe05o09j20k408aq4i.jpg">
+<meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd93ud4vj20bg03lwer.jpg">
+<meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd9ep0v3j209q03idg7.jpg">
+<meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd9tnnujj209w0683zu.jpg">
+<meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gep26ugsj20cc02tdgz.jpg">
+<meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gepuj2yvj20ap01c0sz.jpg">
+<meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1geq0t5psj20dh02rab3.jpg">
+<meta property="og:updated_time" content="2019-08-10T15:47:10.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SparkMLlib贝叶斯分类">
 <meta name="twitter:description" content="机器学习算法中，有种依据概率原则进行分类的朴素贝叶斯算法，正如气象学家预测天气一样，朴素贝叶斯算法就是应用先前事件的有关数据来估计未来事件发生的概率。如：70%降水概率。">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g1gd81ol52j20av02p3yv.jpg">
+<meta name="twitter:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd81ol52j20av02p3yv.jpg">
   
   
     <link rel="icon" href="/favicon.png">
@@ -207,29 +207,29 @@
 <p>一所学校里面有 60% 的男生，40% 的女生。男生总是穿长裤，女生则一半穿长裤一半穿裙子。假设你走在校园中，迎面走来一个穿长裤的学生（很不幸的是你高度近视，你只看得见他（她）穿的是否长裤，而无法确定他（她）的性别），你能够推断出他（她）是男生的概率是多大吗？</p>
 </blockquote>
 <p><strong>基于贝叶斯定理的条件概率</strong></p>
-<p><img src="https://ws1.sinaimg.cn/large/7308598bgy1g1gd81ol52j20av02p3yv.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd81ol52j20av02p3yv.jpg" alt=""></p>
 <p><strong>通过此公式可以算出上题：</strong></p>
-<p><img src="https://ws1.sinaimg.cn/large/7308598bgy1g1ghe05o09j20k408aq4i.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1ghe05o09j20k408aq4i.jpg" alt=""></p>
 <h2 id="理解朴素贝叶斯"><a href="#理解朴素贝叶斯" class="headerlink" title="理解朴素贝叶斯"></a>理解朴素贝叶斯</h2><p>如果我们知道P（垃圾邮件）和P（Viagra）是相互独立的，则容易计算P（垃圾邮件&amp;Viagra），即这两个事件同时发生的概率。 20% * 5% = 1%​</p>
-<p><img src="https://ws1.sinaimg.cn/large/7308598bgy1g1gd93ud4vj20bg03lwer.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd93ud4vj20bg03lwer.jpg" alt=""></p>
 <p>对于我们垃圾邮件来说</p>
-<p><img src="https://ws1.sinaimg.cn/large/7308598bgy1g1gd9ep0v3j209q03idg7.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd9ep0v3j209q03idg7.jpg" alt=""></p>
 <p>计算贝叶斯定理中每一个组成部分的概率，我们必须构造一个频率表</p>
-<p><img src="https://ws1.sinaimg.cn/large/7308598bgy1g1gd9tnnujj209w0683zu.jpg"></p>
-<p>$P(垃圾邮件|Viagra) = P(Viagra|垃圾邮件) * P(垃圾邮件) / P(Viagra)​$</p>
-<p>$= (4/20) * (20/100) / (5/100) = 0.8​$</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd9tnnujj209w0683zu.jpg" alt=""></p>
+<p>$P(垃圾邮件|Viagra) = P(Viagra|垃圾邮件) * P(垃圾邮件) / P(Viagra)$</p>
+<p>$= (4/20) * (20/100) / (5/100) = 0.8$</p>
 <p>因此，如果电子邮件含有单词Viagra，那么该电子邮件是垃圾邮件的概率为80%。所以，任何含有单词Viagra的消息都需要被过滤掉。</p>
 <p><strong>当有额外更多的特征是，这一概念如何被使用</strong></p>
-<p><img src="https://ws1.sinaimg.cn/large/7308598bgy1g1gep26ugsj20cc02tdgz.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gep26ugsj20cc02tdgz.jpg" alt=""></p>
 <p>利用贝叶斯公式，我们得到概率如下：</p>
-<p><img src="https://ws1.sinaimg.cn/large/7308598bgy1g1gepuj2yvj20ap01c0sz.jpg"></p>
-<p><img src="https://ws1.sinaimg.cn/large/7308598bgy1g1geq0t5psj20dh02rab3.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gepuj2yvj20ap01c0sz.jpg" alt=""></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1geq0t5psj20dh02rab3.jpg" alt=""></p>
 <ul>
 <li><p>分母可以先忽略它，垃圾邮件的总似然为：</p>
-<p>$(4/20) <em> (10/20) </em> (20/20) <em> (12/20) </em> (20/100) = 0.012​$</p>
+<p>$(4/20) <em> (10/20) </em> (20/20) <em> (12/20) </em> (20/100) = 0.012$</p>
 </li>
 <li><p>非垃圾邮件的总似然为：</p>
-<p>$(1/80) <em> (66/80) </em> (71/80) <em> (23/80) </em> (80/100) = 0.002​$</p>
+<p>$(1/80) <em> (66/80) </em> (71/80) <em> (23/80) </em> (80/100) = 0.002$</p>
 </li>
 <li><p>将这些值转换成概率，我们只需要一步得到垃圾邮件概率为85.7%</p>
 </li>
@@ -578,10 +578,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hive</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">内存</a>
               </li>
              
@@ -591,6 +587,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hive</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -610,6 +610,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">线性回归</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">贝叶斯分类</a>
               </li>
              
@@ -622,27 +626,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线性回归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思维</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">角色</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">paxos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,15 +682,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">广播变量</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MapReduce</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">离线计算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">广播变量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">角色</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">paxos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -718,14 +718,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">高可用HA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">HBase</a>
               </li>
              
@@ -738,11 +730,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">高可用HA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">scala</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式计算</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -754,15 +758,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SparkStreaming</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">非关系型</a>
+                <a href="javascript:void(0)" class="js-tag color5">HDFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式存储</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -778,11 +782,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HDFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式存储</a>
+                <a href="javascript:void(0)" class="js-tag color5">非关系型</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -16,17 +16,17 @@
 <meta property="og:site_name" content="书凡先生">
 <meta property="og:description" content="关于机器学习，Spark MLlib中也对相关算法有API的讲解，本章介绍线性回归算法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g1g9yf9u9lj20b207fmxm.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g1g9yxyfzgj205x0133yc.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g1g9z49qbaj20b2088wfr.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g1g9zbretqj20980793zs.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g1ga1c8pxgj209n053my8.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g1ga2pwbymj207h05hmx7.jpg">
-<meta property="og:updated_time" content="2019-08-10T13:45:28.620Z">
+<meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1g9yf9u9lj20b207fmxm.jpg">
+<meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1g9yxyfzgj205x0133yc.jpg">
+<meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1g9z49qbaj20b2088wfr.jpg">
+<meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1g9zbretqj20980793zs.jpg">
+<meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1ga1c8pxgj209n053my8.jpg">
+<meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1ga2pwbymj207h05hmx7.jpg">
+<meta property="og:updated_time" content="2019-08-10T15:47:09.137Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SparkMLlib线性回归">
 <meta name="twitter:description" content="关于机器学习，Spark MLlib中也对相关算法有API的讲解，本章介绍线性回归算法。">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g1g9yf9u9lj20b207fmxm.jpg">
+<meta name="twitter:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1g9yf9u9lj20b207fmxm.jpg">
   
   
     <link rel="icon" href="/favicon.png">
@@ -203,7 +203,7 @@
 <li>广义线性回归，GLM。比如，逻辑回归，泊松回归。</li>
 <li>对于简单线性回归问题，也就是小学大家就都会了的解应用题y=a+bx。</li>
 </ul>
-<p><img src="https://ws1.sinaimg.cn/large/7308598bgy1g1g9yf9u9lj20b207fmxm.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1g9yf9u9lj20b207fmxm.jpg" alt=""></p>
 <p><strong>线性回归用来做预测，是一种线型有监督的预测模型。</strong></p>
 <p>线性回归模型保存的是权重系数 w，它是用历史数据找出规律用于预测未来。</p>
 <p><strong>模型：</strong>模型就是 y=ax1+bx2+…+d 这个公式</p>
@@ -214,11 +214,11 @@
 <p><strong>损失函数（误差函数）：</strong><br>$$<br>J(\theta_0,\theta_1)=\frac{1}{2m}\sum_{i=1} ^m(h_\theta(x^i) - y^i)^2<br>$$<br><strong>拟合函数：</strong>y = ax + b</p>
 <p><strong>最小二乘法</strong></p>
 <p>一个点 (x1,y1) 误差：(ax1 + b - y1) ²</p>
-<p>多个点的误差，又叫损失函数：<img src="https://ws1.sinaimg.cn/large/7308598bgy1g1g9yxyfzgj205x0133yc.jpg"></p>
+<p>多个点的误差，又叫损失函数：<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1g9yxyfzgj205x0133yc.jpg" alt=""></p>
 <p><strong>二维：</strong></p>
-<p><img src="https://ws1.sinaimg.cn/large/7308598bgy1g1g9z49qbaj20b2088wfr.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1g9z49qbaj20b2088wfr.jpg" alt=""></p>
 <p><strong>三维：</strong></p>
-<p><img src="https://ws1.sinaimg.cn/large/7308598bgy1g1g9zbretqj20980793zs.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1g9zbretqj20980793zs.jpg" alt=""></p>
 <h3 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h3><p>用于快速找到误差最小值。</p>
 <blockquote>
 <p>梯度下降法就是一个寻找一座山最低谷的过程。<br>1、如果当前往前走是上山，那么就后退；<br>2、如果当前往前走是下山，那么就前进；<br>3、不停的走，每走一步看下当前路况，决定下一步是前进还是后退，如此反复。</p>
@@ -230,7 +230,7 @@
 <li>确定一个向下的方向，并向下走预先规定的步伐，并更新；</li>
 <li>当下降的高度小于某个定义的值，则停止下降。</li>
 </ul>
-<p><img src="https://ws1.sinaimg.cn/large/7308598bgy1g1ga1c8pxgj209n053my8.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1ga1c8pxgj209n053my8.jpg" alt=""></p>
 <p><strong>问题</strong></p>
 <ul>
 <li>如果初始值就在local minimum的位置，则会如何变化？</li>
@@ -239,7 +239,7 @@
 <li>过拟合怎么解决？</li>
 </ul>
 <h2 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h2><p>大多数现实世界的分析不止一个自变量，大多数情况下，很有可能使用多元线性回归。</p>
-<p><img src="https://ws1.sinaimg.cn/large/7308598bgy1g1ga2pwbymj207h05hmx7.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1ga2pwbymj207h05hmx7.jpg" alt=""></p>
 <h3 id="相关系数"><a href="#相关系数" class="headerlink" title="相关系数"></a>相关系数</h3><p>两个变量之间的相关系数是一个数，它表示两个变量服从一条直线的关系有多么紧密。</p>
 <p>关系数就是指Pearson相关系数，它是数学家Pearson提出来的，相关系数的范围是[-1,1]之间，两端的值表示一个完美的线性关系。</p>
 
@@ -551,10 +551,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hive</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">内存</a>
               </li>
              
@@ -564,6 +560,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hive</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,6 +583,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">线性回归</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">贝叶斯分类</a>
               </li>
              
@@ -595,27 +599,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线性回归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思维</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">角色</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">paxos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,15 +655,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">广播变量</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MapReduce</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">离线计算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">广播变量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">角色</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">paxos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -691,14 +691,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">高可用HA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">HBase</a>
               </li>
              
@@ -711,11 +703,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">高可用HA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">scala</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式计算</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -727,15 +731,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SparkStreaming</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">非关系型</a>
+                <a href="javascript:void(0)" class="js-tag color5">HDFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式存储</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -751,11 +755,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HDFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式存储</a>
+                <a href="javascript:void(0)" class="js-tag color5">非关系型</a>
               </li>
              
               <li class="article-tag-list-item">
