@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://www.seanxia.cn">
   <title>新浪微博图床迁移 | 书凡先生</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前不久，微博图床挂了，这对于众多使用 Markdown 写技术博客的人简直太残忍了！看来，图片迁移真的是刻不容缓了，在我准备迁移图片的时候，发现了几个平台对图片不同的处理方式，觉得很有意思，所以记录一下。 本人强烈推荐使用方法五，亲测有效。 官网：https://flink.apache.org">
+  <meta name="description" content="前不久，微博图床挂了，这对于众多使用 Markdown 写技术博客的人简直太残忍了！看来，图片迁移真的是刻不容缓了，在我准备迁移图片的时候，发现了几个平台对图片不同的处理方式，觉得很有意思，所以记录一下。 本人强烈推荐使用方法五，亲测有效。">
 <meta name="keywords" content="图床,迁移">
 <meta property="og:type" content="article">
 <meta property="og:title" content="新浪微博图床迁移">
 <meta property="og:url" content="http://www.seanxia.cn/其他/7fb68dad.html">
 <meta property="og:site_name" content="书凡先生">
-<meta property="og:description" content="前不久，微博图床挂了，这对于众多使用 Markdown 写技术博客的人简直太残忍了！看来，图片迁移真的是刻不容缓了，在我准备迁移图片的时候，发现了几个平台对图片不同的处理方式，觉得很有意思，所以记录一下。 本人强烈推荐使用方法五，亲测有效。 官网：https://flink.apache.org">
+<meta property="og:description" content="前不久，微博图床挂了，这对于众多使用 Markdown 写技术博客的人简直太残忍了！看来，图片迁移真的是刻不容缓了，在我准备迁移图片的时候，发现了几个平台对图片不同的处理方式，觉得很有意思，所以记录一下。 本人强烈推荐使用方法五，亲测有效。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://b-gold-cdn.xitu.io/v3/static/img/pin-url-link.3f843e8.svg">
 <meta property="og:image" content="https://b-gold-cdn.xitu.io/v3/static/img/pin-url-link.3f843e8.svg">
@@ -29,10 +29,10 @@
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190811181334.png">
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190811181609.png">
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190811181737.png">
-<meta property="og:updated_time" content="2019-08-11T10:32:03.041Z">
+<meta property="og:updated_time" content="2019-08-11T12:07:05.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="新浪微博图床迁移">
-<meta name="twitter:description" content="前不久，微博图床挂了，这对于众多使用 Markdown 写技术博客的人简直太残忍了！看来，图片迁移真的是刻不容缓了，在我准备迁移图片的时候，发现了几个平台对图片不同的处理方式，觉得很有意思，所以记录一下。 本人强烈推荐使用方法五，亲测有效。 官网：https://flink.apache.org">
+<meta name="twitter:description" content="前不久，微博图床挂了，这对于众多使用 Markdown 写技术博客的人简直太残忍了！看来，图片迁移真的是刻不容缓了，在我准备迁移图片的时候，发现了几个平台对图片不同的处理方式，觉得很有意思，所以记录一下。 本人强烈推荐使用方法五，亲测有效。">
 <meta name="twitter:image" content="https://b-gold-cdn.xitu.io/v3/static/img/pin-url-link.3f843e8.svg">
   
   
@@ -205,7 +205,6 @@
       
         <p>前不久，微博图床挂了，这对于众多使用 Markdown 写技术博客的人简直太残忍了！看来，图片迁移真的是刻不容缓了，在我准备迁移图片的时候，发现了几个平台对图片不同的处理方式，觉得很有意思，所以记录一下。</p>
 <p><strong>本人强烈推荐使用方法五，亲测有效。</strong></p>
-<p>官网：<a href="https://flink.apache.org" rel="external nofollow" target="_blank">https://flink.apache.org</a></p>
 <a id="more"></a>
 <h2 id="补救措施"><a href="#补救措施" class="headerlink" title="补救措施"></a>补救措施</h2><h3 id="一、在标头添加代码"><a href="#一、在标头添加代码" class="headerlink" title="一、在标头添加代码"></a>一、在标头添加代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"referrer"</span> <span class="attr">content</span>=<span class="string">"no-referrer"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 <p>头部添加以上代码，防止获取敏感信息，这个作用是：在页面引入图片、JS 等资源，或者从一个页面跳到另一个页面，都会产生新的 HTTP 请求，浏览器一般都会给这些请求头加上表示来源的 Referrer 字段。Referrer 在分析用户来源时很有用，有着广泛的使用。但 URL 可能包含用户敏感信息，如果被第三方网站拿到很不安全（例如之前不少 Wap 站把用户 SESSION ID 放在 URL 中传递，第三方拿到 URL 就可以看到别人登录后的页面）。之前浏览器会按自己的默认规则来决定是否加上 Referrer。</p>
@@ -213,7 +212,7 @@
 <p><a href="https://www.hostloc.com/thread-542203-1-1.html" rel="external nofollow" target="_blank">地址→</a></p>
 <h3 id="三、开源项目"><a href="#三、开源项目" class="headerlink" title="三、开源项目"></a>三、开源项目</h3><p><a href="https://github.com/cnych/sinaimgmover" rel="external nofollow" target="_blank">微博图床一键迁移到阿里云 OSS</a></p>
 <h3 id="四、代码实现-比保存本地再上传好一些"><a href="#四、代码实现-比保存本地再上传好一些" class="headerlink" title="四、代码实现,比保存本地再上传好一些"></a>四、代码实现,比保存本地再上传好一些</h3><p><a href="https://qq52o.me/2674.html" rel="external nofollow" target="_blank">沈唁大佬</a></p>
-<h3 id="五、使用picGo插件pic-migrater进行快速迁移"><a href="#五、使用picGo插件pic-migrater进行快速迁移" class="headerlink" title="五、使用picGo插件pic-migrater进行快速迁移"></a>五、使用picGo插件pic-migrater进行快速迁移</h3><p>目前如果你是用markdown写博客的话，可以用PicGo的pic-migrater插件来快速将markdown里的图片地址迁移到另外的一家服务商去（迁移到你当前设置的PicGo默认图床）。效果如下图。迁移的图床是默认的SM.MS。<br>PicGo地址：<a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FMolunerfinn%2FPicGo" rel="external nofollow" target="_blank"><img src="https://b-gold-cdn.xitu.io/v3/static/img/pin-url-link.3f843e8.svg" alt="https://github.com/Molunerfinn/PicGo">github.com/Molunerfinn/Pi…</a><br>picgo-plugin-pic-migrater: <a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FPicGo%2Fpicgo-plugin-pic-migrater" rel="external nofollow" target="_blank"><img src="https://b-gold-cdn.xitu.io/v3/static/img/pin-url-link.3f843e8.svg" alt="https://github.com/PicGo/picgo-plugin-pic-migrater">github.com/PicGo/picgo-pl…</a></p>
+<h3 id="五、使用picGo插件pic-migrater进行快速迁移"><a href="#五、使用picGo插件pic-migrater进行快速迁移" class="headerlink" title="五、使用picGo插件pic-migrater进行快速迁移"></a>五、使用picGo插件pic-migrater进行快速迁移</h3><p>目前如果你是用markdown写博客的话，可以用PicGo的pic-migrater插件来快速将markdown里的图片地址迁移到另外的一家服务商去（迁移到你当前设置的PicGo默认图床）。<br>PicGo地址：<a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FMolunerfinn%2FPicGo" rel="external nofollow" target="_blank"><img src="https://b-gold-cdn.xitu.io/v3/static/img/pin-url-link.3f843e8.svg" alt="https://github.com/Molunerfinn/PicGo">github.com/Molunerfinn/Pi…</a><br>picgo-plugin-pic-migrater: <a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FPicGo%2Fpicgo-plugin-pic-migrater" rel="external nofollow" target="_blank"><img src="https://b-gold-cdn.xitu.io/v3/static/img/pin-url-link.3f843e8.svg" alt="https://github.com/PicGo/picgo-plugin-pic-migrater">github.com/PicGo/picgo-pl…</a></p>
 <p>直接在PicGo的「插件设置」页面安装即可使用，每个迁移过的markdown文件会生成一个新的markdown文件，防止图片迁移失败导致的原图损失。</p>
 <p><strong>具体步骤：</strong></p>
 <p><strong>一、首先要有新的图床，这里以阿里云OSS为例</strong></p>
@@ -368,8 +367,8 @@
 <nav id="article-nav">
   
   
-    <a href="/大数据/31afedf9.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">流式框架Flink（一）</div>
+    <a href="/大数据/1b90121.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">流式框架Flink（二）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -549,6 +548,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">内存</a>
               </li>
              
@@ -565,15 +572,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Kmeans</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -585,7 +588,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Kmeans</a>
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">思维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">SparkShuffle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调优</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">图床</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">迁移</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">角色</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">paxos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,43 +652,43 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">SparkShuffle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调优</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">思维</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图床</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">迁移</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">角色</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">paxos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">随机森林</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">spark</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">任务提交</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">sqoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据转换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">MapReduce</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">离线计算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">广播变量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">flink</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">流式处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -689,50 +724,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">spark</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">任务提交</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">sqoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据转换</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">广播变量</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">MapReduce</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">离线计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">flink</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">流式处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">静态语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">PV</a>
               </li>
              
@@ -741,7 +732,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式计算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SparkStreaming</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">非关系型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -750,14 +749,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">分布式存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">非关系型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Storm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -770,6 +761,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">反向代理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Storm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">静态语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -797,7 +796,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">SparkSQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">DataFrame</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -809,11 +812,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SparkSQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">DataFrame</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
