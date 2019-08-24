@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.seanxia.cn/"/>
-  <updated>2019-08-22T13:59:04.472Z</updated>
+  <updated>2019-08-24T06:02:51.963Z</updated>
   <id>http://www.seanxia.cn/</id>
   
   <author>
@@ -17,21 +17,25 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://www.seanxia.cn/uncategorized/0.html"/>
-    <id>http://www.seanxia.cn/uncategorized/0.html</id>
-    <published>2019-08-22T14:00:47.146Z</published>
-    <updated>2019-08-22T13:59:04.472Z</updated>
+    <title>使用Git系统搭建GitLab</title>
+    <link href="http://www.seanxia.cn/%E5%85%B6%E4%BB%96/6d60df94.html"/>
+    <id>http://www.seanxia.cn/其他/6d60df94.html</id>
+    <published>2019-08-24T06:00:39.493Z</published>
+    <updated>2019-08-24T06:02:51.963Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;h1 id=&quot;GitLab与Git使用教程&quot;&gt;&lt;a href=&quot;#GitLab与Git使用教程&quot; class=&quot;headerlink&quot; title=&quot;GitLab与Git使用教程&quot;&gt;&lt;/a&gt;GitLab与Git使用教程&lt;/h1&gt;&lt;h3 id=&quot;Git、GitHub与GitLab
-      
+      &lt;h3 id=&quot;Git、GitHub与GitLab区别&quot;&gt;&lt;a href=&quot;#Git、GitHub与GitLab区别&quot; class=&quot;headerlink&quot; title=&quot;Git、GitHub与GitLab区别&quot;&gt;&lt;/a&gt;Git、GitHub与GitLab区别&lt;/h3&gt;&lt;p&gt;首先我们要知道的是，Git与GitLab不是一个东西，git是一个可以进行版本控制的操作工具，而GitLab则是一个用来托管文件的远程仓库。&lt;/p&gt;
+&lt;p&gt;GitLab与GitHub最大的区别就是可以使用自己的服务器进行托管，相比GitHub来说更安全高效，适合团队内部开发。&lt;/p&gt;
     
     </summary>
     
+      <category term="其他" scheme="http://www.seanxia.cn/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="Git" scheme="http://www.seanxia.cn/tags/Git/"/>
+    
+      <category term="GitLab" scheme="http://www.seanxia.cn/tags/GitLab/"/>
     
   </entry>
   

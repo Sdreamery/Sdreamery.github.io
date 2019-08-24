@@ -479,137 +479,29 @@
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/其他/6d60df94.html">使用Git系统搭建GitLab</a>
+    </h1>
+  
+
+        
+        <a href="/其他/6d60df94.html" class="archive-article-date">
+  	<time datetime="2019-08-24T06:00:39.493Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-24</time>
+</a>
+        
+
+        <!-- 添加代码 -->
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="GitLab与Git使用教程"><a href="#GitLab与Git使用教程" class="headerlink" title="GitLab与Git使用教程"></a>GitLab与Git使用教程</h1><h3 id="Git、GitHub与GitLab区别"><a href="#Git、GitHub与GitLab区别" class="headerlink" title="Git、GitHub与GitLab区别"></a>Git、GitHub与GitLab区别</h3><p>首先我们要知道的是，Git与GitLab不是一个东西，git是一个可以进行版本控制的操作工具，而GitLab则是一个用来托管文件的远程仓库。</p>
+        <h3 id="Git、GitHub与GitLab区别"><a href="#Git、GitHub与GitLab区别" class="headerlink" title="Git、GitHub与GitLab区别"></a>Git、GitHub与GitLab区别</h3><p>首先我们要知道的是，Git与GitLab不是一个东西，git是一个可以进行版本控制的操作工具，而GitLab则是一个用来托管文件的远程仓库。</p>
 <p>GitLab与GitHub最大的区别就是可以使用自己的服务器进行托管，相比GitHub来说更安全高效，适合团队内部开发。</p>
-<h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><p><strong>第一步：新建小组以及项目</strong></p>
-<p>首先登录GitLab官网：<a href="http://git.lzops.com，输入账号密码然后开始进入。初始的有两个框框，新建项目和新建小组。" rel="external nofollow" target="_blank">http://git.lzops.com，输入账号密码然后开始进入。初始的有两个框框，新建项目和新建小组。</a></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822191122.png" alt=""></p>
-<p>我已经建好了小组：lz_bigdata，还有一个项目：lzjr_first。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822185758.png" alt=""></p>
-<p><strong>第二步：进行远程仓库GitLab与Git版本控制系统的关联</strong></p>
-<p>在GitLab空的项目中我们会发现一些系统中给出的提示操作，例如本地Git如何连接远程仓库的一些命令</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822192429.png" alt=""></p>
-<p><strong>第三步：安装Git分布式版本控制系统，与远程仓库GitLab进行连接</strong></p>
-<ul>
-<li>去Git官网：<a href="https://git-scm.com" rel="external nofollow" target="_blank">https://git-scm.com</a> 下载Window版64位的安装包，然后安装成功后，在桌面点击鼠标右键会发现多出两行命令。</li>
-</ul>
-<p><img src="/uncategorized/C:/Users\admin\AppData\Roaming\Typora\typora-user-images\1566472872027.png" alt="1566472872027"></p>
-<ul>
-<li>点击Git Bash Here，会出来一个黑窗口，便是Git的命令界面。</li>
-</ul>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822193815.png" alt=""></p>
-<ul>
-<li>分别输入之前远程仓库GitLab中的命令提示，按回车执行</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"bigdata"</span></span><br><span class="line">git config --global user.email <span class="string">"shengliang.fan@lianzhongjinrong.cn"</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822192801.png" alt=""></p>
-<p><strong>第四步：生成公钥并在远程仓库添加本地密匙</strong></p>
-<ul>
-<li>找到GithLab右上角的头像下拉菜单，点击Settings</li>
-</ul>
-<p><img src="/uncategorized/C:/Users\admin\AppData\Roaming\Typora\typora-user-images\1566473413819.png" alt="1566473413819"></p>
-<ul>
-<li>在Profile选项中的Email中找到账户的邮箱，其实邮箱之前在空仓库的提示命令中已经有了。这里多说是因为一会儿我们要把生成的公钥填到SSH Keys中。</li>
-</ul>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822193409.png" alt=""></p>
-<ul>
-<li>在Git系统中输入如下命令，大家可以换成自己的邮箱即可</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"shengliang.fan@lianzhongjinrong.cn"</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>按下回车后，会出来几次信息确认，账号、密码和确认密码，这里可以直接回车过掉，如果做了校验，那后面每次提交文件到远程仓库或者克隆远程仓库文件到本地都会要求输入密码，很麻烦，所以如果不是非常机密，不建议这么做。</li>
-</ul>
-<p><img src="/uncategorized/C:/Users\admin\AppData\Roaming\Typora\typora-user-images\1566474148457.png" alt="1566474148457"></p>
-<ul>
-<li>确认之后，会出来一串看不懂的密匙图案，说明生成密匙成功。</li>
-</ul>
-<p><img src="/uncategorized/C:/Users\admin\AppData\Roaming\Typora\typora-user-images\1566474178260.png" alt="1566474178260"></p>
-<ul>
-<li>生成的秘钥一般会在根目录的 .ssh 目录下，目录下有两个密匙，id_rsa和id_rsa.pub，分别是私钥和公钥。</li>
-</ul>
-<p><img src="/uncategorized/C:/Users\admin\AppData\Roaming\Typora\typora-user-images\1566474263493.png" alt="1566474263493"></p>
-<ul>
-<li>这里如果电脑中文件过多，秘钥不好找的话给大家推荐一种小软件：everything，找文件比系统的全盘搜索快了N倍。<strong>强烈推荐使用！！！</strong></li>
-</ul>
-<p><img src="/uncategorized/C:/Users\admin\AppData\Roaming\Typora\typora-user-images\1566474460037.png" alt="1566474460037"></p>
-<ul>
-<li><p>然后我们用日记本或者其他编辑器打开公钥：id_rsa.pub文件，切记，是公钥id_rsa.pub文件！！！</p>
-</li>
-<li><p>打开后我们会发现很长一串子字母符号</p>
-</li>
-</ul>
-<p><img src="/uncategorized/C:/Users\admin\AppData\Roaming\Typora\typora-user-images\1566474589496.png" alt="1566474589496"></p>
-<ul>
-<li>我们全选然后复制，打开上面中提到的，点击GitLab的右上角头像中的Settings，里面有一个 SSH Keys选项，点开后将刚才的公钥粘贴到Key的框框中，然后取一个标题。点击Add key，就OK了。</li>
-</ul>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822195208.png" alt=""></p>
-<ul>
-<li>如下图，说明本地与远程的密匙连接就成功了。</li>
-</ul>
-<p><img src="/uncategorized/C:/Users\admin\AppData\Roaming\Typora\typora-user-images\1566474842374.png" alt="1566474842374"></p>
-<p><strong>第五步：使用Git在本地Clone远程项目，并上传本地文件到远程项目中</strong></p>
-<ul>
-<li>在Git中输入下面的命令</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@git.lzops.com:lz_bigdata/lzjr_first.git</span><br></pre></td></tr></table></figure>
-<ul>
-<li>后面是远程仓库的SSH地址或者HTTP地址，在如图中可以直接复制拿到</li>
-</ul>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822195900.png" alt=""></p>
-<ul>
-<li>输入上面命令回车后，会有提示，直接输入yes回车即可</li>
-</ul>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822200037.png" alt=""></p>
-<ul>
-<li>根据提示我们能看到，已经把远程仓库的空项目拉到本地了，在本地也可以看到名字为远程项目名的文件夹lzjr_first</li>
-</ul>
-<p><img src="/uncategorized/C:/Users\admin\AppData\Roaming\Typora\typora-user-images\1566475365137.png" alt="1566475365137"></p>
-<ul>
-<li>打开会发现有个名为 .git 的文件夹，其实这是个隐藏文件，保存一些需要上传到远程的副本。关于如何显示隐藏文件以及文件后缀名，可以打开电脑上面的查看，在右边会有文件拓展名和隐藏的文件选项，勾上就好了。</li>
-</ul>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822200444.png" alt=""></p>
-<ul>
-<li>这时候我们就可以上传本地的文件到远程仓库GitLab了。</li>
-<li>例如我新建了如下几个文件夹，用来存放后期需要整理的文档需求，然后还要新建一个名为 <strong>README.md</strong> 的说明文件，用来说明这个项目的作用，此文件必须是MarkDown文档格式。（关于MarkDown文档大家可以自行百度，MarkDown文档编辑器强烈推荐使用Typora，毕竟好用颜值也高。现在的很多笔记工具也都支持了MD的格式，如：有道笔记、印象笔记、简书、CSDN等）</li>
-</ul>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822202753.png" alt=""></p>
-<ul>
-<li>然后我们在此处重新打开Git系统，输入下面的命令</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .		## 添加除了删除之外的变化</span><br><span class="line">git add -U		## 只添加增加的也就是更新的那部分变化</span><br><span class="line">git add -A  	## 添加所有的变化</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>这个命令是添加所有的变化到本地仓库中，关于git add . 与 git add -U 还有git add -A 的区别，大家可以去百度看详细资料，推荐使用 -A！！！</p>
-</li>
-<li><p>接下来是将这些变化提交到本地仓库，这里的 -m 建议加上，不然后面做了什么修改会不清楚</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">'解释说明'</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822202448.png" alt=""></p>
-<ul>
-<li>在提交前和提交后我们都可以用如下命令来监视 目前文件的提交状态</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822202407.png" alt=""></p>
-<ul>
-<li>最终是将本地仓库的文件推送到远程仓库</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822202505.png" alt=""></p>
-<ul>
-<li><p>看到如上的提示语，说明提交到远程就完成了。</p>
-</li>
-<li><p>最后回到远程GitLab中，会看到 README.md 这个文件。并且在GitLab中是支持md格式的文档的。</p>
-</li>
-</ul>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822203256.png" alt=""></p>
-<blockquote>
-<p>这里会发现一个问题，我明明还创建了5个文件夹，这里怎么没推送过来呢？</p>
-<p>其实这是因为在Git中不支持推送空的文件夹，这个也没事，等以后有了文件之后，再推一下就会过来啦。</p>
-</blockquote>
-<p>今天的教程就到这里，谢谢大家！！！</p>
-
+        
       
 
       <!-- 版权声明 -->
@@ -623,11 +515,37 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitLab</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/其他//" class="article-tag-list-link color3">其他</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/uncategorized/0.html">Read More >></a>
+          <a class="article-more-a" href="/其他/6d60df94.html">Read More >></a>
         </p>
       
 
@@ -1443,6 +1361,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据仓库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">GitLab</a>
               </li>
             
             <div class="clearfix"></div>
