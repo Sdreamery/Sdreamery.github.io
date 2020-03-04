@@ -28,10 +28,10 @@
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d8rbbjq0j20qq0ekgpb.jpg">
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d8x71bypj20i70f341y.jpg">
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d8zzavhaj20no0fa77g.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/7308598bgy1g12avklvihj21550ji447.jpg">
+<meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/1648600-20190724101533355-884279311.png">
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d9dwawjkj20ed0cydgo.jpg">
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d9ebax8mj20ff0dkgmp.jpg">
-<meta property="og:updated_time" content="2019-08-10T15:47:18.114Z">
+<meta property="og:updated_time" content="2020-03-04T14:30:28.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark计算框架（四）">
 <meta name="twitter:description" content="我们知道 Spark 的基本架构是 Master 和 Worker 组成的，Task 的分配和执行又是由 Driver 进程和 Excutor 进程 去配合完成的，那关于他们内部是怎么运行的，有哪些对象呢，这里将 做详细阐述。">
@@ -369,7 +369,7 @@
 <p>④ BlockTransferService：负责数据的传输。</p>
 </blockquote>
 <p><strong>3、Shuffle 文件寻址图</strong></p>
-<p><img src="https://ws1.sinaimg.cn/large/7308598bgy1g12avklvihj21550ji447.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/1648600-20190724101533355-884279311.png" alt=""></p>
 <p><strong>4、Shuffle 文件寻址流程</strong></p>
 <p>a) 当 map task 执行完成后，会将 task 的执行情况和磁盘小文件的地址封装到 MpStatus 对象中，通过MapOutputTrackerWorker 对象向 Driver 中的 MapOutputTrackerMaster 汇报。</p>
 <p>b) 在所有的 map task 执行完毕后，Driver 中就掌握了所有的磁盘小文件的地址。</p>
@@ -522,18 +522,18 @@
   
 <nav id="article-nav">
   
-    <a href="/大数据/3243dc0c.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/大数据/4b9530c5.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          SparkShuffle调优
+          Spark计算框架（五）
         
       </div>
     </a>
   
   
-    <a href="/大数据/9326ece7.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spark计算框架（三）</div>
+    <a href="/大数据/3243dc0c.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SparkShuffle调优</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -611,7 +611,7 @@ gitalk.render('gitalk-container')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 SeanXia
+    		&copy; 2020 SeanXia
     	</div>
     	<div class="footer-right">
       <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -713,6 +713,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -733,11 +737,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hive</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">贝叶斯分类</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -749,7 +753,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">贝叶斯分类</a>
+                <a href="javascript:void(0)" class="js-tag color3">SparkShuffle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调优</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -758,14 +766,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思维</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">SparkShuffle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调优</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -809,6 +809,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">GitLab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
@@ -837,15 +845,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">广播变量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MapReduce</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">离线计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">广播变量</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -897,15 +905,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SparkStreaming</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">非关系型</a>
+                <a href="javascript:void(0)" class="js-tag color1">分布式计算</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -914,6 +918,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">分布式存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">非关系型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -982,14 +990,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据仓库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">GitLab</a>
               </li>
             
             <div class="clearfix"></div>
