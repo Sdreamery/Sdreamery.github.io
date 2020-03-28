@@ -137,7 +137,7 @@
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/a4a0dc78.html"/>
     <id>http://www.seanxia.cn/大数据/a4a0dc78.html</id>
     <published>2018-05-14T16:00:00.000Z</published>
-    <updated>2019-08-10T15:47:15.650Z</updated>
+    <updated>2020-03-08T07:37:45.941Z</updated>
     
     <summary type="html">
     
@@ -156,11 +156,11 @@
   </entry>
   
   <entry>
-    <title>SparkMLlib线性回归</title>
+    <title>SparkMLlib 线性回归</title>
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/30277e10.html"/>
     <id>http://www.seanxia.cn/大数据/30277e10.html</id>
     <published>2018-05-11T16:00:00.000Z</published>
-    <updated>2019-08-10T15:47:09.137Z</updated>
+    <updated>2020-03-08T06:01:41.601Z</updated>
     
     <summary type="html">
     
@@ -290,6 +290,28 @@
   </entry>
   
   <entry>
+    <title>SparkShuffle调优</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/3243dc0c.html"/>
+    <id>http://www.seanxia.cn/大数据/3243dc0c.html</id>
+    <published>2018-01-15T16:00:00.000Z</published>
+    <updated>2019-08-10T15:47:18.104Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;SparkShuffle在使用时，默认的配置中有些配置可能不适合实际中的业务处理，需要我们手动进行调整优化。这里列举了一些常用的 SparkShuffle 调优策略和建议。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+      <category term="SparkShuffle" scheme="http://www.seanxia.cn/tags/SparkShuffle/"/>
+    
+      <category term="调优" scheme="http://www.seanxia.cn/tags/%E8%B0%83%E4%BC%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Spark计算框架（四）</title>
     <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/240bf582.html"/>
     <id>http://www.seanxia.cn/大数据/240bf582.html</id>
@@ -309,28 +331,6 @@
       <category term="SparkShuffle" scheme="http://www.seanxia.cn/tags/SparkShuffle/"/>
     
       <category term="广播变量" scheme="http://www.seanxia.cn/tags/%E5%B9%BF%E6%92%AD%E5%8F%98%E9%87%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SparkShuffle调优</title>
-    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/3243dc0c.html"/>
-    <id>http://www.seanxia.cn/大数据/3243dc0c.html</id>
-    <published>2018-01-15T16:00:00.000Z</published>
-    <updated>2019-08-10T15:47:18.104Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;SparkShuffle在使用时，默认的配置中有些配置可能不适合实际中的业务处理，需要我们手动进行调整优化。这里列举了一些常用的 SparkShuffle 调优策略和建议。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-    
-      <category term="SparkShuffle" scheme="http://www.seanxia.cn/tags/SparkShuffle/"/>
-    
-      <category term="调优" scheme="http://www.seanxia.cn/tags/%E8%B0%83%E4%BC%98/"/>
     
   </entry>
   

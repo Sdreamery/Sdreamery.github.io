@@ -63,7 +63,7 @@
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1hfzgcxo3j209p05wjri.jpg">
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1hg79k9pmj20fl04mglz.jpg">
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1hg94ajcrj209i05mq2z.jpg">
-<meta property="og:updated_time" content="2019-08-10T15:47:15.650Z">
+<meta property="og:updated_time" content="2020-03-08T07:37:45.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SparkMLlib 逻辑回归">
 <meta name="twitter:description" content="逻辑回归是预测分类响应的常用方法。这是广义线性模型的一个特例，可以预测结果的概率。 在spark.ml逻辑回归中，可以使用二项逻辑回归来预测二元结果，或者可以使用多项逻辑回归来预测多类结果。使用该family 参数在这两种算法之间进行选择，或者保持不设置，Spark将推断出正确的变量。">
@@ -283,7 +283,7 @@
 <p><strong>如何判定结果：</strong></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gkekvlmhj20i705a3yq.jpg" alt=""></p>
 <p><strong>Spark MLlib中应用逻辑回归解决二分类问题的代码：</strong></p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.classification.&#123;<span class="type">LogisticRegressionWithLBFGS</span>&#125;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.util.<span class="type">MLUtils</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.&#123;<span class="type">SparkConf</span>, <span class="type">SparkContext</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">LogisticRegression1</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]) &#123;</span><br><span class="line">    <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>().setAppName(<span class="string">"spark"</span>).setMaster(<span class="string">"local[3]"</span>)</span><br><span class="line">    <span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line">	<span class="comment">//加载基于SVM(支持向量机)算法的数据格式的文本文件：</span></span><br><span class="line">	<span class="comment">//底层将类似1 1:57 2:0 3:0 4:5 5:3 6:5转化为LabeledPoint </span></span><br><span class="line">    <span class="keyword">val</span> inputData:<span class="type">RDD</span>[<span class="type">LabeledPoint</span>] = <span class="type">MLUtils</span>.loadLibSVMFile(sc, <span class="string">"健康状况训练集.txt"</span>)</span><br><span class="line">	<span class="comment">//随机的将数据集切分为70%的训练集和30%的测试集，</span></span><br><span class="line">	<span class="comment">//训练集和测试集的选择：一般为训练集70%~80%，测试集为20%~30%</span></span><br><span class="line">	<span class="comment">//seed为随机种子，随机种子固定，则每次切分的训练集和测试集一样，</span></span><br><span class="line">	<span class="comment">//不信请使用下面的TestRandomSplit方法测试 </span></span><br><span class="line">	<span class="comment">//seed ：随机种子的作用：测试，固定每次切分相同的数据集和测试集，方便调试代码</span></span><br><span class="line">  <span class="keyword">val</span> splits:<span class="type">Array</span>[<span class="type">RDD</span>] = inputData.randomSplit(<span class="type">Array</span>(<span class="number">0.7</span>, <span class="number">0.3</span>), seed = <span class="number">1</span>L)</span><br><span class="line">  <span class="keyword">val</span> (trainingData, testData) = (splits(<span class="number">0</span>), splits(<span class="number">1</span>))</span><br><span class="line">  <span class="comment">//使用LBFGS的优化方式创建一个逻辑回归的模型</span></span><br><span class="line">  <span class="comment">//也可以使用SGD的优化方式，一般来说LBFGS的优化方式更好</span></span><br><span class="line">  <span class="keyword">val</span> lr = <span class="keyword">new</span> <span class="type">LogisticRegressionWithLBFGS</span>()</span><br><span class="line">  <span class="comment">//训练模型：确定W的过程，即求方程组：</span></span><br><span class="line">  <span class="keyword">val</span> model = lr.run(trainingData)</span><br><span class="line">  <span class="comment">//testData为LabeledPoint：（标签，特征向量）</span></span><br><span class="line">  <span class="keyword">val</span> result = testData</span><br><span class="line">  <span class="comment">//把特征放入模型中测试：predict()方法底层封装了求解z=w(训练出来的模型)*x(特征)的过程</span></span><br><span class="line">  <span class="comment">//误差=真实y值-测试出的y值   取绝对值：测试正确为0，错误为1</span></span><br><span class="line">   .map&#123;point=&gt;<span class="type">Math</span>.abs(point.label-model.predict(point.features)) &#125;</span><br><span class="line">  <span class="comment">//错误率：result.mean()：将错误的数量求均值即错误率，正确率只是评价模型的一种指标</span></span><br><span class="line">    println(<span class="string">"正确率="</span>+(<span class="number">1.0</span>-result.mean()))</span><br><span class="line">   <span class="comment">//将模型参数取出变为数组打印输出</span></span><br><span class="line">    println(model.weights.toArray.mkString(<span class="string">" "</span>))</span><br><span class="line">  <span class="comment">//打印输出截距w0，打印出来的结果全部会是0.0</span></span><br><span class="line">    println(model.intercept)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//测试方法</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.&#123;<span class="type">SparkConf</span>, <span class="type">SparkContext</span>&#125;</span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">TestRandomSplit</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">    <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>().setMaster(<span class="string">"local"</span>).setAppName(<span class="string">"TestRandomSplit"</span>)</span><br><span class="line">    <span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(config = conf)</span><br><span class="line">    <span class="keyword">val</span> arr = <span class="type">Array</span>(<span class="number">1</span> ,<span class="number">2</span> ,<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>)</span><br><span class="line">    <span class="keyword">val</span> rdd = sc.parallelize(arr)</span><br><span class="line">    <span class="keyword">val</span> temp = rdd.randomSplit(<span class="type">Array</span>(<span class="number">0.7</span>,<span class="number">0.3</span>), seed = <span class="number">10</span>L)</span><br><span class="line">    <span class="keyword">val</span> (trainSet, testSet) = (temp(<span class="number">0</span>), temp(<span class="number">1</span>))</span><br><span class="line">    trainSet.foreach(println(_))</span><br><span class="line">    testSet.foreach(println(_))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.classification.&#123;<span class="type">LogisticRegressionWithLBFGS</span>&#125;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.util.<span class="type">MLUtils</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.&#123;<span class="type">SparkConf</span>, <span class="type">SparkContext</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">LogisticRegression1</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]) &#123;</span><br><span class="line">    <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>().setAppName(<span class="string">"spark"</span>).setMaster(<span class="string">"local[3]"</span>)</span><br><span class="line">    <span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line">	<span class="comment">//加载基于SVM(支持向量机)算法的数据格式的文本文件：</span></span><br><span class="line">	<span class="comment">//底层将类似1 1:57 2:0 3:0 4:5 5:3 6:5转化为LabeledPoint </span></span><br><span class="line">    <span class="keyword">val</span> inputData:<span class="type">RDD</span>[<span class="type">LabeledPoint</span>] = <span class="type">MLUtils</span>.loadLibSVMFile(sc, <span class="string">"健康状况训练集.txt"</span>)</span><br><span class="line">	<span class="comment">//随机的将数据集切分为70%的训练集和30%的测试集，</span></span><br><span class="line">	<span class="comment">//训练集和测试集的选择：一般为训练集70%~80%，测试集为20%~30%</span></span><br><span class="line">	<span class="comment">//seed为随机种子，随机种子固定，则每次切分的训练集和测试集一样，</span></span><br><span class="line">	<span class="comment">//不信请使用下面的TestRandomSplit方法测试 </span></span><br><span class="line">	<span class="comment">//seed ：随机种子的作用：测试，固定每次切分相同的数据集和测试集，方便调试代码</span></span><br><span class="line">  <span class="keyword">val</span> splits:<span class="type">Array</span>[<span class="type">RDD</span>] = inputData.randomSplit(<span class="type">Array</span>(<span class="number">0.7</span>, <span class="number">0.3</span>), seed = <span class="number">1</span>L)</span><br><span class="line">  <span class="keyword">val</span> (trainingData, testData) = (splits(<span class="number">0</span>), splits(<span class="number">1</span>))</span><br><span class="line">  <span class="comment">//使用LBFGS的优化方式创建一个逻辑回归的模型</span></span><br><span class="line">  <span class="comment">//也可以使用SGD的优化方式，一般来说LBFGS的优化方式更好</span></span><br><span class="line">  <span class="keyword">val</span> lr = <span class="keyword">new</span> <span class="type">LogisticRegressionWithLBFGS</span>()</span><br><span class="line">  <span class="comment">//增加截距，会使得模型准确率更高</span></span><br><span class="line">  lr.setIntercept(<span class="literal">true</span>)</span><br><span class="line">  <span class="comment">//训练模型：确定W的过程，即求方程组：</span></span><br><span class="line">  <span class="keyword">val</span> model = lr.run(trainingData)</span><br><span class="line">  <span class="comment">//testData为LabeledPoint：（标签，特征向量）</span></span><br><span class="line">  <span class="keyword">val</span> result = testData</span><br><span class="line">  <span class="comment">//把特征放入模型中测试：predict()方法底层封装了求解z=w(训练出来的模型)*x(特征)的过程</span></span><br><span class="line">  <span class="comment">//误差=真实y值-测试出的y值   取绝对值：测试正确为0，错误为1</span></span><br><span class="line">   .map&#123;point=&gt;<span class="type">Math</span>.abs(point.label-model.predict(point.features)) &#125;</span><br><span class="line">  <span class="comment">//错误率：result.mean()：将错误的数量求均值即错误率，正确率只是评价模型的一种指标</span></span><br><span class="line">    println(<span class="string">"正确率="</span>+(<span class="number">1.0</span>-result.mean()))</span><br><span class="line">   <span class="comment">//将模型参数取出变为数组打印输出</span></span><br><span class="line">    println(model.weights.toArray.mkString(<span class="string">" "</span>))</span><br><span class="line">  <span class="comment">//打印输出截距w0，如果没有设置打印出来的结果全部会是0</span></span><br><span class="line">    println(model.intercept)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//测试方法</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.&#123;<span class="type">SparkConf</span>, <span class="type">SparkContext</span>&#125;</span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">TestRandomSplit</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">    <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>().setMaster(<span class="string">"local"</span>).setAppName(<span class="string">"TestRandomSplit"</span>)</span><br><span class="line">    <span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(config = conf)</span><br><span class="line">    <span class="keyword">val</span> arr = <span class="type">Array</span>(<span class="number">1</span> ,<span class="number">2</span> ,<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>)</span><br><span class="line">    <span class="keyword">val</span> rdd = sc.parallelize(arr)</span><br><span class="line">    <span class="keyword">val</span> temp = rdd.randomSplit(<span class="type">Array</span>(<span class="number">0.7</span>,<span class="number">0.3</span>), seed = <span class="number">10</span>L)</span><br><span class="line">    <span class="keyword">val</span> (trainSet, testSet) = (temp(<span class="number">0</span>), temp(<span class="number">1</span>))</span><br><span class="line">    trainSet.foreach(println(_))</span><br><span class="line">    testSet.foreach(println(_))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>那么，上面的代码是中所谓的训练模型到底是怎么回事呢？</p>
 <p><strong>请看图：</strong></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gkk907rwj20dj0963ys.jpg" alt=""></p>
@@ -642,7 +642,7 @@
   
   
     <a href="/大数据/30277e10.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SparkMLlib线性回归</div>
+      <div class="article-nav-title">SparkMLlib 线性回归</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -850,15 +850,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线性回归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kmeans</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">贝叶斯分类</a>
+                <a href="javascript:void(0)" class="js-tag color5">线性回归</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -870,11 +866,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">思维</a>
+                <a href="javascript:void(0)" class="js-tag color1">贝叶斯分类</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -883,6 +875,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">迁移</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">思维</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -906,6 +906,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">GitLab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">flume</a>
               </li>
              
@@ -915,14 +923,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">日志收集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">GitLab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1006,10 +1006,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">PV</a>
               </li>
              
@@ -1018,19 +1014,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式计算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SparkStreaming</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">非关系型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HDFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式存储</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1043,6 +1035,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">反向代理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HDFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式存储</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1086,15 +1086,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">进程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">

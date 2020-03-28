@@ -123,7 +123,7 @@
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0hjpx0e23j20db05n3yg.jpg">
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz2umqsgigj20hd05y40q.jpg">
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0hjqfb3hcj20dp08x0t4.jpg">
-<meta property="og:updated_time" content="2019-08-10T15:46:49.586Z">
+<meta property="og:updated_time" content="2020-03-28T05:41:48.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用操作整理">
 <meta name="twitter:description" content="Linux 是一个自由的，免费的，源码开放的操作系统。也是开源软件中最著名的例子。其最主要的目的就是为了建立不受任何商品化软件版权制约的，全世界都能使用的类 Unix 兼容产品。而我们将服务器部署在 Linux 将会更加的稳定、安全、高效以及出色的性能这是 Windows 无法比的。">
@@ -614,11 +614,14 @@
 <p>为了能让修改的时间更精确，可以用ntp来做时间同步，它会到时间服务器里去同步时间，保证了时间的准确度。</p>
 <p><strong>时间同步</strong></p>
 <p>需要事先安装ntp服务：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install ntpdate -y</span><br></pre></td></tr></table></figure>
-<p>命令：ntpdate  cn.ntp.org.cn</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install ntpdate -y</span><br></pre></td></tr></table></figure>
+<p>（1）同步服务器时间</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ntpdate  cn.ntp.org.cn</span><br></pre></td></tr></table></figure>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0hj8muhg2j20gp03f0sm.jpg" alt=""></p>
 <p>该命令表示为：到域名为cn.ntp.org.cn的时间服务器上同步时间。</p>
 <p>注：全球的时间服务器有很多个，可以到百度或谷歌上搜，不一定用cn.ntp.org.cn的时间服务器。</p>
+<p>（2）同步本机电脑时间</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ntpdate time.windows.com</span><br></pre></td></tr></table></figure>
 <h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>Linux系统的全局环境变量是在/etc/profile文件里配置。</p>
 <p>但是使用配置全局变量需要重启服务器才会生效，而配置局部变量会达到同样的效果，因此我们一般采用的是配置局部变量。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/root/ .bash_profile  -- 局部的环境变量</span><br></pre></td></tr></table></figure>
@@ -1305,15 +1308,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线性回归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kmeans</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">贝叶斯分类</a>
+                <a href="javascript:void(0)" class="js-tag color5">线性回归</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1325,11 +1324,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">思维</a>
+                <a href="javascript:void(0)" class="js-tag color1">贝叶斯分类</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1338,6 +1333,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">迁移</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">思维</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1361,6 +1364,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">GitLab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">flume</a>
               </li>
              
@@ -1370,14 +1381,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">日志收集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">GitLab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1461,10 +1464,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">PV</a>
               </li>
              
@@ -1473,19 +1472,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式计算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SparkStreaming</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">非关系型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HDFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式存储</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1498,6 +1493,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">反向代理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HDFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式存储</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1541,15 +1544,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">进程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
