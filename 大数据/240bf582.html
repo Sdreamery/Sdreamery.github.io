@@ -1,0 +1,369 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Spark计算框架（四） | 书凡先生</title><meta name="author" content="SeanXia"><meta name="copyright" content="SeanXia"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="我们知道 Spark 的基本架构是 Master 和 Worker 组成的，Task 的分配和执行又是由 Driver 进程和 Excutor 进程 去配合完成的，那关于他们内部是怎么运行的，有哪些对象呢，这里将 做详细阐述。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark计算框架（四）">
+<meta property="og:url" content="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/240bf582.html">
+<meta property="og:site_name" content="书凡先生">
+<meta property="og:description" content="我们知道 Spark 的基本架构是 Master 和 Worker 组成的，Task 的分配和执行又是由 Driver 进程和 Excutor 进程 去配合完成的，那关于他们内部是怎么运行的，有哪些对象呢，这里将 做详细阐述。">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2018-01-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-11T14:43:37.500Z">
+<meta property="article:author" content="SeanXia">
+<meta property="article:tag" content="SparkShuffle">
+<meta property="article:tag" content="广播变量">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/240bf582.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Spark计算框架（四）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-11 22:43:37'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="书凡先生" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><hr class="custom-hr"></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="书凡先生"><span class="site-name">书凡先生</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Spark计算框架（四）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-01-15T16:00:00.000Z" title="Created 2018-01-16 00:00:00">2018-01-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-07-11T14:43:37.500Z" title="Updated 2024-07-11 22:43:37">2024-07-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="Spark计算框架（四）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>我们知道 Spark 的基本架构是 Master 和 Worker 组成的，Task 的分配和执行又是由 Driver 进程和 Excutor 进程</p>
+<p>去配合完成的，那关于他们内部是怎么运行的，有哪些对象呢，这里将 做详细阐述。</p>
+<span id="more"></span>
+
+<h2 id="广播变量和累加器"><a href="#广播变量和累加器" class="headerlink" title="广播变量和累加器"></a>广播变量和累加器</h2><h3 id="广播变量"><a href="#广播变量" class="headerlink" title="广播变量"></a>广播变量</h3><p><strong>广播变量理解图</strong></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d7zkz52cj20ff0eyjx6.jpg"></p>
+<p><strong>广播变量使用</strong></p>
+<p><code>context.broadCast</code></p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>()</span><br><span class="line">conf.setMaster(<span class="string">&quot;local&quot;</span>).setAppName(<span class="string">&quot;brocast&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"><span class="keyword">val</span> list = <span class="type">List</span>(<span class="string">&quot;hello xasxt&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> broadCast = sc.broadcast(list)</span><br><span class="line"><span class="keyword">val</span> lineRDD = sc.textFile(<span class="string">&quot;./words.txt&quot;</span>)</span><br><span class="line">lineRDD.filter &#123; x =&gt; broadCast.value.contains(x) &#125;.foreach &#123; println&#125;</span><br><span class="line">sc.stop()</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意事项</strong></p>
+<ul>
+<li>能不能将一个 RDD 使用广播变量广播出去？<br>不能，因为RDD是不存储数据的。可以将RDD的结果广播出去。</li>
+<li>广播变量只能在 Driver 端定义，Executor 端使用。</li>
+<li>在 Driver 端可以修改广播变量的值，在 Executor 端无法修改广播变量的值。</li>
+</ul>
+<p><strong>目的</strong></p>
+<p>节省内存不必要的额外开销，提高性能（网络传递的次数就少了）。</p>
+<h3 id="累加器"><a href="#累加器" class="headerlink" title="累加器"></a>累加器</h3><p><strong>累加器理解图</strong></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d83vp41nj20ff0hrah7.jpg"></p>
+<p><strong>累加器的使用</strong></p>
+<p><code>context.accumulator(0)</code></p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>()</span><br><span class="line">conf.setMaster(<span class="string">&quot;local&quot;</span>).setAppName(<span class="string">&quot;accumulator&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"><span class="keyword">val</span> accumulator = sc.accumulator(<span class="number">0</span>)</span><br><span class="line">sc.textFile(<span class="string">&quot;./words.txt&quot;</span>).foreach &#123; x =&gt;&#123;accumulator.add(<span class="number">1</span>)&#125;&#125;</span><br><span class="line">println(accumulator.value)</span><br><span class="line">sc.stop()</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意事项</strong></p>
+<ul>
+<li>累加器只能在Driver端定义赋初始值，Excutor 端使用。</li>
+</ul>
+<p><strong>目的</strong></p>
+<p>事件全局统计。</p>
+<h2 id="资源调度源码分析"><a href="#资源调度源码分析" class="headerlink" title="资源调度源码分析"></a>资源调度源码分析</h2><p><strong>资源请求简图</strong></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eah0vyq5j20ff07qab1.jpg"></p>
+<p><strong>资源调度 Master 路径：</strong></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eahlf51cj20bt00ywef.jpg"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">路径：</span></span><br><span class="line">spark-1.6.0/core/src/main/scala/org.apache.spark/deploy/Master/Master.scala</span><br></pre></td></tr></table></figure>
+
+<p><strong>提交应用程序，submit 的路径：</strong></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eaijz8kqj209b00yt8j.jpg"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">路径：</span></span><br><span class="line">spark-1.6.0/core/src/main/scala/org.apache.spark/deploy/SparkSubmit.scala</span><br></pre></td></tr></table></figure>
+
+<p><strong>总结：</strong></p>
+<p>1、Executor 在集群中分散启动，有利于 task 计算的数据本地化。</p>
+<p>2、默认情况下（提交任务的时候没有设置 <code>--executor-cores</code> 选项），每一个 Worker 为当前的 Application 启动一个 Executor，这个Executor 会使用这个 Worker 的所有的 cores 和 内存。</p>
+<p>3、如果想在 Worker 上启动多个 Executor，提交 Application 的时候要加 <code>--executor-cores</code> 这个选项。</p>
+<p>4、默认情况下没有设置 <code>--total-executor-cores</code>，一个 Application 会使用 Spark 集群中所有的 cores。</p>
+<p><strong>结论演示：</strong></p>
+<p>使用 Spark-submit 提交任务演示。也可以使用 spark-shell。</p>
+<p>1、默认情况每个 worker 为当前的 Application 启动一个 Executor，这个 Executor 使用集群中所有的 cores 和 1G 内存。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./spark-submit</span><br><span class="line">--master spark://sean01:7077</span><br><span class="line">--class org.apache.spark.examples.SparkPi</span><br><span class="line">../lib/spark-examples-1.6.0-hadoop2.6.0.jar 100</span><br></pre></td></tr></table></figure>
+
+<p>2、在 workr 上启动多个 Executor,设置–executor-cores 参数指定每个 executor 使用的 core 数量。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./spark-submit</span><br><span class="line">--master spark://sean01:7077</span><br><span class="line">--executor-cores 1</span><br><span class="line">--class org.apache.spark.examples.SparkPi</span><br><span class="line">../lib/spark-examples-1.6.0-hadoop2.6.0.jar 100</span><br></pre></td></tr></table></figure>
+
+<p>3、内存不足的情况下启动 core 的情况。Spark 启动是不仅看 core 配置参数，也要看配置的 core 的内存是否够用。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">./spark-submit</span><br><span class="line">--master spark://sean01:7077</span><br><span class="line">--executor-cores 1</span><br><span class="line">--executor-memory 3g</span><br><span class="line">--class org.apache.spark.examples.SparkPi</span><br><span class="line">../lib/spark-examples-1.6.0-hadoop2.6.0.jar 100</span><br></pre></td></tr></table></figure>
+
+<p>4、–total-executor-cores 集群中共使用多少 cores</p>
+<p><code>注意：一个进程不能让集群多个节点共同启动。</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">./spark-submit</span><br><span class="line">--master spark://sean01:7077</span><br><span class="line">--executor-cores 1</span><br><span class="line">--executor-memory 2g</span><br><span class="line">--total-executor-cores 3</span><br><span class="line">--class org.apache.spark.examples.SparkPi</span><br><span class="line">../lib/spark-examples-1.6.0-hadoop2.6.0.jar 100</span><br></pre></td></tr></table></figure>
+
+<h2 id="任务调度源码分析"><a href="#任务调度源码分析" class="headerlink" title="任务调度源码分析"></a>任务调度源码分析</h2><p><strong>Action 算子开始分析</strong></p>
+<p>任务调度可以从一个 Action 类算子开始。因为 Action 类算子会触发一个 job 的执行。</p>
+<p><strong>划分 stage，以 taskSet 形式提交任务</strong></p>
+<p>DAGScheduler 类中 getMessingParentStages() 方法是切割 job 划分 stage 。 可以结合以下这张图来分析：</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eartz9dwj20dw09qtdh.jpg"></p>
+<p><strong>源码：</strong></p>
+<blockquote>
+<p>源码中采用了递归的思想，把 Stage 和 RDD 分别放入两个 Set 集合中，对集合中的 RDD 进行先压栈再弹出，最后递归循环，追溯下一个 Stage。</p>
+</blockquote>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eavjzwdaj20oa0ep11d.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eb7e95jzj20ls09z431.jpg"></p>
+<h2 id="SparkShuffle"><a href="#SparkShuffle" class="headerlink" title="SparkShuffle"></a>SparkShuffle</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>Shuffle 描述着数据从 map task 输出到 reduce task 输入的这段过程。在分布式情况下，reduce task 需要跨节点去拉取其它节点上的 map task 结果。这一过程将会产生网络资源消耗和内存，磁盘 IO 的消耗。</p>
+<blockquote>
+<p>reduceByKey 会将上一个 RDD 中的每一个 key 对应的所有 value 聚合成一个 value，然后生成一个新的 RDD，元素类型是&lt;key,value&gt;对的形式，这样每一个 key 对应一个聚合起来的 value。</p>
+<p><strong>问题：</strong>聚合之前，每一个 key 对应的 value 不一定都是在一个 partition中，也不太可能在同一个节点上，因为 RDD 是分布式的弹性的数据集，RDD 的 partition 极有可能分布在各个节点上。</p>
+</blockquote>
+<p><strong>如何聚合？</strong></p>
+<ul>
+<li><p><strong>Shuffle Write：</strong> 上一个 stage 的每个 map task 就必须保证将自己处理的当前分区的数据相同的 key 写入一个分区文件中，可能会写入多个不同的分区文件中。</p>
+</li>
+<li><p><strong>Shuffle Read：</strong>reduce task 就会从上一个 stage 的所有 task 所在的机器上寻找属于己的那些分区文件，这样就可以保证每一个 key 所对应的 value 都会汇聚到同一个节点上去处理和聚合。</p>
+</li>
+</ul>
+<blockquote>
+<p>Spark 中有两种 Shuffle 类型，HashShuffle 和 SortShuffle，Spark1.2 之前是 HashShuffle 默认的分区器是 HashPartitioner，Spark1.2 引入 SortShuffle 默认的分区器是 RangePartitioner。</p>
+</blockquote>
+<h3 id="HashShuffle"><a href="#HashShuffle" class="headerlink" title="HashShuffle"></a>HashShuffle</h3><p><strong>1、普通机制</strong></p>
+<ul>
+<li>普通机制示意图</li>
+</ul>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d8lm2xkwj20qf0e9wib.jpg"></p>
+<ul>
+<li><p>执行流程</p>
+<p>a) 每一个 map task 将不同结果写到不同的 buffer 中，每个 buffer 的大小为 32K。buffer 起到数据缓存的作用。</p>
+<p>b) 每个 buffer 文件最后对应一个磁盘小文件。</p>
+<p>c) reduce task 来拉取对应的磁盘小文件。</p>
+</li>
+<li><p>总结</p>
+<p>① map task 的计算结果会根据分区器（默认是 hashPartitioner）来决定写入到哪一个磁盘小文件中去。ReduceTask 会去 Map 端拉取相应的磁盘小文件。</p>
+<p>② 产生的磁盘小文件的个数：M（map task 的个数）*R（reduce task 的个数）</p>
+</li>
+<li><p>存在的问题</p>
+<p>产生的磁盘小文件过多，会导致以下问题：</p>
+<p>a) 在 Shuffle Write 过程中会产生很多写磁盘小文件的对象。</p>
+<p>b) 在 Shuffle Read 过程中会产生很多读取磁盘小文件的对象。</p>
+<p>c) 在 JVM 堆内存中对象过多会造成频繁的gc（垃圾回收），gc还无法解决运行所需要的内存的话，就会 OOM（内存溢出）。</p>
+<p>d) 在数据传输过程中会有频繁的网络通信，频繁的网络通信使得出现通信故障的可能性大大增加，一旦网络通信出现了故障会导致 shuffle file cannot find，由于这个错误导致的 task 失败，TaskScheduler 不负责重试，由 DAGScheduler 负责重试 Stage。</p>
+</li>
+</ul>
+<p><strong>2、合并机制</strong></p>
+<ul>
+<li><p>合并机制示意图</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d8rbbjq0j20qq0ekgpb.jpg"></p>
+</li>
+<li><p>总结</p>
+<p>产生磁盘小文件的个数：C（core 的个数）* R（reduce task的个数）。</p>
+<p>这种方式使得在同一个核里，所有的 map task 可以共享 buffer，也大大减少 buffer 个数，从而减少维护 buffer 对象所需的内存。</p>
+</li>
+</ul>
+<h3 id="SortShuffle"><a href="#SortShuffle" class="headerlink" title="SortShuffle"></a>SortShuffle</h3><p><strong>1、普通机制</strong></p>
+<ul>
+<li>普通机制示意图</li>
+</ul>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d8x71bypj20i70f341y.jpg"></p>
+<ul>
+<li><p>执行流程</p>
+<p>a) map task 的计算结果会写入到一个内存数据结构里面，内存数据结构默认是 5M</p>
+<p>b) 在 shuffle 的时候会有一个定时器，不定期的去估算这个内存结构的大小，当内存结构中的数据超过 5M 时，比如现在内存结构中的数据为 5.01M，那么他会申请 5.01*2-5&#x3D;5.02M 内存给内存数据结构。</p>
+<p>c) 如果申请成功不会进行溢写，如果申请失败，这时候会溢写到磁盘。</p>
+<p>d) 在溢写之前内存结构中的数据会进行排序分区</p>
+<p>e) 然后开始溢写磁盘，写磁盘是以batch的形式去写，一个batch是 1 万条数据，</p>
+<p>f) map task 执行完成后，会将这些磁盘小文件合并成一个大的磁盘文件，同时生成一个索引文件。</p>
+<p>g) reduce task 去 map 端拉取数据的时候，首先解析索引文件，根据索引文件再去拉取对应的数据。</p>
+</li>
+<li><p>总结</p>
+<p>产生磁盘小文件的个数： 2*M（map task 的个数）。</p>
+</li>
+</ul>
+<p><strong>2、bypass机制</strong></p>
+<ul>
+<li>bypass 机制示意图</li>
+</ul>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d8zzavhaj20no0fa77g.jpg"></p>
+<ul>
+<li><p>总结</p>
+<p>①  bypass 运行机制的触发条件如下：<code>shuffle  reduce  task</code> 的数量小于 <code>spark.shuffle.sort.bypassMergeThreshold</code> 的参数值。这个值默认是 200。</p>
+<p>②  产生的磁盘小文件为：2*M（map task 的个数）。</p>
+</li>
+</ul>
+<h3 id="Shuffle-文件寻址"><a href="#Shuffle-文件寻址" class="headerlink" title="Shuffle 文件寻址"></a>Shuffle 文件寻址</h3><p><strong>1、MapOutputTracker</strong></p>
+<p>MapOutputTracker 是Spark架构中的一个模块，是一个主从架构。管理磁盘小文件的地址。</p>
+<ul>
+<li>MapOutputTrackerMaster：主对象，存在于 Driver 中。</li>
+<li>MapOutputTrackerWorker：从对象，存在于 Excutor 中。</li>
+</ul>
+<p><strong>2、BlockManager</strong></p>
+<p>BlockManager 块管理者，是 Spark 架构中的一个模块，也是一个主从架构。</p>
+<ul>
+<li><p>BlockManagerMaster：主对象，存在于 Driver 中。</p>
+<p>BlockManagerMaster 会在集群中有用到广播变量和缓存数据或者删除缓存数据的时候，通知 BlockManagerSlave 传输或者删除数据。</p>
+</li>
+<li><p>BlockManagerWorker：从对象，存在于 Excutor 中。</p>
+<p>BlockManagerWorker 会与 BlockManagerWorker 之间通信。</p>
+</li>
+</ul>
+<blockquote>
+<p>无论在 Driver 端的 BlockManager 还是在 Excutor 端的 BlockManager 都含有四个对象：</p>
+<p>① DiskStore：负责磁盘的管理。</p>
+<p>② MemoryStore：负责内存的管理。</p>
+<p>③ ConnectionManager：负责连接其他的 BlockManagerWorker。</p>
+<p>④ BlockTransferService：负责数据的传输。</p>
+</blockquote>
+<p><strong>3、Shuffle 文件寻址图</strong></p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/1648600-20190724101533355-884279311.png">
+
+<p><strong>4、Shuffle 文件寻址流程</strong></p>
+<p>a) 当 map task 执行完成后，会将 task 的执行情况和磁盘小文件的地址封装到 MpStatus 对象中，通过MapOutputTrackerWorker 对象向 Driver 中的 MapOutputTrackerMaster 汇报。</p>
+<p>b) 在所有的 map task 执行完毕后，Driver 中就掌握了所有的磁盘小文件的地址。</p>
+<p>c) 在 reduce task 执行之前，先在本地的 MapOutPutTrackerWorker 对象中获取，如果没有就去 Driver 端的MapOutputTrackerMaster 获取磁盘小文件的地址。</p>
+<p>d) 获取到磁盘小文件的地址后，会通过 BlockManager 中的 ConnectionManager 连接数据所在节点上的<br>ConnectionManager，然后通过 BlockTransferService 进行数据的传输。</p>
+<p>e) BlockTransferService 默认<code>启动5个task</code> 去节点拉取数据。默认情况下，5 个 task 一次拉取<code>数据量不能超过 48M</code>。<code>拉取过来的数据放在Executor端的shuffle聚合内存中</code>（spark.shuffle.memeoryFraction 0.2）, 如果5个task一次拉取的数据放不下 shuffle 内存中会有 OOM。</p>
+<p><strong>5、reduce  task 中 OOM 如何处理？</strong></p>
+<ul>
+<li>减少每次拉取的数据量。</li>
+<li>提高 shuffle 聚合的内存比例。</li>
+<li>提高 Excutor 的总内存。</li>
+</ul>
+<h2 id="Spark-内存管理"><a href="#Spark-内存管理" class="headerlink" title="Spark 内存管理"></a>Spark 内存管理</h2><p>Spark 执行应用程序时，Spark 集群会启动 Driver 和 Executor 两种 JVM 进程，Driver 负责创建 SparkContext 上下文，提交任务，task 的分发等。Executor 负责 task 的计算任务，并将结果返回给 Driver。同时需要为需要持久化的 RDD 提供储存。Driver 端的内存管理比较简单，这里所说的 Spark 内存管理针对 Executor 端的内存管理。</p>
+<blockquote>
+<p>Excutor 负责的是算子内部的逻辑处理。</p>
+</blockquote>
+<p>Spark 内存管理分为静态内存管理和统一内存管理。Spark1.6 之前使用的是静态内存管理，Spark1.6 开始引入了统一内存管理。</p>
+<p><strong>静态内存管理：</strong></p>
+<p>存储内存、执行内存和其他内存的大小在 Spark 应用程序运行期间均为固定的，但用户可以应用程序启动前进行配置。</p>
+<p><strong>统一内存管理：</strong></p>
+<p>与静态内存管理的区别在于储存内存和执行内存共享同一块空间，可以互相借用对方的空间。</p>
+<p><code>Spark1.6以上版本默认使用的是统一内存管理，当然也可以通过参数spark.memory.useLegacyMode 设置为true(默认为false)使用静态内存管理。</code></p>
+<p><strong>1、静态内存管理分布图</strong></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d9dwawjkj20ed0cydgo.jpg"></p>
+<p><strong>2、统一内存管理分布图</strong></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d9ebax8mj20ff0dkgmp.jpg"></p>
+<h2 id="Shuffle-调优"><a href="#Shuffle-调优" class="headerlink" title="Shuffle 调优"></a>Shuffle 调优</h2><p><strong>SparkShuffle 调优配置项如何使用？</strong></p>
+<p>1、在代码中，不推荐使用，硬编码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例如</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">SparkConf</span>().set(“spark.shuffle.file.buffer”,”<span class="number">64</span>”)</span><br></pre></td></tr></table></figure>
+
+<p>2、在提交 spark 任务的时候，<code>推荐使用</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-submit --conf spark.shuffle.file.buffer=64 –conf ...</span><br></pre></td></tr></table></figure>
+
+<p>3、在 conf 下的 spark-default.conf 配置文件中，<code>不推荐</code>，因为是写死后所有应用程序都要用。</p>
+<p><strong>Shuffle 调优具体策略</strong></p>
+<p>关于 Shuffle 调优的具体策略请见：<a href="https://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/3243dc0c.html">Shuffle调优策略</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://www.seanxia.cn">SeanXia</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/240bf582.html">http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/240bf582.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/SparkShuffle/">SparkShuffle</a><a class="post-meta__tags" href="/tags/%E5%B9%BF%E6%92%AD%E5%8F%98%E9%87%8F/">广播变量</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/3243dc0c.html" title="SparkShuffle调优"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">SparkShuffle调优</div></div></a></div><div class="next-post pull-right"><a href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/9326ece7.html" title="Spark计算框架（三）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">Spark计算框架（三）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/3243dc0c.html" title="SparkShuffle调优"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-01-16</div><div class="title">SparkShuffle调优</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">SeanXia</div><div class="author-info__description">好奇搞怪,大数据分析,数据开发者一枚</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" href="https://github.com/xxxxxx" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%BF%E6%92%AD%E5%8F%98%E9%87%8F%E5%92%8C%E7%B4%AF%E5%8A%A0%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">广播变量和累加器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E6%92%AD%E5%8F%98%E9%87%8F"><span class="toc-number">1.1.</span> <span class="toc-text">广播变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%AF%E5%8A%A0%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">累加器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">资源调度源码分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">任务调度源码分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SparkShuffle"><span class="toc-number">4.</span> <span class="toc-text">SparkShuffle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">4.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HashShuffle"><span class="toc-number">4.2.</span> <span class="toc-text">HashShuffle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SortShuffle"><span class="toc-number">4.3.</span> <span class="toc-text">SortShuffle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shuffle-%E6%96%87%E4%BB%B6%E5%AF%BB%E5%9D%80"><span class="toc-number">4.4.</span> <span class="toc-text">Shuffle 文件寻址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spark-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">Spark 内存管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shuffle-%E8%B0%83%E4%BC%98"><span class="toc-number">6.</span> <span class="toc-text">Shuffle 调优</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%85%B6%E4%BB%96/6d60df94.html" title="使用Git系统搭建GitLab">使用Git系统搭建GitLab</a><time datetime="2019-08-23T16:00:00.000Z" title="Created 2019-08-24 00:00:00">2019-08-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%85%B6%E4%BB%96/7fb68dad.html" title="新浪微博图床迁移">新浪微博图床迁移</a><time datetime="2019-08-10T16:00:00.000Z" title="Created 2019-08-11 00:00:00">2019-08-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html" title="流式框架Flink（二）">流式框架Flink（二）</a><time datetime="2019-01-01T16:00:00.000Z" title="Created 2019-01-02 00:00:00">2019-01-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html" title="流式框架Flink（一）">流式框架Flink（一）</a><time datetime="2019-01-01T16:00:00.000Z" title="Created 2019-01-02 00:00:00">2019-01-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/1ca1f555.html" title="SparkMLlib 随机森林">SparkMLlib 随机森林</a><time datetime="2018-05-21T16:00:00.000Z" title="Created 2018-05-22 00:00:00">2018-05-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By SeanXia</div><div class="framework-info"><span>Framework </span><a href="https://hexo.io" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" rel="external nofollow noopener noreferrer" target="_blank">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

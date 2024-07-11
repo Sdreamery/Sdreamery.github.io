@@ -1,0 +1,440 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>分布式数据库HBase | 书凡先生</title><meta name="author" content="SeanXia"><meta name="copyright" content="SeanXia"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Hbase简介对比HBase的概念HBase-Hadoop Database，是一个高可靠性、高性能、面向列、可伸缩、实时读写的分布式数据库。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式数据库HBase">
+<meta property="og:url" content="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/f0a46e55.html">
+<meta property="og:site_name" content="书凡先生">
+<meta property="og:description" content="Hbase简介对比HBase的概念HBase-Hadoop Database，是一个高可靠性、高性能、面向列、可伸缩、实时读写的分布式数据库。">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2017-08-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-08-10T13:46:14.000Z">
+<meta property="article:author" content="SeanXia">
+<meta property="article:tag" content="HBase">
+<meta property="article:tag" content="非关系型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/f0a46e55.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '分布式数据库HBase',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2019-08-10 21:46:14'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="书凡先生" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><hr class="custom-hr"></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="书凡先生"><span class="site-name">书凡先生</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">分布式数据库HBase</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-08-05T16:00:00.000Z" title="Created 2017-08-06 00:00:00">2017-08-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2019-08-10T13:46:14.000Z" title="Updated 2019-08-10 21:46:14">2019-08-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="分布式数据库HBase"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Hbase简介对比"><a href="#Hbase简介对比" class="headerlink" title="Hbase简介对比"></a>Hbase简介对比</h1><h2 id="HBase的概念"><a href="#HBase的概念" class="headerlink" title="HBase的概念"></a>HBase的概念</h2><p><strong>HBase-Hadoop Database</strong>，是一个高可靠性、高性能、面向列、可伸缩、实时读写的分布式数据库。</p>
+<span id="more"></span>
+
+<p>在Hadoop生态圈中，它是其中一部分且利用<strong>Hadoop HDFS</strong>作为其文件存储系统，利用<strong>Hadoop MapReduce</strong>来处理HBase中的海量数据，利用<strong>Zookeeper</strong>作为其分布式协同服务,主要用来存储<strong>非结构化和半结构化的松散数据</strong>（NoSQL非关系型数据库有redis、MongoDB等）。</p>
+<p>而我们的HBase就是这样一个<strong>非关系型数据库</strong>。</p>
+<p>简单来说，关系模型指的就是二维表格模型，而一个关系型数据库就是由二维表及其之间的联系所组成的一个数据组织。</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7gxh22xaj20ni0b3ags.jpg"></p>
+<h2 id="关系型与非关系型数据库对比"><a href="#关系型与非关系型数据库对比" class="headerlink" title="关系型与非关系型数据库对比"></a>关系型与非关系型数据库对比</h2><h3 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h3><p><strong>1、关系型数据库的3大优点</strong></p>
+<p><strong>容易理解：</strong>二维表结构是非常贴近逻辑世界的一个概念，关系模型相对网状、层次等其他模型来说更容易理解。</p>
+<p><strong>使用方便：</strong>通用的SQL语言使得操作关系型数据库非常方便。</p>
+<p><strong>易于维护：</strong>丰富的完整性(实体完整性、参照完整性和用户定义的完整性)大大减低了数据冗余和数据不一致的概率。</p>
+<p><strong>2、关系型数据库的3大瓶颈</strong></p>
+<p>（1）高并发读写需求 </p>
+<p>网站的用户并发性非常高，往往达到每秒上万次读写请求，对于传统关系型数据库来说，<strong>硬盘I&#x2F;O是一个很大的瓶颈</strong>，并且很难能做到数据的强一致性。</p>
+<p>（2）海量数据的读写性能低：</p>
+<p>网站每天产生的数据量是巨大的，对于关系型数据库来说，在一张包含海量数据的表中查询，效率是非常低的。</p>
+<p>（3）扩展性和可用性差</p>
+<p>在基于web的结构当中，数据库是最难（但是可以）进行横向扩展的，当一个应用系统的用户量和访问量与日俱增的时候，数据库却没有办法像web server和app server那样简单的通过添加更多的硬件和服务节点来扩展性能和负载能力。对于很多需要提供24小时不间断服务的网站来说，对数据库系统进行升级和扩展是非常痛苦的事情，往往需要停机维护和数据迁移。</p>
+<blockquote>
+<p>当然，对网站来说，关系型数据库的很多特性不再需要了，比如：事务一致性、读写实时性 。在关系型数据库中，导致性能欠佳的最主要原因是多表的关联查询，以及复杂的数据分析类型的复杂SQL报表查询。为了保证数据库的ACID特性，我们必须尽量按照其要求的范式进行设计，关系型数据库中的表都是存储一个格式化的数据结构。</p>
+</blockquote>
+<h3 id="非关系型数据库"><a href="#非关系型数据库" class="headerlink" title="非关系型数据库"></a>非关系型数据库</h3><p><strong>1、非关系型数据库的理念</strong></p>
+<p>非关系型数据库提出另一种理念，例如：以 key-value 键值对存储，且结构不固定，每一个元组可以有不一样的字段，每个元组可以根据需要增加一些自己的键值对，这样就不会局限于固定的结构，可以减少一些时间和空间的开销。 使用这种方式，用户可以根据需要去添加自己需要的字段，这样，为了获取用户的不同信息，不需要像关系型数据库中，要对多表进行关联查询。仅需要根据 id 取出相应的 value 就可以完成查询。</p>
+<p><strong>2、非关系型数据库特点</strong></p>
+<p>（1）一般不支持ACID特性，无需经过SQL解析，读写性能高。</p>
+<blockquote>
+<p>ACID，指数据库事务正确执行的四个基本要素的缩写。包含：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）。一个支持事务（Transaction）的数据库，必须要具有这四种特性，否则在事务过程（Transaction processing）当中无法保证数据的正确性，交易过程极可能达不到交易方的要求。</p>
+</blockquote>
+<p>（2）存储格式：key-value，文档，图片等等。</p>
+<p>（3）数据没有耦合性，容易扩展。</p>
+<blockquote>
+<p>但非关系型数据库由于很少的约束，他也不能够提供像SQL所提供的where这种对于字段属性值情况的查询。并且难以体现设计的完整性。他只适合存储一些较为简单的数据，对于需要进行较复杂查询的数据，SQL数据库显的更为合适。</p>
+</blockquote>
+<p>（4）多样性且开源。</p>
+<p>由于非关系型数据库本身天然的多样性，以及出现的时间较短，因此，不像关系型数据库，有几种数据库能够一统江山，非关系型数据库非常多，并且大部分都是开源的。</p>
+<p>（5）特定的应用需求</p>
+<p>这些数据库中，其实实现大部分都比较简单，除了一些共性外，很大一部分都是针对某些特定的应用需求出现的，因此，对于该类应用，具有极高的性能。</p>
+<p><strong>3、非关系型数据库的分类</strong></p>
+<p>（1）<strong>面向高性能并发读写的key-value数据库：</strong>Redis，Tokyo Cabinet，Flare。</p>
+<p>（2）<strong>面向海量数据访问的文档数据库：</strong>MongoDB以及CouchDB，可以在海量的数据中快速的查询数据。</p>
+<p>（3）<strong>面向可扩展性的分布式数据库：</strong>这类数据库想解决的问题就是传统数据库存在可扩展性上的缺陷，这类数据库可以适应数据量的增加以及数据结构的变化。</p>
+<h3 id="二者优缺点对比"><a href="#二者优缺点对比" class="headerlink" title="二者优缺点对比"></a>二者优缺点对比</h3><p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7i0ngcwij20lf0fbq5s.jpg"></p>
+<h1 id="HBase数据模型"><a href="#HBase数据模型" class="headerlink" title="HBase数据模型"></a>HBase数据模型</h1><p>我们先大概看一下传统数据库存储方式及非关系型数据库的存储方式。</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7i39i2hnj20hv0d8juk.jpg"></p>
+<p>非关系型数据库表</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7i9jfawpj20ip0be3z3.jpg"></p>
+<h2 id="Row-Key"><a href="#Row-Key" class="headerlink" title="Row Key"></a>Row Key</h2><p><strong>1、决定一行数据，具有唯一性</strong>。</p>
+<p><strong>2、按照字典顺序排序。</strong></p>
+<p><strong>3、Row Key最大只能存储64K的字节数据。</strong></p>
+<h2 id="Column-Family列族-qualifier列"><a href="#Column-Family列族-qualifier列" class="headerlink" title="Column Family列族 &amp; qualifier列"></a>Column Family列族 &amp; qualifier列</h2><p>1、HBase表中的每个列都归属于某个列族，列族必须作为表模式(schema)定义的一部分预先给出。如 create ‘test’, ‘course’；</p>
+<p>2、列名以列族作为前缀，每个“列族”都可以有多个列成员(column)；如 course:math, course:english, 新的列可以随后按需、动态加入；权限控制、存储以及调优都是在列族层面进行的；</p>
+<p>3、HBase把同一列族里面的数据存储在同一目录下，由几个文件保存。</p>
+<h2 id="Cell-单元格"><a href="#Cell-单元格" class="headerlink" title="Cell 单元格"></a>Cell 单元格</h2><p>1、由行和列的坐标交叉决定； 单元格是有版本的；</p>
+<p>2、单元格的内容是未解析的字节数组；</p>
+<p>3、由 {row key， column( &#x3D; &lt; family &gt;  + &lt; qualifier &gt;)， version} 唯一确定的单元。cell中的数据是没有类型的，全部是<strong>字节码</strong>形式存贮。</p>
+<h2 id="Timestamp-时间戳"><a href="#Timestamp-时间戳" class="headerlink" title="Timestamp 时间戳"></a>Timestamp 时间戳</h2><p>1、在HBase每个cell存储单元对同一份数据有多个版本，根据唯一的时间戳来区分每个版本之间的差异，不同版本的数据按照时间倒序排序，最新的数据版本排在最前面。</p>
+<p>2、时间戳的类型是 64位整型。</p>
+<p>3、时间戳可以由HBase(在数据写入时自动)赋值，此时时间戳是精确到<strong>毫秒的当前系统时间</strong>。 时间戳也可以由客户显式赋值，如果应用程序要避免数据版本冲突，就必须自己生成具有唯一性的时间戳。</p>
+<h2 id="HLog-WAL-log"><a href="#HLog-WAL-log" class="headerlink" title="HLog(WAL log)"></a>HLog(WAL log)</h2><p>1、HLog文件就是一个普通的Hadoop SequenceFile，<strong>Sequence File的Key是HLogKey对象，HLogKey中记录了写入数据的归属信息</strong>，除了table和region名字外，同时还包括 sequence number和timestamp，timestamp是”写入时间”，sequence number的起始值为0，或者是最近一次存入文件系统中sequence number。</p>
+<blockquote>
+<p>sequenceFile文件是Hadoop用来存储二进制形式的[Key,Value]对而设计的一种平面文件(Flat File)，它提供key-value的存储，但与传统key-value存储（比如hash表，btree）不同的是，它是append only的，于是你不能对已存在的key进行写操作。</p>
+</blockquote>
+<p>2、<strong>HLog SequeceFile的Value是HBase的KeyValue对象，即对应HFile中的KeyValue。存储Hbase表的操作记录，K-V数据信息。</strong></p>
+<h1 id="HBase-体系架构"><a href="#HBase-体系架构" class="headerlink" title="HBase 体系架构"></a>HBase 体系架构</h1><p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7inqxklhj20k70c2gr4.jpg"></p>
+<h2 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h2><p>包含访问HBase的接口并维护cache来加快对HBase的访问。</p>
+<h2 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a>Zookeeper</h2><p>1、保证任何时候，集群中只有一个master。</p>
+<p>2、存贮所有Region的寻址入口。</p>
+<p>3、实时监控Region server的上线和下线信息，并实时通知Master。</p>
+<p>4、存储HBase的schema（数据库对象的集合）和table元数据。</p>
+<blockquote>
+<p>方案（Schema）为数据库对象的集合，为了区分各个集合，我们需要给这个集合起个名字，这些名字就是我们在企业管理器的方案下看到的许多类似用户名的节点，这些类似用户名的节点其实就是一个schema，schema里面包含了各种对象如tables, views, sequences, stored procedures, synonyms, indexes, clusters, and database links。 一个用户一般对应一个schema,该用户的schema名等于用户名，并作为该用户缺省schema。这也就是我们在企业管理器的方案下看到schema名都为数据库用户名的原因。</p>
+</blockquote>
+<h2 id="Master"><a href="#Master" class="headerlink" title="Master"></a>Master</h2><p>为 Region server 分配region.</p>
+<p>1、负责Region server的负载均衡；</p>
+<p>2、发现失效的Region server并重新分配其上的region；</p>
+<p>3、管理用户对table的操作，对表的创建、删除、修改（DDL）。</p>
+<h2 id="RegionServer"><a href="#RegionServer" class="headerlink" title="RegionServer"></a>RegionServer</h2><p>1、维护region，处理对这些region的IO请求；</p>
+<p>2、负责切分在运行过程中变得过大的region。</p>
+<h2 id="Region"><a href="#Region" class="headerlink" title="Region"></a>Region</h2><p>1、HBase自动把表水平划分成多个区域(region)，每个region会保存一个表里面某段连续的数据；每个表一开始只有一个region，随着数据不断插入表，region不断增大，当增大到一个阀值的时候，region就会等分成两个新的region（裂变）；</p>
+<p>2、当table中的行不断增多，就会有越来越多的region。这样一张完整的表被保存在多个Regionserver 上。</p>
+<p>3、HRegion是HBase中分布式存储和负载均衡的最小单元，最小单元就表示不同的HRegion可以分布在不同的 HRegion server上。</p>
+<h2 id="MemStore与StoreFile"><a href="#MemStore与StoreFile" class="headerlink" title="MemStore与StoreFile"></a>MemStore与StoreFile</h2><p>1、一个Region由多个Store组成，一个Store对应一个CF（列族）。</p>
+<p>2、Store包括位于内存中的MemStore和位于磁盘的StoreFile。写操作先写入MemStore，当MemStore中的数据达到某个阈值，HRegionServer会启动flashcache进程溢写到磁盘中的Storefile，每次写入形成单独的一个StoreFile；</p>
+<p>3、当StoreFile文件的数量增长到一定阈值后，系统会进行合并（minor、major compaction）。</p>
+<p>先抽取一部分小的StoreFile文件进行小合并（minor compaction），小的StoreFile文件指的是刚溢写形成的最大64M，小合并速度比较快，IO开销比较小。然后当这些小合并的StoreFile越来越多，会进行大合并（major compaction），在合并过程中会进行版本合并和删除工作（major），形成更大的StoreFile。大合并速度比较慢，IO开销也比较大。</p>
+<p><code>注意：合并只能是同一个store里的合并，也就是同一个列族里的合并。不然数据会包含多个列族，造成数据混乱。</code></p>
+<p>4、当一个Region所有StoreFile已经合并且大小和数量超过一定阈值后，会把当前的Region分割为两个（裂变），并由HMaster分配到相应的HRegionServer服务器，实现负载均衡。</p>
+<blockquote>
+<p>StoreFile文件的大小取决于内存大小，当它的数量达到峰值后根据相同的key进行合并（HBase的小合并）。</p>
+<p>当MemStore中的数据溢写到磁盘后，系统会在内存中开辟一个新的MemStore去接收数据写入，老的MemStore在落地到磁盘后被释放掉。永远只有一个MemStore去接收服务。还有一种，当服务器宕机或者异常，尽管MemStore还未满，数据也会被落地到磁盘，也就是HDFS上，避免数据的丢失。</p>
+<p>客户端检索数据，先在MemStore找，找不到再找StoreFile。（也就是先会到内存中找，找不到再去磁盘中找）</p>
+<p>HRegion由一个或者多个Store组成，每个store保存一个columns family，每个Strore又由一个memStore和0至多个StoreFile组成。StoreFile以HFile格式保存在HDFS上。</p>
+</blockquote>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7jq82xomj20dp07xdim.jpg"></p>
+<h1 id="HBase的安装部署"><a href="#HBase的安装部署" class="headerlink" title="HBase的安装部署"></a>HBase的安装部署</h1><p>1、上传tar安装包并解压</p>
+<p>官网下载地址：<a href="http://hbase.apache.org/downloads.html" rel="external nofollow noopener noreferrer" target="_blank">http://hbase.apache.org/downloads.html</a></p>
+<p>在使用的时候注意版本的兼容问题，我这里使用的是1.2.1的版本。</p>
+<p>2、修改hbase-env.sh配置JAVA_HOME</p>
+<p>在 hbase的安装包下的conf目录下，打开hbase-env.sh，填入JAVA_HOME路径</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7k93hyr2j20dm03xdfs.jpg"></p>
+<p><code>注意：</code>不使用HBase的默认zookeeper配置：HBASE_MANAGES_ZK&#x3D;false</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7kf667p7j20e80413yj.jpg"></p>
+<p>3、配置hbase-site.xml，也是在conf目录下</p>
+<p>配置参数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;!--集群名称和路径--&gt;</span><br><span class="line">	&lt;name&gt;hbase.rootdir&lt;/name&gt;</span><br><span class="line">	&lt;value&gt;hdfs://Xss/hbase&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;!--开启分布式--&gt;</span><br><span class="line">	&lt;name&gt;hbase.cluster.distributed&lt;/name&gt;</span><br><span class="line">	&lt;value&gt;<span class="literal">true</span>&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;!--Zookeeper的节点--&gt;</span><br><span class="line">	&lt;name&gt;hbase.zookeeper.quorum&lt;/name&gt;</span><br><span class="line">	&lt;value&gt;sean01,sean02,sean03&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+
+<p>4、配置regionservers添加你配置的regionservers 的主机名</p>
+<p>还是到conf目录下新建regionservers文件</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7kn8q3hnj20cr031dfn.jpg"></p>
+<p>5、vi并配置backup-masters 添加你配置的master备份的主机名</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7koy0dktj20dc02cdfn.jpg"></p>
+<p>6、拷贝Hadoop的下配置文件hdfs-site.xml到当前conf下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r /usr/soft/hadoop-2.6.5/etc/hadoop/hdfs-site.xml ./</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7kr8997mj20hk05r0st.jpg"></p>
+<p>7、将配置好的环境发送给其他的服务器节点</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -r hbase-0.98.12.1-hadoop2 sean02:/usr/soft/</span><br><span class="line">scp -r hbase-0.98.12.1-hadoop2 sean03:/usr/soft/</span><br></pre></td></tr></table></figure>
+
+<p>8、配置HBase的环境变量</p>
+<p>配置局部的环境变量 ~&#x2F;.bash_profile</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7l3w8es5j20cz03ut8p.jpg"></p>
+<p>然后不要忘记发送给其他节点</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -r ~/.bash_profile sean02:/root/</span><br><span class="line">scp -r ~/.bash_profile sean03:/root/</span><br></pre></td></tr></table></figure>
+
+<p>最后记得刷新一下环境变量：source ~&#x2F;.bash_profile</p>
+<p>当我们在任意的节点上输入hbase，tab键一下，出现下图说明环境变量已配置成功。</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7l7kbvh7j20h70290sl.jpg"></p>
+<p>9、启动：Zookeeper集群主机</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zkServer.sh start</span><br></pre></td></tr></table></figure>
+
+<p>10、启动hadoop</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-all.sh</span><br></pre></td></tr></table></figure>
+
+<p>11、启动hbase ：因为HBase依赖于Hadoop和zookeeper之上的所以要Hadoop集群启动正常和Zookeeper集群启动正常。因为用不到yarn，所以不需要启动。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-hbase.sh</span><br></pre></td></tr></table></figure>
+
+<p>12、启动后查看集群进程</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7lgx8pwij20c704t748.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7lildjvsj20bb04kmx4.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7ljx1s1dj20br041747.jpg"></p>
+<p>13、查看Web端</p>
+<p>默认端口：60010</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzaw9m4ng0j20oc0cat9o.jpg"></p>
+<p><code>注意：有时查看web端，我们找不到另外两个节点的服务。再次查看进程，发现节点sean02和sean03已经挂掉</code></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7m961z1mj20bs031q2s.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7m9omf3wj20bi029dfn.jpg"></p>
+<p>这时需要做时间同步。停掉hbase的进程</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stop-hbase.sh	#停止hbase的进程</span><br><span class="line">ntpdate cn.ntp.org.cn	#时间同步</span><br></pre></td></tr></table></figure>
+
+<p>做完时间同步后再次启动hbase，再查看web端</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7mcv0omcj20v30dx75i.jpg"></p>
+<p>结果如图上所示，说明启动正常，搭建成功！</p>
+<h1 id="HBase-Shell-API"><a href="#HBase-Shell-API" class="headerlink" title="HBase Shell &amp; API"></a>HBase Shell &amp; API</h1><h2 id="HBase-Shell"><a href="#HBase-Shell" class="headerlink" title="HBase Shell"></a>HBase Shell</h2><p><strong>1、进入shell命令行</strong></p>
+<p>通过 hbase shell 命令进入HBase 命令行接口</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7mi1q92nj20j903pweh.jpg"></p>
+<p><strong>2、hbase shell中的操作参数</strong></p>
+<p>通过help可查看所有命令的支持以及帮助手册</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>Shell命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>创建表</td>
+<td>create ‘表名’, ‘列族名1’[,…]</td>
+</tr>
+<tr>
+<td>添加记录</td>
+<td>put ‘表名’, ‘RowKey’, ‘列族名称:列名’, ‘值’</td>
+</tr>
+<tr>
+<td>查看记录</td>
+<td>get ‘表名’, ‘RowKey’, ‘列族名称:列名’</td>
+</tr>
+<tr>
+<td>查看表中的记录总数</td>
+<td>count  ‘表名’</td>
+</tr>
+<tr>
+<td>删除记录</td>
+<td>delete  ‘表名’ , ‘RowKey’, ‘列族名称:列名’</td>
+</tr>
+<tr>
+<td>删除一张表</td>
+<td>先要屏蔽该表，才能对该表进行删除。第一步 disable ‘表名称’ 第二步 drop ‘表名称’</td>
+</tr>
+<tr>
+<td>查看所有记录</td>
+<td>scan ‘表名’</td>
+</tr>
+<tr>
+<td>设置表的过期时间</td>
+<td>alter ’表名‘ , {NAME &#x3D;&gt; ‘f’, TTL &#x3D;&gt; 7776000}</td>
+</tr>
+</tbody></table>
+<p><code>注意：在hbase命令行中，常规的删除无法正常使用，需要按 ctrl+删除键 组合使用</code></p>
+<p>这是因为Xshell的设置中默认的。在节点属性中的键盘设置中可以查看</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7mm9igttj20e504vq2v.jpg"></p>
+<p><strong>3、具体操作</strong></p>
+<p>（1）建表：表名为t1，列族为cf1</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create &#x27;t1&#x27;,&#x27;cf1&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7msmyabij20fn048q2y.jpg"></p>
+<p>（2）查看当前表，使用命令 list</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7mtkxfoyj20by037a9w.jpg"></p>
+<p>（3）添加表记录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">表名t1，rowkey为0001，列族cf1，列名name，Value为xiaoming</span></span><br><span class="line">put &#x27;t1&#x27;,&#x27;0001&#x27;,&#x27;cf1:name&#x27;,&#x27;xiaoming&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">表名t1，rowkey为0001，列族cf1，列名age，Value为18</span></span><br><span class="line">put &#x27;t1&#x27;,&#x27;0001&#x27;,&#x27;cf1:age&#x27;,&#x27;18&#x27;</span><br><span class="line">...</span><br><span class="line">put &#x27;t1&#x27;,&#x27;0002&#x27;,&#x27;cf1:name&#x27;,&#x27;zhangsan&#x27;</span><br><span class="line">put &#x27;t1&#x27;,&#x27;0002&#x27;,&#x27;cf1:age&#x27;,&#x27;22&#x27;</span><br><span class="line">put &#x27;t1&#x27;,&#x27;0002&#x27;,&#x27;cf1:sex&#x27;,&#x27;man&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>（4）查看表所有记录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scan &#x27;t1&#x27;	</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7n2jnk72j20ho03u748.jpg"></p>
+<p><code>注意：因为scan是整个表的全盘扫描，如果表数据过大，慎用！</code></p>
+<p>（5）查看某个表的指定条件的记录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">get &#x27;t1&#x27;,&#x27;0001&#x27;	 #表示查看t1表中rowkey为0001的表记录</span><br><span class="line">get &#x27;t1&#x27;,&#x27;0002&#x27;	 #表示查看t1表中rowkey为0002的表记录</span><br><span class="line">get &#x27;t1&#x27;,&#x27;0001&#x27;,&#x27;cf1:name&#x27;	 #表示查看t1表中rowkey为0001的name为xiaoming的表记录</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7na0jdegj20f707faa7.jpg"></p>
+<p>（6）设定表的保留版本（在创建表初期定义）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create &#x27;t2&#x27;,&#123;NAME =&gt;&#x27;cf1&#x27;,VERSIONS =&gt; 2&#125;  #表名t2，列族cf1，保留2个版本</span><br></pre></td></tr></table></figure>
+
+<p>put数据进去</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">put &#x27;t2&#x27;,&#x27;0001&#x27;,&#x27;cf1:name&#x27;,&#x27;lisi&#x27;</span><br><span class="line">put &#x27;t2&#x27;,&#x27;0001&#x27;,&#x27;cf1:name&#x27;,&#x27;lisi&#x27;</span><br><span class="line">put &#x27;t2&#x27;,&#x27;0001&#x27;,&#x27;cf1:age&#x27;,&#x27;26&#x27;</span><br><span class="line">put &#x27;t2&#x27;,&#x27;0001&#x27;,&#x27;cf1:age&#x27;,&#x27;18&#x27;</span><br><span class="line">put &#x27;t2&#x27;,&#x27;0001&#x27;,&#x27;cf1:age&#x27;,&#x27;16&#x27;</span><br><span class="line">put &#x27;t2&#x27;,&#x27;0001&#x27;,&#x27;cf1:name&#x27;,&#x27;xiaoli&#x27;</span><br><span class="line">put &#x27;t2&#x27;,&#x27;0001&#x27;,&#x27;cf1:name&#x27;,&#x27;xiaozhu&#x27;</span><br><span class="line">put &#x27;t2&#x27;,&#x27;0001&#x27;,&#x27;cf1:name&#x27;,&#x27;meina&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>然后命令scan查看表数据</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzaw8c8z2aj20gv02nglj.jpg"></p>
+<p>然而我们创建表的时候明明保留了3个版本，为什么这里只显示一个最新的版本呢？是因为我们没有加版本号</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scan &#x27;t2&#x27;,&#123;RAW =&gt; true,VERSIONS =&gt; 2&#125;	#取两个版本</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7o20qx8rj20hc03gt8n.jpg"></p>
+<p><strong>那当我们取三个或者四个、五个版本呢</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scan &#x27;t2&#x27;,&#123;RAW =&gt; true,VERSIONS =&gt; 3&#125;	#取三个版本</span><br><span class="line">scan &#x27;t2&#x27;,&#123;RAW =&gt; true,VERSIONS =&gt; 4&#125;	#取四个版本</span><br><span class="line">scan &#x27;t2&#x27;,&#123;RAW =&gt; true,VERSIONS =&gt; 5&#125;	#取五个版本</span><br></pre></td></tr></table></figure>
+
+<p>我们会惊奇的发现，本来我们创建的时候定义保留两个版本，但是这里却留下了我们所有的版本。这是为什么？</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7oa6rxy9j20hl0dewf0.jpg"></p>
+<p>这里发现<strong>RAM</strong>这个字段设为true的时候，意思是未经处理的都显示出来，也就是说：<strong>当写入内存中的数据较少时，内存中的数据还没有达到阈值，所以并未溢写到磁盘，也就是未处理。</strong></p>
+<p>如果去掉字段<strong>RAW</strong>，就只显示我们保留的两个版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scan &#x27;t2&#x27;,&#123;VERSIONS =&gt; 5&#125;	#取五个版本</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7o9k3lt6j20h0035glj.jpg"></p>
+<p><strong>这里我们可以验证一下：</strong></p>
+<p>①  在处理之前，我们到HDFS web端看到，hbase目录下有三个文件夹WALs、oldWALs和data，WALs中存着表的元数据信息，data中存放表的真实数据，oldWALs中存放之前已经经过处理的元数据信息。</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz87kqwf5zj20u60a1mxh.jpg"></p>
+<p>打开data文件夹会发现是空的，根本没有数据，<strong>也就是说还没有落地到磁盘</strong></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz87tthz7gj20xf05yweg.jpg"></p>
+<p>②  我们知道如果服务器发生意外宕机（也可以使用flush命令），内存中的数据就自动会落地到磁盘中。所以我们关掉hbase的服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stop-hbase.sh</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz8811kbdlj20bo028t8j.jpg"></p>
+<p><code>注：如果关闭hbase的过程中发生异常无法关闭，ctrl+c暂停，换另外一个HMaster去关，如果还是无法关闭，ctrl+c暂停，查看进程kill调其中的一个，kill尽量少用，会对服务器有损耗。</code></p>
+<p>③  重新开启hbase服务，查看HDFS数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-hbase.sh</span><br></pre></td></tr></table></figure>
+
+<p><strong>oldWALs目录</strong></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz887cyxevj20u308vwf4.jpg"></p>
+<p><strong>data目录</strong></p>
+<p>此时说明，t2表的数据已经落地到磁盘中</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz888hkxebj20tz04vjrf.jpg"></p>
+<p><code>总结：客户端检索数据，先会到内存中找，找不到再去磁盘中找。</code></p>
+<p>④ 进入hbase中查询表数据</p>
+<p>此时发现由于数据已经落地到磁盘，所以无论怎么取都会保留在建表初期设定的保留两个版本</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzaw7jnpdcj20hf09pq3q.jpg"></p>
+<p>（7）删除表</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop &#x27;t2&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>删表前我们要先进行disable（屏蔽掉）这个表再删除</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fz7nwm3hujj20g707ddfv.jpg"></p>
+<p>如图显示已删除成功！</p>
+<p><strong>Hbase 建表设置数据的有效期</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create &#x27;t1&#x27;, &#123;NAME =&gt; &#x27;f&#x27;, TTL =&gt; 7776000,VERSIONS =&gt; 1&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果在已存在的表上加有效期，要先disable</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">disable &#x27;tableName&#x27;</span><br><span class="line">alter &#x27;tableName&#x27;,&#123;NAME =&gt; &#x27;f&#x27;, TTL =&gt; 7776000&#125;</span><br><span class="line">enable &#x27;tabName&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="HBase-API"><a href="#HBase-API" class="headerlink" title="HBase API"></a>HBase API</h2><p>详细 API 请见我的 github 仓库：<a href="https://github.com/Sdreamery/BigDataAPI/tree/master/hbase_demo/src/com/sean/hbase/test" rel="external nofollow noopener noreferrer" target="_blank">Hbase API</a></p>
+<h1 id="总结思考"><a href="#总结思考" class="headerlink" title="总结思考"></a>总结思考</h1><p><strong>1、HBase中写入数据什么情况会落地到磁盘</strong></p>
+<ul>
+<li>当MemStore中的数据达到某个阈值，HRegionServer会启动flashcache进程溢写到磁盘中的Storefile。</li>
+<li>当前HRegionServer服务器异常宕机。</li>
+<li>使用命令<code>flush</code>强制刷到磁盘中。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://www.seanxia.cn">SeanXia</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/f0a46e55.html">http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/f0a46e55.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/HBase/">HBase</a><a class="post-meta__tags" href="/tags/%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B/">非关系型</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/2220e2b4.html" title="HBase性能优化"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">HBase性能优化</div></div></a></div><div class="next-post pull-right"><a href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/9018532c.html" title="Hive中的优化策略"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">Hive中的优化策略</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/2220e2b4.html" title="HBase性能优化"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-08-10</div><div class="title">HBase性能优化</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">SeanXia</div><div class="author-info__description">好奇搞怪,大数据分析,数据开发者一枚</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" href="https://github.com/xxxxxx" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hbase%E7%AE%80%E4%BB%8B%E5%AF%B9%E6%AF%94"><span class="toc-number">1.</span> <span class="toc-text">Hbase简介对比</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HBase%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">HBase的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E4%B8%8E%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%B9%E6%AF%94"><span class="toc-number">1.2.</span> <span class="toc-text">关系型与非关系型数据库对比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.2.1.</span> <span class="toc-text">关系型数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.2.2.</span> <span class="toc-text">非关系型数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E8%80%85%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94"><span class="toc-number">1.2.3.</span> <span class="toc-text">二者优缺点对比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HBase%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">HBase数据模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Row-Key"><span class="toc-number">2.1.</span> <span class="toc-text">Row Key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Column-Family%E5%88%97%E6%97%8F-qualifier%E5%88%97"><span class="toc-number">2.2.</span> <span class="toc-text">Column Family列族 &amp; qualifier列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cell-%E5%8D%95%E5%85%83%E6%A0%BC"><span class="toc-number">2.3.</span> <span class="toc-text">Cell 单元格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Timestamp-%E6%97%B6%E9%97%B4%E6%88%B3"><span class="toc-number">2.4.</span> <span class="toc-text">Timestamp 时间戳</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HLog-WAL-log"><span class="toc-number">2.5.</span> <span class="toc-text">HLog(WAL log)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HBase-%E4%BD%93%E7%B3%BB%E6%9E%B6%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">HBase 体系架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Client"><span class="toc-number">3.1.</span> <span class="toc-text">Client</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Zookeeper"><span class="toc-number">3.2.</span> <span class="toc-text">Zookeeper</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Master"><span class="toc-number">3.3.</span> <span class="toc-text">Master</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RegionServer"><span class="toc-number">3.4.</span> <span class="toc-text">RegionServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Region"><span class="toc-number">3.5.</span> <span class="toc-text">Region</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MemStore%E4%B8%8EStoreFile"><span class="toc-number">3.6.</span> <span class="toc-text">MemStore与StoreFile</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HBase%E7%9A%84%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2"><span class="toc-number">4.</span> <span class="toc-text">HBase的安装部署</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HBase-Shell-API"><span class="toc-number">5.</span> <span class="toc-text">HBase Shell &amp; API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HBase-Shell"><span class="toc-number">5.1.</span> <span class="toc-text">HBase Shell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HBase-API"><span class="toc-number">5.2.</span> <span class="toc-text">HBase API</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E6%80%9D%E8%80%83"><span class="toc-number">6.</span> <span class="toc-text">总结思考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%85%B6%E4%BB%96/6d60df94.html" title="使用Git系统搭建GitLab">使用Git系统搭建GitLab</a><time datetime="2019-08-23T16:00:00.000Z" title="Created 2019-08-24 00:00:00">2019-08-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%85%B6%E4%BB%96/7fb68dad.html" title="新浪微博图床迁移">新浪微博图床迁移</a><time datetime="2019-08-10T16:00:00.000Z" title="Created 2019-08-11 00:00:00">2019-08-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html" title="流式框架Flink（二）">流式框架Flink（二）</a><time datetime="2019-01-01T16:00:00.000Z" title="Created 2019-01-02 00:00:00">2019-01-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html" title="流式框架Flink（一）">流式框架Flink（一）</a><time datetime="2019-01-01T16:00:00.000Z" title="Created 2019-01-02 00:00:00">2019-01-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/1ca1f555.html" title="SparkMLlib 随机森林">SparkMLlib 随机森林</a><time datetime="2018-05-21T16:00:00.000Z" title="Created 2018-05-22 00:00:00">2018-05-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By SeanXia</div><div class="framework-info"><span>Framework </span><a href="https://hexo.io" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" rel="external nofollow noopener noreferrer" target="_blank">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

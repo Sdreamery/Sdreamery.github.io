@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>书凡先生</title>
+  
+  
+  <link href="http://www.seanxia.cn/atom.xml" rel="self"/>
+  
+  <link href="http://www.seanxia.cn/"/>
+  <updated>2024-07-11T15:00:41.472Z</updated>
+  <id>http://www.seanxia.cn/</id>
+  
+  <author>
+    <name>SeanXia</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用Git系统搭建GitLab</title>
+    <link href="http://www.seanxia.cn/%E5%85%B6%E4%BB%96/6d60df94.html"/>
+    <id>http://www.seanxia.cn/%E5%85%B6%E4%BB%96/6d60df94.html</id>
+    <published>2019-08-23T16:00:00.000Z</published>
+    <updated>2024-07-11T15:00:41.472Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;Git、GitHub与GitLab区别&quot;&gt;&lt;a href=&quot;#Git、GitHub与GitLab区别&quot; class=&quot;headerlink&quot; title=&quot;Git、GitHub与GitLab区别&quot;&gt;&lt;/a&gt;Git、GitHub与GitLab区别&lt;/h3&gt;&lt;p&gt;首先我们要知道的是，Git与GitLab不是一个东西，git是一个可以进行版本控制的操作工具，而GitLab则是一个用来托管文件的远程仓库。&lt;/p&gt;
+&lt;p&gt;GitLab与GitHub最大的区别就是可以使用自己的服务器进行托管，相比GitHub来说更安全高效，适合团队内部开发。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="其他" scheme="http://www.seanxia.cn/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="Git" scheme="http://www.seanxia.cn/tags/Git/"/>
+    
+    <category term="GitLab" scheme="http://www.seanxia.cn/tags/GitLab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>新浪微博图床迁移</title>
+    <link href="http://www.seanxia.cn/%E5%85%B6%E4%BB%96/7fb68dad.html"/>
+    <id>http://www.seanxia.cn/%E5%85%B6%E4%BB%96/7fb68dad.html</id>
+    <published>2019-08-10T16:00:00.000Z</published>
+    <updated>2024-07-11T15:00:41.473Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;前不久，微博图床挂了，这对于众多使用 Markdown 写技术博客的人简直太残忍了！看来，图片迁移真的是刻不容缓了，在我准备迁移图片的时候，发现了几个平台对图片不同的处理方式，觉得很有意思，所以记录一下。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;本人强烈推荐使用方法五，亲测有效。&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="其他" scheme="http://www.seanxia.cn/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="图床" scheme="http://www.seanxia.cn/tags/%E5%9B%BE%E5%BA%8A/"/>
+    
+    <category term="迁移" scheme="http://www.seanxia.cn/tags/%E8%BF%81%E7%A7%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>流式框架Flink（二）</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html</id>
+    <published>2019-01-01T16:00:00.000Z</published>
+    <updated>2024-07-11T14:48:50.981Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架。&lt;/p&gt;
+&lt;p&gt;我们来谈谈 Flink 的编程模型与部署。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="流式处理" scheme="http://www.seanxia.cn/tags/%E6%B5%81%E5%BC%8F%E5%A4%84%E7%90%86/"/>
+    
+    <category term="flink" scheme="http://www.seanxia.cn/tags/flink/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>流式框架Flink（一）</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html</id>
+    <published>2019-01-01T16:00:00.000Z</published>
+    <updated>2019-08-10T13:46:34.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架和分布式处理引擎。Flink设计为运行在所有常见的集群环境中，并且以内存速度和任意规模执行计算。&lt;/p&gt;
+&lt;p&gt;官网：&lt;a href=&quot;https://flink.apache.org/&quot;&gt;https://flink.apache.org&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="流式处理" scheme="http://www.seanxia.cn/tags/%E6%B5%81%E5%BC%8F%E5%A4%84%E7%90%86/"/>
+    
+    <category term="flink" scheme="http://www.seanxia.cn/tags/flink/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SparkMLlib 随机森林</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/1ca1f555.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/1ca1f555.html</id>
+    <published>2018-05-21T16:00:00.000Z</published>
+    <updated>2024-07-11T14:40:00.799Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;一种非线性有监督分类模型&lt;/p&gt;
+&lt;p&gt;一种非线性有监督分类模型&lt;/p&gt;
+&lt;p&gt;随机森林是一种非线性有监督的分类模型。随机森林的决策树的升级版，由多个随机数据集的决策树组合而成。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="机器学习" scheme="http://www.seanxia.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="随机森林" scheme="http://www.seanxia.cn/tags/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SparkMLlib 逻辑回归</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/a4a0dc78.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/a4a0dc78.html</id>
+    <published>2018-05-14T16:00:00.000Z</published>
+    <updated>2024-07-11T14:51:55.618Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;逻辑回归是预测分类响应的常用方法。这是&lt;a href=&quot;https://en.wikipedia.org/wiki/Generalized_linear_model&quot;&gt;广义线性模型的&lt;/a&gt;一个特例，可以预测结果的概率。&lt;/p&gt;
+&lt;p&gt;在&lt;code&gt;spark.ml&lt;/code&gt;逻辑回归中，可以使用二项逻辑回归来预测二元结果，或者可以使用多项逻辑回归来预测多类结果。使用该&lt;code&gt;family&lt;/code&gt; 参数在这两种算法之间进行选择，或者保持不设置，Spark将推断出正确的变量。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="机器学习" scheme="http://www.seanxia.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="逻辑回归" scheme="http://www.seanxia.cn/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SparkMLlib线性回归</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/30277e10.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/30277e10.html</id>
+    <published>2018-05-11T16:00:00.000Z</published>
+    <updated>2024-07-11T14:41:36.825Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;关于机器学习，Spark MLlib中也对相关算法有API的讲解，本章介绍线性回归算法。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="机器学习" scheme="http://www.seanxia.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="线性回归" scheme="http://www.seanxia.cn/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SparkMLlib Kmeans聚类</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31efd837.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31efd837.html</id>
+    <published>2018-05-09T16:00:00.000Z</published>
+    <updated>2024-07-11T14:08:00.943Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Kmeans聚类算法又叫K均值聚类。&lt;/p&gt;
+&lt;p&gt;聚类：给事物打标签，寻找同一组内的个体之间的一些潜在的相似模式。力图找到数据的自然分组 kmeans。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="机器学习" scheme="http://www.seanxia.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="Kmeans" scheme="http://www.seanxia.cn/tags/Kmeans/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SparkMLlib贝叶斯分类</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/800c7c16.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/800c7c16.html</id>
+    <published>2018-05-05T16:00:00.000Z</published>
+    <updated>2024-07-11T14:09:48.890Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;机器学习算法中，有种依据概率原则进行分类的朴素贝叶斯算法，正如气象学家预测天气一样，朴素贝叶斯算法就是应用先前事件的有关数据来估计未来事件发生的概率。如：70%降水概率。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="机器学习" scheme="http://www.seanxia.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="贝叶斯分类" scheme="http://www.seanxia.cn/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spark性能优化</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/91aae295.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/91aae295.html</id>
+    <published>2018-02-19T16:00:00.000Z</published>
+    <updated>2024-07-11T14:52:10.655Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;关于Spark，在实际工作中有很多需要去优化的地方。本篇文章将给出一些需要手动去调整的配置供大家参考。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="优化" scheme="http://www.seanxia.cn/tags/%E4%BC%98%E5%8C%96/"/>
+    
+    <category term="Spark" scheme="http://www.seanxia.cn/tags/Spark/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spark计算框架（六）</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/2e9b7b1c.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/2e9b7b1c.html</id>
+    <published>2018-02-02T16:00:00.000Z</published>
+    <updated>2019-08-10T13:45:52.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;SparkStreaming 是流式处理框架，是 Spark API 的扩展，支持可扩展、高吞吐、容错的实时数据流处理。&lt;/p&gt;
+&lt;p&gt;实时数据的来源可以是：Kafka，Flume，Twitter，ZeroMQ 或者 TCP sockets，并且可以使用高级功能的复杂算子来处理流数据。例如：map，reduce，join，window 。最终，处理后的数据可以存放在文件系统，数据库等，方便实时展现。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="SparkStreaming" scheme="http://www.seanxia.cn/tags/SparkStreaming/"/>
+    
+    <category term="流式处理" scheme="http://www.seanxia.cn/tags/%E6%B5%81%E5%BC%8F%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spark计算框架（五）</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/4b9530c5.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/4b9530c5.html</id>
+    <published>2018-01-20T16:00:00.000Z</published>
+    <updated>2019-08-10T13:45:44.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Spark SQL 是 Spark 处理数据的一个模块，跟基本的 Spark RDD 的API不同，Spark SQL中提供的接口将会提供给Spark 更多关于结构化数据和计算的信息。其本质是，Spark SQL使用这些额外的信息去执行额外的优化。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="SparkSQL" scheme="http://www.seanxia.cn/tags/SparkSQL/"/>
+    
+    <category term="DataFrame" scheme="http://www.seanxia.cn/tags/DataFrame/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SparkShuffle调优</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/3243dc0c.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/3243dc0c.html</id>
+    <published>2018-01-15T16:00:00.000Z</published>
+    <updated>2019-08-10T13:45:30.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;SparkShuffle在使用时，默认的配置中有些配置可能不适合实际中的业务处理，需要我们手动进行调整优化。这里列举了一些常用的 SparkShuffle 调优策略和建议。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="SparkShuffle" scheme="http://www.seanxia.cn/tags/SparkShuffle/"/>
+    
+    <category term="调优" scheme="http://www.seanxia.cn/tags/%E8%B0%83%E4%BC%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spark计算框架（四）</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/240bf582.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/240bf582.html</id>
+    <published>2018-01-15T16:00:00.000Z</published>
+    <updated>2024-07-11T14:43:37.500Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;我们知道 Spark 的基本架构是 Master 和 Worker 组成的，Task 的分配和执行又是由 Driver 进程和 Excutor 进程&lt;/p&gt;
+&lt;p&gt;去配合完成的，那关于他们内部是怎么运行的，有哪些对象呢，这里将 做详细阐述。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="SparkShuffle" scheme="http://www.seanxia.cn/tags/SparkShuffle/"/>
+    
+    <category term="广播变量" scheme="http://www.seanxia.cn/tags/%E5%B9%BF%E6%92%AD%E5%8F%98%E9%87%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spark计算框架（三）</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/9326ece7.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/9326ece7.html</id>
+    <published>2018-01-07T16:00:00.000Z</published>
+    <updated>2019-08-10T13:45:46.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;关于 Spark 算子的应用案例有很多，这里介绍一些一些不常见但是很有用的算子，以及几个小案例的源码介绍。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="spark" scheme="http://www.seanxia.cn/tags/spark/"/>
+    
+    <category term="PV" scheme="http://www.seanxia.cn/tags/PV/"/>
+    
+    <category term="PU" scheme="http://www.seanxia.cn/tags/PU/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spark计算框架（二）</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/de384fb5.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/de384fb5.html</id>
+    <published>2017-12-18T16:00:00.000Z</published>
+    <updated>2019-08-10T13:45:42.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;关于Spark的任务提交方式，总的分为 Client 提交和 Cluster 提交两种。这里以 Standalone 和 Yarn 为例详细阐述他们在 Spark 中提交任务的流程。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="spark" scheme="http://www.seanxia.cn/tags/spark/"/>
+    
+    <category term="任务提交" scheme="http://www.seanxia.cn/tags/%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spark计算框架（一）</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/53ca074f.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/53ca074f.html</id>
+    <published>2017-12-15T16:00:00.000Z</published>
+    <updated>2019-08-10T13:45:40.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Apache Spark 是专为大规模数据处理而设计的快速通用的计算引擎。&lt;/p&gt;
+&lt;p&gt;Spark是UC Berkeley AMP lab (加州大学伯克利分校的AMP实验室)所开源的类Hadoop MapReduce的通用并行框架。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="spark" scheme="http://www.seanxia.cn/tags/spark/"/>
+    
+    <category term="分布式计算" scheme="http://www.seanxia.cn/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>流式处理Storm</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/b6b65a25.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/b6b65a25.html</id>
+    <published>2017-11-01T16:00:00.000Z</published>
+    <updated>2019-08-10T13:46:32.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Storm是一个免费开源、分布式、高容错的实时计算系统。Storm令持续不断的流计算变得容易，弥补了Hadoop批处理所不能满足的实时要求。&lt;/p&gt;
+&lt;p&gt;官网 &lt;a href=&quot;http://storm.apache.org/&quot;&gt;http://storm.apache.org&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="流式处理" scheme="http://www.seanxia.cn/tags/%E6%B5%81%E5%BC%8F%E5%A4%84%E7%90%86/"/>
+    
+    <category term="Storm" scheme="http://www.seanxia.cn/tags/Storm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>消息队列Kafka</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/efe707af.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/efe707af.html</id>
+    <published>2017-10-27T16:00:00.000Z</published>
+    <updated>2019-08-10T13:46:42.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Kafka 是一个高吞吐、低延迟分布式的消息队列系统。kafka 每秒可以处理几十万条消息，它的延迟最低只有几毫秒。&lt;/p&gt;
+&lt;p&gt;官网：&lt;a href=&quot;https://kafka.apache.org/&quot;&gt;https://kafka.apache.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzmjytyjtrj20bg091gm6.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="Kafka" scheme="http://www.seanxia.cn/tags/Kafka/"/>
+    
+    <category term="消息队列" scheme="http://www.seanxia.cn/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>spring框架总结</title>
+    <link href="http://www.seanxia.cn/Java/4ddce68d.html"/>
+    <id>http://www.seanxia.cn/Java/4ddce68d.html</id>
+    <published>2017-10-20T15:32:11.000Z</published>
+    <updated>2016-09-05T07:17:06.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Spring-简介&quot;&gt;&lt;a href=&quot;#Spring-简介&quot; class=&quot;headerlink&quot; title=&quot;Spring 简介&quot;&gt;&lt;/a&gt;Spring 简介&lt;/h1&gt;&lt;h2 id=&quot;什么是-Spring&quot;&gt;&lt;a href=&quot;#什么是-Spring&quot; class=&quot;headerlink&quot; title=&quot;什么是 Spring&quot;&gt;&lt;/a&gt;什么是 Spring&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Spring 是一个&lt;strong&gt;轻量级的 DI &amp;#x2F; IOC 和 AOP 容器的开源框架&lt;/strong&gt;，来源于 Rod Johnson 在其著作&lt;strong&gt;《Expert one on one J2EE design and development》&lt;/strong&gt;中阐述的部分理念和原型衍生而来。&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="http://www.seanxia.cn/categories/Java/"/>
+    
+    
+    <category term="spring" scheme="http://www.seanxia.cn/tags/spring/"/>
+    
+    <category term="框架" scheme="http://www.seanxia.cn/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+</feed>
