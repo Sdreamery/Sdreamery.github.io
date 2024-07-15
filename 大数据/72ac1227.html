@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>大型高并发处理Nginx | 风雨欲来兮丶</title><meta name="author" content="SeanXia"><meta name="copyright" content="SeanXia"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Nginx 产生背景1. 日常生活中所见  大学选课时学校官网会因为访问量较大经常崩溃。 淘宝、京东等大型网站做营销活动时也会出现服务器异常。 每年十一节假日或者春运抢票时，12306网站会发生瘫痪。">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>大型高并发处理Nginx | 风雨欲来兮丶</title><meta name="author" content="SeanXia"><meta name="copyright" content="SeanXia"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Nginx 产生背景 1. 日常生活中所见  大学选课时学校官网会因为访问量较大经常崩溃。 淘宝、京东等大型网站做营销活动时也会出现服务器异常。 每年十一节假日或者春运抢票时，12306网站会发生瘫痪。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大型高并发处理Nginx">
 <meta property="og:url" content="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/72ac1227.html">
 <meta property="og:site_name" content="风雨欲来兮丶">
-<meta property="og:description" content="Nginx 产生背景1. 日常生活中所见  大学选课时学校官网会因为访问量较大经常崩溃。 淘宝、京东等大型网站做营销活动时也会出现服务器异常。 每年十一节假日或者春运抢票时，12306网站会发生瘫痪。">
+<meta property="og:description" content="Nginx 产生背景 1. 日常生活中所见  大学选课时学校官网会因为访问量较大经常崩溃。 淘宝、京东等大型网站做营销活动时也会出现服务器异常。 每年十一节假日或者春运抢票时，12306网站会发生瘫痪。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg">
 <meta property="article:published_time" content="2016-10-17T16:00:00.000Z">
@@ -156,7 +156,8 @@
       }
       detectApple()
     })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="风雨欲来兮丶" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/butterfly.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="风雨欲来兮丶"><span class="site-name">风雨欲来兮丶</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">大型高并发处理Nginx</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2016-10-17T16:00:00.000Z" title="发表于 2016-10-18 00:00:00">2016-10-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-08-10T13:46:28.000Z" title="更新于 2019-08-10 21:46:28">2019-08-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="大型高并发处理Nginx"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Nginx-产生背景"><a href="#Nginx-产生背景" class="headerlink" title="Nginx 产生背景"></a>Nginx 产生背景</h2><p><strong>1. 日常生活中所见</strong></p>
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/butterfly.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="风雨欲来兮丶"><span class="site-name">风雨欲来兮丶</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">大型高并发处理Nginx</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2016-10-17T16:00:00.000Z" title="发表于 2016-10-18 00:00:00">2016-10-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-08-10T13:46:28.000Z" title="更新于 2019-08-10 21:46:28">2019-08-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="大型高并发处理Nginx"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Nginx-产生背景">Nginx 产生背景</h2>
+<p><strong>1. 日常生活中所见</strong></p>
 <ul>
 <li>大学选课时学校官网会因为访问量较大经常崩溃。</li>
 <li>淘宝、京东等大型网站做营销活动时也会出现服务器异常。</li>
@@ -171,7 +172,8 @@
 <blockquote>
 <p>那么如何解决这些问题呢，这就要先来了解一下负载均衡。</p>
 </blockquote>
-<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p>先来了解一下高并发的概念。</p>
+<h2 id="负载均衡">负载均衡</h2>
+<p>先来了解一下高并发的概念。</p>
 <p><strong>1. 高并发</strong></p>
 <p>见名知意，高（大量的），并发就是可以使用多个线程或者多个进程，同时处理（就是并发）不同的操作。简而言之就是每秒内有多少个请求同时访问。</p>
 <p><strong>2. 负载均衡</strong></p>
@@ -181,7 +183,8 @@
 <p>可以发现，当每秒300个请求同时访问tomcat时，tomcat已经开始承受不住，出现波动。那么大型网站是如何处理高并发的呢？以下是高并发场景下，实现负载均衡的一个分布式架构图。</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx8uf0kaej20dw0bidkl.jpg" alt></p>
 <p>常见互联网分布式架构，分为客户端层、反向代理nginx层、站点层、服务层、数据层。只需要实现“将<strong>请求/数据</strong> 均匀分摊到多个操作单元上执行”，就能实现负载均衡。</p>
-<h2 id="什么是-Nginx"><a href="#什么是-Nginx" class="headerlink" title="什么是 Nginx"></a>什么是 Nginx</h2><p><strong>1. Nginx 的特点</strong></p>
+<h2 id="什么是-Nginx">什么是 Nginx</h2>
+<p><strong>1. Nginx 的特点</strong></p>
 <blockquote>
 <p>Nginx是一款轻量级的Web 服务器/<strong>反向代理</strong>服务器【后面有介绍】及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师Igor Sysoev所开发。</p>
 </blockquote>
@@ -191,16 +194,20 @@
 <p>目前世界各地使用Nginx服务器的大型公司有很多，包括国内的阿里巴巴、腾讯、京东、网易、优酷等等。并且有些大型公司进行了二次开发，做出了自己的框架，如阿里巴巴的 <strong>tengine</strong> 。</p>
 <p><strong>3. Nginx纵深对比其优缺点（相比Apache）</strong></p>
 <ul>
-<li><p>nginx相对于apache的优点：</p>
+<li>
+<p>nginx相对于apache的优点：</p>
 <p>轻量级，同样起web 服务，比apache 占用更少的内存及资源高并发，nginx 处理请求是<strong>异步非阻塞</strong>（如前端ajax）的，而apache 则是阻塞型的，在高并发下nginx能保持低资源低消耗高性能高度模块化的设计，编写模块相对简单还有，它社区活跃，各种高性能模块出品迅速（十几年时间发展）</p>
 </li>
-<li><p>apache 相对于nginx 的优点： </p>
+<li>
+<p>apache 相对于nginx 的优点：</p>
 <p>Rewrite重写 ，比nginx 的rewrite 强大模块超多，基本想到的都可以找到少bug ，nginx 的bug 相对较多。（出身好起步高）</p>
 </li>
-<li><p>Nginx 配置简洁, Apache 复杂。</p>
+<li>
+<p>Nginx 配置简洁, Apache 复杂。</p>
 </li>
 </ul>
-<h2 id="安装-Nginx-这里以tengine为例"><a href="#安装-Nginx-这里以tengine为例" class="headerlink" title="安装 Nginx(这里以tengine为例)"></a>安装 Nginx(这里以tengine为例)</h2><p><strong>1. 安装依赖</strong></p>
+<h2 id="安装-Nginx-这里以tengine为例">安装 Nginx(这里以tengine为例)</h2>
+<p><strong>1. 安装依赖</strong></p>
 <p>依赖 gcc openssl-devel pcre-devel zlib-devel</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">yum -y install gcc openssl-devel pcre-devel zlib-devel</span><br></pre></td></tr></table></figure>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx8uqhumnj20lw06hjrk.jpg" alt></p>
@@ -215,31 +222,33 @@
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 <p>编译安装好后，就会默认在 /usr/local/ 下生成 nginx 文件夹。</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx8vdxa1jj20dl0670sr.jpg" alt></p>
-<h2 id="nginx-命令"><a href="#nginx-命令" class="headerlink" title="nginx 命令"></a>nginx 命令</h2><p><strong>1. nginx 的启动</strong></p>
+<h2 id="nginx-命令">nginx 命令</h2>
+<p><strong>1. nginx 的启动</strong></p>
 <ul>
 <li>我们可以直接执行  /usr/local/nginx/sbin/ 下的 nginx 脚本启动。</li>
 </ul>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx8voufcdj20fw059dfz.jpg" alt></p>
 <ul>
-<li><p>还有一种方式就是将 nginx 添加至服务</p>
+<li>
+<p>还有一种方式就是将 nginx 添加至服务</p>
 <p>1、在/etc/rc.d/init.d/目录中建立文本文件nginx</p>
 <p>2、在文件中粘贴下面的内容：</p>
 </li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">#</span><br><span class="line"># nginx - this script starts and stops the nginx daemon</span><br><span class="line">#</span><br><span class="line"># chkconfig:   - 85 15 </span><br><span class="line"># description:  Nginx is an HTTP(S) server, HTTP(S) reverse \</span><br><span class="line">#               proxy and IMAP/POP3 proxy server</span><br><span class="line"># processname: nginx</span><br><span class="line"># config:      /etc/nginx/nginx.conf</span><br><span class="line"># config:      /etc/sysconfig/nginx</span><br><span class="line"># pidfile:     /var/run/nginx.pid</span><br><span class="line"> </span><br><span class="line"># Source function library.</span><br><span class="line">. /etc/rc.d/init.d/functions</span><br><span class="line"> </span><br><span class="line"># Source networking configuration.</span><br><span class="line">. /etc/sysconfig/network</span><br><span class="line"> </span><br><span class="line"># Check that networking is up.</span><br><span class="line">[ &quot;$NETWORKING&quot; = &quot;no&quot; ] &amp;&amp; exit 0</span><br><span class="line"> </span><br><span class="line">nginx=&quot;/usr/local/nginx/sbin/nginx&quot;</span><br><span class="line">prog=$(basename $nginx)</span><br><span class="line"> </span><br><span class="line">NGINX_CONF_FILE=&quot;/usr/local/nginx/conf/nginx.conf&quot;</span><br><span class="line"> </span><br><span class="line">[ -f /etc/sysconfig/nginx ] &amp;&amp; . /etc/sysconfig/nginx</span><br><span class="line"> </span><br><span class="line">lockfile=/var/lock/subsys/nginx</span><br><span class="line"> </span><br><span class="line">make_dirs() &#123;</span><br><span class="line">   # make required directories</span><br><span class="line">   user=`nginx -V 2&gt;&amp;1 | grep &quot;configure arguments:&quot; | sed &#x27;s/[^*]*--user=\([^ ]*\).*/\1/g&#x27; -`</span><br><span class="line">   options=`$nginx -V 2&gt;&amp;1 | grep &#x27;configure arguments:&#x27;`</span><br><span class="line">   for opt in $options; do</span><br><span class="line">       if [ `echo $opt | grep &#x27;.*-temp-path&#x27;` ]; then</span><br><span class="line">           value=`echo $opt | cut -d &quot;=&quot; -f 2`</span><br><span class="line">           if [ ! -d &quot;$value&quot; ]; then</span><br><span class="line">               # echo &quot;creating&quot; $value</span><br><span class="line">               mkdir -p $value &amp;&amp; chown -R $user $value</span><br><span class="line">           fi</span><br><span class="line">       fi</span><br><span class="line">   done</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">start() &#123;</span><br><span class="line">    [ -x $nginx ] || exit 5</span><br><span class="line">    [ -f $NGINX_CONF_FILE ] || exit 6</span><br><span class="line">    make_dirs</span><br><span class="line">    echo -n $&quot;Starting $prog: &quot;</span><br><span class="line">    daemon $nginx -c $NGINX_CONF_FILE</span><br><span class="line">    retval=$?</span><br><span class="line">    echo</span><br><span class="line">    [ $retval -eq 0 ] &amp;&amp; touch $lockfile</span><br><span class="line">    return $retval</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">stop() &#123;</span><br><span class="line">    echo -n $&quot;Stopping $prog: &quot;</span><br><span class="line">    killproc $prog -QUIT</span><br><span class="line">    retval=$?</span><br><span class="line">    echo</span><br><span class="line">    [ $retval -eq 0 ] &amp;&amp; rm -f $lockfile</span><br><span class="line">    return $retval</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">restart() &#123;</span><br><span class="line">    configtest || return $?</span><br><span class="line">    stop</span><br><span class="line">    sleep 1</span><br><span class="line">    start</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">reload() &#123;</span><br><span class="line">    configtest || return $?</span><br><span class="line">    echo -n $&quot;Reloading $prog: &quot;</span><br><span class="line">    killproc $nginx -HUP</span><br><span class="line">    RETVAL=$?</span><br><span class="line">    echo</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">force_reload() &#123;</span><br><span class="line">    restart</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">configtest() &#123;</span><br><span class="line">  $nginx -t -c $NGINX_CONF_FILE</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">rh_status() &#123;</span><br><span class="line">    status $prog</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">rh_status_q() &#123;</span><br><span class="line">    rh_status &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">    start)</span><br><span class="line">        rh_status_q &amp;&amp; exit 0</span><br><span class="line">        $1</span><br><span class="line">        ;;</span><br><span class="line">    stop)</span><br><span class="line">        rh_status_q || exit 0</span><br><span class="line">        $1</span><br><span class="line">        ;;</span><br><span class="line">    restart|configtest)</span><br><span class="line">        $1</span><br><span class="line">        ;;</span><br><span class="line">    reload)</span><br><span class="line">        rh_status_q || exit 7</span><br><span class="line">        $1</span><br><span class="line">        ;;</span><br><span class="line">    force-reload)</span><br><span class="line">        force_reload</span><br><span class="line">        ;;</span><br><span class="line">    status)</span><br><span class="line">        rh_status</span><br><span class="line">        ;;</span><br><span class="line">    condrestart|try-restart)</span><br><span class="line">        rh_status_q || exit 0</span><br><span class="line">            ;;</span><br><span class="line">    *)</span><br><span class="line">        echo $&quot;Usage: $0 &#123;start|stop|status|restart|condrestart|try-restart|reload|force-reload|configtest&#125;&quot;</span><br><span class="line">        exit 2</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
-<ol>
+<ol start="3">
 <li>修改nginx文件的执行权限</li>
 </ol>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">chmod +x nginx</span><br></pre></td></tr></table></figure>
-<ol>
+<ol start="4">
 <li>添加该文件到系统服务中去</li>
 </ol>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">chkconfig --add nginx</span><br></pre></td></tr></table></figure>
-<ol>
+<ol start="5">
 <li>查看是否添加成功</li>
 </ol>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">chkconfig --list nginx</span><br></pre></td></tr></table></figure>
-<ol>
+<ol start="6">
 <li>启动，停止，重新装载</li>
 </ol>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">service nginx start|stop</span><br></pre></td></tr></table></figure>
@@ -247,8 +256,11 @@
 <p>启动后，访问虚拟机的80端口，可查看到以下界面。</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx936qj03j20hw069t8u.jpg" alt></p>
 <p>当出现以上信息，说明安装启动成功。</p>
-<h2 id="Nginx-配置"><a href="#Nginx-配置" class="headerlink" title="Nginx 配置"></a>Nginx 配置</h2><h3 id="nginx默认配置详解"><a href="#nginx默认配置详解" class="headerlink" title="nginx默认配置详解"></a>nginx默认配置详解</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">#进程数，建议设置和CPU个数一样或2倍</span><br><span class="line">worker_processes  2;</span><br><span class="line"></span><br><span class="line">#日志级别</span><br><span class="line">error_log  logs/error.log  warning;(默认error级别)</span><br><span class="line"></span><br><span class="line"># nginx 启动后的pid 存放位置</span><br><span class="line">#pid        logs/nginx.pid;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">	#配置每个进程的连接数，总的连接数= worker_processes * worker_connections</span><br><span class="line">    #默认1024</span><br><span class="line">    worker_connections  10240;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line">    sendfile        on;</span><br><span class="line">#连接超时时间，单位秒</span><br><span class="line">keepalive_timeout  65;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost                 </span><br><span class="line">        #默认请求</span><br><span class="line">  		location / &#123;</span><br><span class="line">    				 root  html;   #定义服务器的默认网站根目录位置</span><br><span class="line">   				  index  index.php index.html index.htm;  #定义首页索引文件的名称</span><br><span class="line">        &#125;</span><br><span class="line">	    #定义错误提示页面</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="负载均衡配置"><a href="#负载均衡配置" class="headerlink" title="负载均衡配置"></a>负载均衡配置</h3><p>nginx支持以下负载均衡机制（或方法）：</p>
+<h2 id="Nginx-配置">Nginx 配置</h2>
+<h3 id="nginx默认配置详解">nginx默认配置详解</h3>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">#进程数，建议设置和CPU个数一样或2倍</span><br><span class="line">worker_processes  2;</span><br><span class="line"></span><br><span class="line">#日志级别</span><br><span class="line">error_log  logs/error.log  warning;(默认error级别)</span><br><span class="line"></span><br><span class="line"># nginx 启动后的pid 存放位置</span><br><span class="line">#pid        logs/nginx.pid;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">	#配置每个进程的连接数，总的连接数= worker_processes * worker_connections</span><br><span class="line">    #默认1024</span><br><span class="line">    worker_connections  10240;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line">    sendfile        on;</span><br><span class="line">#连接超时时间，单位秒</span><br><span class="line">keepalive_timeout  65;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost                 </span><br><span class="line">        #默认请求</span><br><span class="line">  		location / &#123;</span><br><span class="line">    				 root  html;   #定义服务器的默认网站根目录位置</span><br><span class="line">   				  index  index.php index.html index.htm;  #定义首页索引文件的名称</span><br><span class="line">        &#125;</span><br><span class="line">	    #定义错误提示页面</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="负载均衡配置">负载均衡配置</h3>
+<p>nginx支持以下负载均衡机制（或方法）：</p>
 <p><strong>1. 轮询负载均衡 - 对应用程序服务器的请求以循环方式分发（默认此方式）</strong></p>
 <blockquote>
 <p>如果没有专门配置负载均衡方法，则默认为循环法。所有请求都被 <a href="#proxy_pass">代理</a>到服务器组shsxt，并且nginx应用HTTP负载平衡来分发请求。</p>
@@ -274,7 +286,8 @@
 <p>Nginx还可以对IP的访问进行控制，allow代表允许，deny代表禁止。</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">	deny 192.168.2.180;</span><br><span class="line">	allow 192.168.78.0/24;</span><br><span class="line">	allow 10.1.1.0/16;</span><br><span class="line">	allow 192.168.1.0/32;</span><br><span class="line">	deny all;</span><br><span class="line">	proxy_pass http://shsxt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>从上到下的顺序，匹配到了便跳出。如上的例子先禁止了1个，接下来允许了3个网段，其中包含了一个ipv6，最后未匹配的IP全部禁止访问。</p>
-<h2 id="虚拟主机"><a href="#虚拟主机" class="headerlink" title="虚拟主机"></a>虚拟主机</h2><p><strong>1. 何为虚拟主机</strong></p>
+<h2 id="虚拟主机">虚拟主机</h2>
+<p><strong>1. 何为虚拟主机</strong></p>
 <p>虚拟主机就是把一台物理服务器划分成多个“虚拟”的服务器，各个虚拟主机之间完全独立，在外界看来，每一台虚拟主机和一台单独的主机的表现完全相同。所以这种被虚拟化的逻辑主机被形象地称为“虚拟主机”。</p>
 <p><strong>2. 虚拟主机的特点和优点</strong></p>
 <p>由于多台虚拟主机共享一台真实主机的资源，每个虚拟主机用户承受的硬件费用、网络维护费用、通信线路的费用均大幅度降低。许多企业建立网站都采用这种方法，这样不仅大大节省了购买机器和租用专线的费用，<a href="https://www.baidu.com/s?wd=%E7%BD%91%E7%AB%99%E6%9C%8D%E5%8A%A1%E5%99%A8&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1dWrjFbPvNbPyn4nhnzrj7h0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3ErHD4n163nH6knHnsP1mzPWb4" rel="external nofollow noopener noreferrer" target="_blank">网站服务器</a>服务器管理简单，诸如软件配置、防病毒、防攻击等安全措施都由专业服务商提供，大大简化了服务器管理的复杂性；同时也不必为使用和维护服务器的技术问题担心，更不必聘用专门的管理人员。</p>
@@ -287,32 +300,39 @@
 <li>基于端口的虚拟主机，通过端口来区分虚拟主机</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">http &#123; </span><br><span class="line">    upstream shsxt&#123; </span><br><span class="line">        server node01; </span><br><span class="line">        server node02; </span><br><span class="line">&#125; </span><br><span class="line">	upstream bjsxt&#123; </span><br><span class="line">        server node03</span><br><span class="line">    &#125; </span><br><span class="line"> server &#123; </span><br><span class="line">//当访问nginx的80端口时，将请求导给bjsxt组</span><br><span class="line">        listen 8080; </span><br><span class="line">        server_name localhost;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://bjsxt;</span><br><span class="line">        &#125;</span><br><span class="line">&#125; </span><br><span class="line">server &#123; </span><br><span class="line"> //当访问nginx的81端口时，将请求导给shsxt组</span><br><span class="line">        listen 81; </span><br><span class="line">        server_name localhost;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://shsxt;</span><br><span class="line">        &#125;</span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="正向代理和反向代理"><a href="#正向代理和反向代理" class="headerlink" title="正向代理和反向代理"></a>正向代理和反向代理</h2><h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><blockquote>
+<h2 id="正向代理和反向代理">正向代理和反向代理</h2>
+<h3 id="正向代理">正向代理</h3>
+<blockquote>
 <p>举个例子：我是一个用户，我访问不了某网站，但是我能访问一个代理服务器，这个代理服务器呢,他能访问那个我不能访问的网站，于是我先连上代理服务器,告诉他我需要那个无法访问网站的内容，代理服务器去取回来,然后返回给我。像我们经常通过vpn访问国外的网站，此时就是正向代理。</p>
 </blockquote>
 <p><strong>客户端必须设置正向代理服务器，当然前提是要知道正向代理服务器的IP地址，还有代理程序的端口。</strong></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx93pnlskj20fe07875y.jpg" alt></p>
-<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><p><strong>反向代理（Reverse Proxy）</strong>方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。</p>
+<h3 id="反向代理">反向代理</h3>
+<p>**反向代理（Reverse Proxy）**方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx93z8kubj20bu080405.jpg" alt></p>
 <blockquote>
-<p>反向代理隐藏了真实的服务端，当我们请求 www.baidu.com 的时候，就像拨打 10086 一样，背后可能有成千上万台服务器为我们服务，但具体是哪一台，你不知道，也不需要知道，你只需要知道反向代理服务器是谁就好了，www.baidu.com 就是我们的反向代理服务器，反向代理服务器会帮我们把请求转发到真实的服务器那里去。</p>
+<p>反向代理隐藏了真实的服务端，当我们请求 <a href="http://www.baidu.com" rel="external nofollow noopener noreferrer" target="_blank">www.baidu.com</a> 的时候，就像拨打 10086 一样，背后可能有成千上万台服务器为我们服务，但具体是哪一台，你不知道，也不需要知道，你只需要知道反向代理服务器是谁就好了，<a href="http://www.baidu.com" rel="external nofollow noopener noreferrer" target="_blank">www.baidu.com</a> 就是我们的反向代理服务器，反向代理服务器会帮我们把请求转发到真实的服务器那里去。</p>
 </blockquote>
 <p><strong>Nginx 就是性能非常好的反向代理服务器，用来做负载均衡。</strong></p>
-<h2 id="关于Nginx中的session共享"><a href="#关于Nginx中的session共享" class="headerlink" title="关于Nginx中的session共享"></a>关于Nginx中的session共享</h2><p>http协议是无状态的，即你连续访问某个网页100次和访问1次对服务器来说是没有区别对待的，因为它记不住你。</p>
+<h2 id="关于Nginx中的session共享">关于Nginx中的session共享</h2>
+<p>http协议是无状态的，即你连续访问某个网页100次和访问1次对服务器来说是没有区别对待的，因为它记不住你。</p>
 <p>那么，在一些场合，确实需要服务器记住当前用户怎么办？比如用户登录邮箱后，接下来要收邮件、写邮件，总不能每次操作都让用户输入用户名和密码吧，为了解决这个问题，session的方案就被提了出来，事实上它并不是什么新技术，而且也不能脱离http协议以及任何现有的web技术。</p>
 <blockquote>
 <p>session的常见实现形式是会话cookie（session cookie），即未设置过期时间的cookie，这个cookie的默认生命周期为浏览器会话期间，只要关闭浏览器窗口，cookie就消失了。</p>
 </blockquote>
-<h3 id="Session-共享"><a href="#Session-共享" class="headerlink" title="Session 共享"></a>Session 共享</h3><blockquote>
+<h3 id="Session-共享">Session 共享</h3>
+<blockquote>
 <p>先我们应该明白，为什么要实现共享？</p>
 </blockquote>
 <p>如果你的网站是存放在一个机器上，那么是不存在这个问题的，因为会话数据就在这台机器，但是如果你使用了负载均衡把请求分发到不同的机器呢？这个时候会话id在客户端是没有问题的，但是如果用户的两次请求到了两台不同的机器，而它的session数据可能存在其中一台机器，这个时候就会出现取不到session数据的情况，于是session的共享就成了一个问题。</p>
-<h3 id="Session-一致性解决方案"><a href="#Session-一致性解决方案" class="headerlink" title="Session 一致性解决方案"></a>Session 一致性解决方案</h3><p><strong>1. session复制</strong></p>
+<h3 id="Session-一致性解决方案">Session 一致性解决方案</h3>
+<p><strong>1. session复制</strong></p>
 <p>tomcat 本身带有复制session的功能。</p>
 <p><strong>2、共享session</strong></p>
 <p>需要专门管理session的软件。</p>
 <p>memcached 缓存服务，可以和tomcat整合，帮助tomcat共享管理session。</p>
-<h3 id="安装使用-memcached"><a href="#安装使用-memcached" class="headerlink" title="安装使用 memcached"></a>安装使用 memcached</h3><p><strong>1. 安装 memcached 内存数据库</strong></p>
+<h3 id="安装使用-memcached">安装使用 memcached</h3>
+<p><strong>1. 安装 memcached 内存数据库</strong></p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">yum –y install memcached</span><br></pre></td></tr></table></figure>
 <p><strong>2. 启动可以用 telnet localhost 11211</strong></p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">memcached -d -m 128m -p 11211 -l 192.168.235.113 -u root -P /tmp/</span><br></pre></td></tr></table></figure>

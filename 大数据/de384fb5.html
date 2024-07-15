@@ -157,17 +157,21 @@
     })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="风雨欲来兮丶" type="application/atom+xml">
 </head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/butterfly.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="风雨欲来兮丶"><span class="site-name">风雨欲来兮丶</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Spark计算框架（二）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2017-12-18T16:00:00.000Z" title="发表于 2017-12-19 00:00:00">2017-12-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-08-10T13:45:42.000Z" title="更新于 2019-08-10 21:45:42">2019-08-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="Spark计算框架（二）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>关于Spark的任务提交方式，总的分为 Client 提交和 Cluster 提交两种。这里以 Standalone 和 Yarn 为例详细阐述他们在 Spark 中提交任务的流程。</p>
 <span id="more"></span>
-<h2 id="Spark任务提交方式"><a href="#Spark任务提交方式" class="headerlink" title="Spark任务提交方式"></a>Spark任务提交方式</h2><blockquote>
+<h2 id="Spark任务提交方式">Spark任务提交方式</h2>
+<blockquote>
 <p>注意：使用Standalone-Cluster方式提交任务时，必须保证所有的节点上（放在Spark/lib/ 下）都有这个jar包，示例中使用的jar包系统默认都有。但使用Yarn方式时只需提交的节点存在jar包即可，因为在Yarn中会共享这个jar包！！！</p>
 </blockquote>
-<h3 id="Standalone方式"><a href="#Standalone方式" class="headerlink" title="Standalone方式"></a>Standalone方式</h3><p><strong>1、Standalone-Client 提交</strong></p>
+<h3 id="Standalone方式">Standalone方式</h3>
+<p><strong>1、Standalone-Client 提交</strong></p>
 <ul>
-<li><p>提交命令</p>
+<li>
+<p>提交命令</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./spark-submit --master spark://sean01:7077 --class org.apache.spark.examples.SparkPi ../lib/spark-examples-1.6.0-hadoop2.6.0.jar 100</span><br></pre></td></tr></table></figure>
 <p>或者</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./spark-submit --master spark://sean01:7077 --deploy-mode client --class org.apache.spark.examples.SparkPi ../lib/spark-examples-1.6.0-hadoop2.6.0.jar 100</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 默认就是 --deploy-mode client</span></span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>执行原理图解</p>
+<li>
+<p>执行原理图解</p>
 </li>
 </ul>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g09pcppqtkj20gl0al0us.jpg" alt></p>
@@ -181,30 +185,37 @@
 <li>worker 将 task 执行结果返回到 Driver 端。</li>
 </ol>
 <ul>
-<li><p>总结：</p>
+<li>
+<p>总结：</p>
 <p>client 模式适用于测试调试程序。Driver 进程是在客户端启动的，这里的<code>客户端就是指提交应用程序的当前节点</code>。在 Driver 端可以看到 task 执行的情况。生产环境下不能使用 client 模式，是因为：假设要提交 100 个 application 到集群运行，Driver 每次都会在 client 端启动，那么就会导致客户端 100 次网卡流量暴增的问题。</p>
 </li>
 </ul>
 <p><strong>2、Standalone-Cluster 提交</strong></p>
 <ul>
-<li><p>提交命令</p>
+<li>
+<p>提交命令</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./spark-submit --master spark://sean01:7077 --deploy-mode cluster --class org.apache.spark.examples.SparkPi ../lib/spark-examples-1.6.0-hadoop2.6.0.jar 100</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><code>注意：</code> Standalone-cluster 提交方式，应用程序使用的所有 jar 包和文件，必须保证所有的 worker 节点都要有，因为此种方式，spark 不会自动上传包。<br>解决方式：</p>
+<p><code>注意：</code> Standalone-cluster 提交方式，应用程序使用的所有 jar 包和文件，必须保证所有的 worker 节点都要有，因为此种方式，spark 不会自动上传包。<br>
+解决方式：</p>
 <ol>
-<li><p>将所有的依赖包和文件打到同一个包中，然后放在 hdfs 上。</p>
+<li>
+<p>将所有的依赖包和文件打到同一个包中，然后放在 hdfs 上。</p>
 </li>
-<li><p>将所有的依赖包和文件各放一份在 worker 节点上。</p>
+<li>
+<p>将所有的依赖包和文件各放一份在 worker 节点上。</p>
 </li>
 </ol>
 </blockquote>
 </li>
-<li><p>执行原理图解</p>
+<li>
+<p>执行原理图解</p>
 </li>
 </ul>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g09pjondfuj20i30atq5a.jpg" alt></p>
 <ul>
-<li><p>执行流程</p>
+<li>
+<p>执行流程</p>
 <ol>
 <li>cluster 模式提交应用程序后，会向 Master 请求启动 Driver.</li>
 <li>Master 接受请求，随机在集群一台节点启动 Driver 进程。</li>
@@ -213,7 +224,8 @@
 <li>worker 将执行情况和执行结果返回给 Driver 端。</li>
 </ol>
 </li>
-<li><p>总结：</p>
+<li>
+<p>总结：</p>
 <p>Driver 进程是在集群某一台 Worker 上启动的，在客户端是无法查看 task 的执行情况的。假设要提交 100 个 application 到集群运行,每次 Driver 会随机在集群中某一台 Worker 上启动，那么这 100 次网卡流量暴增的问题就散布在集群上。</p>
 </li>
 </ul>
@@ -226,21 +238,25 @@
 <li>监控 task 执行情况。</li>
 </ol>
 </blockquote>
-<h3 id="Yarn方式"><a href="#Yarn方式" class="headerlink" title="Yarn方式"></a>Yarn方式</h3><p><strong>1、yarn-client 提交</strong></p>
+<h3 id="Yarn方式">Yarn方式</h3>
+<p><strong>1、yarn-client 提交</strong></p>
 <ul>
-<li><p>提交命令</p>
+<li>
+<p>提交命令</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./spark-submit --master yarn --class org.apache.spark.examples.SparkPi ../lib/spark-examples-1.6.0-hadoop2.6.0.jar 100</span><br></pre></td></tr></table></figure>
 <p>或者</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./spark-submit --master yarn-client --class org.apache.spark.examples.SparkPi ../lib/spark-examples-1.6.0-hadoop2.6.0.jar 100</span><br></pre></td></tr></table></figure>
 <p>或者</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./spark-submit --master yarn --deploy-mode client --class org.apache.spark.examples.SparkPi ../lib/spark-examples-1.6.0-hadoop2.6.0.jar 100</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>执行原理图解</p>
+<li>
+<p>执行原理图解</p>
 </li>
 </ul>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g09psb2xygj20gw0bcwgg.jpg" alt></p>
 <ul>
-<li><p>执行流程</p>
+<li>
+<p>执行流程</p>
 <ol>
 <li>客户端提交一个 Application，并启动一个 Driver 进程。</li>
 <li>应用程序启动后会向 RS(ResourceManager)发送请求，启动AM(ApplicationMaster)的资源。</li>
@@ -251,7 +267,8 @@
 <li>Executor 启动后，会反向注册给 Driver，Driver 发送 task 到 Executor，并回收执行情况和结果。</li>
 </ol>
 </li>
-<li><p>总结</p>
+<li>
+<p>总结</p>
 <p>Yarn-client 模式同样是适用于测试，因为 Driver 运行在本地，Driver会与 yarn 集群中的 Executor 进行大量的通信，会造成客户机网卡流量的大量增加.</p>
 </li>
 </ul>
@@ -265,15 +282,18 @@
 </blockquote>
 <p><strong>2、yarn-cluster 提交</strong></p>
 <ul>
-<li><p>提交任务</p>
+<li>
+<p>提交任务</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./spark-submit --master yarn --deploy-mode cluster --class org.apache.spark.examples.SparkPi ../lib/spark-examples-1.6.0-hadoop2.6.0.jar 100</span><br></pre></td></tr></table></figure>
 <p>或者</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./spark-submit --master yarn-cluster --class org.apache.spark.examples.SparkPi ../lib/spark-examples-1.6.0-hadoop2.6.0.jar 100</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>执行原理图</p>
+<li>
+<p>执行原理图</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g09py5rscsj20hi0aptag.jpg" alt></p>
 </li>
-<li><p>执行流程</p>
+<li>
+<p>执行流程</p>
 <ol>
 <li>客户机提交 Application 应用程序，发送请求到 RS(ResourceManager)，请求启动 AM(ApplicationMaster)，Driver在AM中启动运行。</li>
 <li>RS 收到请求后随机在一台 NM(NodeManager)上启动 AM（相当于 Driver 端）。</li>
@@ -283,7 +303,8 @@
 <li>Excutor 反向注册到 AM 所在的节点的 Driver。Driver 发送 task 到 Excutor并回收结果。</li>
 </ol>
 </li>
-<li><p>总结</p>
+<li>
+<p>总结</p>
 <p>Yarn-Cluster 主要用于生产环境中，因为 Driver 运行在 Yarn 集群中某一台 nodeManager 中，每次提交任务的 Driver 所在的机器都是随机的，不会产生某一台机器网卡流量激增的现象，缺点是任务提交后不能看到日志。只能通过 yarn 查看日志。</p>
 </li>
 </ul>
@@ -295,7 +316,9 @@
 <li>任务调度。</li>
 </ol>
 </blockquote>
-<h2 id="补充部分算子"><a href="#补充部分算子" class="headerlink" title="补充部分算子"></a>补充部分算子</h2><h3 id="transformation"><a href="#transformation" class="headerlink" title="transformation"></a>transformation</h3><p><strong>join、leftOuterJoin、rightOuterJoin、fullOuterJoin</strong></p>
+<h2 id="补充部分算子">补充部分算子</h2>
+<h3 id="transformation">transformation</h3>
+<p><strong>join、leftOuterJoin、rightOuterJoin、fullOuterJoin</strong></p>
 <p>作用在 K,V 格式的 RDD 上。根据 K 进行连接，对（K,V）join(K,W)返回（K,(V,W)）</p>
 <p><code>join 后的分区数与父 RDD 分区数多的那一个相同。</code></p>
 <p><strong>union</strong></p>
@@ -311,10 +334,13 @@
 <p>对相同的值进行去重</p>
 <p><strong>cogroup</strong></p>
 <p>当调用类型（K，V）和（K，W）的数据上时，返回一个数据集（K，（Iterable &lt; V &gt;，Iterable &lt; W &gt;））</p>
-<h3 id="action"><a href="#action" class="headerlink" title="action"></a>action</h3><p><strong>foreachPartition</strong></p>
+<h3 id="action">action</h3>
+<p><strong>foreachPartition</strong></p>
 <p>遍历的数据是每个 partition 的数据。</p>
-<h2 id="术语解释"><a href="#术语解释" class="headerlink" title="术语解释"></a>术语解释</h2><p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g09qez6n2xj20j90am770.jpg" alt></p>
-<h2 id="窄依赖和宽依赖"><a href="#窄依赖和宽依赖" class="headerlink" title="窄依赖和宽依赖"></a>窄依赖和宽依赖</h2><p>RDD 之间有一系列的依赖关系，依赖关系又分为窄依赖和宽依赖。</p>
+<h2 id="术语解释">术语解释</h2>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g09qez6n2xj20j90am770.jpg" alt></p>
+<h2 id="窄依赖和宽依赖">窄依赖和宽依赖</h2>
+<p>RDD 之间有一系列的依赖关系，依赖关系又分为窄依赖和宽依赖。</p>
 <p><strong>窄依赖</strong></p>
 <p>父 RDD 和子 RDD partition 之间的关系是一对一或多对一。不会有 shuffle 的产生。</p>
 <p><strong>宽依赖</strong></p>
@@ -322,7 +348,8 @@
 <p><strong>宽窄依赖图理解</strong></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0aen5mmh0j20j908fdgi.jpg" alt></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0aen0atgrj20fv0a1gr4.jpg" alt></p>
-<h2 id="Stage"><a href="#Stage" class="headerlink" title="Stage"></a>Stage</h2><p>Spark 任务会根据 RDD 之间的依赖关系，形成一个 DAG 有向无环图，DAG 会提交给 DAGScheduler，DAGScheduler 会把 DAG 划分成相互依赖的多个 stage，划分 stage 的依据就是 RDD 之间的宽窄依赖。遇到宽依赖就划分 stage，每个 stage 包含一个或多个 task 任务。然后将这些 task 以 taskSet 的形式提交给 TaskScheduler 运行。</p>
+<h2 id="Stage">Stage</h2>
+<p>Spark 任务会根据 RDD 之间的依赖关系，形成一个 DAG 有向无环图，DAG 会提交给 DAGScheduler，DAGScheduler 会把 DAG 划分成相互依赖的多个 stage，划分 stage 的依据就是 RDD 之间的宽窄依赖。遇到宽依赖就划分 stage，每个 stage 包含一个或多个 task 任务。然后将这些 task 以 taskSet 的形式提交给 TaskScheduler 运行。</p>
 <p>stage 是由一组并行的 task 组成。</p>
 <p><strong>stage 切割规则</strong></p>
 <p>从后往前追溯，遇到宽依赖就切割 stage。</p>
@@ -333,9 +360,11 @@
 <blockquote>
 <p><strong>1、数据一直在管道里面什么时候数据会落地？</strong></p>
 <ul>
-<li><p>对 RDD 进行持久化（cache，persist，checkPoint）。</p>
+<li>
+<p>对 RDD 进行持久化（cache，persist，checkPoint）。</p>
 </li>
-<li><p>shuffle write 的时候。</p>
+<li>
+<p>shuffle write 的时候。</p>
 </li>
 </ul>
 <p><strong>2、Stage 的 的 task  并行度是由 stage  的最后一个 RDD  的分区数来决定的。</strong></p>
@@ -344,7 +373,8 @@
 </blockquote>
 <p><strong>测试验证 pipeline 计算模式</strong></p>
 <figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>()</span><br><span class="line">conf.setMaster(<span class="string">&quot;local&quot;</span>).setAppName(<span class="string">&quot;pipeline&quot;</span>);</span><br><span class="line"><span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"><span class="keyword">val</span> rdd = sc.parallelize(<span class="type">Array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line"><span class="keyword">val</span> rdd1 = rdd.map &#123; x =&gt; &#123;</span><br><span class="line">println(<span class="string">&quot;map--------&quot;</span>+x)</span><br><span class="line">x</span><br><span class="line">&#125;&#125;</span><br><span class="line"><span class="keyword">val</span> rdd2 = rdd1.filter &#123; x =&gt; &#123;</span><br><span class="line">println(<span class="string">&quot;fliter********&quot;</span>+x)</span><br><span class="line"><span class="literal">true</span></span><br><span class="line">&#125; &#125;</span><br><span class="line">rdd2.collect()</span><br><span class="line">sc.stop()</span><br></pre></td></tr></table></figure>
-<h2 id="Spark资源划分和任务调度"><a href="#Spark资源划分和任务调度" class="headerlink" title="Spark资源划分和任务调度"></a>Spark资源划分和任务调度</h2><p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0ase7u6u9j20j90axwiu.jpg" alt></p>
+<h2 id="Spark资源划分和任务调度">Spark资源划分和任务调度</h2>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0ase7u6u9j20j90axwiu.jpg" alt></p>
 <p><strong>Spark 资源划分和任务调度的流程：</strong></p>
 <p>1、启动集群后，Worker 节点会向 Master 节点汇报资源情况，Master 掌握了集群资源情况。</p>
 <p>2、当 Spark 提交一个 Application 后，根据 RDD 之间的依赖关系将 Application 形成一个 <code>DAG 有向无环图</code>。</p>
@@ -361,12 +391,14 @@
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0ask0icvyj20j909qq8g.jpg" alt></p>
 <p><strong>粗粒度资源申请和细粒度资源申请</strong></p>
 <ul>
-<li><p>粗粒度资源申请(Spark）</p>
+<li>
+<p>粗粒度资源申请(Spark）</p>
 <p>在 Application 执行之前，将所有的资源申请完毕，当资源申请成功后，才会进行任务的调度，当所有的 task 执行完成后，才会释放这部分资源。</p>
 <p><code>优点：</code>每个 task 不需要在执行前自己去申请资源，直接使用就可以了。这样 task 启动就快了，task 执行快了，stage 执行就快了，job 就快了，application 执行就快了。</p>
 <p><code>缺点：</code>直到最后一个 task 执行完成才会释放资源，集群的资源无法充分利用。</p>
 </li>
-<li><p>细粒度资源申请</p>
+<li>
+<p>细粒度资源申请</p>
 <p>Application 执行之前不需要先去申请资源，而是直接执行，让 job中的每个 task 在执行前自己去申请资源，task 执行完成就释放资源。</p>
 <p><code>优点：</code>集群的资源可以充分利用。</p>
 <p><code>缺点：</code>task 自己去申请资源，task 启动变慢，Application 的运行就相应的变慢了。</p>

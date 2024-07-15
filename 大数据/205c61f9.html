@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Hadoop2.X | 风雨欲来兮丶</title><meta name="author" content="SeanXia"><meta name="copyright" content="SeanXia"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Hadoop 2.0 产生背景根本原因：Hadoop 1.0 中 HDFS 和 MapReduce 在高可用、扩展性等方面存在问题。">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Hadoop2.X | 风雨欲来兮丶</title><meta name="author" content="SeanXia"><meta name="copyright" content="SeanXia"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Hadoop 2.0 产生背景 根本原因：Hadoop 1.0 中 HDFS 和 MapReduce 在高可用、扩展性等方面存在问题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop2.X">
 <meta property="og:url" content="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/205c61f9.html">
 <meta property="og:site_name" content="风雨欲来兮丶">
-<meta property="og:description" content="Hadoop 2.0 产生背景根本原因：Hadoop 1.0 中 HDFS 和 MapReduce 在高可用、扩展性等方面存在问题。">
+<meta property="og:description" content="Hadoop 2.0 产生背景 根本原因：Hadoop 1.0 中 HDFS 和 MapReduce 在高可用、扩展性等方面存在问题。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg">
 <meta property="article:published_time" content="2017-05-26T16:00:00.000Z">
@@ -155,7 +155,8 @@
       }
       detectApple()
     })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="风雨欲来兮丶" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/butterfly.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="风雨欲来兮丶"><span class="site-name">风雨欲来兮丶</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Hadoop2.X</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2017-05-26T16:00:00.000Z" title="发表于 2017-05-27 00:00:00">2017-05-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-08-10T13:44:34.000Z" title="更新于 2019-08-10 21:44:34">2019-08-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="Hadoop2.X"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Hadoop-2-0-产生背景"><a href="#Hadoop-2-0-产生背景" class="headerlink" title="Hadoop 2.0 产生背景"></a>Hadoop 2.0 产生背景</h2><p>根本原因：Hadoop 1.0 中 HDFS 和 MapReduce 在高可用、扩展性等方面存在问题。</p>
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/butterfly.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="风雨欲来兮丶"><span class="site-name">风雨欲来兮丶</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Hadoop2.X</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2017-05-26T16:00:00.000Z" title="发表于 2017-05-27 00:00:00">2017-05-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-08-10T13:44:34.000Z" title="更新于 2019-08-10 21:44:34">2019-08-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="Hadoop2.X"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Hadoop-2-0-产生背景">Hadoop 2.0 产生背景</h2>
+<p>根本原因：Hadoop 1.0 中 HDFS 和 MapReduce 在高可用、扩展性等方面存在问题。</p>
 <span id="more"></span>
 <p><strong>1. HDFS 存在的问题</strong></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx81pkz9rj20fe08nn12.jpg" alt></p>
@@ -168,9 +169,10 @@
 <li>JobTracker 访问压力大，影响系统扩展性。</li>
 <li>难以支持除 MapReduce 之外的计算框架，比如 Spark、Storm 等。</li>
 </ul>
-<h2 id="Hadoop-2-X"><a href="#Hadoop-2-X" class="headerlink" title="Hadoop 2.X"></a>Hadoop 2.X</h2><p><strong>1. 系统架构</strong></p>
+<h2 id="Hadoop-2-X">Hadoop 2.X</h2>
+<p><strong>1. 系统架构</strong></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx824mql9j20u00ci77t.jpg" alt></p>
-<p> Hadoop 2.x 由 HDFS、MapReduce 和 YARN 三个分支构：</p>
+<p>Hadoop 2.x 由 HDFS、MapReduce 和 YARN 三个分支构：</p>
 <ul>
 <li><strong>HDFS</strong>：分布式文件存储系统</li>
 <li><strong>YARN</strong>：资源管理系统</li>
@@ -178,44 +180,55 @@
 </ul>
 <p><strong>2. 解决的问题</strong></p>
 <ul>
-<li><p>解决单点故障问题</p>
+<li>
+<p>解决单点故障问题</p>
 <p>HDFS HA：通过主备 NameNode 解决，如果主 NameNode 发生故障，则切换到备 NameNode 上。</p>
 </li>
-<li><p>解决内存受限问题</p>
+<li>
+<p>解决内存受限问题</p>
 <p>HDFS Federation（联邦机制）、<strong>HA</strong></p>
 </li>
 </ul>
 <p><strong>3. 新的变化</strong></p>
-<p>​    2.x 支持2个 NN 节点的 HA，3.0实现了 NN 一主多从。</p>
+<p>​	2.x 支持2个 NN 节点的 HA，3.0实现了 NN 一主多从。</p>
 <ul>
 <li>水平扩展，支持多个 NameNode</li>
 <li>每个 NameNode 分管一部分目录</li>
 <li>所有 NameNode 共享所有 DataNode 存储资源</li>
 </ul>
 <p><strong>注意：2.x仅是架构上发生了变化，使用方式不变</strong></p>
-<h2 id="HDFS-2-0-HA高可用"><a href="#HDFS-2-0-HA高可用" class="headerlink" title="HDFS 2.0 HA高可用"></a>HDFS 2.0 HA高可用</h2><h3 id="NameNode的HA"><a href="#NameNode的HA" class="headerlink" title="NameNode的HA"></a>NameNode的HA</h3><p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx82hakwuj20hh0b00xj.jpg" alt></p>
+<h2 id="HDFS-2-0-HA高可用">HDFS 2.0 HA高可用</h2>
+<h3 id="NameNode的HA">NameNode的HA</h3>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx82hakwuj20hh0b00xj.jpg" alt></p>
 <p><strong>1、实现原理</strong></p>
 <p>配置的HA的HDFS，所有NameSpace的NameNode节点在启动加载完元数据之后都处于Standby状态，之后被手动或自动的选择一个NameNode节点作为Active节点而开始正常工作。HA的自动方式是通过在每一个NameNode的本地启动一个<strong>守护进程 ZKFailoverController</strong> 来竞争Active NameNode的，ZKFailoverController除了为本地的NameNode争取Active角色之外，还负责监控本地的NN节点当前是否正常的，一旦它发现本地的NN不正常，就会主动替当前的Active NN退出Active角色或退出Active的竞争。</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzht1tqaz4j20ka0chabf.jpg" alt></p>
 <p><strong>2、JN (JournalNode) 实现主备 NN(NameNode) 间的数据共享</strong></p>
 <ul>
-<li><p>主备 NameNode</p>
+<li>
+<p>主备 NameNode</p>
 </li>
-<li><p>解决单点故障</p>
+<li>
+<p>解决单点故障</p>
 <p>主 NameNode 对外提供服务，备 NameNode 同步主 NameNode 元数据，以待切换，所有 DataNode 同时向两个 NameNode 汇报数据块信息。</p>
 </li>
-<li><p>两种切换选择</p>
+<li>
+<p>两种切换选择</p>
 <p>手动切换：通过命令实现主备之间的切换，可以用 HDFS 升级等场合。</p>
 <p>自动切换：基于 Zookeeper 实现。</p>
 </li>
-<li><p>基于 <strong>Zookeeper </strong>自动切换方案</p>
+<li>
+<p>基于 **Zookeeper **自动切换方案</p>
 </li>
 </ul>
-<h3 id="Federation联邦机制"><a href="#Federation联邦机制" class="headerlink" title="Federation联邦机制"></a>Federation联邦机制</h3><blockquote>
-<p>在Hadoop2.0之前，HDFS的单NameNode设计带来诸多问题：<br>单点故障、内存受限，制约集群扩展性和缺乏隔离机制（不同业务使用同一个NameNode导致业务相互影响）等。为了解决这些问题，除了用基于共享存储的HA解决方案我们还可以用HDFS的Federation机制来解决这个问题。【单机namenode的瓶颈大约是在4000台集群，而后则需要使用联邦机制】</p>
+<h3 id="Federation联邦机制">Federation联邦机制</h3>
+<blockquote>
+<p>在Hadoop2.0之前，HDFS的单NameNode设计带来诸多问题：<br>
+单点故障、内存受限，制约集群扩展性和缺乏隔离机制（不同业务使用同一个NameNode导致业务相互影响）等。为了解决这些问题，除了用基于共享存储的HA解决方案我们还可以用HDFS的Federation机制来解决这个问题。【单机namenode的瓶颈大约是在4000台集群，而后则需要使用联邦机制】</p>
 </blockquote>
 <p><strong>1、什么是Federation机制</strong></p>
-<p>Federation是指HDFS集群可使用多个独立的NameSpace(NameNode节点管理)来满足HDFS命名空间的水平扩展<br>这些NameNode分别管理一部分数据，且<strong>共享所有DataNode的存储资源</strong>。</p>
+<p>Federation是指HDFS集群可使用多个独立的NameSpace(NameNode节点管理)来满足HDFS命名空间的水平扩展<br>
+这些NameNode分别管理一部分数据，且<strong>共享所有DataNode的存储资源</strong>。</p>
 <p>NameSpace之间在逻辑上是完全相互独立的(即任意两个NameSpace可以有完全相同的文件名)。在物理上可以完全独立(每个NameNode节点管理不同的DataNode)也可以有联系(共享存储节点DataNode)。<strong>一个NameNode节点只能管理一个Namespace。</strong></p>
 <p><strong>2、Federation机制解决单NameNode存在的以下几个问题</strong></p>
 <p>（1）HDFS集群扩展性。每个NameNode分管一部分namespace，相当于namenode是一个分布式的。</p>
@@ -230,12 +243,16 @@
 <p>这些namenode之间相互独立且不需要互相协调，各自分工，管理自己的区域。分布式的datanode被用作通用的数据块存储存储设备。每个datanode要向集群中所有的namenode注册，且周期性地向所有namenode发送心跳和块报告，并执行来自所有namenode的命令。</p>
 <p>（2）每个namenode维护一个命名空间卷（namespace volume）。</p>
 <p>由命名空间的元数据和一个数据块池组成，数据块池（block pool）包含该命名空间下文件的所有数据块。</p>
-<p>（3）命名空间卷之间相互独立<br>两两之间并不互相通信，甚至其中一个namenode的失效也不会影响由其他namenode维护的命名空间的可用性。</p>
+<p>（3）命名空间卷之间相互独立<br>
+两两之间并不互相通信，甚至其中一个namenode的失效也不会影响由其他namenode维护的命名空间的可用性。</p>
 <p>（4）一个namespace和它的blockpool作为一个管理单·元（称为namespace volume）</p>
 <p>数据块池不再切分，则集群中的DataNode需要注册到每个namenode，并且存储着来自多个数据块池中的数据块。当namenode/namespace被删除后，其所有datanode上对应的block pool也会被删除。集群升级时，这个管理单元也独立升级。</p>
-<h3 id="HDFS-2-0-HA-Federation的总体设计架构图"><a href="#HDFS-2-0-HA-Federation的总体设计架构图" class="headerlink" title="HDFS-2.0 HA+Federation的总体设计架构图"></a>HDFS-2.0 HA+Federation的总体设计架构图</h3><p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzhsmte4ebj20ko0c8wi6.jpg" alt></p>
+<h3 id="HDFS-2-0-HA-Federation的总体设计架构图">HDFS-2.0 HA+Federation的总体设计架构图</h3>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzhsmte4ebj20ko0c8wi6.jpg" alt></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx82w7vkuj20ee09zmx8.jpg" alt></p>
-<h2 id="YARN介绍"><a href="#YARN介绍" class="headerlink" title="YARN介绍"></a>YARN介绍</h2><h3 id="核心思想与架构"><a href="#核心思想与架构" class="headerlink" title="核心思想与架构"></a>核心思想与架构</h3><p>将MRv1中JobTracker的资源管理和任务调度两个功能分开，分别由ResourceManager和ApplicationMaster进程实现。</p>
+<h2 id="YARN介绍">YARN介绍</h2>
+<h3 id="核心思想与架构">核心思想与架构</h3>
+<p>将MRv1中JobTracker的资源管理和任务调度两个功能分开，分别由ResourceManager和ApplicationMaster进程实现。</p>
 <p><strong>1. ResourceManager</strong></p>
 <p>负责整个集群的资源管理和调度。</p>
 <p><strong>2. ApplicationMaster</strong></p>
@@ -244,9 +261,12 @@
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx89c39qhj20j70cxq5m.jpg" alt></p>
 <p><strong>4. 以YARN为核心的生态系统</strong></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx89qjumwj20o20aedie.jpg" alt></p>
-<h3 id="YARN-的作用"><a href="#YARN-的作用" class="headerlink" title="YARN 的作用"></a>YARN 的作用</h3><p><strong>YARN的引入，使得多个计算框架可运行在一个集群中</strong></p>
+<h3 id="YARN-的作用">YARN 的作用</h3>
+<p><strong>YARN的引入，使得多个计算框架可运行在一个集群中</strong></p>
 <p>每个应用程序对应一个 ApplicationMaster（应用程序控制-主人），目前多个计算框架可以运行在YARN上，比如 MapReduce、Spark、Storm 等。</p>
-<h3 id="YARN-资源管理任务调度"><a href="#YARN-资源管理任务调度" class="headerlink" title="YARN 资源管理任务调度"></a>YARN 资源管理任务调度</h3><h4 id="yarn-Client提交任务方式"><a href="#yarn-Client提交任务方式" class="headerlink" title="yarn-Client提交任务方式"></a>yarn-Client提交任务方式</h4><p><strong>1. 配置</strong></p>
+<h3 id="YARN-资源管理任务调度">YARN 资源管理任务调度</h3>
+<h4 id="yarn-Client提交任务方式">yarn-Client提交任务方式</h4>
+<p><strong>1. 配置</strong></p>
 <p>在client节点配置中spark-env.sh添加Hadoop_HOME的配置目录即可提交yarn 任务。</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g09nnp4i1pj20d900sdfm.jpg" alt></p>
 <p><code>注意client只需要有Spark的安装包即可提交任务，不需要其他配置（比如slaves）!!!</code></p>
@@ -263,45 +283,55 @@
 <p>(1) Yarn-client 模式同样是适用于<strong>测试</strong>，<strong>因为 Driver 运行在本地</strong>，<strong>Driver 会与yarn 集群中的 Executor 进行大量的通信</strong>，<strong>会造成客户机网卡流量的大量增加。</strong></p>
 <p>(2) <strong>ApplicationMaster 的作用：</strong></p>
 <ul>
-<li><p>为当前的 Application 申请资源</p>
+<li>
+<p>为当前的 Application 申请资源</p>
 </li>
-<li><p>给 NodeManager 发送消息启动 Executor。</p>
+<li>
+<p>给 NodeManager 发送消息启动 Executor。</p>
 </li>
 </ul>
 <p>注意：<strong>ApplicationMaster</strong> 有 launchExecutor 和<strong>申请资源</strong>的功能，<strong>并没有作业调度的功能。</strong></p>
-<h4 id="yarn-Cluster提交任务方式"><a href="#yarn-Cluster提交任务方式" class="headerlink" title="yarn-Cluster提交任务方式"></a>yarn-Cluster提交任务方式</h4><p><strong>1. 执行流程</strong></p>
+<h4 id="yarn-Cluster提交任务方式">yarn-Cluster提交任务方式</h4>
+<p><strong>1. 执行流程</strong></p>
 <blockquote>
 <p>其实 yarn-Cluster 的提交方式跟 yarn-Client 基本相同，不同的只是 Driver 进程不在客户端启动，而是在ApplicationMaster 中，此时 AM 就相当于 Driver 端。</p>
 </blockquote>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx8akhn6dj20pe0cuq7w.jpg" alt></p>
 <p>(1) 客户机提交 Application 应用程序，<strong>发送请求到 RS (ResourceManager),请求启动 AM (ApplicationMaster)</strong>。</p>
 <p>(2) RS 收到请求后随机在一台 NM (NodeManager) 上启动 <strong>AM（相当于 Driver端）。</strong></p>
-<p>(3) AM 启动，<strong>AM 发送请求到 RS，</strong>请求一批 container 用于启动 Executor。</p>
+<p>(3) AM 启动，**AM 发送请求到 RS，**请求一批 container 用于启动 Executor。</p>
 <p>(4) RS 返回一批 NM 节点给 AM。</p>
 <p>(5) <strong>AM 连接到 NM,发送请求到 NM 启动 Executor</strong>。</p>
-<p>(6) <strong>Executor 反向注册到 AM </strong>所在的节点的Driver。Driver发送task到Executor。</p>
+<p>(6) **Executor 反向注册到 AM **所在的节点的Driver。Driver发送task到Executor。</p>
 <p><strong>2. 总结</strong></p>
-<p>(1) Yarn-Cluster主要用于生产环境中，因为Driver运行在Yarn集群中某一台nodeManager中，每次提交任务的<strong>Driver</strong> 所在的机器都是随机的<strong>，</strong>不会产生某一台机器网卡流量激增的现象<strong>，</strong>缺点是任务提交后不能看到日志。只能通过 <strong>yarn</strong> 查看日志。</p>
+<p>(1) Yarn-Cluster主要用于生产环境中，因为Driver运行在Yarn集群中某一台nodeManager中，每次提交任务的<strong>Driver</strong> 所在的机器都是随机的**，<strong>不会产生某一台机器网卡流量激增的现象</strong>，**缺点是任务提交后不能看到日志。只能通过 <strong>yarn</strong> 查看日志。</p>
 <p>(2) ApplicationMaster的作用：</p>
 <ul>
-<li><p>为当前的Application申请资源</p>
+<li>
+<p>为当前的Application申请资源</p>
 </li>
-<li><p>给nodemanager发送消息 启动Excutor。</p>
+<li>
+<p>给nodemanager发送消息 启动Excutor。</p>
 </li>
-<li><p><strong>任务调度。</strong>(这里和client模式的区别是AM具有调度能力，因为其就是Driver端，包含Driver进程)</p>
+<li>
+<p><strong>任务调度。</strong>(这里和client模式的区别是AM具有调度能力，因为其就是Driver端，包含Driver进程)</p>
 </li>
 </ul>
 <p>(3) <strong>停止集群任务命令：yarn application -kill applicationID</strong></p>
-<p><strong>自我思考：</strong>stand-alone模式中Master发送对应的命令启动Worker上的executor进程，而yarn模式中的applimaster也是负责启动worker中的Driver进程，可见都是master负责发送消息，然后再对应的节点上启动executor进程。</p>
-<h2 id="MapReduce-On-YARN"><a href="#MapReduce-On-YARN" class="headerlink" title="MapReduce On YARN"></a>MapReduce On YARN</h2><p>MapReduce On YARN 是在 Hadoop2.0 版本开始构建在 MRv2 系统上。</p>
+<p>**自我思考：**stand-alone模式中Master发送对应的命令启动Worker上的executor进程，而yarn模式中的applimaster也是负责启动worker中的Driver进程，可见都是master负责发送消息，然后再对应的节点上启动executor进程。</p>
+<h2 id="MapReduce-On-YARN">MapReduce On YARN</h2>
+<p>MapReduce On YARN 是在 Hadoop2.0 版本开始构建在 MRv2 系统上。</p>
 <p>将 MapReduce 作业直接运行在YARN上，而不是由 JobTracker 和 TaskTracker 构建的 MRv1 系统中。</p>
 <p><strong>1. 基本功能模块</strong></p>
 <ul>
-<li><p><strong>YARN：</strong>负责资源管理和调度</p>
+<li>
+<p>**YARN：**负责资源管理和调度</p>
 </li>
-<li><p><strong>MRAppMaster：</strong>负责任务切分、任务调度、任务监控和容错等</p>
+<li>
+<p>**MRAppMaster：**负责任务切分、任务调度、任务监控和容错等</p>
 </li>
-<li><p><strong>MapTask/ReduceTask：</strong>任务驱动引擎，与 MRv1 一致</p>
+<li>
+<p>**MapTask/ReduceTask：**任务驱动引擎，与 MRv1 一致</p>
 </li>
 </ul>
 <p><strong>2 . 每个 MapRduce 作业对应一个 MRAppMaster 任务调度</strong></p>
@@ -314,28 +344,32 @@
 <li>失败后，由 YARN 重新启动</li>
 <li>任务失败后，MRAppMaster 重新申请资源</li>
 </ul>
-<h2 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a>Zookeeper</h2><p>ZooKeeper 是一个<strong>开源的、分布式应用程序协调服务</strong>，是 Google 的 Chubby 一个开源的实现，<strong>是 Hadoop 和 Hbase 的重要组件</strong>。</p>
+<h2 id="Zookeeper">Zookeeper</h2>
+<p>ZooKeeper 是一个<strong>开源的、分布式应用程序协调服务</strong>，是 Google 的 Chubby 一个开源的实现，<strong>是 Hadoop 和 Hbase 的重要组件</strong>。</p>
 <p>关于Zookeeper详细的原理讲解请参照 <a href="https://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/9acfc12.html">深入Zookeeper</a></p>
-<h2 id="Hadoop2-X-集群搭建"><a href="#Hadoop2-X-集群搭建" class="headerlink" title="Hadoop2.X 集群搭建"></a>Hadoop2.X 集群搭建</h2><h3 id="集群规划"><a href="#集群规划" class="headerlink" title="集群规划"></a>集群规划</h3><p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx8cggimtj20dp06bmx2.jpg" alt></p>
-<p>​    <strong>NN:</strong> NameNode</p>
-<p>​    <strong>JN:</strong> JournalNode</p>
-<p>​    <strong>ZK:</strong> Zookeeper</p>
-<p>​    <strong>DN:</strong> DateNode</p>
-<p>​    <strong>ZKFC:</strong> Zookeeper Failover Controller  ==&gt;监控 NameNode 健康状态，并向Zookeeper 注册 NameNode，NameNode 挂掉后，ZKFC 为 NameNode 竞争锁，获得 ZKFC 锁的 NameNode 变为 active。</p>
-<h3 id="具体搭建步骤"><a href="#具体搭建步骤" class="headerlink" title="具体搭建步骤"></a>具体搭建步骤</h3><p>1、下载上传Hadoop压缩包，并配置环境变量</p>
+<h2 id="Hadoop2-X-集群搭建">Hadoop2.X 集群搭建</h2>
+<h3 id="集群规划">集群规划</h3>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx8cggimtj20dp06bmx2.jpg" alt></p>
+<p>​	<strong>NN:</strong> NameNode</p>
+<p>​	<strong>JN:</strong> JournalNode</p>
+<p>​	<strong>ZK:</strong> Zookeeper</p>
+<p>​	<strong>DN:</strong> DateNode</p>
+<p>​	<strong>ZKFC:</strong> Zookeeper Failover Controller  ==&gt;监控 NameNode 健康状态，并向Zookeeper 注册 NameNode，NameNode 挂掉后，ZKFC 为 NameNode 竞争锁，获得 ZKFC 锁的 NameNode 变为 active。</p>
+<h3 id="具体搭建步骤">具体搭建步骤</h3>
+<p>1、下载上传Hadoop压缩包，并配置环境变量</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">vim Hadoop-env.sh</span><br></pre></td></tr></table></figure>
 <p>2、配置核心xml文件和hdfs文件</p>
 <p><strong>core-site.xml</strong></p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://Xss<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	   <span class="tag">&lt;<span class="name">name</span>&gt;</span>ha.zookeeper.quorum<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	   <span class="tag">&lt;<span class="name">value</span>&gt;</span>sean01:2181,sean02:2181,sean03:2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">value</span>&gt;</span>/opt/hadoop2.6.5<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>​    <strong>hdfs-site.xml</strong></p>
+<p>​	<strong>hdfs-site.xml</strong></p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.nameservices<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">value</span>&gt;</span>Xss<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.namenodes.Xss<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">value</span>&gt;</span>nn1,nn2<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.rpc-address.Xss.nn1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sean01:8020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.rpc-address.Xss.nn2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sean02:8020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.http-address.Xss.nn1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sean01:50070<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.http-address.Xss.nn2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sean02:50070<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	  <span class="comment">&lt;!-- 指定namenode元数据存储在journalnode中的路径 --&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.shared.edits.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">value</span>&gt;</span>qjournal://sean01:8485;sean02:8485;sean03:8485/Xss<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	  <span class="comment">&lt;!-- 指定HDFS客户端连接active namenode的java类 --&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.client.failover.proxy.provider.Xss<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">value</span>&gt;</span>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	  <span class="comment">&lt;!-- 配置隔离机制为ssh 防止脑裂 --&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.fencing.methods<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sshfence<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	  <span class="comment">&lt;!-- 指定秘钥的位置 --&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.fencing.ssh.private-key-files<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">value</span>&gt;</span>/root/.ssh/id_rsa<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	  <span class="comment">&lt;!-- 指定journalnode日志文件存储的路径 --&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.journalnode.edits.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">value</span>&gt;</span>/opt/hadoop2.6.5/data<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	   <span class="comment">&lt;!-- 开启自动故障转移 --&gt;</span></span><br><span class="line">	   <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.automatic-failover.enabled<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	   <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>3、准备 zookeeper</p>
-<p>​    a) 三台zookeeper：sean01，sean02，sean03</p>
-<p>​    b) 编辑zoo.cfg配置文件</p>
-<p>​        i. 修改dataDir=/opt/zookeeper</p>
-<p>​        ii. 加上下面3行​    </p>
+<p>​	a) 三台zookeeper：sean01，sean02，sean03</p>
+<p>​	b) 编辑zoo.cfg配置文件</p>
+<p>​		i. 修改dataDir=/opt/zookeeper</p>
+<p>​		ii. 加上下面3行​</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server.1=sean01:2888:3888</span><br><span class="line">server.2=sean02:2888:3888</span><br><span class="line">server.3=sean03:2888:3888</span><br></pre></td></tr></table></figure>
-<p>​    c) 在 dataDir 目录中创建一个myid的文件，文件内容分别为1，2，3</p>
+<p>​	c) 在 dataDir 目录中创建一个myid的文件，文件内容分别为1，2，3</p>
 <p>4、配置 hadoop 中的 slaves</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx8csyy0nj209k03g3ya.jpg" alt></p>
 <p>5、发送其他节点服务器 环境变量配置</p>
@@ -346,12 +380,12 @@
 <p>8、在其中一个namenode上格式化：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">hdfs namenode -format</span><br></pre></td></tr></table></figure>
 <p>9、把刚刚<strong>格式化</strong>之后的元数据拷贝到另外一个namenode上</p>
-<p>​    a) 启动刚刚格式化的 namenode :  hadoop-daemon.sh start namenode</p>
-<p>​    b) 在没有格式化的 namenode上执行：hdfs namenode -bootstrapStandby</p>
-<p>​    c) 启动第二个namenode：hadoop-daemon.sh start namenode</p>
+<p>​	a) 启动刚刚格式化的 namenode :  <a href="http://hadoop-daemon.sh" rel="external nofollow noopener noreferrer" target="_blank">hadoop-daemon.sh</a> start namenode</p>
+<p>​	b) 在没有格式化的 namenode上执行：hdfs namenode -bootstrapStandby</p>
+<p>​	c) 启动第二个namenode：<a href="http://hadoop-daemon.sh" rel="external nofollow noopener noreferrer" target="_blank">hadoop-daemon.sh</a> start namenode</p>
 <p>10、在其中一个namenode上初始化zkfc：hdfs zkfc -formatZK</p>
-<p>11、停止上面节点：stop-dfs.sh</p>
-<p>12、全面启动：start-dfs.sh</p>
+<p>11、停止上面节点：<a href="http://stop-dfs.sh" rel="external nofollow noopener noreferrer" target="_blank">stop-dfs.sh</a></p>
+<p>12、全面启动：<a href="http://start-dfs.sh" rel="external nofollow noopener noreferrer" target="_blank">start-dfs.sh</a></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx8d3v8tqj20ko0cg3zf.jpg" alt></p>
 <p><strong>浏览器打开两个 NamwNode</strong> Web端</p>
 <p><strong>sean01</strong></p>
@@ -362,7 +396,7 @@
 <p><strong>查看进程此时在两个 NN 下会多出 ZKFC 文件，就是竞争锁</strong></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx8husx5xj20d303sjrb.jpg" alt></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx8i4qqebj20d503lwee.jpg" alt></p>
-<p>13、关闭此时处于 <strong>Active</strong> 状态的  <strong>NN</strong> 节点 sean02 </p>
+<p>13、关闭此时处于 <strong>Active</strong> 状态的  <strong>NN</strong> 节点 sean02</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">hadoop-daemon.sh stop namenode</span><br></pre></td></tr></table></figure>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx8ih0vovj20ll09v3yq.jpg" alt></p>
 <p><strong>由于此时之前处于active的 NN 节点sean02已经挂掉，sean01迅速拿到竞争锁ZKFC，状态由standby变为active</strong></p>
@@ -374,17 +408,19 @@
 <p>14、查看 <strong>MapReduce</strong> 计算框架的状态。</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">yarn-daemon.sh start resourcemanager  (启动资源管理器)</span><br></pre></td></tr></table></figure>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx8jgf1tkj211a0degnq.jpg" alt></p>
-<h3 id="可能出错的地方"><a href="#可能出错的地方" class="headerlink" title="可能出错的地方"></a>可能出错的地方</h3><p>1、确认每台机器防火墙均关掉</p>
+<h3 id="可能出错的地方">可能出错的地方</h3>
+<p>1、确认每台机器防火墙均关掉</p>
 <p>2、确认每台机器的时间是一致的</p>
 <p>3、确认配置文件无误，并且确认每台机器上面的配置文件一样</p>
 <p>4、如果还有问题想重新格式化，那么先把所有节点的进程关掉</p>
 <p>5、删除之前格式化的数据目录hadoop.tmp.dir属性对应的目录，所有节点同步都删掉，别单删掉之前的一个，删掉三台JN节点中dfs.journalnode.edits.dir属性所对应的目录</p>
 <p>6、接上面的第6步又可以重新格式化已经启动了</p>
 <p>7、最终 Active Namenode 停掉的时候，StandBy 可以自动接管！</p>
-<h2 id="Hadoop集群脑裂问题"><a href="#Hadoop集群脑裂问题" class="headerlink" title="Hadoop集群脑裂问题"></a>Hadoop集群脑裂问题</h2><p><strong>什么是脑裂</strong></p>
-<p><a href="http://en.wikipedia.org/wiki/Split-brain_(computing" rel="external nofollow noopener noreferrer" target="_blank">脑裂（brain-split）</a>)：脑裂是指在主备切换时，由于切换不彻底或其他原因，导致客户端和 Slave 误以为出现两个active master，最终使得整个集群处于混乱状态。</p>
+<h2 id="Hadoop集群脑裂问题">Hadoop集群脑裂问题</h2>
+<p><strong>什么是脑裂</strong></p>
+<p><a href="http://en.wikipedia.org/wiki/Split-brain_(computing)" rel="external nofollow noopener noreferrer" target="_blank">脑裂（brain-split）</a>：脑裂是指在主备切换时，由于切换不彻底或其他原因，导致客户端和 Slave 误以为出现两个active master，最终使得整个集群处于混乱状态。</p>
 <p><strong>如何解决集群脑裂问题</strong></p>
-<p>解决脑裂问题，通常采用<a href="http://en.wikipedia.org/wiki/Fencing_(computing" rel="external nofollow noopener noreferrer" target="_blank">隔离(Fencing)</a>)机制，包括三个方面：</p>
+<p>解决脑裂问题，通常采用<a href="http://en.wikipedia.org/wiki/Fencing_(computing)" rel="external nofollow noopener noreferrer" target="_blank">隔离(Fencing)</a>机制，包括三个方面：</p>
 <ul>
 <li>共享存储fencing：确保只有一个Master往共享存储中写数据。</li>
 <li>客户端fencing：确保只有一个Master可以响应客户端的请求。</li>

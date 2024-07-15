@@ -157,8 +157,9 @@
     })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="风雨欲来兮丶" type="application/atom+xml">
 </head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/butterfly.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="风雨欲来兮丶"><span class="site-name">风雨欲来兮丶</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java多线程笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2016-10-11T16:00:00.000Z" title="发表于 2016-10-12 00:00:00">2016-10-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-11T13:59:20.328Z" title="更新于 2024-07-11 21:59:20">2024-07-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="Java多线程笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Java 给多线程编程提供了内置的支持。 一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。</p>
 <span id="more"></span>
-<h2 id="线程的概念"><a href="#线程的概念" class="headerlink" title="线程的概念"></a>线程的概念</h2><p><strong>进程：</strong></p>
-<p>每个进程都有独立的代码和数据空间（进程上下文），进程间的切换会有较大的开销，一个进程包含1—n个线程。（进程是资源分配的最小单位）</p>
+<h2 id="线程的概念">线程的概念</h2>
+<p><strong>进程：</strong></p>
+<p>每个进程都有独立的代码和数据空间（进程上下文），进程间的切换会有较大的开销，一个进程包含1–n个线程。（进程是资源分配的最小单位）</p>
 <p><strong>线程：</strong></p>
 <p>同一类线程共享代码和数据空间，每个线程有独立的运行栈和程序计数器(PC)，线程切换开销小。（线程是cpu调度的最小单位）</p>
 <p>多进程是指操作系统能同时运行多个任务（程序）。</p>
@@ -170,7 +171,8 @@
 <li>线程是有状态的。</li>
 </ul>
 <p><code>注意：很多多线程是模拟出来的，真正的多线程是指有多个cpu，即多核,如服务器。如果是模拟出来的多线程，即一个 cpu的情况下，在同一个时间点，cpu只能执行一个代码，因为切换的很快，所以就有同时执行的错觉。</code></p>
-<h2 id="创建多线程的三种方式以及区别"><a href="#创建多线程的三种方式以及区别" class="headerlink" title="创建多线程的三种方式以及区别"></a>创建多线程的三种方式以及区别</h2><p>Java使用Thread类代表线程，所有的线程对象都必须是Thread类或其子类的实例。Java可以用三种方式来创建线程，如下所示：</p>
+<h2 id="创建多线程的三种方式以及区别">创建多线程的三种方式以及区别</h2>
+<p>Java使用Thread类代表线程，所有的线程对象都必须是Thread类或其子类的实例。Java可以用三种方式来创建线程，如下所示：</p>
 <blockquote>
 <p>1）继承Thread类创建线程</p>
 <p>2）实现Runnable接口创建线程</p>
@@ -180,9 +182,9 @@
 <p>通过继承Thread类来创建并启动多线程的一般步骤如下</p>
 <blockquote>
 <p>1】定义Thread类的子类。</p>
-<p>2】重写该类的<strong>run()</strong>方法，该方法的方法体就是线程需要完成的任务，run()方法也称为线程执行体。</p>
+<p>2】重写该类的**run()**方法，该方法的方法体就是线程需要完成的任务，run()方法也称为线程执行体。</p>
 <p>3】创建Thread子类的实例，也就是创建了线程对象。</p>
-<p>4】启动线程，即调用线程的<strong>start()</strong>方法。</p>
+<p>4】启动线程，即调用线程的**start()**方法。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span>&#123; <span class="comment">//继承Thread类</span></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">　　<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>&#123;</span><br><span class="line">      </span><br><span class="line">　　<span class="comment">//重写run方法</span></span><br><span class="line">      </span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">　　<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">      </span><br><span class="line">　　　　<span class="keyword">new</span> <span class="title class_">MyThread</span>().start(); <span class="comment">//创建并启动线程</span></span><br><span class="line">      </span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>实现Runnable接口创建线程（推荐）</strong></p>
@@ -190,17 +192,19 @@
 <p>步骤如下：</p>
 <blockquote>
 <p>1】定义Runnable接口的实现类。</p>
-<p>2】重写<strong>run()</strong>方法，这个 run() 方法和Thread中的run()方法一样是线程的执行体。</p>
+<p>2】重写**run()**方法，这个 run() 方法和Thread中的run()方法一样是线程的执行体。</p>
 <p>3】通过Thread类创建线程对象，并将Runnable接口的子类对象作为Thread类的构造函数的参数进行传递。（为什么？因为线程的任务都封装在Runnable接口子类的对象的run方法中，所以要在线程对象创建时就必须明确要运行的任务）</p>
-<p>4】通过调用线程对象的<strong>start()</strong>方法来启动线程。</p>
+<p>4】通过调用线程对象的**start()**方法来启动线程。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyThread2</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;<span class="comment">//实现Runnable接口</span></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">　　<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>&#123;</span><br><span class="line">      </span><br><span class="line">　　<span class="comment">//重写run方法</span></span><br><span class="line">      </span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">　　<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">      </span><br><span class="line">　　　　<span class="comment">//创建并启动线程</span></span><br><span class="line">　　　　MyThread2 myThread=<span class="keyword">new</span> <span class="title class_">MyThread2</span>();</span><br><span class="line">      </span><br><span class="line">　　　　Thread thread=<span class="keyword">new</span> <span class="title class_">Thread</span>(myThread);</span><br><span class="line">      </span><br><span class="line">　　　　thread().start();</span><br><span class="line">      </span><br><span class="line">　　　　<span class="comment">//或者    new Thread(new MyThread2()).start();</span></span><br><span class="line">      </span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>使用Callable和Future创建线程</strong></p>
 <p><code>和Runnable接口不一样，Callable接口提供了一个call()方法作为线程执行体，call()方法比run()方法功能要强大。</code></p>
 <ul>
-<li><p>call()方法可以有返回值</p>
+<li>
+<p>call()方法可以有返回值</p>
 </li>
-<li><p>call()方法可以声明抛出异常</p>
+<li>
+<p>call()方法可以声明抛出异常</p>
 </li>
 </ul>
 <p>Java5 提供了 Future 接口来代表 Callable 接口里 call() 方法的返回值，并且为 Future 接口提供了一个实现类FutureTask，这个实现类既实现了 Future 接口，还实现了 Runnable 接口，因此可以作为 Thread 类的 target。在 Future 接口里定义了几个公共方法来控制它关联的 Callable 任务。</p>
@@ -226,7 +230,8 @@
 <p>3、但是编程稍微复杂，如果需要访问当前线程，必须调用Thread.currentThread()方法。</p>
 <p>4、继承Thread类的线程类不能再继承其他父类（Java单继承决定）。</p>
 <p><code>注：一般推荐采用实现接口的方式来创建多线程。</code></p>
-<h2 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h2><p>线程是一个动态执行的过程，它也有一个从产生到死亡的过程。</p>
+<h2 id="线程的生命周期">线程的生命周期</h2>
+<p>线程是一个动态执行的过程，它也有一个从产生到死亡的过程。</p>
 <p>线程和进程一样分为五个阶段：<strong>创建、就绪、运行、阻塞、终止。</strong></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g14m8uigv2j20o60cqdmo.jpg" alt></p>
 <p>（1）新建：即新生状态，创建Thread对象</p>
@@ -235,18 +240,22 @@
 <p>（4）阻塞：调用sleep（）方法，阻塞执行后再次回到就绪状态（注意：后期加上 synchronized 的时候，使用 sleep 是不会释放权利的）</p>
 <p>（5）死亡：即程序终止，终止的方式有两种：</p>
 <ul>
-<li><p>正常执行完毕，循环 次数已经到达</p>
+<li>
+<p>正常执行完毕，循环 次数已经到达</p>
 </li>
-<li><p>外部干涉 （设置到达时间后，让线程停止）</p>
+<li>
+<p>外部干涉 （设置到达时间后，让线程停止）</p>
 </li>
 </ul>
-<h2 id="线程的优先级"><a href="#线程的优先级" class="headerlink" title="线程的优先级"></a>线程的优先级</h2><p>只代表概率，不代表绝对先后顺序。</p>
+<h2 id="线程的优先级">线程的优先级</h2>
+<p>只代表概率，不代表绝对先后顺序。</p>
 <ul>
 <li>MIN_PRIORITY ： 1</li>
 <li>NORM_PRIORITY : 5  默认优先级</li>
-<li>MAX_PRIORITY ：10 </li>
+<li>MAX_PRIORITY ：10</li>
 </ul>
-<h2 id="线程的同步"><a href="#线程的同步" class="headerlink" title="线程的同步"></a>线程的同步</h2><p><strong>线程安全问题产生的原因</strong></p>
+<h2 id="线程的同步">线程的同步</h2>
+<p><strong>线程安全问题产生的原因</strong></p>
 <p>1、多个线程在操作共享数据。</p>
 <p>2、操作共享数据的线程的线程代码有多条。</p>
 <p><strong>解决思路</strong></p>
@@ -261,7 +270,8 @@
 <p>相对降低了效率，因为同步外的线程都会判断同步锁。</p>
 <p><strong>同步的前提</strong></p>
 <p>同步中必须右多个线程并使用同一个锁。</p>
-<h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><p><strong>什么线程池</strong></p>
+<h2 id="线程池">线程池</h2>
+<p><strong>什么线程池</strong></p>
 <p>线程池中，当需要使用线程时，会从线程池中获取一个空闲线程，线程完成工作时，不会直接关闭线程，而是将这个线程退回到池子，方便其它人使用。</p>
 <p>简而言之，使用线程池后，原来创建线程变成了从线程池获得空闲线程，关闭线程变成了向池子归还线程。</p>
 <p>java.util.concurrent.Executors 提供了一个 java.util.concurrent.Executor 接口的实现用于创建线程池。</p>
@@ -284,24 +294,32 @@
 <p>假设一个服务器一天要处理50000个请求，并且每个请求需要一个单独的线程完成。在线程池中，线程数一般是固定的，所以产生线程总数不会超过线程池中线程的数目，而如果服务器不利用线程池来处理这些请求则线程总数为50000。一般线程池大小是远小于50000。所以利用线程池的服务器程序不会为了创建50000而在处理请求时浪费时间，从而提高效率。</p>
 </blockquote>
 <p><strong>线程池的常见参数</strong></p>
-<p>1、corePoolSize：核心线程数<br>        * 核心线程会一直存活，及时没有任务需要执行<br>        * 当线程数小于核心线程数时，即使有线程空闲，线程池也会优先创建新线程处理<br>        * 设置allowCoreThreadTimeout=true（默认false）时，核心线程会超时关闭</p>
-<p>​    2、queueCapacity：任务队列容量（阻塞队列）<br>​        * 当核心线程数达到最大时，新任务会放在队列中排队等待执行</p>
-<p>​    3、maxPoolSize：最大线程数<br>​        * 当线程数&gt;=corePoolSize，且任务队列已满时。线程池会创建新线程来处理任务<br>​        * 当线程数=maxPoolSize，且任务队列已满时，线程池会拒绝处理任务而抛出异常</p>
-<p>​    4、 keepAliveTime：线程空闲时间<br>​        * 当线程空闲时间达到keepAliveTime时，线程会退出，直到线程数量=corePoolSize<br>​        * 如果allowCoreThreadTimeout=true，则会直到线程数量=0</p>
-<pre><code>5、allowCoreThreadTimeout：允许核心线程超时
-6、rejectedExecutionHandler：任务拒绝处理器
-
-    * 两种情况会拒绝处理任务：
-        - 当线程数已经达到maxPoolSize，切队列已满，会拒绝新任务
-        - 当线程池被调用shutdown()后，会等待线程池里的任务执行完毕，再shutdown。如果在调用shutdown()和线程池真正shutdown之间提交任务，会拒绝新任务
-    * 线程池会调用rejectedExecutionHandler来处理这个任务。如果没有设置默认是AbortPolicy，会抛出异常
-    * ThreadPoolExecutor类有几个内部实现类来处理这类情况：
-</code></pre><ul>
-<li><p>AbortPolicy 丢弃任务，抛运行时异常<br>   RunsPolicy 执行任务</p>
-<p>   DiscardPolicy 忽视，什么都不会发生<br>   dOldestPolicy 从队列中踢出最先进入队列（最后一个执行）的任务</p>
+<p>1、corePoolSize：核心线程数<br>
+* 核心线程会一直存活，及时没有任务需要执行<br>
+* 当线程数小于核心线程数时，即使有线程空闲，线程池也会优先创建新线程处理<br>
+* 设置allowCoreThreadTimeout=true（默认false）时，核心线程会超时关闭</p>
+<p>​    2、queueCapacity：任务队列容量（阻塞队列）<br>
+​        * 当核心线程数达到最大时，新任务会放在队列中排队等待执行</p>
+<p>​    3、maxPoolSize：最大线程数<br>
+​        * 当线程数&gt;=corePoolSize，且任务队列已满时。线程池会创建新线程来处理任务<br>
+​        * 当线程数=maxPoolSize，且任务队列已满时，线程池会拒绝处理任务而抛出异常</p>
+<p>​    4、 keepAliveTime：线程空闲时间<br>
+​        * 当线程空闲时间达到keepAliveTime时，线程会退出，直到线程数量=corePoolSize<br>
+​        * 如果allowCoreThreadTimeout=true，则会直到线程数量=0</p>
+<p>5、allowCoreThreadTimeout：允许核心线程超时<br>
+    6、rejectedExecutionHandler：任务拒绝处理器</p>
+<p>* 两种情况会拒绝处理任务：<br>
+            - 当线程数已经达到maxPoolSize，切队列已满，会拒绝新任务<br>
+            - 当线程池被调用shutdown()后，会等待线程池里的任务执行完毕，再shutdown。如果在调用shutdown()和线程池真正shutdown之间提交任务，会拒绝新任务<br>
+        * 线程池会调用rejectedExecutionHandler来处理这个任务。如果没有设置默认是AbortPolicy，会抛出异常<br>
+        * ThreadPoolExecutor类有几个内部实现类来处理这类情况：</p>
 <ul>
-<li>实现RejectedExecutionHandler接口，可自定义处理器</li>
-</ul>
+<li>
+<p>AbortPolicy 丢弃任务，抛运行时异常<br>
+RunsPolicy 执行任务</p>
+<p>DiscardPolicy 忽视，什么都不会发生<br>
+dOldestPolicy 从队列中踢出最先进入队列（最后一个执行）的任务<br>
+        * 实现RejectedExecutionHandler接口，可自定义处理器</p>
 </li>
 </ul>
 <p><strong>线程池接口、类关系一览</strong></p>
@@ -313,28 +331,26 @@
 <p>ThreadPoolExecutor 继承了类 AbstractExecutorService。</p>
 <p><strong>常见线程池</strong></p>
 <ol>
-<li><p>newSingleThreadExecutor()</p>
+<li>
+<p>newSingleThreadExecutor()</p>
 <p>创建一个单线程的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ExecutorDemo1</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">MyTask</span> <span class="variable">myTask</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyTask</span>();</span><br><span class="line">        <span class="comment">//只有一个线程的线程池</span></span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">es</span> <span class="operator">=</span> Executors.newSingleThreadExecutor();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">            es.submit(myTask);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyTask</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(System.currentTimeMillis()/<span class="number">1000</span> + <span class="string">&quot;:Thread ID:&quot;</span> + Thread.currentThread().getId());</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1zrczm5sjj20e50690u2.jpg" alt></p>
 </li>
-</ol>
-<ol>
-<li><p>newFixedThreadExecutor()</p>
-<p> 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。</p>
+<li>
+<p>newFixedThreadExecutor()</p>
+<p>创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ExecutorDemo2</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">MyTask</span> <span class="variable">task</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyTask</span>();</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">es</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);  <span class="comment">//创建固定线程数大小为5的线程池</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;   <span class="comment">//依次向线程池提交了10个任务</span></span><br><span class="line">            es.submit(task);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyTask</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(System.currentTimeMillis()</span><br><span class="line">                           +<span class="string">&quot;:Thread ID:&quot;</span>+Thread.currentThread().getId());</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>); <span class="comment">//1秒</span></span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1zro5g8ykj20cx06eabb.jpg" alt></p>
 </li>
-</ol>
-<ol>
-<li><p>newCacheThreadExecutor()（推荐使用）</p>
+<li>
+<p>newCacheThreadExecutor()（推荐使用）</p>
 <p>创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程（一般是60秒无执行），若无可回收，则新建线程。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ExecutorDemo3</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">MyTask</span> <span class="variable">myTask</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyTask</span>();</span><br><span class="line">        <span class="comment">//可根据实际情况调整线程数量的线程池</span></span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">es</span> <span class="operator">=</span> Executors.newCachedThreadPool();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">            es.submit(myTask);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyTask</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(System.currentTimeMillis()/<span class="number">1000</span> </span><br><span class="line">                           + <span class="string">&quot;:Thread ID:&quot;</span> + Thread.currentThread().getId());</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1zs1xsqg5j20ia05yq4z.jpg" alt></p>
 </li>
-</ol>
-<ol>
-<li><p>newScheduleThreadExecutor()</p>
+<li>
+<p>newScheduleThreadExecutor()</p>
 <p>创建一个定长的线程池，而且支持定时的以及周期性的任务执行。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ExecutorDemo4</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">ScheduledExecutorService</span> <span class="variable">ses</span> <span class="operator">=</span> Executors.newScheduledThreadPool(<span class="number">10</span>);</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * scheduleAtFixedRate方法 ：如果前面的任务没有完成，则调度也不会执行！</span></span><br><span class="line"><span class="comment">         * scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit);</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        ses.scheduleAtFixedRate(<span class="keyword">new</span> <span class="title class_">ScheduledTimeTask</span>(), <span class="number">0</span>, <span class="number">2</span>, TimeUnit.SECONDS);  <span class="comment">//设置每定时2s执行一次</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ScheduledTimeTask</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//修改这里的任务执行时间</span></span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            System.out.println( System.currentTimeMillis()/<span class="number">1000</span> + </span><br><span class="line">                               <span class="string">&quot; : ThreadId = &quot;</span> + Thread.currentThread().getId());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>【设置任务的执行时间为1s（ &lt; 定时的2s ）的运行结果</p>

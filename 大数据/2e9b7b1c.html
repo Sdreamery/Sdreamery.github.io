@@ -158,20 +158,24 @@
 </head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/butterfly.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="风雨欲来兮丶"><span class="site-name">风雨欲来兮丶</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Spark计算框架（六）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-02-02T16:00:00.000Z" title="发表于 2018-02-03 00:00:00">2018-02-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-08-10T13:45:52.000Z" title="更新于 2019-08-10 21:45:52">2019-08-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="Spark计算框架（六）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>SparkStreaming 是流式处理框架，是 Spark API 的扩展，支持可扩展、高吞吐、容错的实时数据流处理。</p>
 <p>实时数据的来源可以是：Kafka，Flume，Twitter，ZeroMQ 或者 TCP sockets，并且可以使用高级功能的复杂算子来处理流数据。例如：map，reduce，join，window 。最终，处理后的数据可以存放在文件系统，数据库等，方便实时展现。</p>
 <span id="more"></span>
-<h2 id="SparkStreaming-与-Storm-的区别"><a href="#SparkStreaming-与-Storm-的区别" class="headerlink" title="SparkStreaming 与 Storm 的区别"></a>SparkStreaming 与 Storm 的区别</h2><p>1、Storm 是纯实时的流式处理框架，SparkStreaming 是准实时的处理框架（微批处理）。因为微批处理，SparkStreaming 的吞吐量比 Storm 要高。</p>
+<h2 id="SparkStreaming-与-Storm-的区别">SparkStreaming 与 Storm 的区别</h2>
+<p>1、Storm 是纯实时的流式处理框架，SparkStreaming 是准实时的处理框架（微批处理）。因为微批处理，SparkStreaming 的吞吐量比 Storm 要高。</p>
 <p>2、Storm 的事务机制比 SparkStreaming 的要完善。</p>
 <p>3、Storm 支持动态资源调度。(spark1.2 开始和之后也支持)</p>
 <p>4、SparkStreaming 擅长复杂的业务处理，Storm 不擅长复杂的业务处理，擅长简单的汇总型计算。</p>
-<h2 id="SparkStreaming-初始"><a href="#SparkStreaming-初始" class="headerlink" title="SparkStreaming 初始"></a>SparkStreaming 初始</h2><p><strong>1、SparkStreaming 初始理解</strong></p>
+<h2 id="SparkStreaming-初始">SparkStreaming 初始</h2>
+<p><strong>1、SparkStreaming 初始理解</strong></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0fkhgkv44j20jz06mwf6.jpg" alt></p>
 <p><strong>注意：</strong></p>
 <ul>
-<li><p>receiver task 是 7*24 小时一直在执行，一直接受数据，将一段时间内接收来的数据保存到 batch 中。假设 batchInterval 为 5s，那么会将接收来的数据每隔 5 秒封装到一个 batch 中，batch 没有分布式计算特性，这一个 batch 的数据又被封装到一个 RDD 中，RDD 最终封装到一个 DStream 中。</p>
+<li>
+<p>receiver task 是 7*24 小时一直在执行，一直接受数据，将一段时间内接收来的数据保存到 batch 中。假设 batchInterval 为 5s，那么会将接收来的数据每隔 5 秒封装到一个 batch 中，batch 没有分布式计算特性，这一个 batch 的数据又被封装到一个 RDD 中，RDD 最终封装到一个 DStream 中。</p>
 <blockquote>
 <p>例如：假设 batchInterval 为 5 秒，每隔 5 秒通过 SparkStreamin 将得到一个 DStream,在第 6 秒的时候计算这 5 秒的数据，假设执行任务的时间是 3 秒,那么第 6~9 秒一边在接收数据，一边在计算任务，9~10 秒只是在接收数据。然后在第 11 秒的时候重复上面的操作。</p>
 </blockquote>
 </li>
-<li><p>如果 job 执行的时间大于 batchInterval 会有什么样的问题？</p>
+<li>
+<p>如果 job 执行的时间大于 batchInterval 会有什么样的问题？</p>
 <p>如果接受过来的数据设置的级别是仅内存，接收来的数据会越堆积越多，最后可能会导致 OOM（如果设置 StorageLevel 包含 disk, 则内存存放不下的数据会溢写至 disk, 加大延迟 ）。</p>
 </li>
 </ul>
@@ -188,7 +192,8 @@
 <li>JavaStreamingContext.stop()停止之后不能再调用 start。</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SparkStreamingTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">SparkConf</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SparkConf</span>();</span><br><span class="line">        conf.setMaster(<span class="string">&quot;local[2]&quot;</span>).setAppName(<span class="string">&quot;sparkStreaming&quot;</span>);</span><br><span class="line"><span class="comment">//        JavaSparkContext sparkContext = new JavaSparkContext(conf);</span></span><br><span class="line">        <span class="type">JavaStreamingContext</span> <span class="variable">streamingContext</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JavaStreamingContext</span>(conf, Durations.seconds(<span class="number">5</span>));</span><br><span class="line">        JavaReceiverInputDStream&lt;String&gt; dStream = streamingContext.socketTextStream(<span class="string">&quot;sean01&quot;</span>, <span class="number">8888</span>);</span><br><span class="line"></span><br><span class="line">        JavaDStream&lt;String&gt; wordDStream = dStream.flatMap(</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">FlatMapFunction</span>&lt;String, String&gt;() &#123;</span><br><span class="line">            <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">serialVersionUID</span> <span class="operator">=</span> <span class="number">5302655187358849615L</span>;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> Iterable&lt;String&gt; <span class="title function_">call</span><span class="params">(String s)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                String[] split = s.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> Arrays.asList(split);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        JavaPairDStream&lt;String, Integer&gt; pairDStream = wordDStream.mapToPair(</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">PairFunction</span>&lt;String, String, Integer&gt;() &#123;</span><br><span class="line">            <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">serialVersionUID</span> <span class="operator">=</span> <span class="number">1285374334768880064L</span>;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> Tuple2&lt;String, Integer&gt; <span class="title function_">call</span><span class="params">(String word)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Tuple2</span>&lt;&gt;(word, <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        JavaPairDStream&lt;String, Integer&gt; resultDStream = pairDStream.reduceByKey(</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Function2</span>&lt;Integer, Integer, Integer&gt;() &#123;</span><br><span class="line">            <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">serialVersionUID</span> <span class="operator">=</span> <span class="number">5889114600370649292L</span>;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> Integer <span class="title function_">call</span><span class="params">(Integer v1, Integer v2)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                <span class="keyword">return</span> v1 + v2;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">// action类算子</span></span><br><span class="line">        resultDStream.print();</span><br><span class="line">        </span><br><span class="line">        streamingContext.start();</span><br><span class="line">        streamingContext.awaitTermination();</span><br><span class="line">        streamingContext.stop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="SparkStreaming-算子操作"><a href="#SparkStreaming-算子操作" class="headerlink" title="SparkStreaming 算子操作"></a>SparkStreaming 算子操作</h2><p>关于几种算子的详细API，请见Github：<a href="https://github.com/Sdreamery/BigDataAPI/tree/master/spark_demo/src/java/com/seanxia/java/sparkstreaming" rel="external nofollow noopener noreferrer" target="_blank">SparkStreamingAPI</a></p>
+<h2 id="SparkStreaming-算子操作">SparkStreaming 算子操作</h2>
+<p>关于几种算子的详细API，请见Github：<a href="https://github.com/Sdreamery/BigDataAPI/tree/master/spark_demo/src/java/com/seanxia/java/sparkstreaming" rel="external nofollow noopener noreferrer" target="_blank">SparkStreamingAPI</a></p>
 <p><strong>1、foreachRDD、print</strong></p>
 <p>output operator 类算子，必须对抽取出来的 RDD 执行 action 类算子，代码才能执行。</p>
 <p><strong>2、transform</strong></p>
@@ -198,15 +203,19 @@
 </ul>
 <p><strong>3、updateStateByKey</strong></p>
 <ul>
-<li><p>transformation 算子</p>
+<li>
+<p>transformation 算子</p>
 </li>
-<li><p>updateStateByKey 作用：</p>
+<li>
+<p>updateStateByKey 作用：</p>
 <p>1）为 SparkStreaming 中每一个 Key 维护一份 state 状态，state 类型可以是任意类型的，可以是一个自定义的对象，更新函数也可以是自定义的。</p>
 <p>2）通过更新函数对该 key 的状态不断更新，对于每个新的 batch 而言，SparkStreaming 会在使用 updateStateByKey 的时候为已经存在的 key 进行 state 的状态更新。</p>
 </li>
-<li><p>使用到 updateStateByKey 要开启 checkpoint 机制和功能。</p>
+<li>
+<p>使用到 updateStateByKey 要开启 checkpoint 机制和功能。</p>
 </li>
-<li><p>多久会将内存中的数据写入到磁盘一份？</p>
+<li>
+<p>多久会将内存中的数据写入到磁盘一份？</p>
 <p>1）如果 batchInterval 设置的时间小于10秒，那么10秒写入磁盘一份。</p>
 <p>2）如果 batchInterval 设置的时间大于 10 秒，那么就会 batchInterval 时间间隔写入磁盘一份。</p>
 </li>
@@ -218,27 +227,32 @@
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0fku37divj20gf06ejs1.jpg" alt></p>
 <p>假设每隔 5s 1 个 batch，上图中窗口长度为 15s，窗口滑动间隔 10s。</p>
 <ul>
-<li><p>窗口长度和滑动间隔必须是 batchInterval 的整数倍。如果不是整数倍会检测报错。</p>
+<li>
+<p>窗口长度和滑动间隔必须是 batchInterval 的整数倍。如果不是整数倍会检测报错。</p>
 </li>
-<li><p>优化后的 window 窗口操作示意图：</p>
+<li>
+<p>优化后的 window 窗口操作示意图：</p>
 </li>
 </ul>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0fkv0m3wvj20j9088djn.jpg" alt></p>
 <ul>
 <li>优化后的 window 操作要保存状态所以要设置 checkpoint 路径，没有优化的 window 操作可以不设置 checkpoint 路径。</li>
 </ul>
-<h2 id="Driver-HA（Standalone或Mesos）"><a href="#Driver-HA（Standalone或Mesos）" class="headerlink" title="Driver HA（Standalone或Mesos）"></a>Driver HA（Standalone或Mesos）</h2><p>因为 SparkStreaming 是 7*24 小时运行，Driver 只是一个简单的进程，有可能挂掉，所以实现 Driver 的 HA 就有必要（如果使用的 Client 模式就无法实现 Driver HA ，这里针对的是 cluster 模式）。</p>
+<h2 id="Driver-HA（Standalone或Mesos）">Driver HA（Standalone或Mesos）</h2>
+<p>因为 SparkStreaming 是 7*24 小时运行，Driver 只是一个简单的进程，有可能挂掉，所以实现 Driver 的 HA 就有必要（如果使用的 Client 模式就无法实现 Driver HA ，这里针对的是 cluster 模式）。</p>
 <blockquote>
 <p>Yarn 平台 cluster 模式提交任务，AM(AplicationMaster)相当于 Driver，如果挂掉会自动启动 AM。这里所说的 DriverHA 针对的是 Spark standalone 和 Mesos 资源调度的情况下。</p>
 </blockquote>
 <p><strong>实现 Driver 的高可用有两个步骤：</strong></p>
-<p>第一：提交任务层面，在提交任务的时候加上选项 —supervise，当 Driver挂掉的时候会自动重启 Driver。</p>
+<p>第一：提交任务层面，在提交任务的时候加上选项 --supervise，当 Driver挂掉的时候会自动重启 Driver。</p>
 <p>第二：代码层面，使用 JavaStreamingContext.getOrCreate（checkpoint 路径，JavaStreamingContextFactory）</p>
 <p><strong>Driver 中元数据包括：</strong></p>
 <p>1、创建应用程序的配置信息。</p>
 <p>2、DStream 的操作逻辑。</p>
 <p>3、job 中没有完成的批次数据，也就是 job 的执行进度。</p>
-<h2 id="SparkStreaming-Kafka"><a href="#SparkStreaming-Kafka" class="headerlink" title="SparkStreaming+Kafka"></a>SparkStreaming+Kafka</h2><h3 id="Receiver-模式"><a href="#Receiver-模式" class="headerlink" title="Receiver 模式"></a>Receiver 模式</h3><p><strong>receiver模式原理图</strong></p>
+<h2 id="SparkStreaming-Kafka">SparkStreaming+Kafka</h2>
+<h3 id="Receiver-模式">Receiver 模式</h3>
+<p><strong>receiver模式原理图</strong></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0gn4ycagrj20j90c9taz.jpg" alt></p>
 <p><strong>receiver模式理解</strong></p>
 <p>在 SparkSteaming 程序运行起来后，Executor 中会有 receiver tasks 接收 kafka 推送过来的数据。数据会被持久化，默认级别为 MEMORY_AND_DISK_SER_2，这个级别也可以修改。receiver task 对接收过来的数据进行存储和备份，这个过程会有节点之间的传输。备份完成后去 Zookeeper 中更新消费偏移量，然后向 Driver 中的 receiver tracker 汇报数据的位置。最后 Driver 根据数据本地化将 task 分发到不同节点上执行。</p>
@@ -263,7 +277,8 @@
 <p><strong>注意：</strong></p>
 <p><code>Receiver模式：只能保证至少被消费一次(at-least)，但是不能保证有且只会消费一次(exactly-once)。</code></p>
 <p><code>direct模式：可以保证exactly-once，能保证任务失败重读数据，但是不能保证任务中的输出数据有且只有一次。</code></p>
-<h3 id="Direct-模式"><a href="#Direct-模式" class="headerlink" title="Direct 模式"></a>Direct 模式</h3><p><strong>direct 模式理解</strong></p>
+<h3 id="Direct-模式">Direct 模式</h3>
+<p><strong>direct 模式理解</strong></p>
 <p>SparkStreaming+kafka 的 Driect 模式就是将 kafka 看成存数据的一方，不是被动接收数据，而是主动去取数据。</p>
 <p>消费者偏移量也不是用 zookeeper 来管理，而是 <code>SparkStreaming 内部对消费者偏移量自动来维护</code>。默认消费偏移量是在内存中，当然<code>如果设置了checkpoint 目录，那么消费偏移量也会保存在 checkpoint 中</code>。当然也可以实现用 zookeeper 来管理。</p>
 <p><strong>direct 模式并行度设置</strong></p>
@@ -273,7 +288,8 @@
 <p><strong>Web 监控页面</strong></p>
 <p>由于在本地运行，输入：localhost：4040，即可查看 SparkStreaming 在kafka集群中的运行状态</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0gpqp1qguj20q60b0t9l.jpg" alt></p>
-<h3 id="相关配置"><a href="#相关配置" class="headerlink" title="相关配置"></a>相关配置</h3><p><strong>预写日志：</strong></p>
+<h3 id="相关配置">相关配置</h3>
+<p><strong>预写日志：</strong></p>
 <p><code>用于优化 receiver 模式中，Driver进程挂掉，找不到数据的问题。</code></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">spark.streaming.receiver.writeAheadLog.enable	#默认false 没有开启</span><br></pre></td></tr></table></figure>
 <p><strong>blockInterval：</strong></p>

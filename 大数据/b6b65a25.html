@@ -158,34 +158,40 @@
 </head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/butterfly.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="风雨欲来兮丶"><span class="site-name">风雨欲来兮丶</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">流式处理Storm</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2017-11-01T16:00:00.000Z" title="发表于 2017-11-02 00:00:00">2017-11-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-08-10T13:46:32.000Z" title="更新于 2019-08-10 21:46:32">2019-08-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="流式处理Storm"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Storm是一个免费开源、分布式、高容错的实时计算系统。Storm令持续不断的流计算变得容易，弥补了Hadoop批处理所不能满足的实时要求。</p>
 <p>官网 <a href="http://storm.apache.org" rel="external nofollow noopener noreferrer" target="_blank">http://storm.apache.org</a></p>
 <span id="more"></span>
-<h2 id="Storm简介"><a href="#Storm简介" class="headerlink" title="Storm简介"></a>Storm简介</h2><p><code>Storm进程常驻内存，数据不经过磁盘，在内存中处理。</code></p>
-<h3 id="流式处理"><a href="#流式处理" class="headerlink" title="流式处理"></a>流式处理</h3><p><strong>1、流式处理（异步）</strong></p>
+<h2 id="Storm简介">Storm简介</h2>
+<p><code>Storm进程常驻内存，数据不经过磁盘，在内存中处理。</code></p>
+<h3 id="流式处理">流式处理</h3>
+<p><strong>1、流式处理（异步）</strong></p>
 <p>客户端提交数据进行结算，并不会等待数据计算结果。</p>
 <p><strong>2、逐条处理</strong></p>
 <p>例：ETL</p>
 <p><strong>3、统计分析</strong></p>
-<p> 例：计算PV、UV、访问热点 以及 某些数据的聚合、加和、平均等</p>
+<p>例：计算PV、UV、访问热点 以及 某些数据的聚合、加和、平均等</p>
 <ul>
 <li>客户端提交数据之后，计算完成结果存储到Redis、HBase、MySQL或者其他MQ当中，</li>
 <li>客户端并不关心最终结果是多少。</li>
 </ul>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznnxuzf6cj20hu02g0t9.jpg" alt></p>
-<h3 id="实时请求"><a href="#实时请求" class="headerlink" title="实时请求"></a>实时请求</h3><p><strong>1、实时请求应答服务（同步）</strong></p>
+<h3 id="实时请求">实时请求</h3>
+<p><strong>1、实时请求应答服务（同步）</strong></p>
 <p>客户端提交数据请求之后，立刻取得计算结果并返回给客户端</p>
 <p><strong>2、Drpc</strong></p>
 <p><strong>3、实时请求处理</strong></p>
 <p>例：图片特征提取</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzno1shz8qj20ge037my9.jpg" alt></p>
-<h3 id="高可靠性"><a href="#高可靠性" class="headerlink" title="高可靠性"></a>高可靠性</h3><p>1、异常处理</p>
+<h3 id="高可靠性">高可靠性</h3>
+<p>1、异常处理</p>
 <p>2、消息可靠性保障机制。</p>
-<h3 id="可维护性"><a href="#可维护性" class="headerlink" title="可维护性"></a>可维护性</h3><p> StormUI 图形化监控接口</p>
+<h3 id="可维护性">可维护性</h3>
+<p>StormUI 图形化监控接口</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznnkd3f2cj20hy05a0sz.jpg" alt></p>
-<h3 id="Storm与MR、Spark对比"><a href="#Storm与MR、Spark对比" class="headerlink" title="Storm与MR、Spark对比"></a>Storm与MR、Spark对比</h3><p><strong>Storm对比Mapreduce</strong></p>
+<h3 id="Storm与MR、Spark对比">Storm与MR、Spark对比</h3>
+<p><strong>Storm对比Mapreduce</strong></p>
 <p>Storm：进程、线程常驻内存运行，数据不进入磁盘，数据通过网络传递。</p>
 <p>MapReduce：为TB、PB级别数据设计的批处理计算框架。</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzno95t3mzj209r06v74l.jpg" alt></p>
 <p><strong>Storm对比Spark Streaming</strong></p>
-<p> Storm：纯流式处理</p>
+<p>Storm：纯流式处理</p>
 <ul>
 <li>专门为流式处理设计</li>
 <li>数据传输模式更为简单，很多地方也更为高效</li>
@@ -197,7 +203,8 @@
 <li>基于内存和DAG</li>
 </ul>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznobe5vw9j20bt06ljrs.jpg" alt></p>
-<h2 id="Storm架构设计"><a href="#Storm架构设计" class="headerlink" title="Storm架构设计"></a>Storm架构设计</h2><p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznnq20l4zj20gz0ajtd8.jpg" alt></p>
+<h2 id="Storm架构设计">Storm架构设计</h2>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznnq20l4zj20gz0ajtd8.jpg" alt></p>
 <p><strong>Nimbus</strong></p>
 <ul>
 <li>资源调度</li>
@@ -223,7 +230,8 @@
 </ul>
 <p><strong>Storm 架构设计与Hadoop架构对比</strong></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznp2ka9vkj20jt04fdg9.jpg" alt></p>
-<h2 id="Storm任务提交流程"><a href="#Storm任务提交流程" class="headerlink" title="Storm任务提交流程"></a>Storm任务提交流程</h2><p><strong>提交流程图</strong></p>
+<h2 id="Storm任务提交流程">Storm任务提交流程</h2>
+<p><strong>提交流程图</strong></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzoj2zds1qj20ib0c0400.jpg" alt></p>
 <p>下图是Storm的数据交互图。可以看出两个模块Nimbus和Supervisor之间没有直接交互。状态都是保存在Zookeeper上。Worker之间通过ZeroMQ传送数据。</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznnqvn5bgj20g5064ab0.jpg" alt></p>
@@ -233,9 +241,16 @@
 <p><strong>Nimbus：</strong></p>
 <p>2、提交的jar包会被上传到nimbus服务器的nimbus/inbox目录下；</p>
 <p>3、submitTopology方法对这个topology进行处理：</p>
-<p>​    它首先要对storm本身，以及topology进行一些校验；<br>​    它要检查storm的状态是否是active的<br>​    它要检查是否已经有同名的topology在storm里面运行了<br>​    因为我们会在代码里面给spout、bolt指定id，storm会检查是否有两个spout和bolt使用了相同的id。<br>​    任何一个id都不能以 “_” 开头，这种命名方式是系统保留的。    </p>
+<p>​	它首先要对storm本身，以及topology进行一些校验；<br>
+​	它要检查storm的状态是否是active的<br>
+​	它要检查是否已经有同名的topology在storm里面运行了<br>
+​	因为我们会在代码里面给spout、bolt指定id，storm会检查是否有两个spout和bolt使用了相同的id。<br>
+​	任何一个id都不能以 “_” 开头，这种命名方式是系统保留的。</p>
 <p>4、建立topology的本地目录：</p>
-<p>​    nimbus/stormdist/topology-uuid，该目录包含三个文件：<br>​    stormjar.jar        — 包含这个topology所有代码的jar包（从nimbus/index里面挪过来的）<br>​    stormcode.ser    — 这个topology对象的序列化<br>​    stormconf.ser    — 运行这个topology的配置</p>
+<p>​	nimbus/stormdist/topology-uuid，该目录包含三个文件：<br>
+​	stormjar.jar		– 包含这个topology所有代码的jar包（从nimbus/index里面挪过来的）<br>
+​	stormcode.ser	– 这个topology对象的序列化<br>
+​	stormconf.ser	– 运行这个topology的配置</p>
 <p>5、nimbus分配任务，根据topology定义中给定的参数，给spout/bolt设定task数据，分配对应的task-id，最后把分配好task的信息写入到zookeeper的/task目录；</p>
 <p>6、nimbus在zookeeper上创建taskbeats目录，要求每个task定时发送心跳信息；</p>
 <p>7、将分配好的任务，写入zookeeper，任务提交完毕；</p>
@@ -249,7 +264,8 @@
 <p>2、根据taskid分辨出spout、bolt；</p>
 <p>3、计算出所代表的的spout/bolt会给哪些task发送消息；</p>
 <p>4、根据ip和端口号创建响应的网络连接用来发送消息。</p>
-<h2 id="Storm计算模型"><a href="#Storm计算模型" class="headerlink" title="Storm计算模型"></a>Storm计算模型</h2><p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznog2bvbyj20fg07ewer.jpg" alt></p>
+<h2 id="Storm计算模型">Storm计算模型</h2>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznog2bvbyj20fg07ewer.jpg" alt></p>
 <p><strong>Topology - DAG有向无环图的实现</strong></p>
 <ul>
 <li>Storm提交运行的程序称为Topology。</li>
@@ -258,16 +274,21 @@
 </ul>
 <p><strong>Spout – 数据源</strong></p>
 <ul>
-<li><p>拓扑中数据流的来源。一般会从指定外部的数据源读取元组（Tuple）发送到拓扑（Topology）中，一个Spout可以发送多个数据流（Stream）。</p>
+<li>
+<p>拓扑中数据流的来源。一般会从指定外部的数据源读取元组（Tuple）发送到拓扑（Topology）中，一个Spout可以发送多个数据流（Stream）。</p>
 </li>
-<li><p>可先通过OutputFieldsDeclarer中的<code>declare方法</code>声明定义的不同数据流，发送数据时通过SpoutOutputCollector中的<code>emit方法</code>指定数据流Id（streamId）参数将数据发送出去。</p>
+<li>
+<p>可先通过OutputFieldsDeclarer中的<code>declare方法</code>声明定义的不同数据流，发送数据时通过SpoutOutputCollector中的<code>emit方法</code>指定数据流Id（streamId）参数将数据发送出去。</p>
 </li>
-<li><p><code>Spout中最核心的方法是nextTuple</code>，该方法会被Storm线程不断调用、主动从数据源拉取数据，再通过emit<br>方法将数据生成元组（Tuple）发送给之后的Bolt计算。</p>
+<li>
+<p><code>Spout中最核心的方法是nextTuple</code>，该方法会被Storm线程不断调用、主动从数据源拉取数据，再通过emit<br>
+方法将数据生成元组（Tuple）发送给之后的Bolt计算。</p>
 </li>
 </ul>
 <p><strong>Bolt – 数据流处理组件</strong></p>
 <ul>
-<li>拓扑中数据处理均有Bolt完成。对于简单的任务或者数据流转换，单个Bolt可以简单实现；更加复杂场景往往<br>需要多个Bolt分多个步骤完成。</li>
+<li>拓扑中数据处理均有Bolt完成。对于简单的任务或者数据流转换，单个Bolt可以简单实现；更加复杂场景往往<br>
+需要多个Bolt分多个步骤完成。</li>
 <li>一个Bolt可以发送多个数据流（Stream）。</li>
 <li>可先通过OutputFieldsDeclarer中的<code>declare方法</code>声明定义的不同数据流，发送数据时通过SpoutOutputCollector中的<code>emit方法</code>指定数据流Id（streamId）参数将数据发送出去。</li>
 <li><code>Bolt中最核心的方法是execute方法</code>，该方法负责接收到一个元组（Tuple）数据、真正实现核心的业务逻辑。</li>
@@ -278,12 +299,15 @@
 </ul>
 <p><strong>Stream – 数据流</strong></p>
 <ul>
-<li>从Spout中源源不断传递数据给Bolt、以及上一个Bolt传递数据给下一个Bolt，所形成的这些数据通道即叫做<br>Stream。</li>
+<li>从Spout中源源不断传递数据给Bolt、以及上一个Bolt传递数据给下一个Bolt，所形成的这些数据通道即叫做<br>
+Stream。</li>
 <li>Stream声明时需给其指定一个Id（默认为Default）</li>
 <li>实际开发场景中，多使用单一数据流，此时不需要单独指定StreamId</li>
 </ul>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznpm2rangj20bq01ba9z.jpg" alt></p>
-<h2 id="demo-API"><a href="#demo-API" class="headerlink" title="demo API"></a>demo API</h2><h3 id="Storm-数据累加"><a href="#Storm-数据累加" class="headerlink" title="Storm 数据累加"></a>Storm 数据累加</h3><p><strong>MyTopology类（main方法）</strong></p>
+<h2 id="demo-API">demo API</h2>
+<h3 id="Storm-数据累加">Storm 数据累加</h3>
+<p><strong>MyTopology类（main方法）</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyTopology</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="comment">// 数据累加... spout bolt</span></span><br><span class="line">        <span class="type">TopologyBuilder</span> <span class="variable">topologyBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TopologyBuilder</span>();</span><br><span class="line">        topologyBuilder.setSpout(<span class="string">&quot;myspout&quot;</span>, <span class="keyword">new</span> <span class="title class_">MySpout</span>());</span><br><span class="line">        topologyBuilder.setBolt(<span class="string">&quot;mybolt&quot;</span>, <span class="keyword">new</span> <span class="title class_">MyBolt</span>()).shuffleGrouping(<span class="string">&quot;myspout&quot;</span>);</span><br><span class="line">		</span><br><span class="line">        <span class="comment">// 定义配置</span></span><br><span class="line">        <span class="type">Config</span> <span class="variable">config</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Config</span>();    </span><br><span class="line">        <span class="type">StormTopology</span> <span class="variable">topology</span> <span class="operator">=</span> topologyBuilder.createTopology();</span><br><span class="line">       </span><br><span class="line">        <span class="comment">//本地提交</span></span><br><span class="line">        <span class="type">LocalCluster</span> <span class="variable">localCluster</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LocalCluster</span>();</span><br><span class="line">        localCluster.submitTopology(<span class="string">&quot;sum&quot;</span>, config, topology)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>MySpout类：发送数据</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MySpout</span> <span class="keyword">extends</span> <span class="title class_">BaseRichSpout</span> &#123;</span><br><span class="line">    SpoutOutputCollector collector;</span><br><span class="line">    <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 初始化方法。框架在执行任务的时候会先执行此方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> conf  可以得到spout的配置</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> context   上下文环境</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> collector  往下游发送数据</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">open</span><span class="params">(Map conf, TopologyContext context, </span></span><br><span class="line"><span class="params">                     SpoutOutputCollector collector)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.collector = collector;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 此方法是spout的核心方法。</span></span><br><span class="line"><span class="comment">     * 框架会一直（无限）调用此方法，每当调用时，我们应该往下游发送数据</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">nextTuple</span><span class="params">()</span> &#123;</span><br><span class="line">        i++;</span><br><span class="line">        collector.emit(<span class="keyword">new</span> <span class="title class_">Values</span>(i));  <span class="comment">//底层不定参</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//发送一条数据睡眠一下，降低发送频率</span></span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;spout 发送。。。&quot;</span> + i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 当需要往下游发送数据时，就要声明字段个数和名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> declarer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">declareOutputFields</span><span class="params">(OutputFieldsDeclarer declarer)</span> &#123;</span><br><span class="line">        declarer.declare(<span class="keyword">new</span> <span class="title class_">Fields</span>(<span class="string">&quot;number&quot;</span>));  <span class="comment">//与Values方法传入的参数保持一致</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -292,7 +316,8 @@
 <p><strong>运行代码，查看打印信息：</strong></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznujhhfz9j20g806975z.jpg" alt></p>
 <p>从打印信息看出，累加操作完成。</p>
-<h3 id="Storm-WordCount"><a href="#Storm-WordCount" class="headerlink" title="Storm WordCount"></a>Storm WordCount</h3><p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznpnhtczdj20d4020gmc.jpg" alt></p>
+<h3 id="Storm-WordCount">Storm WordCount</h3>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznpnhtczdj20d4020gmc.jpg" alt></p>
 <p><strong>WordCountToplogy类（main方法）</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WordCountToplogy</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 一对一 线程与task</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> args</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">TopologyBuilder</span> <span class="variable">topologyBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TopologyBuilder</span>();</span><br><span class="line">        <span class="comment">// 设置并行度为3即task</span></span><br><span class="line">        topologyBuilder.setSpout(<span class="string">&quot;wcspout&quot;</span>,<span class="keyword">new</span> <span class="title class_">WordCountSpout</span>(),<span class="number">3</span>);</span><br><span class="line">        <span class="comment">// 设置并行度为5即task</span></span><br><span class="line">        topologyBuilder.setBolt(<span class="string">&quot;splitbolt&quot;</span>,<span class="keyword">new</span> <span class="title class_">SplitBolt</span>(),<span class="number">5</span>)</span><br><span class="line">                .shuffleGrouping(<span class="string">&quot;wcspout&quot;</span>); <span class="comment">// 随机分组</span></span><br><span class="line">        <span class="comment">// 按字段分组，每个单词累加个数</span></span><br><span class="line">        topologyBuilder.setBolt(<span class="string">&quot;countbolt&quot;</span>,<span class="keyword">new</span> <span class="title class_">CountBolt</span>(),<span class="number">6</span>)</span><br><span class="line">                .fieldsGrouping(<span class="string">&quot;splitbolt&quot;</span>,<span class="keyword">new</span> <span class="title class_">Fields</span>(<span class="string">&quot;word&quot;</span>));</span><br><span class="line"></span><br><span class="line">        <span class="type">Config</span> <span class="variable">config</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Config</span>();</span><br><span class="line"><span class="comment">//        config.setNumWorkers(3);  //设置worker进程个数</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (args.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">// 集群运行方式</span></span><br><span class="line">                StormSubmitter.submitTopology(args[<span class="number">0</span>], config,</span><br><span class="line">                        topologyBuilder.createTopology());</span><br><span class="line">            &#125; <span class="keyword">catch</span> (AlreadyAliveException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InvalidTopologyException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 本地运行方式</span></span><br><span class="line">            <span class="type">LocalCluster</span> <span class="variable">localCluster</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LocalCluster</span>();</span><br><span class="line">            localCluster.submitTopology(<span class="string">&quot;mytopology&quot;</span>, config,</span><br><span class="line">                    topologyBuilder.createTopology());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>WordCountSpout类：发送数据</strong></p>
@@ -304,76 +329,103 @@
 <p><strong>运行，查看打印结果：</strong></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznvjutflij20gr05k75s.jpg" alt></p>
 <p>由打印结果可以看出，统计单词完成。</p>
-<h2 id="Storm-Grouping"><a href="#Storm-Grouping" class="headerlink" title="Storm Grouping"></a>Storm Grouping</h2><p><strong>Shuffle Grouping</strong></p>
+<h2 id="Storm-Grouping">Storm Grouping</h2>
+<p><strong>Shuffle Grouping</strong></p>
 <p>随机分组，随机派发stream里面的tuple，保证每个bolt task接收到的tuple数目大致相同。</p>
 <p><strong>Fields Grouping</strong></p>
-<p>按字段分组，比如，按”user-id”这个字段来分组，那么具有同样”user-id”的 tuple 会被分到相同的Bolt里的一<br>个task， 而不同的”user-id”则可能会被分配到不同的task。</p>
+<p>按字段分组，比如，按&quot;user-id&quot;这个字段来分组，那么具有同样&quot;user-id&quot;的 tuple 会被分到相同的Bolt里的一<br>
+个task， 而不同的&quot;user-id&quot;则可能会被分配到不同的task。</p>
 <p><strong>All Grouping</strong></p>
 <p>广播发送，对于每一个tuple，所有的bolts都会收到。</p>
 <p><strong>Global Grouping</strong></p>
 <p>全局分组，把tuple分配给task id最低的task 。</p>
 <p><strong>None Grouping</strong></p>
-<p>不分组，这个分组的意思是说stream不关心到底怎样分组。目前这种分组和Shuffle grouping是一样的效果。<br>有一点不同的是storm会把使用none grouping的这个bolt放到这个bolt的订阅者同一个线程里面去执行（未<br>来Storm如果可能的话会这样设计）。</p>
+<p>不分组，这个分组的意思是说stream不关心到底怎样分组。目前这种分组和Shuffle grouping是一样的效果。<br>
+有一点不同的是storm会把使用none grouping的这个bolt放到这个bolt的订阅者同一个线程里面去执行（未<br>
+来Storm如果可能的话会这样设计）。</p>
 <p><strong>Direct Grouping</strong></p>
-<p>指向型分组， 这是一种比较特别的分组方法，用这种分组意味着消息（tuple）的发送者指定由消息接收者的<br>哪个task处理这个消息。只有被声明为 Direct Stream 的消息流可以声明这种分组方法。而且这种消息tuple必<br>须使用 emitDirect 方法来发射。消息处理者可以通过 TopologyContext 来获取处理它的消息的task的id<br>(OutputCollector.emit方法也会返回task的id)。</p>
+<p>指向型分组， 这是一种比较特别的分组方法，用这种分组意味着消息（tuple）的发送者指定由消息接收者的<br>
+哪个task处理这个消息。只有被声明为 Direct Stream 的消息流可以声明这种分组方法。而且这种消息tuple必<br>
+须使用 emitDirect 方法来发射。消息处理者可以通过 TopologyContext 来获取处理它的消息的task的id<br>
+(OutputCollector.emit方法也会返回task的id)。</p>
 <p><strong>Local or shuffle grouping</strong></p>
-<p>本地或随机分组。如果目标bolt有一个或者多个task与源bolt的task在同一个工作进程中，tuple将会被随机发<br>送给这些同进程中的tasks。否则，和普通的Shuffle Grouping行为一致。</p>
+<p>本地或随机分组。如果目标bolt有一个或者多个task与源bolt的task在同一个工作进程中，tuple将会被随机发<br>
+送给这些同进程中的tasks。否则，和普通的Shuffle Grouping行为一致。</p>
 <p><strong>customGrouping</strong></p>
 <p>自定义，相当于mapreduce那里自己去实现一个partition一样。</p>
-<h2 id="并发机制"><a href="#并发机制" class="headerlink" title="并发机制"></a>并发机制</h2><h3 id="Topology参数设置"><a href="#Topology参数设置" class="headerlink" title="Topology参数设置"></a>Topology参数设置</h3><p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznq1ihl1vj20d107xwfd.jpg" alt></p>
+<h2 id="并发机制">并发机制</h2>
+<h3 id="Topology参数设置">Topology参数设置</h3>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznq1ihl1vj20d107xwfd.jpg" alt></p>
 <p><strong>Worker – 进程</strong></p>
 <ul>
-<li><p>一个Topology拓扑会包含一个或多个Worker（每个Worker进程只能从属于一个特定的Topology）。</p>
+<li>
+<p>一个Topology拓扑会包含一个或多个Worker（每个Worker进程只能从属于一个特定的Topology）。</p>
 </li>
-<li><p>这些Worker进程会并行跑在集群中不同的服务器上，即一个Topology拓扑其实是由并行运行在Storm集群中<br>多台服务器上的进程所组成。</p>
-<p><strong>Executor – 线程</strong></p>
-</li>
-<li><p>Executor是由Worker进程中生成的一个线程。</p>
-</li>
-<li>每个Worker进程中会运行拓扑当中的一个或多个Executor线程。</li>
-<li><p>一个Executor线程中可以执行一个或多个Task任务（默认每个Executor只执行一个Task任务），但是这些<br>Task任务都是对应着同一个组件（Spout、Bolt）。</p>
-<p><strong>Task</strong></p>
-</li>
-<li><p>实际执行数据处理的最小单元。</p>
-</li>
-<li>每个task即为一个Spout或者一个Bolt。</li>
-<li>Task数量在整个Topology生命周期中保持不变，Executor数量可以变化或手动调整。</li>
-<li><p>默认情况下，Task数量和Executor是相同的，即每个Executor线程中默认运行一个Task任务。</p>
-<p><strong>设置Worker进程数</strong></p>
+<li>
+<p>这些Worker进程会并行跑在集群中不同的服务器上，即一个Topology拓扑其实是由并行运行在Storm集群中<br>
+多台服务器上的进程所组成。</p>
 </li>
 </ul>
+<p><strong>Executor – 线程</strong></p>
+<ul>
+<li>Executor是由Worker进程中生成的一个线程。</li>
+<li>每个Worker进程中会运行拓扑当中的一个或多个Executor线程。</li>
+<li>一个Executor线程中可以执行一个或多个Task任务（默认每个Executor只执行一个Task任务），但是这些<br>
+Task任务都是对应着同一个组件（Spout、Bolt）。</li>
+</ul>
+<p><strong>Task</strong></p>
+<ul>
+<li>实际执行数据处理的最小单元。</li>
+<li>每个task即为一个Spout或者一个Bolt。</li>
+<li>Task数量在整个Topology生命周期中保持不变，Executor数量可以变化或手动调整。</li>
+<li>默认情况下，Task数量和Executor是相同的，即每个Executor线程中默认运行一个Task任务。</li>
+</ul>
+<p><strong>设置Worker进程数</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Config.setNumWorkers(<span class="type">int</span> workers)</span><br></pre></td></tr></table></figure>
-<p> <strong>设置Executor线程数</strong></p>
+<p><strong>设置Executor线程数</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">TopologyBuilder.setSpout(String id, IRichSpout spout, Number parallelism_hint)</span><br><span class="line">TopologyBuilder.setBolt(String id, IRichBolt bolt, Number parallelism_hint)</span><br></pre></td></tr></table></figure>
 <p><code>其中， parallelism_hint即为executor线程数。</code></p>
-<p> <strong>设置Task数量</strong></p>
+<p><strong>设置Task数量</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ComponentConfigurationDeclarer.setNumTasks(Number val)</span><br></pre></td></tr></table></figure>
 <p><strong>例：</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Config</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Config</span>() ;</span><br><span class="line">conf.setNumWorkers(<span class="number">2</span>);</span><br><span class="line"><span class="type">TopologyBuilder</span> <span class="variable">topologyBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TopologyBuilder</span>();</span><br><span class="line">topologyBuilder.setSpout(<span class="string">&quot;spout&quot;</span>, <span class="keyword">new</span> <span class="title class_">MySpout</span>(), <span class="number">1</span>);</span><br><span class="line">topologyBuilder.setBolt(<span class="string">&quot;green-bolt&quot;</span>, <span class="keyword">new</span> <span class="title class_">GreenBolt</span>(), <span class="number">2</span>).setNumTasks(<span class="number">4</span>)</span><br><span class="line">.shuffleGrouping(<span class="string">&quot;blue-spout);</span></span><br></pre></td></tr></table></figure>
-<h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><p> <strong>Rebalance – 再平衡</strong></p>
+<h3 id="负载均衡">负载均衡</h3>
+<p><strong>Rebalance – 再平衡</strong></p>
 <p>动态调整Topology拓扑的Worker进程数量、以及Executor线程数量。</p>
-<p> <strong>支持两种调整方式</strong></p>
+<p><strong>支持两种调整方式</strong></p>
 <ul>
 <li>通过Storm UI</li>
 <li>通过Storm CLI</li>
 </ul>
 <p><strong>通过Storm CLI动态调整</strong></p>
-<p>例：storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10<br>将 mytopology 拓扑 worker 进程数量调整为5个<br>“ blue-spout ” 所使用的线程数量调整为3个<br>“ yellow-bolt ”所使用的线程数量调整为10个</p>
+<p>例：storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10<br>
+将 mytopology 拓扑 worker 进程数量调整为5个<br>
+“ blue-spout ” 所使用的线程数量调整为3个<br>
+“ yellow-bolt ”所使用的线程数量调整为10个</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznqfwelfqj20u40citc6.jpg" alt></p>
-<h2 id="通信机制"><a href="#通信机制" class="headerlink" title="通信机制"></a>通信机制</h2><h3 id="Worker进程间的数据通信"><a href="#Worker进程间的数据通信" class="headerlink" title="Worker进程间的数据通信"></a>Worker进程间的数据通信</h3><p><strong>ZMQ</strong><br>ZeroMQ 开源的消息传递框架，并不是一个MessageQueue。</p>
-<p><strong>Netty</strong><br>Netty是基于NIO的网络框架，更加高效。（之所以Storm 0.9版本之后使用Netty，是因为ZMQ的license和Storm的license不兼容。）</p>
-<h3 id="Worker内部的数据通信"><a href="#Worker内部的数据通信" class="headerlink" title="Worker内部的数据通信"></a>Worker内部的数据通信</h3><p><strong>Disruptor</strong></p>
+<h2 id="通信机制">通信机制</h2>
+<h3 id="Worker进程间的数据通信">Worker进程间的数据通信</h3>
+<p><strong>ZMQ</strong><br>
+ZeroMQ 开源的消息传递框架，并不是一个MessageQueue。</p>
+<p><strong>Netty</strong><br>
+Netty是基于NIO的网络框架，更加高效。（之所以Storm 0.9版本之后使用Netty，是因为ZMQ的license和Storm的license不兼容。）</p>
+<h3 id="Worker内部的数据通信">Worker内部的数据通信</h3>
+<p><strong>Disruptor</strong></p>
 <ul>
 <li>实现了“队列”的功能。</li>
-<li>可以理解为一种事件监听或者消息处理机制，即在队列当中一边由生产者放入消息数据，另一边消费者<br>并行取出消息数据处理。</li>
+<li>可以理解为一种事件监听或者消息处理机制，即在队列当中一边由生产者放入消息数据，另一边消费者<br>
+并行取出消息数据处理。</li>
 </ul>
 <p>Worker内部的消息传递机制：</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznqo2fpbtj20i70e8wgl.jpg" alt></p>
-<h2 id="容错机制"><a href="#容错机制" class="headerlink" title="容错机制"></a>容错机制</h2><h3 id="集群节点宕机"><a href="#集群节点宕机" class="headerlink" title="集群节点宕机"></a>集群节点宕机</h3><p> <strong>Nimbus服务器</strong></p>
+<h2 id="容错机制">容错机制</h2>
+<h3 id="集群节点宕机">集群节点宕机</h3>
+<p><strong>Nimbus服务器</strong></p>
 <p>单点故障。</p>
 <p><strong>非Nimbus服务器</strong></p>
 <p>故障时，该节点上所有Task任务都会超时，Nimbus会将这些Task任务重新分配到其他服务器上运行。</p>
-<h3 id="进程挂掉"><a href="#进程挂掉" class="headerlink" title="进程挂掉"></a>进程挂掉</h3><p><strong>Worker</strong></p>
+<h3 id="进程挂掉">进程挂掉</h3>
+<p><strong>Worker</strong></p>
 <p>挂掉时，Supervisor会重新启动这个进程。如果启动过程中仍然一直失败，并且无法向Nimbus发送心跳，Nimbus会将该Worker重新分配到其他服务器上。</p>
 <p><strong>Supervisor</strong></p>
 <ul>
@@ -382,32 +434,38 @@
 </ul>
 <p><strong>Nimbus</strong></p>
 <p>nimbus挂掉，不影响正在运行的任务，但也不会接受新的Topology。</p>
-<h3 id="消息的完整性"><a href="#消息的完整性" class="headerlink" title="消息的完整性"></a>消息的完整性</h3><p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznqudqzhgj20rp0cpwhf.jpg" alt></p>
+<h3 id="消息的完整性">消息的完整性</h3>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznqudqzhgj20rp0cpwhf.jpg" alt></p>
 <ul>
-<li>从Spout中发出的Tuple，以及基于他所产生Tuple（例如上个例子当中Spout发出的句子，<br>以及句子当中单词的tuple等）。</li>
+<li>从Spout中发出的Tuple，以及基于他所产生Tuple（例如上个例子当中Spout发出的句子，<br>
+以及句子当中单词的tuple等）。</li>
 <li>由这些消息就构成了一棵tuple树。</li>
-<li>当这棵tuple树发送完成，并且树当中每一条消息都被正确处理，就表明spout发送消息被“<br>完整处理”，即消息的完整性。</li>
+<li>当这棵tuple树发送完成，并且树当中每一条消息都被正确处理，就表明spout发送消息被“<br>
+完整处理”，即消息的完整性。</li>
 </ul>
 <p><strong>Acker – 消息完整性的实现机制</strong></p>
 <ul>
-<li><p>Storm的拓扑当中特殊的一些任务。</p>
+<li>
+<p>Storm的拓扑当中特殊的一些任务。</p>
 </li>
-<li><p>负责跟踪每个Spout发出的Tuple的DAG（有向无环图）。</p>
+<li>
+<p>负责跟踪每个Spout发出的Tuple的DAG（有向无环图）。</p>
 </li>
 </ul>
-<h2 id="Storm-完全分布式部署"><a href="#Storm-完全分布式部署" class="headerlink" title="Storm 完全分布式部署"></a>Storm 完全分布式部署</h2><p><strong>部署ZooKeeper</strong></p>
+<h2 id="Storm-完全分布式部署">Storm 完全分布式部署</h2>
+<p><strong>部署ZooKeeper</strong></p>
 <ul>
 <li>版本3.4.5+ (高版本Zookeeper实现了对于自身持久化数据的定期删除功能)</li>
 <li>(autopurge.purgeInterval; autopurge.snapRetainCount)</li>
 </ul>
 <p><strong>上传、解压安装包</strong></p>
-<p> <strong>在storm目录中创建logs目录</strong></p>
+<p><strong>在storm目录中创建logs目录</strong></p>
 <ul>
-<li><p>$ mkdir logs</p>
+<li>$ mkdir logs</li>
+</ul>
 <p><strong>修改配置文件</strong></p>
-</li>
-<li><p>storm.yaml</p>
-</li>
+<ul>
+<li>storm.yaml</li>
 </ul>
 <p>配置文件内容：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">storm.zookeeper.servers:</span><br><span class="line">   - <span class="string">&quot;sean01&quot;</span></span><br><span class="line">   - <span class="string">&quot;sean02&quot;</span></span><br><span class="line">   - <span class="string">&quot;sean03&quot;</span></span><br><span class="line">nimbus.host: “sean01<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
@@ -415,7 +473,7 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp -r apache-storm-0.10.0 sean02:`pwd`</span><br><span class="line">scp -r apache-storm-0.10.0 sean03:`pwd`</span><br></pre></td></tr></table></figure>
 <p><strong>启动Zookeeper集群</strong></p>
 <ul>
-<li>zkServer.sh start</li>
+<li><a href="http://zkServer.sh" rel="external nofollow noopener noreferrer" target="_blank">zkServer.sh</a> start</li>
 </ul>
 <p><strong>在sean01上启动Nimbus</strong></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将nimbus的进程日志标准、错误输出重定向追加加到/logs/nimbus.out文件中，后面的&amp;符代表linux后台运行</span></span><br><span class="line">./bin/storm nimbus &gt;&gt; ./logs/nimbus.out 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将ui的进程日志标准、错误输出重定向追加加到/logs/ui.out文件中，后台运行</span></span><br><span class="line">./bin/storm ui &gt;&gt; ./logs/ui.out 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
@@ -428,6 +486,6 @@
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznsnu9w08j20d50313yd.jpg" alt></p>
 <p><strong>启动Storm UI</strong></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./storm ui &gt;&gt; ./logs/ui.out 2&gt;&amp;1 &amp;	#Web Ui的进程</span><br></pre></td></tr></table></figure>
-<p><strong>通过<a href="http://sean01:8080/访问" rel="external nofollow noopener noreferrer" target="_blank">http://sean01:8080/访问</a></strong></p>
+<p><strong>通过<a href="http://sean01:8080/%E8%AE%BF%E9%97%AE" rel="external nofollow noopener noreferrer" target="_blank">http://sean01:8080/访问</a></strong></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fznspebj0gj211j0gkwfb.jpg" alt></p>
 </article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://www.seanxia.cn">SeanXia</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/b6b65a25.html">http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/b6b65a25.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="external nofollow noopener noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.seanxia.cn" target="_blank">风雨欲来兮丶</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B5%81%E5%BC%8F%E5%A4%84%E7%90%86/">流式处理</a><a class="post-meta__tags" href="/tags/Storm/">Storm</a></div><div class="post_share"><div class="social-share" data-image="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赏一个</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/%E5%BE%AE%E4%BF%A110%E5%85%83%E8%B5%9E%E8%B5%8F%E7%A0%81.jpg" target="_blank" rel="external nofollow noopener noreferrer"><img class="post-qr-code-img" src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/%E5%BE%AE%E4%BF%A110%E5%85%83%E8%B5%9E%E8%B5%8F%E7%A0%81.jpg" alt="微信"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%B6%E6%AC%BE%E7%A0%81.jpg" target="_blank" rel="external nofollow noopener noreferrer"><img class="post-qr-code-img" src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%B6%E6%AC%BE%E7%A0%81.jpg" alt="支付宝"></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/53ca074f.html" title="Spark计算框架（一）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Spark计算框架（一）</div></div></a></div><div class="next-post pull-right"><a href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/efe707af.html" title="消息队列Kafka"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">消息队列Kafka</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html" title="流式框架Flink（一）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-01-02</div><div class="title">流式框架Flink（一）</div></div></a></div><div><a href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html" title="流式框架Flink（二）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-01-02</div><div class="title">流式框架Flink（二）</div></div></a></div><div><a href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/2e9b7b1c.html" title="Spark计算框架（六）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-02-03</div><div class="title">Spark计算框架（六）</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">SeanXia</div><div class="author-info__description">好奇搞怪,大数据分析,数据开发者一枚</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" href="https://github.com/Sdreamery" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Sdreamery" target="_blank" title="Github" rel="external nofollow noopener noreferrer"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:sean.xs@foxmail.com" target="_blank" title="Email" rel="external nofollow noopener noreferrer"><i class="fas fa-envelope" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Storm%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">Storm简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E5%BC%8F%E5%A4%84%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">流式处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E6%97%B6%E8%AF%B7%E6%B1%82"><span class="toc-number">1.2.</span> <span class="toc-text">实时请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="toc-number">1.3.</span> <span class="toc-text">高可靠性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E7%BB%B4%E6%8A%A4%E6%80%A7"><span class="toc-number">1.4.</span> <span class="toc-text">可维护性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Storm%E4%B8%8EMR%E3%80%81Spark%E5%AF%B9%E6%AF%94"><span class="toc-number">1.5.</span> <span class="toc-text">Storm与MR、Spark对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Storm%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.</span> <span class="toc-text">Storm架构设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Storm%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">Storm任务提交流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Storm%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">Storm计算模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#demo-API"><span class="toc-number">5.</span> <span class="toc-text">demo API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Storm-%E6%95%B0%E6%8D%AE%E7%B4%AF%E5%8A%A0"><span class="toc-number">5.1.</span> <span class="toc-text">Storm 数据累加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Storm-WordCount"><span class="toc-number">5.2.</span> <span class="toc-text">Storm WordCount</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Storm-Grouping"><span class="toc-number">6.</span> <span class="toc-text">Storm Grouping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6"><span class="toc-number">7.</span> <span class="toc-text">并发机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Topology%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE"><span class="toc-number">7.1.</span> <span class="toc-text">Topology参数设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">7.2.</span> <span class="toc-text">负载均衡</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6"><span class="toc-number">8.</span> <span class="toc-text">通信机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Worker%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1"><span class="toc-number">8.1.</span> <span class="toc-text">Worker进程间的数据通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Worker%E5%86%85%E9%83%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1"><span class="toc-number">8.2.</span> <span class="toc-text">Worker内部的数据通信</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E9%94%99%E6%9C%BA%E5%88%B6"><span class="toc-number">9.</span> <span class="toc-text">容错机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E8%8A%82%E7%82%B9%E5%AE%95%E6%9C%BA"><span class="toc-number">9.1.</span> <span class="toc-text">集群节点宕机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%8C%82%E6%8E%89"><span class="toc-number">9.2.</span> <span class="toc-text">进程挂掉</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="toc-number">9.3.</span> <span class="toc-text">消息的完整性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Storm-%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%83%A8%E7%BD%B2"><span class="toc-number">10.</span> <span class="toc-text">Storm 完全分布式部署</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%85%B6%E4%BB%96/6d60df94.html" title="使用Git系统搭建GitLab">使用Git系统搭建GitLab</a><time datetime="2019-08-23T16:00:00.000Z" title="发表于 2019-08-24 00:00:00">2019-08-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%85%B6%E4%BB%96/7fb68dad.html" title="新浪微博图床迁移">新浪微博图床迁移</a><time datetime="2019-08-10T16:00:00.000Z" title="发表于 2019-08-11 00:00:00">2019-08-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html" title="流式框架Flink（一）">流式框架Flink（一）</a><time datetime="2019-01-01T16:00:00.000Z" title="发表于 2019-01-02 00:00:00">2019-01-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html" title="流式框架Flink（二）">流式框架Flink（二）</a><time datetime="2019-01-01T16:00:00.000Z" title="发表于 2019-01-02 00:00:00">2019-01-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/1ca1f555.html" title="SparkMLlib 随机森林">SparkMLlib 随机森林</a><time datetime="2018-05-21T16:00:00.000Z" title="发表于 2018-05-22 00:00:00">2018-05-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By SeanXia</div><div class="framework-info"><span>框架 </span><a href="https://hexo.io" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" rel="external nofollow noopener noreferrer" target="_blank">Butterfly</a></div><div class="footer_custom_text"><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" rel="external nofollow noopener noreferrer" target="_blank"><span>本网站由</span><img class="icp-icon" src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/test/%E5%8F%88%E6%8B%8D%E4%BA%91_logo6.png"><span>提供 CSDN 加速/云存储服务</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

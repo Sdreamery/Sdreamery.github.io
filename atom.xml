@@ -24,7 +24,8 @@
     <updated>2024-07-11T15:00:41.472Z</updated>
     
     
-    <summary type="html">&lt;h3 id=&quot;Git、GitHub与GitLab区别&quot;&gt;&lt;a href=&quot;#Git、GitHub与GitLab区别&quot; class=&quot;headerlink&quot; title=&quot;Git、GitHub与GitLab区别&quot;&gt;&lt;/a&gt;Git、GitHub与GitLab区别&lt;/h3&gt;&lt;p&gt;首先我们要知道的是，Git与GitLab不是一个东西，git是一个可以进行版本控制的操作工具，而GitLab则是一个用来托管文件的远程仓库。&lt;/p&gt;
+    <summary type="html">&lt;h3 id=&quot;Git、GitHub与GitLab区别&quot;&gt;Git、GitHub与GitLab区别&lt;/h3&gt;
+&lt;p&gt;首先我们要知道的是，Git与GitLab不是一个东西，git是一个可以进行版本控制的操作工具，而GitLab则是一个用来托管文件的远程仓库。&lt;/p&gt;
 &lt;p&gt;GitLab与GitHub最大的区别就是可以使用自己的服务器进行托管，相比GitHub来说更安全高效，适合团队内部开发。&lt;/p&gt;</summary>
     
     
@@ -439,8 +440,11 @@
     <updated>2016-09-05T07:17:06.000Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;Spring-简介&quot;&gt;&lt;a href=&quot;#Spring-简介&quot; class=&quot;headerlink&quot; title=&quot;Spring 简介&quot;&gt;&lt;/a&gt;Spring 简介&lt;/h1&gt;&lt;h2 id=&quot;什么是-Spring&quot;&gt;&lt;a href=&quot;#什么是-Spring&quot; class=&quot;headerlink&quot; title=&quot;什么是 Spring&quot;&gt;&lt;/a&gt;什么是 Spring&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Spring 是一个&lt;strong&gt;轻量级的 DI / IOC 和 AOP 容器的开源框架&lt;/strong&gt;，来源于 Rod Johnson 在其著作&lt;strong&gt;《Expert one on one J2EE design and development》&lt;/strong&gt;中阐述的部分理念和原型衍生而来。&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary>
+    <summary type="html">&lt;h1&gt;Spring 简介&lt;/h1&gt;
+&lt;h2 id=&quot;什么是-Spring&quot;&gt;什么是 Spring&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Spring 是一个&lt;strong&gt;轻量级的 DI / IOC 和 AOP 容器的开源框架&lt;/strong&gt;，来源于 Rod Johnson 在其著作**《Expert one on one J2EE design and development》**中阐述的部分理念和原型衍生而来。&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary>
     
     
     

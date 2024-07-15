@@ -159,78 +159,83 @@
 <p>一种非线性有监督分类模型</p>
 <p>随机森林是一种非线性有监督的分类模型。随机森林的决策树的升级版，由多个随机数据集的决策树组合而成。</p>
 <span id="more"></span>
-<h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><p>决策树是一个预测模型，他代表的是对象属性与对象值之间的一种映射关系。</p>
+<h2 id="决策树">决策树</h2>
+<p>决策树是一个预测模型，他代表的是对象属性与对象值之间的一种映射关系。</p>
 <p>决策树是一种树形结构，其中每个内部节点表示一个属性上的测试，每个分支代表一个测试输出，每个叶节点代表一种类别。</p>
 <p><strong>决策树算法目的：</strong></p>
 <p>利用数据的一些规则来尽可能的降低数据集的不确定性，即给定一些特征来降低数据的不确定性。</p>
 <p><strong>决策树的核心思想：</strong></p>
 <p>就是在一个数据集中找到一个最优特征，根据这个最优特征将数据集分为多个子数据集，然后递归操作，直到满足指定条件为止。</p>
 <p>案例：判断一个人是否有偿还能力</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hodvp4ujj20cp08xta1.jpg"></p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hodvp4ujj20cp08xta1.jpg">
 <p><strong>决策树是一种非线性有监督的分类模型。</strong></p>
 <p>线性分类模型比如说逻辑回归，可能会存在不可分问题，但是非线性分类就不存在这个问题。</p>
 <p>如下图，决策树的非线性分割：</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hpoyaukaj20cr080aaj.jpg"></p>
-<h3 id="决策树案例分析"><a href="#决策树案例分析" class="headerlink" title="决策树案例分析"></a>决策树案例分析</h3><p>例如：我们来判断车祸与天气的关系。</p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hpoyaukaj20cr080aaj.jpg">
+<h3 id="决策树案例分析">决策树案例分析</h3>
+<p>例如：我们来判断车祸与天气的关系。</p>
 <p><strong>数据离散化：</strong></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hoijbw1kj20e905fgm8.jpg"></p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hoijbw1kj20e905fgm8.jpg">
 <p>决策树是通过固定的条件来对类别进行判断：</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1homlhfpnj20c707o3z3.jpg"></p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1homlhfpnj20c707o3z3.jpg">
 <p><strong>决策树的生成：</strong></p>
 <p>数据不断分裂的递归过程，每一次分裂，尽可能让类别一样的数据在树的一边，当树的叶子节点的数据都是一类的时候，则停止分类。(相当于if else 语句)</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hop9nn9cj20at05zjru.jpg"></p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hop9nn9cj20at05zjru.jpg">
 <p><strong>决策树最优特征选取</strong></p>
 <p>决策树的生成最关键的条件是树的头部，也就是第一次分裂特征的选取，选取的好坏直接影响到分裂的效率。</p>
 <p>由上图可看出，我们首先选取的天气进行分类，那为什么先选取天气这个特征呢。</p>
 <p>假如我们首先选取的是湿度这个特征：</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hoq2moncj20o30c4gp6.jpg"></p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hoq2moncj20o30c4gp6.jpg">
 <p>下面再选取天气这个特征：</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hor9vogwj20ij09rwgt.jpg"></p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hor9vogwj20ij09rwgt.jpg">
 <p>我们会发现，只有选天气的这个特征，才能第一时间得到当天气为overcast时，是肯定发生车祸的。这样，我们后面就不用再分裂，结果直接就出来了。</p>
 <p><strong>分割方式</strong></p>
 <p>假如如下图，数据集有两种分割方式，你会选择哪种？</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hp2a43fkj20gt08imxf.jpg"></p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hp2a43fkj20gt08imxf.jpg">
 <p>结论是：方式2会更好，因为分的会更彻底。方式1分完之后，彼此之间还是没有分开，效果不大。</p>
 <p><strong>评判准则</strong></p>
 <p>树的每一次分类，都有很多种选择标准，每种标准产生不同的分类结果，因此我们需要一个评判指标，看看哪种选择最合适。</p>
 <p><code>评判标准是每一个叶子里面的类别尽可能一致。</code></p>
 <p>幸运的是，Spark已经将评价标准作了很好的封装，用户只需调用API即可。Spark MLlib会自动帮我们去做。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hp7s8cvgj20gq0570tk.jpg"></p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hp7s8cvgj20gq0570tk.jpg">
 <p><strong>最优特征怎么找？</strong></p>
 <p>这里就引入两个词，信息熵和条件熵。</p>
-<h3 id="信息熵条件熵"><a href="#信息熵条件熵" class="headerlink" title="信息熵条件熵"></a>信息熵条件熵</h3><p><strong>信息熵 $H(X)$：</strong>数据集不确定性的比例。熵的定义如下：</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hpag7ckvj2072022a9w.jpg"></p>
-<p> 其中 D 表示训练数据集，c 表示数据类别数，Pi 表示类别 i 样本数量占所有样本的比例</p>
-<p><strong>条件熵 $H(X,Y)$：</strong>类似于条件概率，在知道 Y 的情况下，X 的不确定性</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hpcfuytaj209r025weg.jpg"></p>
-<p><strong>信息增益：</strong>代表熵的变化程度</p>
-<p>特征 Y 对训练集 D 的信息增益：$g (D,Y)=H(X)-H(X,Y)$</p>
-<h3 id="决策树-API-演示"><a href="#决策树-API-演示" class="headerlink" title="决策树 API 演示"></a>决策树 API 演示</h3><p>得到一颗树之后，我们就可以用这棵树来做预测了。</p>
+<h3 id="信息熵条件熵">信息熵条件熵</h3>
+<p>**信息熵 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">H(X)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span>：**数据集不确定性的比例。熵的定义如下：</p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hpag7ckvj2072022a9w.jpg">
+<p>其中 D 表示训练数据集，c 表示数据类别数，Pi 表示类别 i 样本数量占所有样本的比例</p>
+<p>**条件熵 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">,</mo><mi>Y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">H(X,Y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span></span></span></span>：**类似于条件概率，在知道 Y 的情况下，X 的不确定性</p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hpcfuytaj209r025weg.jpg">
+<p>**信息增益：**代表熵的变化程度</p>
+<p>特征 Y 对训练集 D 的信息增益：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false">(</mo><mi>D</mi><mo separator="true">,</mo><mi>Y</mi><mo stretchy="false">)</mo><mo>=</mo><mi>H</mi><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo><mo>−</mo><mi>H</mi><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">,</mo><mi>Y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">g (D,Y)=H(X)-H(X,Y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span></span></span></span></p>
+<h3 id="决策树-API-演示">决策树 API 演示</h3>
+<p>得到一颗树之后，我们就可以用这棵树来做预测了。</p>
 <p><strong>训练集：</strong></p>
 <p><a href="https://github.com/Sdreamery/BigDataAPI/blob/master/SparkMLlib/%E6%B1%BD%E8%BD%A6%E6%95%B0%E6%8D%AE%E6%A0%B7%E6%9C%AC.txt" rel="external nofollow noopener noreferrer" target="_blank">汽车数据样本.txt</a></p>
 <p><strong>下面是Spark MLlib 代码：</strong></p>
 <figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.tree.<span class="type">DecisionTree</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.tree.model.<span class="type">DecisionTreeModel</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.util.<span class="type">MLUtils</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.rdd.<span class="type">RDD</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.&#123;<span class="type">SparkConf</span>, <span class="type">SparkContext</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">ClassificationDecisionTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>()</span><br><span class="line">    conf.setAppName(<span class="string">&quot;analysItem&quot;</span>)</span><br><span class="line">    conf.setMaster(<span class="string">&quot;local[3]&quot;</span>)</span><br><span class="line">    <span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">        <span class="keyword">val</span> data = <span class="type">MLUtils</span>.loadLibSVMFile(sc, <span class="string">&quot;汽车数据样本.txt&quot;</span>)</span><br><span class="line">        <span class="comment">// Split the data into training and test sets (30% held out for testing)</span></span><br><span class="line">        <span class="keyword">val</span> splits = data.randomSplit(<span class="type">Array</span>(<span class="number">0.7</span>, <span class="number">0.3</span>))</span><br><span class="line">        <span class="keyword">val</span> (trainingData, testData) = (splits(<span class="number">0</span>), splits(<span class="number">1</span>))</span><br><span class="line">        <span class="comment">//指明类别</span></span><br><span class="line">        <span class="keyword">val</span> numClasses = <span class="number">2</span></span><br><span class="line">        <span class="comment">//指定离散变量，未指明的都当作连续变量处理</span></span><br><span class="line">        <span class="comment">//1,2,3,4维度进来就变成了0,1,2,3</span></span><br><span class="line">        <span class="comment">//这里天气维度有3类,但是要指明4,这里是个坑,后面以此类推</span></span><br><span class="line">        <span class="keyword">val</span> categoricalFeaturesInfo = <span class="type">Map</span>[<span class="type">Int</span>, <span class="type">Int</span>](<span class="number">0</span> -&gt; <span class="number">4</span>, <span class="number">1</span> -&gt; <span class="number">4</span>, <span class="number">2</span> -&gt; <span class="number">3</span>, <span class="number">3</span> -&gt; <span class="number">3</span>)</span><br><span class="line">        <span class="comment">//设定评判标准</span></span><br><span class="line">        <span class="keyword">val</span> impurity = <span class="string">&quot;entropy&quot;</span></span><br><span class="line">        <span class="comment">//树的最大深度,太深运算量大也没有必要  剪枝</span></span><br><span class="line">        <span class="keyword">val</span> maxDepth = <span class="number">3</span></span><br><span class="line">        <span class="comment">//设置离散化程度,连续数据需要离散化,分成32个区间,默认其实就是32,分割的区间保证数量差不多  这个参数也可以进行剪枝</span></span><br><span class="line">        <span class="keyword">val</span> maxBins =<span class="number">10</span></span><br><span class="line">        <span class="comment">//生成模型</span></span><br><span class="line">        <span class="keyword">val</span> model: <span class="type">DecisionTreeModel</span> = <span class="type">DecisionTree</span>.trainClassifier(trainingData, numClasses, categoricalFeaturesInfo, impurity, maxDepth, maxBins)</span><br><span class="line">        <span class="comment">//测试</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">val</span> labelAndPreds: <span class="type">RDD</span>[(<span class="type">Double</span>, <span class="type">Double</span>)] = testData.map &#123; point =&gt;</span><br><span class="line">            <span class="keyword">val</span> prediction = model.predict(point.features)</span><br><span class="line">            (point.label, prediction)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">val</span> testErr = labelAndPreds.filter(r =&gt; r._1 != r._2).count().toDouble / testData.count()</span><br><span class="line">        println(<span class="string">&quot;Test Error = &quot;</span> + testErr)</span><br><span class="line">        println(<span class="string">&quot;Learned classification tree model:\n&quot;</span> + model.toDebugString)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="单颗决策树的缺点"><a href="#单颗决策树的缺点" class="headerlink" title="单颗决策树的缺点"></a>单颗决策树的缺点</h3><p>1、运算量大，需要一次加载所有数据进内存。并且找寻分割条件是一个极耗资源的工作。</p>
+<h3 id="单颗决策树的缺点">单颗决策树的缺点</h3>
+<p>1、运算量大，需要一次加载所有数据进内存。并且找寻分割条件是一个极耗资源的工作。</p>
 <p>2、训练样本中出现异常数据时，将会对决策树产生很大影响。抗干扰能力差，<code>逻辑回归怎么解决抗干扰能力的？</code></p>
 <p><strong>解决方法：</strong></p>
 <p>1、减少决策树所需训练样本（不可取）</p>
 <p>2、随机采样，降低异常数据的影响。和逻辑回归比，逻辑回归可以告诉我们概率，而决策树只能取 0 或 1</p>
 <p>于是随机森林就出来了！！！</p>
-<h2 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h2><p> <strong>随机森林是一种非线性有监督分类模型。</strong></p>
+<h2 id="随机森林">随机森林</h2>
+<p><strong>随机森林是一种非线性有监督分类模型。</strong></p>
 <ul>
 <li>森林：由树组成</li>
 <li>随机：生成树的数据都是从数据集中随机选取的。</li>
 </ul>
 <p><strong>生成方式</strong></p>
 <p>当数据集很大的时候，我们随机选取数据集的一部分，生成一棵树，重复上述过程，我们可以生成一堆形态各异的树，这些树放在一起就叫森林。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hpyzrosyj20cw05rt99.jpg"></p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hpyzrosyj20cw05rt99.jpg">
 <p>随机森林将数据放入模型，产生的结果少数服从多数！！！</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hpzg4eapj20di08m75f.jpg"></p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hpzg4eapj20di08m75f.jpg">
 <p><strong>分割方式</strong></p>
 <p>随机森林跟决策树一样，是非线性，不存在不可分割的问题。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hq16csy0j20ay06ut91.jpg"></p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hq16csy0j20ay06ut91.jpg">
 <p><strong>随机森林VS逻辑回归</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -257,19 +262,21 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>森林的生成</strong></p>
 <p>森林是由树组成的，这里的树是决策树，训练的过程就是利用数据集生成决策树的过程。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hq4a8daij20em07tq3x.jpg"></p>
-<h3 id="随机森林案例分析"><a href="#随机森林案例分析" class="headerlink" title="随机森林案例分析"></a>随机森林案例分析</h3><p>例如：我们来判断对收入的关系。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hq6y7t48j20k208rgnd.jpg"></p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hq4a8daij20em07tq3x.jpg">
+<h3 id="随机森林案例分析">随机森林案例分析</h3>
+<p>例如：我们来判断对收入的关系。</p>
+<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bly1g1hq6y7t48j20k208rgnd.jpg">
 <p><strong>数据的三种类型</strong></p>
 <p>1、连续型可比较：收入，身高</p>
 <p>2、离散型可半比较：学历</p>
 <p>3、离散型无比较：行业</p>
-<h3 id="随机森林的优点"><a href="#随机森林的优点" class="headerlink" title="随机森林的优点"></a>随机森林的优点</h3><p>1、分布式，速度快</p>
+<h3 id="随机森林的优点">随机森林的优点</h3>
+<p>1、分布式，速度快</p>
 <p>2、可以有效避开异常数据（少数服从多数）</p>
-<h3 id="随机森林-API"><a href="#随机森林-API" class="headerlink" title="随机森林 API"></a>随机森林 API</h3><p>训练集还是使用决策树的训练集。</p>
+<h3 id="随机森林-API">随机森林 API</h3>
+<p>训练集还是使用决策树的训练集。</p>
 <p><strong>训练集：</strong></p>
 <p><a href="https://github.com/Sdreamery/BigDataAPI/blob/master/SparkMLlib/%E6%B1%BD%E8%BD%A6%E6%95%B0%E6%8D%AE%E6%A0%B7%E6%9C%AC.txt" rel="external nofollow noopener noreferrer" target="_blank">汽车数据样本.txt</a></p>
 <p><strong>下面是随机森林 API 代码：</strong></p>
