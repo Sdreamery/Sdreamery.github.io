@@ -5630,8 +5630,8 @@ min-slaves-max-lag &lt; number of seconds &gt;</p>
         <category>大数据</category>
       </categories>
       <tags>
-        <tag>搜索引擎</tag>
         <tag>分布式</tag>
+        <tag>搜索引擎</tag>
       </tags>
   </entry>
   <entry>
@@ -5802,8 +5802,8 @@ min-slaves-max-lag &lt; number of seconds &gt;</p>
         <category>大数据</category>
       </categories>
       <tags>
-        <tag>分布式</tag>
         <tag>flume</tag>
+        <tag>分布式</tag>
         <tag>日志收集</tag>
       </tags>
   </entry>
