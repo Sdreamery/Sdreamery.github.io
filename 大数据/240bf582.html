@@ -158,13 +158,11 @@
 </head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/butterfly.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="风雨欲来兮丶"><span class="site-name">风雨欲来兮丶</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Spark计算框架（四）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-01-15T16:00:00.000Z" title="发表于 2018-01-16 00:00:00">2018-01-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-11T14:43:37.500Z" title="更新于 2024-07-11 22:43:37">2024-07-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="Spark计算框架（四）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>我们知道 Spark 的基本架构是 Master 和 Worker 组成的，Task 的分配和执行又是由 Driver 进程和 Excutor 进程</p>
 <p>去配合完成的，那关于他们内部是怎么运行的，有哪些对象呢，这里将 做详细阐述。</p>
 <span id="more"></span>
-
 <h2 id="广播变量和累加器"><a href="#广播变量和累加器" class="headerlink" title="广播变量和累加器"></a>广播变量和累加器</h2><h3 id="广播变量"><a href="#广播变量" class="headerlink" title="广播变量"></a>广播变量</h3><p><strong>广播变量理解图</strong></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d7zkz52cj20ff0eyjx6.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d7zkz52cj20ff0eyjx6.jpg" alt></p>
 <p><strong>广播变量使用</strong></p>
 <p><code>context.broadCast</code></p>
 <figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>()</span><br><span class="line">conf.setMaster(<span class="string">&quot;local&quot;</span>).setAppName(<span class="string">&quot;brocast&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"><span class="keyword">val</span> list = <span class="type">List</span>(<span class="string">&quot;hello xasxt&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> broadCast = sc.broadcast(list)</span><br><span class="line"><span class="keyword">val</span> lineRDD = sc.textFile(<span class="string">&quot;./words.txt&quot;</span>)</span><br><span class="line">lineRDD.filter &#123; x =&gt; broadCast.value.contains(x) &#125;.foreach &#123; println&#125;</span><br><span class="line">sc.stop()</span><br></pre></td></tr></table></figure>
-
 <p><strong>注意事项</strong></p>
 <ul>
 <li>能不能将一个 RDD 使用广播变量广播出去？<br>不能，因为RDD是不存储数据的。可以将RDD的结果广播出去。</li>
@@ -174,11 +172,10 @@
 <p><strong>目的</strong></p>
 <p>节省内存不必要的额外开销，提高性能（网络传递的次数就少了）。</p>
 <h3 id="累加器"><a href="#累加器" class="headerlink" title="累加器"></a>累加器</h3><p><strong>累加器理解图</strong></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d83vp41nj20ff0hrah7.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d83vp41nj20ff0hrah7.jpg" alt></p>
 <p><strong>累加器的使用</strong></p>
 <p><code>context.accumulator(0)</code></p>
 <figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>()</span><br><span class="line">conf.setMaster(<span class="string">&quot;local&quot;</span>).setAppName(<span class="string">&quot;accumulator&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"><span class="keyword">val</span> accumulator = sc.accumulator(<span class="number">0</span>)</span><br><span class="line">sc.textFile(<span class="string">&quot;./words.txt&quot;</span>).foreach &#123; x =&gt;&#123;accumulator.add(<span class="number">1</span>)&#125;&#125;</span><br><span class="line">println(accumulator.value)</span><br><span class="line">sc.stop()</span><br></pre></td></tr></table></figure>
-
 <p><strong>注意事项</strong></p>
 <ul>
 <li>累加器只能在Driver端定义赋初始值，Excutor 端使用。</li>
@@ -186,15 +183,13 @@
 <p><strong>目的</strong></p>
 <p>事件全局统计。</p>
 <h2 id="资源调度源码分析"><a href="#资源调度源码分析" class="headerlink" title="资源调度源码分析"></a>资源调度源码分析</h2><p><strong>资源请求简图</strong></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eah0vyq5j20ff07qab1.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eah0vyq5j20ff07qab1.jpg" alt></p>
 <p><strong>资源调度 Master 路径：</strong></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eahlf51cj20bt00ywef.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eahlf51cj20bt00ywef.jpg" alt></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">路径：</span></span><br><span class="line">spark-1.6.0/core/src/main/scala/org.apache.spark/deploy/Master/Master.scala</span><br></pre></td></tr></table></figure>
-
 <p><strong>提交应用程序，submit 的路径：</strong></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eaijz8kqj209b00yt8j.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eaijz8kqj209b00yt8j.jpg" alt></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">路径：</span></span><br><span class="line">spark-1.6.0/core/src/main/scala/org.apache.spark/deploy/SparkSubmit.scala</span><br></pre></td></tr></table></figure>
-
 <p><strong>总结：</strong></p>
 <p>1、Executor 在集群中分散启动，有利于 task 计算的数据本地化。</p>
 <p>2、默认情况下（提交任务的时候没有设置 <code>--executor-cores</code> 选项），每一个 Worker 为当前的 Application 启动一个 Executor，这个Executor 会使用这个 Worker 的所有的 cores 和 内存。</p>
@@ -204,31 +199,27 @@
 <p>使用 Spark-submit 提交任务演示。也可以使用 spark-shell。</p>
 <p>1、默认情况每个 worker 为当前的 Application 启动一个 Executor，这个 Executor 使用集群中所有的 cores 和 1G 内存。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./spark-submit</span><br><span class="line">--master spark://sean01:7077</span><br><span class="line">--class org.apache.spark.examples.SparkPi</span><br><span class="line">../lib/spark-examples-1.6.0-hadoop2.6.0.jar 100</span><br></pre></td></tr></table></figure>
-
-<p>2、在 workr 上启动多个 Executor,设置–executor-cores 参数指定每个 executor 使用的 core 数量。</p>
+<p>2、在 workr 上启动多个 Executor,设置—executor-cores 参数指定每个 executor 使用的 core 数量。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./spark-submit</span><br><span class="line">--master spark://sean01:7077</span><br><span class="line">--executor-cores 1</span><br><span class="line">--class org.apache.spark.examples.SparkPi</span><br><span class="line">../lib/spark-examples-1.6.0-hadoop2.6.0.jar 100</span><br></pre></td></tr></table></figure>
-
 <p>3、内存不足的情况下启动 core 的情况。Spark 启动是不仅看 core 配置参数，也要看配置的 core 的内存是否够用。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./spark-submit</span><br><span class="line">--master spark://sean01:7077</span><br><span class="line">--executor-cores 1</span><br><span class="line">--executor-memory 3g</span><br><span class="line">--class org.apache.spark.examples.SparkPi</span><br><span class="line">../lib/spark-examples-1.6.0-hadoop2.6.0.jar 100</span><br></pre></td></tr></table></figure>
-
-<p>4、–total-executor-cores 集群中共使用多少 cores</p>
+<p>4、—total-executor-cores 集群中共使用多少 cores</p>
 <p><code>注意：一个进程不能让集群多个节点共同启动。</code></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./spark-submit</span><br><span class="line">--master spark://sean01:7077</span><br><span class="line">--executor-cores 1</span><br><span class="line">--executor-memory 2g</span><br><span class="line">--total-executor-cores 3</span><br><span class="line">--class org.apache.spark.examples.SparkPi</span><br><span class="line">../lib/spark-examples-1.6.0-hadoop2.6.0.jar 100</span><br></pre></td></tr></table></figure>
-
 <h2 id="任务调度源码分析"><a href="#任务调度源码分析" class="headerlink" title="任务调度源码分析"></a>任务调度源码分析</h2><p><strong>Action 算子开始分析</strong></p>
 <p>任务调度可以从一个 Action 类算子开始。因为 Action 类算子会触发一个 job 的执行。</p>
 <p><strong>划分 stage，以 taskSet 形式提交任务</strong></p>
 <p>DAGScheduler 类中 getMessingParentStages() 方法是切割 job 划分 stage 。 可以结合以下这张图来分析：</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eartz9dwj20dw09qtdh.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eartz9dwj20dw09qtdh.jpg" alt></p>
 <p><strong>源码：</strong></p>
 <blockquote>
 <p>源码中采用了递归的思想，把 Stage 和 RDD 分别放入两个 Set 集合中，对集合中的 RDD 进行先压栈再弹出，最后递归循环，追溯下一个 Stage。</p>
 </blockquote>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eavjzwdaj20oa0ep11d.jpg"></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eb7e95jzj20ls09z431.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eavjzwdaj20oa0ep11d.jpg" alt></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0eb7e95jzj20ls09z431.jpg" alt></p>
 <h2 id="SparkShuffle"><a href="#SparkShuffle" class="headerlink" title="SparkShuffle"></a>SparkShuffle</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>Shuffle 描述着数据从 map task 输出到 reduce task 输入的这段过程。在分布式情况下，reduce task 需要跨节点去拉取其它节点上的 map task 结果。这一过程将会产生网络资源消耗和内存，磁盘 IO 的消耗。</p>
 <blockquote>
-<p>reduceByKey 会将上一个 RDD 中的每一个 key 对应的所有 value 聚合成一个 value，然后生成一个新的 RDD，元素类型是&lt;key,value&gt;对的形式，这样每一个 key 对应一个聚合起来的 value。</p>
+<p>reduceByKey 会将上一个 RDD 中的每一个 key 对应的所有 value 聚合成一个 value，然后生成一个新的 RDD，元素类型是<key,value>对的形式，这样每一个 key 对应一个聚合起来的 value。</key,value></p>
 <p><strong>问题：</strong>聚合之前，每一个 key 对应的 value 不一定都是在一个 partition中，也不太可能在同一个节点上，因为 RDD 是分布式的弹性的数据集，RDD 的 partition 极有可能分布在各个节点上。</p>
 </blockquote>
 <p><strong>如何聚合？</strong></p>
@@ -245,7 +236,7 @@
 <ul>
 <li>普通机制示意图</li>
 </ul>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d8lm2xkwj20qf0e9wib.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d8lm2xkwj20qf0e9wib.jpg" alt></p>
 <ul>
 <li><p>执行流程</p>
 <p>a) 每一个 map task 将不同结果写到不同的 buffer 中，每个 buffer 的大小为 32K。buffer 起到数据缓存的作用。</p>
@@ -267,7 +258,7 @@
 <p><strong>2、合并机制</strong></p>
 <ul>
 <li><p>合并机制示意图</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d8rbbjq0j20qq0ekgpb.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d8rbbjq0j20qq0ekgpb.jpg" alt></p>
 </li>
 <li><p>总结</p>
 <p>产生磁盘小文件的个数：C（core 的个数）* R（reduce task的个数）。</p>
@@ -278,11 +269,11 @@
 <ul>
 <li>普通机制示意图</li>
 </ul>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d8x71bypj20i70f341y.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d8x71bypj20i70f341y.jpg" alt></p>
 <ul>
 <li><p>执行流程</p>
 <p>a) map task 的计算结果会写入到一个内存数据结构里面，内存数据结构默认是 5M</p>
-<p>b) 在 shuffle 的时候会有一个定时器，不定期的去估算这个内存结构的大小，当内存结构中的数据超过 5M 时，比如现在内存结构中的数据为 5.01M，那么他会申请 5.01*2-5&#x3D;5.02M 内存给内存数据结构。</p>
+<p>b) 在 shuffle 的时候会有一个定时器，不定期的去估算这个内存结构的大小，当内存结构中的数据超过 5M 时，比如现在内存结构中的数据为 5.01M，那么他会申请 5.01*2-5=5.02M 内存给内存数据结构。</p>
 <p>c) 如果申请成功不会进行溢写，如果申请失败，这时候会溢写到磁盘。</p>
 <p>d) 在溢写之前内存结构中的数据会进行排序分区</p>
 <p>e) 然后开始溢写磁盘，写磁盘是以batch的形式去写，一个batch是 1 万条数据，</p>
@@ -297,7 +288,7 @@
 <ul>
 <li>bypass 机制示意图</li>
 </ul>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d8zzavhaj20no0fa77g.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d8zzavhaj20no0fa77g.jpg" alt></p>
 <ul>
 <li><p>总结</p>
 <p>①  bypass 运行机制的触发条件如下：<code>shuffle  reduce  task</code> 的数量小于 <code>spark.shuffle.sort.bypassMergeThreshold</code> 的参数值。这个值默认是 200。</p>
@@ -328,8 +319,7 @@
 <p>④ BlockTransferService：负责数据的传输。</p>
 </blockquote>
 <p><strong>3、Shuffle 文件寻址图</strong></p>
-<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/1648600-20190724101533355-884279311.png">
-
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/1648600-20190724101533355-884279311.png"></p>
 <p><strong>4、Shuffle 文件寻址流程</strong></p>
 <p>a) 当 map task 执行完成后，会将 task 的执行情况和磁盘小文件的地址封装到 MpStatus 对象中，通过MapOutputTrackerWorker 对象向 Driver 中的 MapOutputTrackerMaster 汇报。</p>
 <p>b) 在所有的 map task 执行完毕后，Driver 中就掌握了所有的磁盘小文件的地址。</p>
@@ -353,16 +343,14 @@
 <p>与静态内存管理的区别在于储存内存和执行内存共享同一块空间，可以互相借用对方的空间。</p>
 <p><code>Spark1.6以上版本默认使用的是统一内存管理，当然也可以通过参数spark.memory.useLegacyMode 设置为true(默认为false)使用静态内存管理。</code></p>
 <p><strong>1、静态内存管理分布图</strong></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d9dwawjkj20ed0cydgo.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d9dwawjkj20ed0cydgo.jpg" alt></p>
 <p><strong>2、统一内存管理分布图</strong></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d9ebax8mj20ff0dkgmp.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0d9ebax8mj20ff0dkgmp.jpg" alt></p>
 <h2 id="Shuffle-调优"><a href="#Shuffle-调优" class="headerlink" title="Shuffle 调优"></a>Shuffle 调优</h2><p><strong>SparkShuffle 调优配置项如何使用？</strong></p>
 <p>1、在代码中，不推荐使用，硬编码</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 例如</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">SparkConf</span>().set(“spark.shuffle.file.buffer”,”<span class="number">64</span>”)</span><br></pre></td></tr></table></figure>
-
 <p>2、在提交 spark 任务的时候，<code>推荐使用</code>。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">spark-submit --conf spark.shuffle.file.buffer=64 –conf ...</span><br></pre></td></tr></table></figure>
-
 <p>3、在 conf 下的 spark-default.conf 配置文件中，<code>不推荐</code>，因为是写死后所有应用程序都要用。</p>
 <p><strong>Shuffle 调优具体策略</strong></p>
 <p>关于 Shuffle 调优的具体策略请见：<a href="https://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/3243dc0c.html">Shuffle调优策略</a></p>

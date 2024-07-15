@@ -158,27 +158,24 @@
 </head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/butterfly.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="风雨欲来兮丶"><span class="site-name">风雨欲来兮丶</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">关于ElasticSearch的优化方案</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2017-09-29T16:00:00.000Z" title="发表于 2017-09-30 00:00:00">2017-09-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-08-10T13:44:20.000Z" title="更新于 2019-08-10 21:44:20">2019-08-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="关于ElasticSearch的优化方案"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>关于ElasticSearch的应用方案有很多，下面具体列举一些工作中常用到的几种。</p>
 <p><strong>1、调大系统的”最大打开文件数”，建议 32K 甚至是 64K</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ulimit</span> -a	<span class="comment">#查看</span></span><br><span class="line"><span class="built_in">ulimit</span> -n 32000	 <span class="comment">#设置</span></span><br></pre></td></tr></table></figure>
-
 <span id="more"></span>
-
 <p><strong>2、修改配置文件调整 ES 的 JVM 内存大小</strong></p>
-<p>修改 bin&#x2F;elasticsearch.in.sh 中 ES_MIN_MEM 和 ES_MAX_MEM 的大小，建议设置一样大，避免频繁的分配内存，根据服务器内存大小，一般分配 60%左右(默认 256M)。</p>
+<p>修改 bin/elasticsearch.in.sh 中 ES_MIN_MEM 和 ES_MAX_MEM 的大小，建议设置一样大，避免频繁的分配内存，根据服务器内存大小，一般分配 60%左右(默认 256M)。</p>
 <p><strong>3、设置 mlockall 来锁定进程的物理内存地址</strong></p>
 <ul>
 <li><p>避免交换（swapped）来提高性能</p>
 </li>
-<li><p>修改文件 conf&#x2F;elasticsearch.yml</p>
+<li><p>修改文件 conf/elasticsearch.yml</p>
 </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bootstrap.mlockall: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>4、分片的设置，5-20 个比较合适</strong></p>
 <p>如果分片数过少或过多，都会导致检索比较慢。</p>
 <ul>
 <li>分片数过多会导致检索时打开比较多的文件，另外也会导致多台服务器之间通讯。</li>
 <li>分片数过少会导至单个分片索引过大，所以检索速度慢。</li>
 </ul>
-<p>建议单个分片最多存储 20G 左右的索引数据，所以，分片数量&#x3D;数据总量&#x2F;20G。</p>
+<p>建议单个分片最多存储 20G 左右的索引数据，所以，分片数量=数据总量/20G。</p>
 <p><strong>5、副本的设置，2-3个比较合适</strong></p>
 <p>副本多的话，可以提升搜索的能力，但是如果设置很多副本的话也会对服务器造成额外的压力，因为需要同步数据。所以建议设置 2-3个即可。</p>
 <p><code>如果在项目开始的时候</code>需要批量入库大量数据的话，建议将副本数设置为 0 – 因为 es 在索引数据的时候，如果有副本存在，数据也会马上同步到副本中，这样会对 es 增加压力。待索引完成后将副本按需要改回来。这样可以提高索引效率</p>
@@ -187,16 +184,12 @@
 <li>索引量不是很大的话情况下可以将 segment 设置为 1。</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">shell操作：curl -XPOST <span class="string">&#x27;http://192.168.110.4:9200/xss/_optimize?max_num_segments=1&#x27;</span> </span><br></pre></td></tr></table></figure>
-
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java代码：client.admin().indices().prepareOptimize(“shsxt<span class="string">&quot;).setMaxNumSegments(1).get();</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>7、删除文档</strong></p>
 <p>在 Lucene 中删除文档，数据不会马上在硬盘上除去，而是在 lucene 索引中产生一个.del 的文件，而在检索过程中这部分数据也会参与检索，lucene 在检索过程会判断是否删除了，如果删除了在过滤掉。这样也会降低检索效率。</p>
 <p>所以可以执行清除删除文档：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">shell操作：curl -XPOST <span class="string">&#x27;http://192.168.110.4:9200/elasticsearch/_optimize?only_expunge_deletes=true&#x27;</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java代码：client.admin().indices().prepareOptimize(<span class="string">&quot;elasticsearch&quot;</span>).</span><br><span class="line">setOnlyExpungeDeletes(<span class="literal">true</span>).get();</span><br></pre></td></tr></table></figure>
-
 <p><strong>8、去掉 mapping 中_all 域</strong></p>
 <p>ElasticSearch 默认为每个被索引的文档都定义了一个特殊的域 ‘_all’，它自动包含被索引文档中一个或者多个域中的内容， 在进行搜索时，如果不指明要搜索的文档的域，ElasticSearch 则会去搜索_all 域。_all 带来搜索方便，其代价是增加了系统在索引阶段对 CPU 和存储空间资源的开销。</p>
 <p>可以使用”_all” : {“enabled”:false} 开关禁用它。</p>

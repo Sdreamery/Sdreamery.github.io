@@ -157,7 +157,6 @@
     })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="风雨欲来兮丶" type="application/atom+xml">
 </head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/butterfly.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="风雨欲来兮丶"><span class="site-name">风雨欲来兮丶</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SparkMLlib贝叶斯分类</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-05-05T16:00:00.000Z" title="发表于 2018-05-06 00:00:00">2018-05-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-11T14:09:48.890Z" title="更新于 2024-07-11 22:09:48">2024-07-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="SparkMLlib贝叶斯分类"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>机器学习算法中，有种依据概率原则进行分类的朴素贝叶斯算法，正如气象学家预测天气一样，朴素贝叶斯算法就是应用先前事件的有关数据来估计未来事件发生的概率。如：70%降水概率。</p>
 <span id="more"></span>
-
 <p><strong>贝叶斯分类算法是一个非线性有监督的分类算法。</strong></p>
 <p><strong>贝叶斯分类用于做概率分类。二分类、正负例。</strong></p>
 <h2 id="贝叶斯条件概率"><a href="#贝叶斯条件概率" class="headerlink" title="贝叶斯条件概率"></a>贝叶斯条件概率</h2><p><strong>思考：</strong></p>
@@ -165,39 +164,29 @@
 <p>一所学校里面有 60% 的男生，40% 的女生。男生总是穿长裤，女生则一半穿长裤一半穿裙子。假设你走在校园中，迎面走来一个穿长裤的学生（很不幸的是你高度近视，你只看得见他（她）穿的是否长裤，而无法确定他（她）的性别），你能够推断出他（她）是男生的概率是多大吗？</p>
 </blockquote>
 <p><strong>基于贝叶斯定理的条件概率</strong></p>
-<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd81ol52j20av02p3yv.jpg">
-
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd81ol52j20av02p3yv.jpg"></p>
 <p><strong>通过此公式可以算出上题：</strong></p>
-<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1ghe05o09j20k408aq4i.jpg">
-
-
-
-<h2 id="理解朴素贝叶斯"><a href="#理解朴素贝叶斯" class="headerlink" title="理解朴素贝叶斯"></a>理解朴素贝叶斯</h2><p>如果我们知道P（垃圾邮件）和P（Viagra）是相互独立的，则容易计算P（垃圾邮件&amp;Viagra），即这两个事件同时发生的概率。 20% * 5% &#x3D; 1%​</p>
-<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd93ud4vj20bg03lwer.jpg">
-
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1ghe05o09j20k408aq4i.jpg"></p>
+<h2 id="理解朴素贝叶斯"><a href="#理解朴素贝叶斯" class="headerlink" title="理解朴素贝叶斯"></a>理解朴素贝叶斯</h2><p>如果我们知道P（垃圾邮件）和P（Viagra）是相互独立的，则容易计算P（垃圾邮件&amp;Viagra），即这两个事件同时发生的概率。 20% * 5% = 1%​</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd93ud4vj20bg03lwer.jpg"></p>
 <p>对于我们垃圾邮件来说</p>
-<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd9ep0v3j209q03idg7.jpg">
-
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd9ep0v3j209q03idg7.jpg"></p>
 <p>计算贝叶斯定理中每一个组成部分的概率，我们必须构造一个频率表</p>
-<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd9tnnujj209w0683zu.jpg">
-
-<p>$P(垃圾邮件|Viagra) &#x3D; P(Viagra|垃圾邮件) * P(垃圾邮件) &#x2F; P(Viagra)$</p>
-<p>$&#x3D; (4&#x2F;20) * (20&#x2F;100) &#x2F; (5&#x2F;100) &#x3D; 0.8$</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gd9tnnujj209w0683zu.jpg"></p>
+<p>$P(垃圾邮件|Viagra) = P(Viagra|垃圾邮件) * P(垃圾邮件) / P(Viagra)$</p>
+<p>$= (4/20) * (20/100) / (5/100) = 0.8$</p>
 <p>因此，如果电子邮件含有单词Viagra，那么该电子邮件是垃圾邮件的概率为80%。所以，任何含有单词Viagra的消息都需要被过滤掉。</p>
 <p><strong>当有额外更多的特征是，这一概念如何被使用</strong></p>
-<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gep26ugsj20cc02tdgz.jpg">
-
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gep26ugsj20cc02tdgz.jpg"></p>
 <p>利用贝叶斯公式，我们得到概率如下：</p>
-<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gepuj2yvj20ap01c0sz.jpg">
-
-<img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1geq0t5psj20dh02rab3.jpg">
-
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1gepuj2yvj20ap01c0sz.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g1geq0t5psj20dh02rab3.jpg"></p>
 <ul>
 <li><p>分母可以先忽略它，垃圾邮件的总似然为：</p>
-<p>$(4&#x2F;20) * (10&#x2F;20) * (20&#x2F;20) * (12&#x2F;20) * (20&#x2F;100) &#x3D; 0.012$</p>
+<p>$(4/20) <em> (10/20) </em> (20/20) <em> (12/20) </em> (20/100) = 0.012$</p>
 </li>
 <li><p>非垃圾邮件的总似然为：</p>
-<p>$(1&#x2F;80) * (66&#x2F;80) * (71&#x2F;80) * (23&#x2F;80) * (80&#x2F;100) &#x3D; 0.002$</p>
+<p>$(1/80) <em> (66/80) </em> (71/80) <em> (23/80) </em> (80/100) = 0.002$</p>
 </li>
 <li><p>将这些值转换成概率，我们只需要一步得到垃圾邮件概率为85.7%</p>
 </li>
@@ -206,16 +195,16 @@
 <p>现在有一封邮件，它包含了这四个单词，那么这封邮件是垃圾邮件的概率多大呢</p>
 <ul>
 <li><p>可以计算垃圾邮件的似然如下：</p>
-<p> $(4&#x2F;20) * (10&#x2F;20) * (0&#x2F;20) * (12&#x2F;20) * (20&#x2F;100) &#x3D; 0$</p>
+<p> $(4/20) <em> (10/20) </em> (0/20) <em> (12/20) </em> (20/100) = 0$</p>
 </li>
 <li><p>非垃圾邮件的似然为：</p>
-<p> $(1&#x2F;80) * (14&#x2F;80) * (8&#x2F;80) * (23&#x2F;80) * (80&#x2F;100) &#x3D; 0.00005$</p>
+<p> $(1/80) <em> (14/80) </em> (8/80) <em> (23/80) </em> (80/100) = 0.00005$</p>
 </li>
 <li><p>该消息是垃圾邮件的概率为 </p>
-<p>$0 &#x2F; (0+0.00005) &#x3D; 0$</p>
+<p>$0 / (0+0.00005) = 0$</p>
 </li>
 <li><p>该消息是非垃圾邮件的概率</p>
-<p>$0.00005&#x2F;(0+0.00005)&#x3D;1$</p>
+<p>$0.00005/(0+0.00005)=1$</p>
 </li>
 </ul>
 <p>问题出在Groceries这个单词，单词Grogeries有效抵消或否决了所有其他的证据。</p>
@@ -224,10 +213,10 @@
 <p>通常情况下，拉普拉斯估计中加上的数值设定为1，这样就保证每一个特征至少在数据中出现一次。</p>
 <ul>
 <li><p>然后，我们得到垃圾邮件的似然为：</p>
-<p>$(5&#x2F;24) * (11&#x2F;24) * (1&#x2F;24) * (13&#x2F;24) * (20&#x2F;100) &#x3D; 0.0004$</p>
+<p>$(5/24) <em> (11/24) </em> (1/24) <em> (13/24) </em> (20/100) = 0.0004$</p>
 </li>
 <li><p>非垃圾邮件的似然为：</p>
-<p>$(2&#x2F;84) * (15&#x2F;84) * (9&#x2F;84) * (24&#x2F;84) * (80&#x2F;100) &#x3D; 0.0001$</p>
+<p>$(2/84) <em> (15/84) </em> (9/84) <em> (24/84) </em> (80/100) = 0.0001$</p>
 </li>
 <li><p>这表明该消息是垃圾邮件的概率为80%，是非垃圾邮件的概率为20%。</p>
 </li>

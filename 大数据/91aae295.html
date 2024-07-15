@@ -157,37 +157,32 @@
     })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="风雨欲来兮丶" type="application/atom+xml">
 </head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/butterfly.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="风雨欲来兮丶"><span class="site-name">风雨欲来兮丶</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Spark性能优化</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-02-19T16:00:00.000Z" title="发表于 2018-02-20 00:00:00">2018-02-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-11T14:52:10.655Z" title="更新于 2024-07-11 22:52:10">2024-07-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="Spark性能优化"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>关于Spark，在实际工作中有很多需要去优化的地方。本篇文章将给出一些需要手动去调整的配置供大家参考。</p>
 <span id="more"></span>
-
 <h2 id="资源调优"><a href="#资源调优" class="headerlink" title="资源调优"></a>资源调优</h2><p><strong>1、在部署 spark 集群中指定资源分配的默认参数</strong></p>
 <ul>
 <li>在 spark 安装包的 conf 下 <code>spark-env.sh</code></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">SPARK_WORKER_CORES		<span class="comment">#每个worker用到的核数</span></span><br><span class="line">SPARK_WORKER_MEMORY		<span class="comment">#每个worker用到的内存</span></span><br><span class="line">SPARK_WORKER_INSTANCES  <span class="comment">#每台机器启动worker数</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>2、在提交 Application 的时候给当前的 Application 分配更多的资源</strong></p>
 <ul>
 <li>提交命令选项：（在提交 Application 的时候使用选项）</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">--executor-cores		#每个executor用到的核数</span><br><span class="line">--executor-memory		#每个executor用到的内存</span><br><span class="line">--total-executor-cores	#所有的executor需要用到的核数</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>配置信息：（Application 的代码中设置或在 <code>Spark-default.conf</code> 中设置）</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">spark.executor.cores</span><br><span class="line">spark.executor.memory</span><br><span class="line">spark.max.cores		<span class="comment">//意思同上</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>动态分配资源</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">spark.shuffle.service.enabled <span class="literal">true</span> <span class="comment">//启用 External shuffle Service 服务</span></span><br><span class="line">spark.shuffle.service.port <span class="number">7337</span> <span class="comment">//Shuffle Service 服务端口，必须和yarn-site中的一致</span></span><br><span class="line">spark.dynamicAllocation.enabled <span class="literal">true</span> <span class="comment">//开启动态资源分配</span></span><br><span class="line">spark.dynamicAllocation.minExecutors <span class="number">1</span> <span class="comment">//每个Application最小分配的executor数</span></span><br><span class="line">spark.dynamicAllocation.maxExecutors <span class="number">30</span> <span class="comment">//每个Application最大并发分配的executor数</span></span><br><span class="line">spark.dynamicAllocation.schedulerBacklogTimeout 1s</span><br><span class="line">spark.dynamicAllocation.sustainedSchedulerBacklogTimeout 5s</span><br></pre></td></tr></table></figure>
-
 <h2 id="并行度调优"><a href="#并行度调优" class="headerlink" title="并行度调优"></a>并行度调优</h2><p>1、如果读取的数据在 HDFS 中，降低 block 大小，相当于提高了 RDD 中 partition 个数** <code>sc.textFile(xx,numPartitions)</code></p>
 <p>2、sc.parallelize(xxx, numPartitions)</p>
 <p>3、sc.makeRDD(xxx, numPartitions)</p>
 <p>4、sc.parallelizePairs(xxx, numPartitions)</p>
-<p>5、repartions&#x2F;coalesce</p>
-<p>6、redecByKey&#x2F;groupByKey&#x2F;join —(xxx, numPartitions)</p>
+<p>5、repartions/coalesce</p>
+<p>6、redecByKey/groupByKey/join —-(xxx, numPartitions)</p>
 <p>7、spark.default.parallelism net set</p>
-<p>8、spark.sql.shuffle.partitions—200</p>
+<p>8、spark.sql.shuffle.partitions—-200</p>
 <p>9、自定义分区器</p>
 <p>10、如果读取数据是在 SparkStreaming 中</p>
 <ul>
@@ -196,25 +191,18 @@
 </ul>
 <h2 id="代码调优"><a href="#代码调优" class="headerlink" title="代码调优"></a>代码调优</h2><p><strong>1、避免创建重复的 RDD</strong></p>
 <figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> rdd1 = sc.textFile(path1)</span><br><span class="line"><span class="keyword">val</span> rdd2 = sc.textFile(path1) </span><br><span class="line"><span class="comment">// 这就是创建了重复的 RDD</span></span><br></pre></td></tr></table></figure>
-
 <p>有什么问题？ 对于执行性能来说没有问题，但是呢，代码乱。</p>
 <p><strong>2、复用同一个 RDD</strong></p>
 <figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> rdd1 = <span class="type">RDD</span>&lt;<span class="type">String</span>,<span class="type">String</span>&gt;</span><br><span class="line"><span class="keyword">val</span> rdd2 = rdd.map(_._2)</span><br></pre></td></tr></table></figure>
-
 <p>这样的话 rdd2 是 rdd1 的子集。 rdd2 执行了一个操作：</p>
 <figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">filter rdd2.filter() = rdd1.map（(_._2)）.filter()</span><br></pre></td></tr></table></figure>
-
 <p><strong>3、对多次使用的 RDD 进行持久化</strong></p>
 <ul>
 <li>如何选择一种最合适的持久化策略？</li>
 </ul>
 <blockquote>
 <p>默认情况下，性能最高的当然是 <code>MEMORY_ONLY</code>，但前提是你的内存必须足够足够大，可以绰绰有余地存放下整个 RDD 的所有数据。因为不进行序列化与反序列化操作，就避免了这部分的性能开销；对这个 RDD 的后续算子操作，都是基于纯内存中的数据的操作，不需要从磁盘文件中读取数据，性能也很高；而且不需要复制一份数据副本，并远程传送到其他节点上。但是这里必须要注意的是，在实际的生产环境中，恐怕能够直接用这种策略的场景还是有限的，如果 RDD 中数据比较多时（比如几十亿），直接用这种持久化级别，会导致 JVM 的 OOM 内存溢出异常。</p>
-</blockquote>
-<blockquote>
 <p>如果使用 MEMORY_ONLY 级别时发生了内存溢出，那么建议尝试使用 <code>MEMORY_ONLY_SER</code> 级别。该级别会将 RDD 数据序列化后再保存在内存中，此时每个 partition 仅仅是一个字节数组而已，大大减少了对象数量，并降低了内存占用。这种级别比 MEMORY_ONLY 多出来的性能开销，主要就是序列化与反序列化的开销。但是后续算子可以基于纯内存进行操作，因此性能总体还是比较高的。此外，可能发生的问题同上，如果RDD 中的数据量过多的话，还是可能会导致 OOM 内存溢出的异常。</p>
-</blockquote>
-<blockquote>
 <p>如果纯内存的级别都无法使用，那么建议使用 <code>MEMORY_AND_DISK_SER</code> 策略，而不是 MEMORY_AND_DISK 策略。因为既然到了这一步，就说明 RDD 的数据量很大，内存无法完全放下。序列化后的数据比较少，可以节省内存和磁盘的空间开销。同时该策略会优先尽量尝试将数据缓存在内存中，内存缓存不下才会写入磁盘。</p>
 </blockquote>
 <p><code>通常不建议使用 DISK_ONLY 和后缀为 _2 的级别</code>：因为完全基于磁盘文件进行数据的读写，会导致性能急剧降低，有时还不如重新计算一次所有 RDD。后缀为_2 的级别，必须将所有数据都复制一份副本，并发送到其他节点上，数据复制以及网络传输会导致较大的性能开销，除非是要求作业的高可用性，否则不建议使用。</p>
@@ -222,10 +210,8 @@
 <li><p>持久化算子：</p>
 <p><strong>cache：</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">MEMORY_ONLY</span><br></pre></td></tr></table></figure>
-
 <p><strong>persist：</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">MEMORY_ONLY</span><br><span class="line">MEMORY_ONLY_SER</span><br><span class="line">MEMORY_AND_DISK_SER</span><br><span class="line"><span class="comment"># 一般不要选择带有_2 的持久化级别。</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>checkpoint：</strong></p>
 <p>① 如果一个 RDD 的计算时间比较长或者计算起来比较复杂，一般将这个 RDD 的计算结果保存到 HDFS 上，这样数据会更加安全。</p>
 <p>② 如果一个 RDD 的依赖关系非常长，也会使用 checkpoint，会切断依赖关系，提高容错的效率。</p>
@@ -234,7 +220,7 @@
 <p><strong>4、尽量避免使用shuffle类的算子</strong></p>
 <p>使用广播变量来模拟使用 join。</p>
 <p>使用情况：一个 RDD 比较大，一个 RDD比较小。</p>
-<p>join 算子 &#x3D; 广播变量+filter、广播变量+map、广播变量+flatMap</p>
+<p>join 算子 = 广播变量+filter、广播变量+map、广播变量+flatMap</p>
 <p><strong>5、使用 map-side 预聚合的 shuffle 操作</strong></p>
 <blockquote>
 <p>即尽量使用有 combiner 的 shuffle 类算子。</p>
@@ -244,40 +230,26 @@
 <p>在 map 端，每一个 map task 计算完毕后进行的局部聚合。</p>
 </li>
 <li><p>combiner 好处：</p>
-<ol>
-<li><p>降低 shuffle write 写磁盘的数据量。</p>
-</li>
-<li><p>降低 shuffle read 拉取数据量的大小。</p>
-</li>
-<li><p>降低 reduce 端聚合的次数。</p>
-</li>
-</ol>
+<p>1) 降低 shuffle write 写磁盘的数据量。</p>
+<p>2) 降低 shuffle read 拉取数据量的大小。</p>
+<p>3) 降低 reduce 端聚合的次数。</p>
 </li>
 <li><p>有 combiner 的 shuffle 类算子：</p>
-<ol>
-<li><p>reduceByKey：这个算子在 map 端是有 combiner 的，在一些场景中可以使用 reduceByKey 代替 groupByKey</p>
-</li>
-<li><p>aggregateByKey</p>
-</li>
-<li><p>combineByKey</p>
-</li>
-</ol>
+<p>1) reduceByKey：这个算子在 map 端是有 combiner 的，在一些场景中可以使用 reduceByKey 代替 groupByKey</p>
+<p>2) aggregateByKey</p>
+<p>3) combineByKey</p>
 </li>
 </ul>
 <p><strong>6、尽量使用高性能的算子</strong></p>
 <ul>
-<li><p>使用 reduceByKey 替代 groupByKey</p>
-</li>
-<li><p>使用 mapPartition 替代 map</p>
-</li>
-<li><p>使用 foreachPartition 替代 foreach</p>
-</li>
+<li>使用 reduceByKey 替代 groupByKey</li>
+<li>使用 mapPartition 替代 map</li>
+<li>使用 foreachPartition 替代 foreach</li>
 <li><p>filter 后使用 coalesce 减少分区数</p>
 </li>
 <li><p>使用 repartitionAndSortWithinPartitions 替代 repartition 与 sort 类操作</p>
 </li>
-<li><p>使用 repartition 和 coalesce 算子操作分区。</p>
-</li>
+<li>使用 repartition 和 coalesce 算子操作分区。</li>
 </ul>
 <p><strong>7、使用广播变量</strong></p>
 <p>开发过程中，会遇到需要在<code>算子函数中使用外部变量的场景</code>（尤其是大变量，比如 100M 以上的大集合），那么此时就应该使用 Spark 的广播 (Broadcast）功能来提升性能，函数中使用到外部变量时，默认情况下，Spark 会将该变量复制多个副本，通过网络传输到 task 中，此时每个 task都有一个变量副本。如果变量本身比较大的话（比如 100M，甚至 1G），那么大量的变量副本在网络中传输的性能开销，以及在各个节点的 Executor 中占用过多内存导致的频繁 GC，都会极大地影响性能。如果使用的外部变量比较大，建议使用 Spark 的广播功能，对该变量进行广播。广播后的变量，会保证每个 Executor 的内存中，只驻留一份变量副本，而 Executor 中的 task 执行时共享该 Executor 中的那份变量副本。这样的话，可以大大减少变量副本的数量，从而减少网络传输的性能开销，并减少对 Executor 内存的占用开销，降低 GC 的频率。</p>
@@ -290,32 +262,21 @@
 </blockquote>
 <p><strong>8、使用 Kryo 优化序列化性能</strong></p>
 <p>在 Spark 中，主要有三个地方涉及到了序列化：</p>
-<ol>
-<li><p>在算子函数中使用到外部变量时，该变量会被序列化后进行网络传输。</p>
-</li>
-<li><p>将自定义的类型作为 RDD 的泛型类型时（比如 JavaRDD<sxt>，SXT 是自定义类型），所有自定义类型对象，都会进行序列化。因此这种情况下，也要求自定义的类必须实现 Serializable 接口。</sxt></p>
-</li>
-<li><p>使用可序列化的持久化策略时（比如 MEMORY_ONLY_SER），Spark 会将 RDD 中的每个 partition 都序列化成一个大的字节数组。</p>
-</li>
-</ol>
+<p>1) 在算子函数中使用到外部变量时，该变量会被序列化后进行网络传输。</p>
+<p>2) 将自定义的类型作为 RDD 的泛型类型时（比如 JavaRDD<sxt>，SXT 是自定义类型），所有自定义类型对象，都会进行序列化。因此这种情况下，也要求自定义的类必须实现 Serializable 接口。</sxt></p>
+<p>3) 使用可序列化的持久化策略时（比如 MEMORY_ONLY_SER），Spark 会将 RDD 中的每个 partition 都序列化成一个大的字节数组。</p>
 <p>Kryo 序列化器介绍：</p>
 <blockquote>
-<p>Spark 支持使用 Kryo 序列化机制。Kryo 序列化机制，比默认的 Java 序列化机制，速度要快，序列化后的数据要更小，大概是 Java 序列化机制的 1&#x2F;10。所以 Kryo 序列化优化以后，可以让网络传输的数据变少；在集群中耗费的内存资源大大减少。</p>
-<p>对于这三种出现序列化的地方，我们都可以通过使用 Kryo 序列化类库，来优化序列化和反序列化的性能。Spark 默认使用的是 Java 的序列化机制，也就是 ObjectOutputStream&#x2F;ObjectInputStream API 来进行序列化和反序列化。但是 Spark 同时支持使用 Kryo 序列化库，Kryo 序列化类库的性能比 Java 序列化类库的性能要高很多。官方介绍，Kryo 序列化机制比 Java 序列化机制，性能高 10 倍左右。Spark 之所以默认没有使用 Kryo 作为序列化类库，是因为 Kryo 要求最好要注册所有需要进行序列化的自定义类型，因此对于开发者来说，这种方式比较麻烦。</p>
+<p>Spark 支持使用 Kryo 序列化机制。Kryo 序列化机制，比默认的 Java 序列化机制，速度要快，序列化后的数据要更小，大概是 Java 序列化机制的 1/10。所以 Kryo 序列化优化以后，可以让网络传输的数据变少；在集群中耗费的内存资源大大减少。</p>
+<p>对于这三种出现序列化的地方，我们都可以通过使用 Kryo 序列化类库，来优化序列化和反序列化的性能。Spark 默认使用的是 Java 的序列化机制，也就是 ObjectOutputStream/ObjectInputStream API 来进行序列化和反序列化。但是 Spark 同时支持使用 Kryo 序列化库，Kryo 序列化类库的性能比 Java 序列化类库的性能要高很多。官方介绍，Kryo 序列化机制比 Java 序列化机制，性能高 10 倍左右。Spark 之所以默认没有使用 Kryo 作为序列化类库，是因为 Kryo 要求最好要注册所有需要进行序列化的自定义类型，因此对于开发者来说，这种方式比较麻烦。</p>
 </blockquote>
 <p>Spark 中使用 Kryo：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Sparkconf.set(<span class="string">&quot;spark.serializer&quot;</span>,<span class="string">&quot;org.apache.spark.serializer.KryoSerializer&quot;</span>)</span><br><span class="line">.registerKryoClasses(<span class="keyword">new</span> <span class="title class_">Class</span>[]&#123;SpeedSortKey.class&#125;)</span><br></pre></td></tr></table></figure>
-
 <p><strong>9、优化数据结构</strong></p>
 <p>Java 中有三种类型比较消耗内存：</p>
-<ol>
-<li><p>对象，每个 Java 对象都有对象头、引用等额外的信息，因此比较占用内存空间。</p>
-</li>
-<li><p>字符串，每个字符串内部都有一个字符数组以及长度等额外信息。</p>
-</li>
-<li><p>集合类型，比如 HashMap、LinkedList 等，因为集合类型内部通常会使用一些内部类来封装集合元素，比如 Map.Entry。</p>
-</li>
-</ol>
+<p>1) 对象，每个 Java 对象都有对象头、引用等额外的信息，因此比较占用内存空间。</p>
+<p>2) 字符串，每个字符串内部都有一个字符数组以及长度等额外信息。</p>
+<p>3) 集合类型，比如 HashMap、LinkedList 等，因为集合类型内部通常会使用一些内部类来封装集合元素，比如 Map.Entry。</p>
 <blockquote>
 <p>因此 Spark 官方建议，在 Spark 编码实现中，特别是对于算子函数中的代码，尽量不要使用上述三种数据结构，尽量使用字符串替代对象，使用原始类型（比如 Int、Long）替代字符串，使用数组替代集合类型，这样<br>尽可能地减少内存占用，从而降低 GC 频率，提升性能。</p>
 </blockquote>
@@ -330,34 +291,32 @@
 <ul>
 <li><p>PROCESS_LOCAL</p>
 <p>task 要计算的数据在本进程（Executor）的内存中。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0nnd9n9hyj209x0780tj.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0nnd9n9hyj209x0780tj.jpg" alt></p>
 </li>
 <li><p>NODE_LOCAL</p>
 <p>① task 所计算的数据在本节点所在的磁盘上。</p>
 <p>② task 所计算的数据在本节点其他 Executor 进程的内存中。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0nndv6gdnj20ce0d4ta7.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0nndv6gdnj20ce0d4ta7.jpg" alt></p>
 </li>
 <li><p>NO_PREF</p>
 <p>task 所计算的数据在关系型数据库中，如 mysql。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0nneb7ha2j20a407p3yt.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0nneb7ha2j20a407p3yt.jpg" alt></p>
 </li>
 <li><p>RACK_LOCAL</p>
 <p>task所计算的数据在同机架的不同节点的磁盘或者Executor进程的内存中。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0nnevx3n3j209l0bzwfb.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0nnevx3n3j209l0bzwfb.jpg" alt></p>
 </li>
 <li><p>ANY</p>
 <p>跨机架。</p>
 </li>
 </ul>
 <p><strong>2、Spark 数据本地化调优：</strong></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0nnfxfjo3j20fe096752.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0nnfxfjo3j20fe096752.jpg" alt></p>
 <blockquote>
 <p>Spark 中任务调度时，TaskScheduler 在分发之前需要依据数据的位置来分发，最好将 task 分发到数据所在的节点上，如果 TaskScheduler 分发的 task 在默认 3s 依然无法执行的话，TaskScheduler 会重新发送这个 task 到相同的 Executor 中去执行，会重试 5 次，如果依然无法执行，那么 TaskScheduler 会降低一级数据本地化的级别再次发送 task。</p>
 </blockquote>
 <p>如上图中，会先尝试 1,PROCESS_LOCAL 数据本地化级别，如果重试 5 次每次等待 3s,会默认这个 Executor 计算资源满了，那么会降低一级数据本地化级别到 2，NODE_LOCAL,如果还是重试 5 次每次等待 3s 还是失败，那么还是会降低一级数据本地化级别到 3，RACK_LOCAL。这样数据就会有网络传输，降低了执行效率。</p>
-<ol>
-<li>如何提高数据本地化的级别？</li>
-</ol>
+<p>1)  如何提高数据本地化的级别？</p>
 <p>可以增加每次发送 task 的等待时间（默认都是 3s），将 3s 倍数调大，结合 WEBUI 来调节：</p>
 <ul>
 <li><strong>spark.locality.wait</strong></li>
@@ -366,11 +325,9 @@
 <li><strong>spark.locality.wait.rack</strong></li>
 </ul>
 <p><code>注意：等待时间不能调大很大，调整数据本地化的级别不要本末倒置，虽然每一个 task 的本地化级别是最高了，但整个 Application 的执行时间反而加长。</code></p>
-<ol start="2">
-<li>如何查看数据本地化的级别？</li>
-</ol>
+<p>2)  如何查看数据本地化的级别？</p>
 <p>通过日志或者 WEBUI。</p>
-<h2 id="内存调优"><a href="#内存调优" class="headerlink" title="内存调优"></a>内存调优</h2><p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0nnj1mfluj20dy0a3glt.jpg"></p>
+<h2 id="内存调优"><a href="#内存调优" class="headerlink" title="内存调优"></a>内存调优</h2><p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0nnj1mfluj20dy0a3glt.jpg" alt></p>
 <p>JVM堆内存分为一块较大的Eden和两块较小的Survivor，每次只使用Eden和其中一块 Survivor，当回收时将 Eden 和 Survivor 中还存活着的对象一次性复制到另外一块Survivor上，最后清理掉Eden和刚才用过的Survivor。</p>
 <p>也就是说当 task 创建出来对象会首先往 Eden 和 survivor1 中存放，survivor2是空闲的，当Eden和survivor1区域放满以后就会触发minor gc小型垃圾回收，清理掉不再使用的对象。会将存活下来的对象放入 survivor2 中。</p>
 <p>如果存活下来的对象大小大于 survivor2 的大小，那么 JVM 就会将多余的对象直接放入到老年代中。</p>
@@ -379,23 +336,14 @@
 <p>这样会导致在老年代中存放大量的短生命周期的对象，老年代应该存放的是数量比较少并且会长期使用的对象，比如数据库连接池对象。这样的话，老年代就会满溢（full gc 因为本来老年代中的对象很少，很少进行 full gc 因此采取了不太复杂但是消耗性能和时间的垃圾回收算法）。不管 minor gc 还是 full gc 都会导致 JVM 的工作线程停止。</p>
 </blockquote>
 <p><strong>总结-堆内存不足造成的影响：</strong></p>
-<ol>
-<li><p>频繁的 minor gc。</p>
-</li>
-<li><p>老年代中大量的短声明周期的对象会导致 full gc。</p>
-</li>
-<li><p>gc 多了就会影响 Spark 的性能和运行的速度。</p>
-</li>
-</ol>
+<p>1) 频繁的 minor gc。</p>
+<p>2) 老年代中大量的短声明周期的对象会导致 full gc。</p>
+<p>3) gc 多了就会影响 Spark 的性能和运行的速度。</p>
 <p>Spark JVM 调优主要是降低 gc时间，可以修改 Executor 内存的比例参数。RDD 缓存、task 定义运行的算子函数，可能会创建很多对象，这样会占用大量的堆内存。堆内存满了之后会频繁的 GC，如果 GC 还不能够满足内存<br>的需要的话就会报 OOM。比如一个 task 在运行的时候会创建 N 个对象，这些对象首先要放入到 JVM 年轻代中。比如在存数据的时候我们使用了 foreach 来将数据写入到内存，每条数据都会封装到一个对象中存入数据库中，那么有多少条数据就会在 JVM 中创建多少个对象。</p>
 <p><strong>Spark 中如何内存调优？</strong></p>
 <p>Spark Executor 堆内存中存放（以静态内存管理为例）：RDD 的缓存数据和广播变量(spark.storage.memoryFraction 0.6)，shuffle 聚合内存 (spark.shuffle.memoryFraction 0.2)，task 的运行(0.2)。那么如何调优呢？</p>
-<ol>
-<li><p>提高 Executor 总体内存的大小。</p>
-</li>
-<li><p>降低储存内存比例或者降低聚合内存比例。</p>
-</li>
-</ol>
+<p>1) 提高 Executor 总体内存的大小。</p>
+<p>2) 降低储存内存比例或者降低聚合内存比例。</p>
 <p>如何查看 gc？</p>
 <p>Spark WEBUI 中 job —&gt; stage —&gt; task</p>
 <h2 id="Spark-Shuffle-调优"><a href="#Spark-Shuffle-调优" class="headerlink" title="Spark Shuffle 调优"></a>Spark Shuffle 调优</h2><ol>
@@ -411,23 +359,20 @@
 <p>关于Spark Shuffle具体的调优配置请见：<a href="https://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/3243dc0c.html">SparkShuffle调优</a></p>
 <h2 id="调节-Executor-的堆外内存"><a href="#调节-Executor-的堆外内存" class="headerlink" title="调节 Executor 的堆外内存"></a>调节 Executor 的堆外内存</h2><p>Spark 底层 shuffle 的传输方式是使用 netty 传输，netty 在进行网络传输的过程会申请堆外内存（netty 是零拷贝），所以使用了堆外内存。默认情况下，这个堆外内存上限默认是每一个 executor 的内存大小的 10%；真正处理大数据的时候，这里都会出现问题，导致 spark 作业反复崩溃，无法运行；此时就会去调节这个参数，到至少 1G（1024M），甚至说 2G、4G。</p>
 <blockquote>
-<p>executor 在进行 shuffle write，优先从自己本地关联的 mapOutPutWorker 中获取某份数据，如果本地 mapOutPutWorker 没有的话，那么会通过 TransferService 去远程连接其他节点上 executor 的 block manager 去获取。频繁创建对象让 JVM 堆内存满溢，进行垃圾回收。正好碰到那个 exeuctor 的 JVM 在垃圾回收。处于垃圾回过程中，所有的工作线程全部停止；相当于只要一旦进行垃圾回收，spark &#x2F; executor 停止工作，无法提供响应，spark 默认的网络连接的超时时长是 60s；如果卡住 60s 都无法建立连接的话，那么这个 task 就失败了。task  失败了就会出现 <code>&quot;shuffle file cannot find&quot;</code> 的错误。</p>
+<p>executor 在进行 shuffle write，优先从自己本地关联的 mapOutPutWorker 中获取某份数据，如果本地 mapOutPutWorker 没有的话，那么会通过 TransferService 去远程连接其他节点上 executor 的 block manager 去获取。频繁创建对象让 JVM 堆内存满溢，进行垃圾回收。正好碰到那个 exeuctor 的 JVM 在垃圾回收。处于垃圾回过程中，所有的工作线程全部停止；相当于只要一旦进行垃圾回收，spark / executor 停止工作，无法提供响应，spark 默认的网络连接的超时时长是 60s；如果卡住 60s 都无法建立连接的话，那么这个 task 就失败了。task  失败了就会出现 <code>&quot;shuffle file cannot find&quot;</code> 的错误。</p>
 </blockquote>
 <p><strong>那么如何调节等待的时长呢？</strong></p>
-<p>在.&#x2F;spark-submit 提交任务的脚本里面添加：</p>
+<p>在./spark-submit 提交任务的脚本里面添加：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">--conf spark.core.connection.ack.wait.timeout=300</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>Executor 由于内存不足或者堆外内存不足了，挂掉了，对应的 Executor 上面的 block manager 也挂掉了，找不到对应的 shuffle map output 文件，Reducer 端不能够拉取数据。</p>
 </blockquote>
 <p><strong>我们可以调节堆外内存的大小，如何调节？</strong></p>
-<p>在.&#x2F;spark-submit 提交任务的脚本里面添加：</p>
+<p>在./spark-submit 提交任务的脚本里面添加：</p>
 <p>yarn 模式下：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">--conf spark.yarn.executor.memoryOverhead=2048	#单位 M</span><br></pre></td></tr></table></figure>
-
 <p>standalone 模式下：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">--conf spark.executor.memoryOverhead=2048	#单位 M</span><br></pre></td></tr></table></figure>
-
 <h2 id="解决数据倾斜"><a href="#解决数据倾斜" class="headerlink" title="解决数据倾斜"></a>解决数据倾斜</h2><p><strong>1、使用 Hive ETL 预处理数据</strong></p>
 <p>方案适用场景：</p>
 <blockquote>
@@ -476,7 +421,7 @@
 <blockquote>
 <p>将原本相同的 key 通过附加随机前缀的方式，变成多个不同的 key，就可以让原本被一个 task 处理的数据分散到多个 task 上去做局部聚合，进而解决单个 task 处理数据量过多的问题。接着去除掉随机前缀，再次进行<br>全局聚合，就可以得到最终的结果。</p>
 </blockquote>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0no6ntzf4j20ff07ojs7.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0no6ntzf4j20ff07ojs7.jpg" alt></p>
 <p>如果一个 RDD 中有一个 key 导致数据倾斜，同时还有其他的 key，那么一般先对数据集进行抽样，然后找出倾斜的 key,再使用 filter 对原始的 RDD 进行分离为两个 RDD，一个是由倾斜的 key 组成的 RDD1，一个是由其他的 key 组成的 RDD2，那么对于 RDD1 可以使用加随机前缀进行多分区多 task 计算，对于另一个 RDD2 正常聚合计算，最后将结果再合并起来。</p>
 <p><strong>5、将 reduce join 转为 map join</strong></p>
 <p>BroadCast + filter(或者 map)</p>
@@ -495,13 +440,13 @@
 <p><strong>6、采样倾斜 key 并分拆 join 操作</strong></p>
 <p>方案适用场景：</p>
 <blockquote>
-<p>两个 RDD&#x2F;Hive 表进行 join 的时候，如果数据量都比较大，无法采用“解决方案五”，那么此时可以看一下两个 RDD&#x2F;Hive 表中的 key 分布情况。如果出现数据倾斜，是因为其中某一个 RDD&#x2F;Hive 表中的少数几个 key<br>的数据量过大，而另一个 RDD&#x2F;Hive 表中的所有 key 都分布比较均匀，那么采用这个解决方案是比较合适的。</p>
+<p>两个 RDD/Hive 表进行 join 的时候，如果数据量都比较大，无法采用“解决方案五”，那么此时可以看一下两个 RDD/Hive 表中的 key 分布情况。如果出现数据倾斜，是因为其中某一个 RDD/Hive 表中的少数几个 key<br>的数据量过大，而另一个 RDD/Hive 表中的所有 key 都分布比较均匀，那么采用这个解决方案是比较合适的。</p>
 </blockquote>
 <p>方案实现思路：</p>
 <blockquote>
 <p>对包含少数几个数据量过大的 key 的那个 RDD，通过 sample 算子采样出一份样本来，然后统计一下每个 key 的数量，计算出来数据量最大的是哪几个key。然后将这几个key对应的数据从原来的RDD中拆分出来，<br>形成一个单独的 RDD，并给每个 key 都打上 n 以内的随机数作为前缀，而不会导致倾斜的大部分 key 形成另外一个 RDD。接着将需要 join 的另一个 RDD，也过滤出来那几个倾斜 key 对应的数据并形成一个单独的RDD，将每条数据膨胀成 n 条数据，这 n 条数据都按顺序附加一个 0~n 的前缀，不会导致倾斜的大部分 key 也形成另外一个 RDD。再将附加了随机前缀的独立 RDD 与另一个膨胀 n 倍的独立 RDD 进行 join，此时就可以将原先相同的 key 打散成 n 份，分散到多个 task 中去进行 join 了。而另外两个普通的 RDD 就照常 join 即可。最后将两次 join 的结果使用 union 算子合并起来即可，就是最终的 join 结果 。</p>
 </blockquote>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0nobs25hbj20ff06wt9y.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0nobs25hbj20ff06wt9y.jpg" alt></p>
 <p><strong>7、使用随机前缀和扩容 RDD 进行 join</strong></p>
 <p>方案适用场景：</p>
 <blockquote>
@@ -509,58 +454,32 @@
 </blockquote>
 <p>方案实现思路：</p>
 <blockquote>
-<p>该方案的实现思路基本和“解决方案六”类似，首先查看 RDD&#x2F;Hive 表中的数据分布情况，找到那个造成数据倾斜的 RDD&#x2F;Hive 表，比如有多个 key 都对应了超过 1 万条数据。然后将该 RDD 的每条数据都打上一个 n 以内的随机前缀。同时对另外一个正常的 RDD 进行扩容，将每条数据都扩容成 n 条数据，扩容出来的每条数据都依次打上一个 0~n 的前缀。最后将两个处理后的 RDD 进行 join 即可。</p>
+<p>该方案的实现思路基本和“解决方案六”类似，首先查看 RDD/Hive 表中的数据分布情况，找到那个造成数据倾斜的 RDD/Hive 表，比如有多个 key 都对应了超过 1 万条数据。然后将该 RDD 的每条数据都打上一个 n 以内的随机前缀。同时对另外一个正常的 RDD 进行扩容，将每条数据都扩容成 n 条数据，扩容出来的每条数据都依次打上一个 0~n 的前缀。最后将两个处理后的 RDD 进行 join 即可。</p>
 </blockquote>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0nocwrjsxj20ff08wjt3.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g0nocwrjsxj20ff08wjt3.jpg" alt></p>
 <h2 id="Spark-故障解决（troubleshooting）"><a href="#Spark-故障解决（troubleshooting）" class="headerlink" title="Spark 故障解决（troubleshooting）"></a>Spark 故障解决（troubleshooting）</h2><p><strong>1、shuffle file cannot find：磁盘小文件找不到。</strong></p>
-<ol>
-<li>connection timeout —-shuffle file cannot find</li>
-</ol>
+<p>1) connection timeout ——shuffle file cannot find</p>
 <p>提高建立连接的超时时间，或者降低 gc，降低 gc 了那么 spark 不能对外提供服务的时间就少了，那么超时的可能就会降低。</p>
-<ol start="2">
-<li>fetch data fail —- shuffle file cannot find</li>
-</ol>
+<p>2) fetch data fail —— shuffle file cannot find</p>
 <p>提高拉取数据的重试次数以及间隔时间。</p>
-<ol start="3">
-<li>OOM&#x2F;executor lost —- shuffle file cannot find</li>
-</ol>
+<p>3) OOM/executor lost —— shuffle file cannot find</p>
 <p>提高堆外内存大小，提高堆内内存大小。</p>
 <p><strong>2、reduce OOM</strong></p>
 <p>BlockManager 拉取的数据量大，reduce task 处理的数据量小。</p>
 <p>解决方法：</p>
-<ol>
-<li><p>降低每次拉取的数据量。</p>
-</li>
-<li><p>提高 shuffle 聚合的内存比例。</p>
-</li>
-<li><p>提高 Executor 的内存比例。</p>
-</li>
-</ol>
+<p>1) 降低每次拉取的数据量。</p>
+<p>2) 提高 shuffle 聚合的内存比例。</p>
+<p>3) 提高 Executor 的内存比例。</p>
 <p><strong>3、序列化问题</strong></p>
 <p>Java中不能被序列化的几种情况：</p>
-<ol>
-<li><p>反序列化时serializable 版本号不一致时会导致不能反序列化。</p>
-</li>
-<li><p>子类中实现了serializable接口，父类中没有实现，父类中的变量不能被序列化,序列化后父类中的变量会得到null。</p>
-</li>
-</ol>
+<p>1) 反序列化时serializable 版本号不一致时会导致不能反序列化。</p>
+<p>2) 子类中实现了serializable接口，父类中没有实现，父类中的变量不能被序列化,序列化后父类中的变量会得到null。</p>
 <blockquote>
 <p>注意：父类实现serializable接口,子类没有实现serializable接口时，子类可以正常序列化</p>
 </blockquote>
-<ol start="3">
-<li><p>被关键字transient修饰的变量不能被序列化。</p>
-</li>
-<li><p>静态变量不能被序列化，属于类，不属于方法和对象，所以不能被序列化。</p>
-</li>
-</ol>
+<p>3) 被关键字transient修饰的变量不能被序列化。</p>
+<p>4) 静态变量不能被序列化，属于类，不属于方法和对象，所以不能被序列化。</p>
 <p><strong>4、Null 值问题</strong></p>
 <p>举个例子：</p>
 <figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> rdd = rdd.map&#123;x=&gt;&#123;</span><br><span class="line">	x+”~”;<span class="type">W</span></span><br><span class="line">&#125;&#125;</span><br><span class="line">rdd.foreach&#123;x=&gt;&#123;</span><br><span class="line">	<span class="type">System</span>.out.println(x.getName())</span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
 </article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://www.seanxia.cn">SeanXia</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/91aae295.html">http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/91aae295.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="external nofollow noopener noreferrer">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.seanxia.cn" target="_blank">风雨欲来兮丶</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%BC%98%E5%8C%96/">优化</a><a class="post-meta__tags" href="/tags/Spark/">Spark</a></div><div class="post_share"><div class="social-share" data-image="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赏一个</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/%E5%BE%AE%E4%BF%A110%E5%85%83%E8%B5%9E%E8%B5%8F%E7%A0%81.jpg" target="_blank" rel="external nofollow noopener noreferrer"><img class="post-qr-code-img" src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/%E5%BE%AE%E4%BF%A110%E5%85%83%E8%B5%9E%E8%B5%8F%E7%A0%81.jpg" alt="微信"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%B6%E6%AC%BE%E7%A0%81.jpg" target="_blank" rel="external nofollow noopener noreferrer"><img class="post-qr-code-img" src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%B6%E6%AC%BE%E7%A0%81.jpg" alt="支付宝"></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/800c7c16.html" title="SparkMLlib贝叶斯分类"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SparkMLlib贝叶斯分类</div></div></a></div><div class="next-post pull-right"><a href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/2e9b7b1c.html" title="Spark计算框架（六）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Spark计算框架（六）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/53bfabca.html" title="关于ElasticSearch的优化方案"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-09-30</div><div class="title">关于ElasticSearch的优化方案</div></div></a></div><div><a href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/2220e2b4.html" title="HBase性能优化"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-08-10</div><div class="title">HBase性能优化</div></div></a></div><div><a href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/9018532c.html" title="Hive中的优化策略"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-07-15</div><div class="title">Hive中的优化策略</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">SeanXia</div><div class="author-info__description">好奇搞怪,大数据分析,数据开发者一枚</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" href="https://github.com/Sdreamery" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Sdreamery" target="_blank" title="Github" rel="external nofollow noopener noreferrer"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:sean.xs@foxmail.com" target="_blank" title="Email" rel="external nofollow noopener noreferrer"><i class="fas fa-envelope" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E8%B0%83%E4%BC%98"><span class="toc-number">1.</span> <span class="toc-text">资源调优</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E5%BA%A6%E8%B0%83%E4%BC%98"><span class="toc-number">2.</span> <span class="toc-text">并行度调优</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%B0%83%E4%BC%98"><span class="toc-number">3.</span> <span class="toc-text">代码调优</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%9C%AC%E5%9C%B0%E5%8C%96"><span class="toc-number">4.</span> <span class="toc-text">数据本地化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E8%B0%83%E4%BC%98"><span class="toc-number">5.</span> <span class="toc-text">内存调优</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spark-Shuffle-%E8%B0%83%E4%BC%98"><span class="toc-number">6.</span> <span class="toc-text">Spark Shuffle 调优</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E8%8A%82-Executor-%E7%9A%84%E5%A0%86%E5%A4%96%E5%86%85%E5%AD%98"><span class="toc-number">7.</span> <span class="toc-text">调节 Executor 的堆外内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C"><span class="toc-number">8.</span> <span class="toc-text">解决数据倾斜</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spark-%E6%95%85%E9%9A%9C%E8%A7%A3%E5%86%B3%EF%BC%88troubleshooting%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">Spark 故障解决（troubleshooting）</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%85%B6%E4%BB%96/6d60df94.html" title="使用Git系统搭建GitLab">使用Git系统搭建GitLab</a><time datetime="2019-08-23T16:00:00.000Z" title="发表于 2019-08-24 00:00:00">2019-08-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%85%B6%E4%BB%96/7fb68dad.html" title="新浪微博图床迁移">新浪微博图床迁移</a><time datetime="2019-08-10T16:00:00.000Z" title="发表于 2019-08-11 00:00:00">2019-08-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html" title="流式框架Flink（一）">流式框架Flink（一）</a><time datetime="2019-01-01T16:00:00.000Z" title="发表于 2019-01-02 00:00:00">2019-01-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html" title="流式框架Flink（二）">流式框架Flink（二）</a><time datetime="2019-01-01T16:00:00.000Z" title="发表于 2019-01-02 00:00:00">2019-01-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%A4%A7%E6%95%B0%E6%8D%AE/1ca1f555.html" title="SparkMLlib 随机森林">SparkMLlib 随机森林</a><time datetime="2018-05-21T16:00:00.000Z" title="发表于 2018-05-22 00:00:00">2018-05-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By SeanXia</div><div class="framework-info"><span>框架 </span><a href="https://hexo.io" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" rel="external nofollow noopener noreferrer" target="_blank">Butterfly</a></div><div class="footer_custom_text"><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" rel="external nofollow noopener noreferrer" target="_blank"><span>本网站由</span><img class="icp-icon" src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/test/%E5%8F%88%E6%8B%8D%E4%BA%91_logo6.png"><span>提供 CSDN 加速/云存储服务</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

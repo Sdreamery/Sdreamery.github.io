@@ -159,24 +159,23 @@
 </head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/butterfly.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="风雨欲来兮丶"><span class="site-name">风雨欲来兮丶</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Flume框架</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2017-09-21T16:00:00.000Z" title="发表于 2017-09-22 00:00:00">2017-09-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-08-10T13:44:24.000Z" title="更新于 2019-08-10 21:44:24">2019-08-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="Flume框架"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Flume简介"><a href="#Flume简介" class="headerlink" title="Flume简介"></a>Flume简介</h1><p>Flume 是一个分布式、可扩展、可靠、高可用的海量日志有效聚合及移动的框架。</p>
 <p>官网：<a href="http://flume.apache.org/" rel="external nofollow noopener noreferrer" target="_blank">http://flume.apache.org/</a></p>
 <span id="more"></span>
-
 <p>它通常用于log数据，支持在系统中定制各类数据发送方，用于收集数据。它具有可靠性和容错可调机制和许多故障转移和恢复机制。</p>
 <p><code>Flume通常用于收集日志数据，但不限于收集日志，还可以收集其他的数据信息。</code></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzaz51arzkj20fv06qaaa.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzaz51arzkj20fv06qaaa.jpg" alt></p>
 <h1 id="Flume组织架构"><a href="#Flume组织架构" class="headerlink" title="Flume组织架构"></a>Flume组织架构</h1><p>Flume的版本分为 OG 组织架构和 NG 组织架构，但原来的Flume OG到现在的Flume NG，进行了架构重构，并且现在NG版本完全不兼容原来的OG版本。</p>
 <h2 id="OG组织架构"><a href="#OG组织架构" class="headerlink" title="OG组织架构"></a>OG组织架构</h2><p>Flume OG：Flume original generation 即 Flume 0.9.x版本，它采用三层架构，分别为agent，Collector和Master，所有的 agent 和 Collector 由 master 统一管理，master允许有多个（使用Zookeeper进行管理和负载均衡），避免单点故障问题。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzazf0n9isj20fj0dmwg7.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzazf0n9isj20fj0dmwg7.jpg" alt></p>
 <h2 id="NG组织架构"><a href="#NG组织架构" class="headerlink" title="NG组织架构"></a>NG组织架构</h2><p>Flume NG：Flume next generation ，即Flume 1.x版本，只有 agent，由Source、Channel和 Sink组成。</p>
 <p>Flume 经过架构重构后，Flume NG更像是一个轻量的小工具，非常简单，容易适应各种方式日志收集，并支持 failover和负载均衡。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzazj0ufv6j20nk09cgnj.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzazj0ufv6j20nk09cgnj.jpg" alt></p>
 <h3 id="Agent"><a href="#Agent" class="headerlink" title="Agent"></a>Agent</h3><p>Agent 由source、channel、sink三大组件组成，如图：</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzazpgk99tj20kb07374v.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzazpgk99tj20kb07374v.jpg" alt></p>
 <p><strong>1、Source</strong></p>
 <ol>
 <li>Source负责接收event或通过特殊机制产生event，并将events批量的放到一个或多个Channel。 </li>
 <li>Source包含event驱动和轮询两种类型。 </li>
 <li>Source 有不同的类型，接受不同的数据格式。<br>1）与系统集成的Source：netcat、syslog。<br>2）自动生成事件的Source：exec<br>3）用于Agent和Agent之间的通信的IPC Source：avro、thrift。 </li>
-<li>Source必须至少和一个Channel关联。</li>
+<li>Source必须至少和一个Channel关联。 </li>
 </ol>
 <p><strong>2、Channel</strong></p>
 <ol>
@@ -184,16 +183,16 @@
 <li>当Sink成功的将event发送到下一跳的Channel或最终目的地，event才Channel中移除。</li>
 <li>不同的Channel提供的持久化水平也是不一样的：<br>1）Memory Channel：volatile。<br>2）File Channel：基于WAL实现。<br>3）JDBC Channel：基于嵌入Database实现。 </li>
 <li>Channel支持事物，提供较弱的顺序保证。 </li>
-<li>Channel可以和任何数量的Source和Sink工作。</li>
+<li>Channel可以和任何数量的Source和Sink工作。 </li>
 </ol>
 <p><strong>3、Sink</strong></p>
 <ol>
 <li>Sink负责将event传输到下一跳或最终目的，成功完成后将event从Channel移除。</li>
 <li>有不同类型的Sink：<br>1）存储event到最终目的的终端Sink。比如Logger，HDFS，HBase，Hive。<br>2）自动消耗的Sink。比如：Kafka。<br>3）用于Agent间通信的IPC sink：Avro。</li>
-<li>Sink必须作用于一个确切的Channel。</li>
+<li>Sink必须作用于一个确切的Channel。  </li>
 </ol>
 <p><strong>4、Agent之Channel与Sink关系图</strong></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzazy4oilpj20i208ywfb.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzazy4oilpj20i208ywfb.jpg" alt></p>
 <h1 id="Flume的特性"><a href="#Flume的特性" class="headerlink" title="Flume的特性"></a>Flume的特性</h1><p><strong>1、数据可靠性（内部实现）</strong></p>
 <p>当节点出现故障时，日志能够被传送到其他节点上而不会丢失。</p>
 <p>FFlume提供了三种级别的可靠性保障，所有的数据以event为单位传输，从强到弱依次分别为：</p>
@@ -206,105 +205,90 @@
 <p>用户可以根据需要添加自己的agent。</p>
 <p>Flume自带了很多组件，包括各种agent（file，syslog，HDFS等）。</p>
 <h1 id="Flume安装及使用"><a href="#Flume安装及使用" class="headerlink" title="Flume安装及使用"></a>Flume安装及使用</h1><h2 id="Flume的安装"><a href="#Flume的安装" class="headerlink" title="Flume的安装"></a>Flume的安装</h2><p>1、下载flume安装包并解压。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb0e1ricvj20h504pmx7.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb0e1ricvj20h504pmx7.jpg" alt></p>
 <p>2、修改 flume-env.sh 配置文件,主要是 JAVA_HOME 设置</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb2peog0sj20fy0463yh.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb2peog0sj20fy0463yh.jpg" alt></p>
 <p>3、配置环境变量[可选局部环境变量设置]</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb0pk4h8gj20by0390sm.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb0pk4h8gj20by0390sm.jpg" alt></p>
 <p>4、将当前节点的环境变量及 flume 安装包发送给其他节点</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp -r ~/.bash_profile sean02:/usr/soft/</span><br><span class="line">scp -r apache-flume-1.6.0-bin sean02:/usr/soft/</span><br></pre></td></tr></table></figure>
-
 <p>5、验证是否安装成功 flume-ng version</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb0s168ovj20fy03eglk.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb0s168ovj20fy03eglk.jpg" alt></p>
 <h2 id="Flume的使用操作"><a href="#Flume的使用操作" class="headerlink" title="Flume的使用操作"></a>Flume的使用操作</h2><h3 id="网络传输格式"><a href="#网络传输格式" class="headerlink" title="网络传输格式"></a>网络传输格式</h3><p><strong>exec：</strong>查看追踪。Unix 等操作系统执行命令行 ，如：tail cat<br><strong>netcat：</strong>来监听一个指定端口，并将接收到的数据的每一行转换为一个event事件。<br><strong>avro：</strong>是序列化的一种，实现了RPC（Remote Procedure Call），RPC是一种远程调用协议 。监听AVRO端口来接受来自外部AVRO客户端的事件流。</p>
 <h3 id="配置-flume"><a href="#配置-flume" class="headerlink" title="配置 flume"></a>配置 flume</h3><p>详细参数可以参照官网，1.4X以上的版本可以使用1.8的文档。</p>
 <p><a href="http://flume.apache.org/releases/content/1.8.0/FlumeUserGuide.html" rel="external nofollow noopener noreferrer" target="_blank">http://flume.apache.org/releases/content/1.8.0/FlumeUserGuide.html</a></p>
-<p><strong>一、netcat –&gt; logger</strong></p>
+<p><strong>一、netcat —&gt; logger</strong></p>
 <p><strong>1、安装telnet</strong></p>
 <blockquote>
-<p>​	telnet 命令通常用来远程登录。telnet程序是基于TELNET协议的远程登录客户端程序。Telnet协议是TCP&#x2F;IP协议族中的一员，是Internet远程登陆服务的标准协议和主要方式。它为用户提供了在本地计算机上完成远程主机工作的能力。在终端使用者的电脑上使用telnet程序，用它连接到服务器。终端使用者可以在telnet程序中输入命令，这些命令会在服务器上运行，就像直接在服务器的控制台上输入一样。可以在本地就能控制服务器。要开始一个 telnet会话，必须输入用户名和密码来登录服务器。</p>
+<p>​    telnet 命令通常用来远程登录。telnet程序是基于TELNET协议的远程登录客户端程序。Telnet协议是TCP/IP协议族中的一员，是Internet远程登陆服务的标准协议和主要方式。它为用户提供了在本地计算机上完成远程主机工作的能力。在终端使用者的电脑上使用telnet程序，用它连接到服务器。终端使用者可以在telnet程序中输入命令，这些命令会在服务器上运行，就像直接在服务器的控制台上输入一样。可以在本地就能控制服务器。要开始一个 telnet会话，必须输入用户名和密码来登录服务器。</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum list telnet*	#查看telnet相关的安装包</span><br><span class="line">yum -y install telnet	#安装telnet环境</span><br><span class="line">yum -y install telnet-server	#安装telnet服务</span><br><span class="line">yum -y install telnet-client	#安装telnet客户端(大部分系统默认安装)</span><br></pre></td></tr></table></figure>
-
 <p><strong>2、配置参数：</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># example.conf: A single-node Flume configuration</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Name the components on this agent</span></span><br><span class="line">a1.sources = r1</span><br><span class="line">a1.sinks = k1</span><br><span class="line">a1.channels = c1</span><br><span class="line"></span><br><span class="line"><span class="comment"># Describe/configure the source</span></span><br><span class="line">a1.sources.r1.type = netcat <span class="comment">#r1的类型</span></span><br><span class="line">a1.sources.r1.bind = localhost <span class="comment">#ip地址</span></span><br><span class="line">a1.sources.r1.port = 44444  <span class="comment">#r1的端口号</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Describe the sink</span></span><br><span class="line">a1.sinks.k1.type = logger <span class="comment">#输出到本地控制台</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Use a channel which buffers events in memory</span></span><br><span class="line">a1.channels.c1.type = memory  <span class="comment">#基于内存存储</span></span><br><span class="line">a1.channels.c1.capacity = 1000	<span class="comment">#Channel中最大可以存储的event数量是1000，可以不写</span></span><br><span class="line">a1.channels.c1.transactionCapacity = 100  <span class="comment">#每次从source穿送过来或者sink过来消费的event数量是100，可以不写</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Bind the source and sink to the channel</span></span><br><span class="line">a1.sources.r1.channels = c1	 <span class="comment">#r1输送到c1中</span></span><br><span class="line">a1.sinks.k1.channel = c1  <span class="comment">#k1去c1中消费数据</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>示意图：</strong></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb1qvsku7j20mx0873yh.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb1qvsku7j20mx0873yh.jpg" alt></p>
 <p><strong>3、运行flume</strong></p>
 <p>（1）在 root目录下新建文件夹 flume，新建配置文件 netcat_logger，参数如上。</p>
 <p>（2）运行命令：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用绝对路径，可以在任意路径启动</span></span><br><span class="line">flume-ng agent --conf-file /root/flume/netcat_logger --name a1 -Dflume.root.logger=INFO,console		</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用相对路径，只能在 flume当前路径下启动</span></span><br><span class="line">flume-ng agent --conf ./ --conf-file netcat_logger --name a1 -Dflume.root.logger=INFO,console</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">同样生效</span></span><br><span class="line">flume-ng agent --conf-file netcat_logger --name a1 -Dflume.root.logger=INFO,console</span><br></pre></td></tr></table></figure>
-
 <p>启动成功！</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb2xe7gh1j20mr04o3yo.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb2xe7gh1j20mr04o3yo.jpg" alt></p>
 <p>（3）在当前节点另开窗口输入命令</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">telnet localhost 44444</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb321c6znj20c103p3yd.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb321c6znj20c103p3yd.jpg" alt></p>
 <p>（4）在telnet中source端输入任意数据，然后去sink端去查看数据</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb33cq2f5j20a605owec.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb33cq2f5j20a605owec.jpg" alt></p>
 <p><code>注意：中文不显示</code></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb34hcmqsj20nm04v3ym.jpg"></p>
-<p><strong>二、exec –&gt; looger</strong></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb34hcmqsj20nm04v3ym.jpg" alt></p>
+<p><strong>二、exec —&gt; looger</strong></p>
 <p><strong>1、配置参数：</strong></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">example.conf: A single-node Flume configuration</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Name the components on this agent</span></span><br><span class="line">a1.sources = r1</span><br><span class="line">a1.sinks = k1</span><br><span class="line">a1.channels = c1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Describe/configure the <span class="built_in">source</span></span></span><br><span class="line">a1.sources.r1.type = exec</span><br><span class="line">a1.sources.r1.command = tail -F /root/flume.log</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Describe the sink</span></span><br><span class="line">a1.sinks.k1.type = logger</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Use a channel <span class="built_in">which</span> buffers events <span class="keyword">in</span> memory</span></span><br><span class="line">a1.channels.c1.type = memory</span><br><span class="line">a1.channels.c1.capacity = 1000	#默认，可以不写</span><br><span class="line">a1.channels.c1.transactionCapacity = 100 #默认，可以不写</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Bind the <span class="built_in">source</span> and sink to the channel</span></span><br><span class="line">a1.sources.r1.channels = c1</span><br><span class="line">a1.sinks.k1.channel = c1</span><br></pre></td></tr></table></figure>
-
 <p><strong>示意图</strong></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzd43sahotj20mf07e749.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzd43sahotj20mf07e749.jpg" alt></p>
 <p><strong>2、运行flume</strong></p>
 <p>（1）在文件夹 flume，新建配置文件 exec_logger，参数如上。</p>
 <p>（2）运行命令：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">flume-ng agent --conf-file exec_logger --name a1 -Dflume.root.logger=INFO,console</span><br></pre></td></tr></table></figure>
-
 <p>（3）启动成功后在当前节点另开窗口输入命令</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo hello world &gt;&gt; flume.log	#将“hello world”追加到flume.log文件中</span><br><span class="line">echo nihaoya &gt;&gt; flume.log</span><br><span class="line">echo woshixiaoming &gt;&gt; flume.log</span><br><span class="line">echo 34325435435 &gt;&gt; flume.log</span><br><span class="line">echo fdsf985843543 &gt;&gt; flume.log</span><br></pre></td></tr></table></figure>
-
 <p>（4）去sink端查看数据</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb3vwd603j20pi046weo.jpg"></p>
-<p><strong>三、avro –&gt; logger</strong></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb3vwd603j20pi046weo.jpg" alt></p>
+<p><strong>三、avro —&gt; logger</strong></p>
 <p><strong>1、配置参数</strong></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">a1.sources=r1</span><br><span class="line">a1.channels=c1</span><br><span class="line">a1.sinks=k1</span><br><span class="line"></span><br><span class="line">a1.sources.r1.type = avro  </span><br><span class="line">a1.sources.r1.bind=192.168.110.4 #source的ip</span><br><span class="line">a1.sources.r1.port=55555</span><br><span class="line"></span><br><span class="line">a1.sinks.k1.type=logger</span><br><span class="line"></span><br><span class="line">a1.channels.c1.type = memory</span><br><span class="line">a1.channels.c1.capacity = 1000	#默认，可以不写</span><br><span class="line">a1.channels.c1.transactionCapacity = 100 #默认，可以不写</span><br><span class="line"></span><br><span class="line">a1.sources.r1.channels=c1</span><br><span class="line">a1.sinks.k1.channel=c1</span><br></pre></td></tr></table></figure>
-
 <p><strong>示意图</strong></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzd486m0c3j20mc07h3yh.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzd486m0c3j20mc07h3yh.jpg" alt></p>
 <p><strong>2、运行flume</strong></p>
 <p>（1）在文件夹 flume，新建配置文件 avro_logger，参数如上。</p>
 <p>（2）运行命令：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">flume-ng agent --conf-file avro_logger --name a1 -Dflume.root.logger=INFO,console</span><br></pre></td></tr></table></figure>
-
 <p>（3）启动成功后在其他节点输入命令</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#其他flume节点执行：</span></span></span><br><span class="line">flume-ng avro-client --conf ./ -H 192.168.110.4 -p 55555 -F ./test.txt</span><br></pre></td></tr></table></figure>
-
 <p>例如：在 sean02 节点 root 下有个 test.txt 文件，发送到sean01，查看sink端</p>
 <p>sean02上的test.txt 文件</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb4b0wm4zj20bv033t8k.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb4b0wm4zj20bv033t8k.jpg" alt></p>
 <p>在sean01上成功拿到</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb4dp59yrj20qn03u3yr.jpg"></p>
-<p><strong>四、netcat –&gt; hdfs</strong></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb4dp59yrj20qn03u3yr.jpg" alt></p>
+<p><strong>四、netcat —&gt; hdfs</strong></p>
 <p><strong>1、配置参数</strong></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">a1 <span class="built_in">which</span> ones we want to activate.</span></span><br><span class="line">a1.channels = c1</span><br><span class="line">a1.sources = r1</span><br><span class="line">a1.sinks = k1</span><br><span class="line"></span><br><span class="line">a1.sources.r1.type = netcat</span><br><span class="line">a1.sources.r1.bind = sean01</span><br><span class="line">a1.sources.r1.port = 41414</span><br><span class="line"></span><br><span class="line">a1.sinks.k1.type = hdfs</span><br><span class="line">a1.sinks.k1.hdfs.path = hdfs://Xss/myflume/%y-%m-%d</span><br><span class="line">a1.sinks.k1.hdfs.useLocalTimeStamp=true</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Define a memory channel called c1 on a1</span></span><br><span class="line">a1.channels.c1.type = memory</span><br><span class="line">a1.channels.c1.capacity = 1000	#默认，可以不写</span><br><span class="line">a1.channels.c1.transactionCapacity = 100 #默认，可以不写</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Define an Avro <span class="built_in">source</span> called r1 on a1 and tell it</span></span><br><span class="line">a1.sources.r1.channels = c1</span><br><span class="line">a1.sinks.k1.channel = c1</span><br></pre></td></tr></table></figure>
-
 <p><strong>示意图</strong></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzd4dacbh8j20mk07z74a.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzd4dacbh8j20mk07z74a.jpg" alt></p>
 <p><strong>2、运行flume</strong></p>
 <p>（1）在文件夹 flume，新建配置文件 netcat_hdfs，参数如上。</p>
 <p>（2）当前 sink 端运行命令：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">flume-ng agent --conf-file netcat_hdfs --name a1 -Dflume.root.logger=INFO,console</span><br></pre></td></tr></table></figure>
-
 <p>（3）启动成功后在当前节点输入命令，进入sink端</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">telnet sean01 41414</span><br></pre></td></tr></table></figure>
-
 <p>成功进入后，在source端输入数据。</p>
-<p>然后去HDFS web端看目录 myflume&#x2F;%y-%m-%d 下的数据</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb4r7ml9sj20uc08hmxd.jpg"></p>
+<p>然后去HDFS web端看目录 myflume/%y-%m-%d 下的数据</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb4r7ml9sj20uc08hmxd.jpg" alt></p>
 <p>说明成功获取到！</p>
 <p><code>注意：这样上传到会形成很多小文件，对HDFS来说很不友好，这就需要我们去调整一下参数，扩大等待时间或者每个文件的大小，尽量以大文件的形式来存储到HDFS中。</code></p>
 <p>相关参数官网上都有详细介绍：</p>
 <p><a href="http://flume.apache.org/releases/content/1.8.0/FlumeUserGuide.html" rel="external nofollow noopener noreferrer" target="_blank">http://flume.apache.org/releases/content/1.8.0/FlumeUserGuide.html</a></p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb4w1ymmxj20pn0a6gmg.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzb4w1ymmxj20pn0a6gmg.jpg" alt></p>
 <p><strong>hdfs.rollInterval：</strong>默认等待30秒数据落地到磁盘。如果不想基于时间的话，设为0。</p>
 <p><strong>hdfs.rollSize：</strong>默认1024个字节落地到磁盘。</p>
 <p><strong>hdfs. rollCount：</strong>默认统计10个事件就写入磁盘</p>

@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>大数据思维经典问题 | 风雨欲来兮丶</title><meta name="author" content="SeanXia"><meta name="copyright" content="SeanXia"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="大数据环境下的核心问题 海量数据 工业技术相对落后 硬件损坏是常态  分而治之​	把一个复杂的问题按一定的“分解”方法分为等价的规模较小的若干部分，然后逐个解决，分别找出各部分的中间结果，把各部分的中间结果组成整个问题的最终结果。这也是著名的 Hadoop 中分布式存储系统 HDFS 的核心思想。">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>大数据思维经典问题 | 风雨欲来兮丶</title><meta name="author" content="SeanXia"><meta name="copyright" content="SeanXia"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="大数据环境下的核心问题 海量数据 工业技术相对落后 硬件损坏是常态  分而治之​    把一个复杂的问题按一定的“分解”方法分为等价的规模较小的若干部分，然后逐个解决，分别找出各部分的中间结果，把各部分的中间结果组成整个问题的最终结果。这也是著名的 Hadoop 中分布式存储系统 HDFS 的核心思想。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大数据思维经典问题">
 <meta property="og:url" content="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/f43f9767.html">
 <meta property="og:site_name" content="风雨欲来兮丶">
-<meta property="og:description" content="大数据环境下的核心问题 海量数据 工业技术相对落后 硬件损坏是常态  分而治之​	把一个复杂的问题按一定的“分解”方法分为等价的规模较小的若干部分，然后逐个解决，分别找出各部分的中间结果，把各部分的中间结果组成整个问题的最终结果。这也是著名的 Hadoop 中分布式存储系统 HDFS 的核心思想。">
+<meta property="og:description" content="大数据环境下的核心问题 海量数据 工业技术相对落后 硬件损坏是常态  分而治之​    把一个复杂的问题按一定的“分解”方法分为等价的规模较小的若干部分，然后逐个解决，分别找出各部分的中间结果，把各部分的中间结果组成整个问题的最终结果。这也是著名的 Hadoop 中分布式存储系统 HDFS 的核心思想。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg">
 <meta property="article:published_time" content="2017-02-22T16:00:00.000Z">
@@ -160,10 +160,9 @@
 <li>工业技术相对落后</li>
 <li>硬件损坏是常态</li>
 </ol>
-<h2 id="分而治之"><a href="#分而治之" class="headerlink" title="分而治之"></a>分而治之</h2><p>​	把一个复杂的问题按一定的“分解”方法分为等价的规模较小的若干部分，然后逐个解决，分别找出各部分的中间结果，把各部分的中间结果组成整个问题的最终结果。这也是著名的 <strong>Hadoop</strong> 中分布式存储系统 <strong>HDFS</strong> 的核心思想。</p>
+<h2 id="分而治之"><a href="#分而治之" class="headerlink" title="分而治之"></a>分而治之</h2><p>​    把一个复杂的问题按一定的“分解”方法分为等价的规模较小的若干部分，然后逐个解决，分别找出各部分的中间结果，把各部分的中间结果组成整个问题的最终结果。这也是著名的 <strong>Hadoop</strong> 中分布式存储系统 <strong>HDFS</strong> 的核心思想。</p>
 <span id="more"></span>
-
-<h2 id="经典问题"><a href="#经典问题" class="headerlink" title="经典问题"></a>经典问题</h2><h3 id="需求一：海量数据找出重复的行"><a href="#需求一：海量数据找出重复的行" class="headerlink" title="需求一：海量数据找出重复的行"></a>需求一：海量数据找出重复的行</h3><p>已知条件： I&#x2F;O 速度500M&#x2F;s，服务器内存为64G，txt文件大小为1TB。</p>
+<h2 id="经典问题"><a href="#经典问题" class="headerlink" title="经典问题"></a>经典问题</h2><h3 id="需求一：海量数据找出重复的行"><a href="#需求一：海量数据找出重复的行" class="headerlink" title="需求一：海量数据找出重复的行"></a>需求一：海量数据找出重复的行</h3><p>已知条件： I/O 速度500M/s，服务器内存为64G，txt文件大小为1TB。</p>
 <p>找出重复行（能不能？）   </p>
 <p><strong>思路：</strong></p>
 <ol>
@@ -171,10 +170,10 @@
 <li>我们可以采用哈希算法得到每行数字的 <strong>hashcode</strong> 值（因为 <strong>hashcode</strong> 是固定不变的，且内容相同的哈希值肯定是相等）。</li>
 <li>这里由于需要知道行数是多少，所以我们采用 <strong>HashMap</strong> 来接收，把每行的  <strong>hashcode</strong> 作为  <strong>key</strong> ，行号作为 <strong>value</strong> ，然后对逐行的 <strong>key</strong> 除以1024（这个值可以自定义）<strong>取模</strong>，形成一个个的 File 小文件。</li>
 <li>因为相同的 <strong>hashcode</strong> 取模肯定相同，也就是说落在相同的 File 文件里，这样我们再读取一次就可以找出重复的行了。这次读取我们可以直接找Key相同的值就行了。最好是第一个File文件就能找到，最坏就是在最后一个File文件中找到，这样我们按照最坏计算。</li>
-<li>也就是说：&#x3D;&#x3D;计算时间： 两次IO，2* 30分钟 &#x3D; 1小时&#x3D;&#x3D;</li>
+<li>也就是说：==计算时间： 两次IO，2* 30分钟 = 1小时==</li>
 </ol>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx64dwkgxj20kr0clgmc.jpg"></p>
-<h3 id="需求二：海量数字的全排序"><a href="#需求二：海量数字的全排序" class="headerlink" title="需求二：海量数字的全排序"></a>需求二：海量数字的全排序</h3><p>已知条件： I&#x2F;O 速度 500M&#x2F;s，服务器内存为 64G，一个 TB 的乱序数字文件，要求进行排序。</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx64dwkgxj20kr0clgmc.jpg" alt></p>
+<h3 id="需求二：海量数字的全排序"><a href="#需求二：海量数字的全排序" class="headerlink" title="需求二：海量数字的全排序"></a>需求二：海量数字的全排序</h3><p>已知条件： I/O 速度 500M/s，服务器内存为 64G，一个 TB 的乱序数字文件，要求进行排序。</p>
 <p><strong>思路：</strong></p>
 <p><strong>方案一</strong>：这里也是采用分而治之的办法。</p>
 <ol>
@@ -183,7 +182,7 @@
 <li><p>然后就形成了，<strong>全局有序，局部无序</strong>的状态。</p>
 </li>
 <li><p>最后再分别取每个分区的小部分数据进行排序，因为这个时候每个分区文件很小，可以很快的将这些局部的数字排好序，最后把每个分区放回即可。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx64pyzktj20kv0bldg6.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx64pyzktj20kv0bldg6.jpg" alt></p>
 </li>
 </ol>
 <p><strong>方案二</strong>：同理，用到<strong>归并算法</strong></p>
@@ -198,7 +197,7 @@
 <blockquote>
 <p>这个算法就相当于玩拳皇 97，对打不过，下面的预选人接着上，打赢了就留下，输了就出去，一直比下去，最强最大的那个会留到最后。哈哈。。。</p>
 </blockquote>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx652gum7j20l40c1mxe.jpg"></p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fyx652gum7j20l40c1mxe.jpg" alt></p>
 </li>
 </ol>
 <p><strong>注：</strong></p>

@@ -158,9 +158,8 @@
 </head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/headpic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">72</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/butterfly.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="风雨欲来兮丶"><span class="site-name">风雨欲来兮丶</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">使用Git系统搭建GitLab</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-08-23T16:00:00.000Z" title="发表于 2019-08-24 00:00:00">2019-08-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-11T15:00:41.472Z" title="更新于 2024-07-11 23:00:41">2024-07-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id data-flag-title="使用Git系统搭建GitLab"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="Git、GitHub与GitLab区别"><a href="#Git、GitHub与GitLab区别" class="headerlink" title="Git、GitHub与GitLab区别"></a>Git、GitHub与GitLab区别</h3><p>首先我们要知道的是，Git与GitLab不是一个东西，git是一个可以进行版本控制的操作工具，而GitLab则是一个用来托管文件的远程仓库。</p>
 <p>GitLab与GitHub最大的区别就是可以使用自己的服务器进行托管，相比GitHub来说更安全高效，适合团队内部开发。</p>
 <span id="more"></span>
-
 <h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><p><strong>第一步：新建小组以及项目</strong></p>
-<p>首先登录GitLab官网：<a href="http://git.lzops.com,输入账号密码然后开始进入.初始的有两个框框,新建项目和新建小组./" rel="external nofollow noopener noreferrer" target="_blank">http://git.lzops.com，输入账号密码然后开始进入。初始的有两个框框，新建项目和新建小组。</a></p>
+<p>首先登录GitLab官网：<a href="http://git.lzops.xn--com,-ts8fa917bjfn22c2yewtkm40d5psev1edvhg7a.xn--,-1p6asa651bdude4ke6dyqhba192oca742b23ea9975cynbqw2emy0h./" rel="external nofollow noopener noreferrer" target="_blank">http://git.lzops.com，输入账号密码然后开始进入。初始的有两个框框，新建项目和新建小组。</a></p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822191122.png" alt="img"></p>
 <p>我已经建好了小组：lz_bigdata，还有一个项目：lzjr_first。</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822185758.png" alt="img"></p>
@@ -180,7 +179,6 @@
 <li>分别输入之前远程仓库GitLab中的命令提示，按回车执行</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;bigdata&quot;</span><br><span class="line">git config --global user.email &quot;shengliang.fan@lianzhongjinrong.cn&quot;</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822192801.png" alt="img"></p>
 <p><strong>第四步：生成公钥并在远程仓库添加本地密匙</strong></p>
 <ul>
@@ -195,7 +193,6 @@
 <li>在Git系统中输入如下命令，大家可以换成自己的邮箱即可</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;shengliang.fan@lianzhongjinrong.cn&quot;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>按下回车后，会出来几次信息确认，账号、密码和确认密码，这里可以直接回车过掉，如果做了校验，那后面每次提交文件到远程仓库或者克隆远程仓库文件到本地都会要求输入密码，很麻烦，所以如果不是非常机密，不建议这么做。</li>
 </ul>
@@ -230,7 +227,6 @@
 <li>在Git中输入下面的命令</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone git@git.lzops.com:lz_bigdata/lzjr_first.git</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>后面是远程仓库的SSH地址或者HTTP地址，在如图中可以直接复制拿到</li>
 </ul>
@@ -256,25 +252,21 @@
 <li>然后我们在此处重新打开Git系统，输入下面的命令</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add .		## 添加除了删除之外的变化</span><br><span class="line">git add -U		## 只添加增加的也就是更新的那部分变化</span><br><span class="line">git add -A  	## 添加所有的变化</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>这个命令是将未提交内容添加到<code>暂存区</code>，关于<code>git add .</code> 与 <code>git add -U</code> 还有<code>git add -A</code> 的区别，大家可以去百度看详细资料，推荐使用 <code>git add .</code> ！！！</li>
 <li>接下来是将这些变化提交到本地仓库，这里的 -m 建议加上，不然后面做了什么修改会不清楚</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit -m &#x27;解释说明&#x27;</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822202448.png" alt="img"></p>
 <ul>
 <li>在提交前和提交后我们都可以用如下命令来监视 目前文件的提交状态</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822202407.png" alt="img"></p>
 <ul>
 <li>最终是将本地仓库的文件推送到远程仓库</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190822202505.png" alt="img"></p>
 <ul>
 <li>看到如上的提示语，说明提交到远程就完成了。</li>
@@ -293,10 +285,8 @@
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190823134257.png" alt="img"></p>
 <p>现在，新建一个分支并同时切换到那个分支上，你可以运行一个带有 <code>-b</code> 参数的 <code>git checkout</code> 命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git checkout -b xss</span><br></pre></td></tr></table></figure>
-
 <p><code>git checkout</code>命令加上<code>-b</code>参数表示创建并切换，相当于以下两条命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git branch xss</span><br><span class="line">$ git checkout xss</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190823130110.png" alt="img"></p>
 <blockquote>
 <p>根据箭头所指可以看到当前分支名称已经切换。</p>
@@ -305,14 +295,12 @@
 <p><strong>二、查看分支</strong></p>
 <p>然后，用<code>git branch</code>命令查看当前分支：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p><code>git branch</code>命令会列出所有分支，当前分支前面会标一个<code>*</code>号。</p>
 </blockquote>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190823125143.png" alt="img"></p>
 <p>然后，我们就可以在<code>xss</code>分支上正常提交，比如对<code>README.md</code>做个修改，然后提交：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add README.md		## 加上文件名则只提交此文件，.和-A则提交全部</span><br><span class="line">$ git commit -m &quot;branch test&quot;</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/1566536436473.png" alt="img"></p>
 <p>你继续在分支<code>xss</code>上工作，并且做了一些提交。 在此过程中，<code>xss</code> 分支在不断的向前推进，因为你已经检出到该分支（也就是说，你的 <code>HEAD</code> 指针指向了 <code>xss</code> 分支）</p>
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190823135149.png" alt="img"></p>
@@ -324,7 +312,6 @@
 <li>直接将分支<code>xss</code>推送到远程：</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push origin xss</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190823164418.png" alt="img"></p>
 <ul>
 <li>推送成功后，在远程GitLab可以看到已经新建了一个<code>xss</code>分支，以及分支下刚刚更新的文件</li>
@@ -347,7 +334,6 @@
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190823172847.png" alt="img"></p>
 <h4 id="2、将本地分支直接合并到主分支，然后推送到远程"><a href="#2、将本地分支直接合并到主分支，然后推送到远程" class="headerlink" title="2、将本地分支直接合并到主分支，然后推送到远程"></a>2、将本地分支直接合并到主分支，然后推送到远程</h4><p>先切换回<code>master</code>分支：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git checkout master</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190823130249.png" alt="img"></p>
 <blockquote>
 <p>切换回<code>master</code>分支后，再查看一个<code>README.md</code>文件，刚才添加的内容不见了！因为那个提交是在<code>xss</code>分支上，而<code>master</code>分支此刻的提交点并没有变：</p>
@@ -357,7 +343,6 @@
 <p><strong>合并分支到主分支</strong></p>
 <p>现在，我们把<code>xss</code>分支的工作成果合并到<code>master</code>分支上：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git merge xss</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190823131320.png" alt="img"></p>
 <p><code>git merge</code>命令用于合并指定分支到当前分支。合并后，再查看<code>README.md</code>的内容，就可以看到，和<code>dev</code>分支的最新提交是完全一样的。</p>
 <blockquote>
@@ -370,7 +355,6 @@
 <p><strong>提交结果到远程</strong></p>
 <p>最后将本地提交到远程GitLab即可</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push origin mater</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/20190823133852.png" alt="img"></p>
 <blockquote>
 <p>这两种合并的方法都可以，这里暂时为了简单推荐第一种。大家在自己的分支中区操作整理，然后定期更新合并到主分支master中就可以了！！！</p>
