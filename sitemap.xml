@@ -499,13 +499,6 @@
   </url>
   
   <url>
-    <loc>http://www.seanxia.cn/tags/HBase/</loc>
-    <lastmod>2024-07-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://www.seanxia.cn/tags/Hadoop/</loc>
     <lastmod>2024-07-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -514,6 +507,20 @@
   
   <url>
     <loc>http://www.seanxia.cn/tags/%E9%AB%98%E5%8F%AF%E7%94%A8HA/</loc>
+    <lastmod>2024-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.seanxia.cn/tags/Hive/</loc>
+    <lastmod>2024-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.seanxia.cn/tags/HBase/</loc>
     <lastmod>2024-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -541,7 +548,7 @@
   </url>
   
   <url>
-    <loc>http://www.seanxia.cn/tags/Hive/</loc>
+    <loc>http://www.seanxia.cn/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/</loc>
     <lastmod>2024-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -556,13 +563,6 @@
   
   <url>
     <loc>http://www.seanxia.cn/tags/%E5%90%8C%E6%AD%A5/</loc>
-    <lastmod>2024-07-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.seanxia.cn/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/</loc>
     <lastmod>2024-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -611,13 +611,6 @@
   </url>
   
   <url>
-    <loc>http://www.seanxia.cn/tags/redis/</loc>
-    <lastmod>2024-07-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://www.seanxia.cn/tags/shell/</loc>
     <lastmod>2024-07-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -632,21 +625,14 @@
   </url>
   
   <url>
+    <loc>http://www.seanxia.cn/tags/redis/</loc>
+    <lastmod>2024-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://www.seanxia.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2024-07-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.seanxia.cn/tags/Kmeans/</loc>
-    <lastmod>2024-07-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.seanxia.cn/tags/%E9%9D%99%E6%80%81%E8%AF%AD%E8%A8%80/</loc>
     <lastmod>2024-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -667,6 +653,27 @@
   </url>
   
   <url>
+    <loc>http://www.seanxia.cn/tags/%E9%9D%99%E6%80%81%E8%AF%AD%E8%A8%80/</loc>
+    <lastmod>2024-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.seanxia.cn/tags/Kmeans/</loc>
+    <lastmod>2024-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.seanxia.cn/tags/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/</loc>
+    <lastmod>2024-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://www.seanxia.cn/tags/SparkShuffle/</loc>
     <lastmod>2024-07-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -675,13 +682,6 @@
   
   <url>
     <loc>http://www.seanxia.cn/tags/%E8%B0%83%E4%BC%98/</loc>
-    <lastmod>2024-07-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.seanxia.cn/tags/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/</loc>
     <lastmod>2024-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -751,13 +751,6 @@
   </url>
   
   <url>
-    <loc>http://www.seanxia.cn/tags/%E5%B9%BF%E6%92%AD%E5%8F%98%E9%87%8F/</loc>
-    <lastmod>2024-07-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://www.seanxia.cn/tags/SparkSQL/</loc>
     <lastmod>2024-07-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -766,6 +759,13 @@
   
   <url>
     <loc>http://www.seanxia.cn/tags/DataFrame/</loc>
+    <lastmod>2024-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.seanxia.cn/tags/%E5%B9%BF%E6%92%AD%E5%8F%98%E9%87%8F/</loc>
     <lastmod>2024-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -835,6 +835,20 @@
   </url>
   
   <url>
+    <loc>http://www.seanxia.cn/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
+    <lastmod>2024-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.seanxia.cn/tags/%E6%80%9D%E7%BB%B4/</loc>
+    <lastmod>2024-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://www.seanxia.cn/tags/MapReduce/</loc>
     <lastmod>2024-07-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -864,20 +878,6 @@
   
   <url>
     <loc>http://www.seanxia.cn/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</loc>
-    <lastmod>2024-07-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.seanxia.cn/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
-    <lastmod>2024-07-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.seanxia.cn/tags/%E6%80%9D%E7%BB%B4/</loc>
     <lastmod>2024-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
