@@ -62,15 +62,15 @@
   </entry>
   
   <entry>
-    <title>流式框架Flink（一）</title>
-    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html"/>
-    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html</id>
+    <title>流式框架Flink（二）</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html</id>
     <published>2019-01-01T16:00:00.000Z</published>
-    <updated>2019-08-10T13:46:34.000Z</updated>
+    <updated>2024-07-11T14:48:50.981Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架和分布式处理引擎。Flink设计为运行在所有常见的集群环境中，并且以内存速度和任意规模执行计算。&lt;/p&gt;
-&lt;p&gt;官网：&lt;a href=&quot;https://flink.apache.org&quot;&gt;https://flink.apache.org&lt;/a&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架。&lt;/p&gt;
+&lt;p&gt;我们来谈谈 Flink 的编程模型与部署。&lt;/p&gt;</summary>
     
     
     
@@ -84,15 +84,15 @@
   </entry>
   
   <entry>
-    <title>流式框架Flink（二）</title>
-    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html"/>
-    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html</id>
+    <title>流式框架Flink（一）</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html</id>
     <published>2019-01-01T16:00:00.000Z</published>
-    <updated>2024-07-11T14:48:50.981Z</updated>
+    <updated>2019-08-10T13:46:34.000Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架。&lt;/p&gt;
-&lt;p&gt;我们来谈谈 Flink 的编程模型与部署。&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架和分布式处理引擎。Flink设计为运行在所有常见的集群环境中，并且以内存速度和任意规模执行计算。&lt;/p&gt;
+&lt;p&gt;官网：&lt;a href=&quot;https://flink.apache.org&quot;&gt;https://flink.apache.org&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
