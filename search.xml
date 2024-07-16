@@ -295,6 +295,141 @@ picgo-plugin-pic-migrater：<img src="https://seanxia.oss-cn-shanghai.aliyuncs.c
       </tags>
   </entry>
   <entry>
+    <title>流式框架Flink（一）</title>
+    <url>/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html</url>
+    <content><![CDATA[<p>Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架和分布式处理引擎。Flink设计为运行在所有常见的集群环境中，并且以内存速度和任意规模执行计算。</p>
+<p>官网：<a href="https://flink.apache.org">https://flink.apache.org</a></p>
+<span id="more"></span>
+<h1>Flink体系架构</h1>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g10a3upfnwj20qk0dj0vj.jpg" alt></p>
+<p>Flink 是一个 Stateful Computations Over Streams，即数据流上的有状态的计算。</p>
+<p>这里面有两个关键字，一个是Streams，Flink认为有界数据集是无界数据流的一种特例，所以说有界数据集也是一种数据流，事件流也是一种数据流。Everything is streams，即Flink可以用来处理任何的数据，可以支持批处理、流处理、AI、MachineLearning等等。</p>
+<p>另外一个关键词是Stateful，即有状态计算。有状态计算是最近几年来越来越被用户需求的一个功能。举例说明状态的含义，比如说一个网站一天内访问UV数，那么这个UV数便为状态。Flink提供了内置的对状态的一致性的处理，即如果任务发生了Failover，其状态不会丢失、不会被多算少算，同时提供了非常高的性能。</p>
+<h2 id="处理无边界和有边界数据">处理无边界和有边界数据</h2>
+<p>任何类型的数据都是作为事件流产生的。信用卡交易事务，传感器测量，机器日志以及网站或移动应用程序上的用户交互行为，所有这些数据都生成流。</p>
+<p>数据可以作为无边界或有边界流处理。</p>
+<p><strong>无边界流</strong></p>
+<p>定义了开始但没有定义结束。它们不会在生成时终止提供数据。必须持续地处理无边界流，即必须在拉取到事件后立即处理它。无法等待所有输入数据到达后处理，因为输入是无边界的，并且在任何时间点都不会完成。处理无边界数据通常要求以特定顺序（例如事件发生的顺序）拉取事件，以便能够推断结果完整性。</p>
+<p><strong>有边界流</strong></p>
+<p>定义了开始和结束。可以在执行任何计算之前通过拉取到所有数据后处理有界流。处理有界流不需要有序拉取，因为可以随时对有界数据集进行排序。有边界流的处理也称为<strong>批处理</strong>。</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g10a6ret1nj21po0emdkc.jpg" alt></p>
+<p>**Apache Flink擅长处理无边界和有边界数据集。**在事件和状态上的精确控制使得Flink运行时能在无边界流上运行任意类型的应用程序。有界流由算法和数据结构内部处理，这些算法和数据结构专门针对固定大小的数据集而设计，从而获得优秀的性能。</p>
+<h2 id="随处部署应用程序">随处部署应用程序</h2>
+<p>Apache Flink是一个分布式系统，需要计算资源才能执行应用程序。Flink与所有常见的集群资源管理器（如Hadoop YARN，Apache Mesos和Kubernetes）集成，但也可以作为独立集群运行。</p>
+<p>Flink旨在很好地适用于之前列出的每个资源管理器。这是通过特定于资源管理器的部署模式实现的，这些模式允许Flink以其惯用的方式与每个资源管理器进行交互。</p>
+<p>部署Flink应用程序时，Flink会根据应用程序配置的<strong>并行度</strong>自动识别所需资源，并从资源管理器请求它们。如果发生故障，Flink会通过请求新的资源来替换发生故障的容器。提交或控制应用程序的所有通信都通过REST调用进行。这简化了Flink在许多环境中的集成。</p>
+<h2 id="任意规模运行应用程序">任意规模运行应用程序</h2>
+<p>Flink旨在以任意规模运行有状态流式应用程序。应用程序可以并行化为数千个在集群中分布和同时执行的任务。因此，应用程序可以利用几乎无限量的CPU，内存，磁盘和网络IO。而且，Flink可以轻松维护非常大的应用程序的状态。其<strong>异步和增量检查点算法</strong>确保对延迟处理的影响最小，同时保证精确一次的状态一致性。</p>
+<p>用户报告了在其生产环境中运行的Flink应用程序的扩展数字令人印象十分深刻，例如：</p>
+<ul>
+<li>应用程序每天处理数万亿个事件</li>
+<li>应用程序维护数个TB的状态</li>
+<li>应用程序在数千个CPU核上运行</li>
+</ul>
+<h2 id="利用内存的性能">利用内存的性能</h2>
+<p>有状态的Flink应用程序针对本地状态访问进行了优化。任务状态始终驻留在<strong>内存</strong>中，或者，如果状态大小超过可用内存，则保存在<strong>访问高效的磁盘</strong>上的数据结构中。因此，任务通过访问本地（通常是内存中）状态来执行所有计算，从而产生非常低的处理延迟。Flink通过定期和异步检查点将本地状态到持久存储来保证在出现故障时的精确一次的状态一致性。</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g10a61tc9oj225c0hin1k.jpg" alt></p>
+<h1>应用</h1>
+<p>Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架。</p>
+<p>Flink 在不同的抽象级别提供多个API，并为常见用例提供专用库。</p>
+<h2 id="为流应用程序构建块">为流应用程序构建块</h2>
+<p>流式计算框架构建和运行的应用程序的类型，由框架控制流（events）、状态（state）以及时间（time）的程度来定义。在下文中，我们描述了流处理应用程序的这些构建块，并解释了Flink处理他们的方法。</p>
+<h2 id="流（events）">流（events）</h2>
+<p>显然，流是流式处理的一个基本方面。然而，流可以有不同的特征，这些特征会影响流的处理方式。Flink 是一个多功能的处理框架，它可以处理任意类型的流。</p>
+<ul>
+<li><strong>有边界</strong>和<strong>无边界</strong>的流：流可以是无边界或是有边界的，如固定大小的数据集。Flink 具有处理无边界流的复杂功能，但也有专用的运算符来有效地处理有边界流。</li>
+<li><strong>实时</strong>和<strong>记录</strong>的流：所有数据都作为流生成，有两种方法可以处理数据。在生成时实时处理它或者将流持久保存到存储系统（例如文件系统或对象存储），并在之后对其进行处理。Flink 应用程序可以处理记录或实时流。</li>
+</ul>
+<h2 id="状态（state）">状态（state）</h2>
+<p>每个非凡的流式应用都是有状态的。只有对个别事件应用转换的应用程序才不需要状态。运行基本业务逻辑的任何应用程序都需要记住事件或中间结果，以便在之后的时间点访问它们，例如在收到下一个事件时或在特定持续时间之后。</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g10afyrmrej20eu05x749.jpg" alt></p>
+<p>应用程序的状态在 Flink 中是一等公民。您可以通过查看 Flink 在状态处理环境（上下文context）中提供的所有功能（函数）来查看。</p>
+<ul>
+<li><strong>多状态原语</strong>：Flink为不同的数据结构提供了状态原语，如原子值(value)，列表(list)或映射(map)。开发人员可以根据函数的访问模式选择最有效的状态原语。</li>
+<li><strong>可插拔状态后端</strong>：应用程序状态由可插拔状态后端管理以及检查(checkpointed)。Flink有不同的状态后端，可以在内存或RocksDB中存储状态，RocksDB(KV DB)是一种高效的嵌入式磁盘数据存储。也可以插入自定义状态后端。</li>
+<li><strong>精确一次的状态一致性</strong>：Flink的检查点和恢复算法可确保在发生故障时应用程序状态的一致性。因此，故障是透明处理的，不会影响应用程序的正确性。</li>
+<li><strong>非常大的状态</strong>:由于其异步和增量检查点算法，Flink能够维持几个TB的应用程序状态。</li>
+<li><strong>可扩展的应用程序</strong>： Flink通过将状态重新分配给更多或更少的Worker节点来支持有状态应用程序的扩展。</li>
+</ul>
+<h2 id="时间（time）">时间（time）</h2>
+<p>时间是流式应用的另一个重要组成成分。大多数事件流都具有固定的时间语义，因为每个事件都是在特定的时间点生成的。此外，许多常见的流计算基于时间，例如窗口聚合、会话化、模式监测和基于时间的连接。流处理的一个重要方面是应用程序如何测量时间，即时间时间和处理时间之间的差异。</p>
+<p>Flink 提供了一组丰富的与时间相关的功能。</p>
+<ul>
+<li><strong>事件时间模式</strong>：使用事件时间语义处理流的应用程序根据时间的时间戳计算结果。因此，无论是否处理记录或实时的时间，事件时间处理都是准确和一致的结果。</li>
+<li><strong>水印支持</strong>：Flink使用水印来推断事件时间应用中的时间。水印也是一种灵活的机制，可以权衡取舍延迟数据和结果的完整性。</li>
+<li><strong>延迟数据处理</strong>：当在事件时间模式下使用水印处理流时，可能会发生在所有相关事件到达之前已完成计算的情况。这类事件被称为延迟事件。Flink具有多种处理延迟事件的选项，例如通过边输出重新路由它们以及更新之前已经完成的结果。</li>
+<li><strong>处理时间模式</strong>:除了事件时间模式以外，Flink还支持处理时间语义，处理时间语义的执行由处理机器的挂钟（系统）时间来触发计算。处理时间模式适用于某些具有严格的低延迟要求的应用，这些要求同时可以容忍近似结果。</li>
+</ul>
+<h2 id="分层接口API">分层接口API</h2>
+<p>Flink提供三层API。每个API在简洁性和表达性之间提供不同的权衡，并针对不同的用例。</p>
+<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g10ajpzt5tj20jf05iwfb.jpg" alt></p>
+<p>最底层是ProcessFunction，它能够提供非常灵活的功能，它能够访问各种各样的State，用来注册一些timer，利用timer回调的机制能够实现一些基于事件驱动的一些应用。</p>
+<p>之上是DataStream API，最上层是SQL/Table API的一种High-level API。</p>
+<h3 id="ProcessFunctions">ProcessFunctions</h3>
+<p><a href="https://ci.apache.org/projects/flink/flink-docs-stable/dev/stream/operators/process_function.html">ProcessFunctions</a> 是Flink提供的最具表现力的功能接口。Flink 提供 ProcessFunctions 来处理来自一个或两个输入流中的单个事件或分组到一个窗口的事件。ProcessFunctions 提供对时间和状态的细粒度控制。ProcessFunction 可以任意修改其状态并注册将在未来触发回调函数的定时器。因此，ProcessFunctions 可以实现许多有状态事件驱动应用程序所需的复杂的每个事件业务逻辑。</p>
+<p>以下示例显示了 KeyedProcessFunction 对 KeyedStream，匹配 START 以及 END 事件进行操作的示例。当一个START 事件被接收时，该函数在记住其状态时间戳和并且注册四个小时的计时器。如果在计时器触发之前收到END 事件，则该函数计算事件 END 和 START 事件之间的持续时间，清除状态并返回值。否则，计时器只会触发并清除状态。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Matches keyed START and END events and computes the difference between </span></span><br><span class="line"><span class="comment"> * both elements&#x27; timestamps. The first String field is the key attribute, </span></span><br><span class="line"><span class="comment"> * the second String attribute marks START and END events.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">StartEndDuration</span></span><br><span class="line">    <span class="keyword">extends</span> <span class="title class_">KeyedProcessFunction</span>&lt;String, Tuple2&lt;String, String&gt;, Tuple2&lt;String, Long&gt;&gt; &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> ValueState&lt;Long&gt; startTime;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">open</span><span class="params">(Configuration conf)</span> &#123;</span><br><span class="line">    <span class="comment">// obtain state handle</span></span><br><span class="line">    startTime = getRuntimeContext()</span><br><span class="line">      .getState(<span class="keyword">new</span> <span class="title class_">ValueStateDescriptor</span>&lt;Long&gt;(<span class="string">&quot;startTime&quot;</span>, Long.class));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** Called for each processed event. */</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">processElement</span><span class="params">(</span></span><br><span class="line"><span class="params">      Tuple2&lt;String, String&gt; in,</span></span><br><span class="line"><span class="params">      Context ctx,</span></span><br><span class="line"><span class="params">      Collector&lt;Tuple2&lt;String, Long&gt;&gt; out)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (in.f1) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;START&quot;</span>:</span><br><span class="line">        <span class="comment">// set the start time if we receive a start event.</span></span><br><span class="line">        startTime.update(ctx.timestamp());</span><br><span class="line">        <span class="comment">// register a timer in four hours from the start event.</span></span><br><span class="line">        ctx.timerService()</span><br><span class="line">          .registerEventTimeTimer(ctx.timestamp() + <span class="number">4</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;END&quot;</span>:</span><br><span class="line">        <span class="comment">// emit the duration between start and end event</span></span><br><span class="line">        <span class="type">Long</span> <span class="variable">sTime</span> <span class="operator">=</span> startTime.value();</span><br><span class="line">        <span class="keyword">if</span> (sTime != <span class="literal">null</span>) &#123;</span><br><span class="line">          out.collect(Tuple2.of(in.f0, ctx.timestamp() - sTime));</span><br><span class="line">          <span class="comment">// clear the state</span></span><br><span class="line">          startTime.clear();</span><br><span class="line">        &#125;</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="comment">// do nothing</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** Called when a timer fires. */</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onTimer</span><span class="params">(</span></span><br><span class="line"><span class="params">      <span class="type">long</span> timestamp,</span></span><br><span class="line"><span class="params">      OnTimerContext ctx,</span></span><br><span class="line"><span class="params">      Collector&lt;Tuple2&lt;String, Long&gt;&gt; out)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Timeout interval exceeded. Cleaning up the state.</span></span><br><span class="line">    startTime.clear();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>这个例子说明了KeyedProcessFunction的表达能力，但也强调了它是一个相当冗长的接口。</code></p>
+<h3 id="DataStream-API">DataStream API</h3>
+<p><a href="https://ci.apache.org/projects/flink/flink-docs-stable/dev/datastream_api.html">DataStream API</a> 提供了许多通用流处理操作原语。如窗口，record-at-a-time转换，查询外部数据存储丰富事件原语。DataStream API 可用于 Java 和 Scala 且它是基于函数的，如 map()、reduce() 以及 aggregate() 。可以通过扩展接口或 lambda 函数来定义函数参数。</p>
+<p>以下示例展示如何对点击流进行会话化以及记录每个session的点击次数。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// a stream of website clicks</span></span><br><span class="line">DataStream&lt;Click&gt; clicks = ...</span><br><span class="line"></span><br><span class="line">DataStream&lt;Tuple2&lt;String, Long&gt;&gt; result = clicks</span><br><span class="line">  <span class="comment">// project clicks to userId and add a 1 for counting</span></span><br><span class="line">  .map(</span><br><span class="line">    <span class="comment">// define function by implementing the MapFunction interface.</span></span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">MapFunction</span>&lt;Click, Tuple2&lt;String, Long&gt;&gt;() &#123;</span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="keyword">public</span> Tuple2&lt;String, Long&gt; <span class="title function_">map</span><span class="params">(Click click)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Tuple2.of(click.userId, <span class="number">1L</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  <span class="comment">// key by userId (field 0)</span></span><br><span class="line">  .keyBy(<span class="number">0</span>)</span><br><span class="line">  <span class="comment">// define session window with 30 minute gap</span></span><br><span class="line">  .window(EventTimeSessionWindows.withGap(Time.minutes(<span class="number">30L</span>)))</span><br><span class="line">  <span class="comment">// count clicks per session. Define function as lambda function.</span></span><br><span class="line">  .reduce((a, b) -&gt; Tuple2.of(a.f0, a.f1 + b.f1));</span><br></pre></td></tr></table></figure>
+<h3 id="SQL-Table-API">SQL &amp; Table API</h3>
+<p>Flink 有两种关系化 API 特性， <a href="https://ci.apache.org/projects/flink/flink-docs-stable/dev/table/index.html">Table API 和 SQL</a>。这两个 API 都是用于批处理和流处理的统一API，即，在无边界的实时流或有边界的记录流上以相同的语义执行查询，并产生相同的结果。Table API 和 SQL 利用Apache Calicite来解析，校验以及查询优化。它们可以与 DataStream 和 DataSet API 无缝集成，并支持用户定义的标量，聚合以及表值函数。</p>
+<p>Flink的关系化API旨在简化<a href="https://flink.apache.org/usecases.html#analytics">数据分析</a>，<a href="https://flink.apache.org/usecases.html#pipelines">数据流水线和ETL应用程序的定义</a>。</p>
+<p>以下示例展示如何对点击流进行会话化以及记录每个session的点击次数。与DataStream API中的示例是相同的用例。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> userId, <span class="built_in">COUNT</span>(<span class="operator">*</span>)</span><br><span class="line"><span class="keyword">FROM</span> clicks</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> SESSION(clicktime, <span class="type">INTERVAL</span> <span class="string">&#x27;30&#x27;</span> <span class="keyword">MINUTE</span>), userId</span><br></pre></td></tr></table></figure>
+<h3 id="库（Libraries）">库（Libraries）</h3>
+<p>Flink 具有几个用于常见数据处理用例的库。这些库通常嵌入在API中，而不是完全独立的。因此，它们可以从API的所有特性中受益，并与其他库集成。</p>
+<ul>
+<li><strong>复杂事件处理（CEP）</strong>: 模式检测是事件流处理中的一个非常常见的用例。Flink的CEP库提供了一个API来指定事件模式（如正则表达式或状态机）。CEP库与Flink的DataStream API集成，以便在DataStream上评估模式。CEP库的应用包括网络***检测，业务流程监控和欺诈检测。</li>
+<li><strong>DataSet API</strong>：DataSet API是Flink用于批处理应用程序的核心API。DataSet API的原语包括 map,reduce,(outer)join,co-group和iterate。所有操作都由算法和数据结构支持，这些算法和数据结构对内存中的序列化数据进行进行操作，如果数据大小超过内存预算则溢出到磁盘。Flink的DataSet API的数据处理算法收到传统数据库运算符的启发，例如混合散列连接或外部合并排序（ hybrid hash-join or external merge-sort）。</li>
+<li><strong>Gelly</strong>：Gelly是一个可扩展的图形处理和分析库。Gelly是在DataSet API之上实现的，并与DataSet API集成在一起。因此，它受益于其可扩展且强大的操作符。Gelly具有<a href="https://ci.apache.org/projects/flink/flink-docs-stable/dev/libs/gelly/library_methods.html">内置算法</a>，如label propagation(标签传播), triangle enumeration, and page rank, 但也提供了一个自定义图算法实现的简化<a href="https://ci.apache.org/projects/flink/flink-docs-stable/dev/libs/gelly/graph_api.html">Graph API</a>。</li>
+</ul>
+<h1>操作</h1>
+<p>由于许多流应用程序设计为以最短的停机时间连续运行，因此流处理器必须提供出色的故障恢复，以及在应用程序运行时监控和维护应用程序的工具。</p>
+<p>Apache Flink 非常关注流处理的操作方面。在这里，我们将解释 Flink 的故障恢复机制，并介绍其管理和监督正在运行的应用程序的特性。</p>
+<h2 id="全天候运行应用程序">全天候运行应用程序</h2>
+<p>机器和处理故障在分布式系统中无处不在。像Flink这样的分布式流处理器必须从故障中恢复，以便能够全天候运行流应用程序。显然，这不仅意味着在故障发生后重新启动应用程序，而且还要确保其内部状态保持一致，以便应用程序可以继续处理，就像从未发生过故障一样。</p>
+<p>Flink提供了多种特性，以确保应用程序保持运行并保持一致：</p>
+<ul>
+<li><strong>一致的检查点</strong>：Flink的恢复机制基于应用程序状态的一致性检查点。如果发生故障，将重新启动应用程序并从最新检查点加载其状态。结合可重置的流源，此特性可以保证精确一次的状态一致性。</li>
+<li><strong>高效的检查点</strong>：如果应用程序保持TB级的状态，则检查应用程序的状态可能非常昂贵。Flink可以执行异步和增量检查点，以便将检查点对应用程序的延迟SLAs的影响保持在非常小的水平。</li>
+<li><strong>End-to-End精确一次</strong>：Flink为特定存储系统提供事务接收(sink)器，保证数据只写出一次，即使出现故障。</li>
+<li><strong>与集群管理器集成</strong>：Flink与集群管理器紧密集成，例如Hadoop YARN，Mesos或Kubernetes。当进程失败时，将自动启动一个新进程来接管它的工作。</li>
+<li><strong>高可用性设置</strong>：Flink具有高可用性模式特性，可消除所有单点故障。HA模式基于Apache ZooKeeper–是一种经过验证的可靠分布式协调服务。</li>
+</ul>
+<h2 id="更新、迁移、暂停和恢复应用程序">更新、迁移、暂停和恢复应用程序</h2>
+<p>需要维护为关键业务服务提供支持的流应用程序。需要修复错误，并且需要实现改进或新功能特性。但是，更新有状态流应用程序并非易事。通常，我们不能简单地停止应用程序并重新启动固定版本或改进版本，因为无法承受丢失应用程序的状态。</p>
+<p>Flink 的 Savepoints 是一个独特而强大的功能特性，可以解决更新有状态应用程序和许多其他相关挑战的问题。保存点是应用程序状态的一致快照，因此它与检查点非常相似。但是，与检查点相比，需要手动触发保存点，并且在应用程序停止时不会自动删除保存点。保存点可用于启动状态兼容的应用程序并初始化其状态。保存点可启用以下功能：</p>
+<ul>
+<li><strong>应用程序演变</strong>：保存点可用于发展应用程序。可以从从先前版本的应用程序中获取的保存点重新启动应用程序的固定或改进版本。也可以从较早的时间点（假设存在这样的保存点）启动应用程序，以修复由有缺陷的版本产生的错误结果。</li>
+<li><strong>集群迁移</strong>：使用保存点，可以将应用程序迁移（或克隆）到不同的集群。</li>
+<li><strong>Flink版本更新</strong>：可以使用保存点迁移应用程序在Flink的新版本上运行。</li>
+<li><strong>应用程序扩展</strong>：保存点可用于增加或减少应用程序的并行性。</li>
+<li><strong>A / B测试和假设情景</strong>：通过在同一保存点启动应用程序的所有版本，可以比较两个（或更多）不同版本的应用程序的性能或质量。</li>
+<li><strong>暂停和恢复</strong>：可以通过获取保存点来暂停应用程序并停止它。在以后的任何时间点，都可以从保存点恢复应用程序。</li>
+<li><strong>归档</strong>：保存点可以存档，以便能够将应用程序的状态重置为较早的时间点。</li>
+</ul>
+<h2 id="监控和控制应用程序">监控和控制应用程序</h2>
+<p>与任何其他服务一样，持续运行的流应用程序需要受到监督并集成到组织的运营（operations）基础架构（即监控和日志记录服务）中。监控有助于预测问题并提前做出反应。日志记录让我们可以依据根原因分析来调查故障。最后，控制运行应用程序的易于访问的界面也是一个重要特性。</p>
+<p>Flink 与许多常见的日志记录和监视服务已经很好地集成，并提供 REST API 来控制应用程序和查询信息。</p>
+<ul>
+<li><strong>Web UI</strong>：Flink拥有Web UI功能特性，可以检查，监视和调试正在运行的应用程序。它还可用于提交执行或取消执行。</li>
+<li><strong>Logging</strong>: Flink实现了流行的slf4j日志记录接口，并与日志框架log4j或logback集成。</li>
+<li><strong>Metrics</strong>:Flink具有复杂的度量标准系统，用于收集和报告系统和用户定义的度量标准。度量标准可以导出到几个reporters，包括JMX，Ganglia，Graphite，Prometheus，StatsD，Datadog和Slf4j。</li>
+<li><strong>REST API</strong>:Flink暴露公开提交新应用程序，获取正在运行的应用程序的保存点或取消应用程序的REST API。REST API还公开元数据、收集到的正在运行的或已完成应用程序的指标。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>流式处理</tag>
+        <tag>flink</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>流式框架Flink（二）</title>
     <url>/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html</url>
     <content><![CDATA[<p>Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架。</p>
@@ -575,141 +710,6 @@ Failing over to rm2</p>
 <li>一个 YarnSession 一个应用，方便管理， 减少没必要应用之间的干扰。</li>
 <li>Flink 提交平台化，支持 HDFS 的 Jar 包提交。</li>
 <li>Flink On Yarn 的日志滚动， 以及改善 Flink UI 查看日志。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>大数据</category>
-      </categories>
-      <tags>
-        <tag>流式处理</tag>
-        <tag>flink</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>流式框架Flink（一）</title>
-    <url>/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html</url>
-    <content><![CDATA[<p>Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架和分布式处理引擎。Flink设计为运行在所有常见的集群环境中，并且以内存速度和任意规模执行计算。</p>
-<p>官网：<a href="https://flink.apache.org">https://flink.apache.org</a></p>
-<span id="more"></span>
-<h1>Flink体系架构</h1>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g10a3upfnwj20qk0dj0vj.jpg" alt></p>
-<p>Flink 是一个 Stateful Computations Over Streams，即数据流上的有状态的计算。</p>
-<p>这里面有两个关键字，一个是Streams，Flink认为有界数据集是无界数据流的一种特例，所以说有界数据集也是一种数据流，事件流也是一种数据流。Everything is streams，即Flink可以用来处理任何的数据，可以支持批处理、流处理、AI、MachineLearning等等。</p>
-<p>另外一个关键词是Stateful，即有状态计算。有状态计算是最近几年来越来越被用户需求的一个功能。举例说明状态的含义，比如说一个网站一天内访问UV数，那么这个UV数便为状态。Flink提供了内置的对状态的一致性的处理，即如果任务发生了Failover，其状态不会丢失、不会被多算少算，同时提供了非常高的性能。</p>
-<h2 id="处理无边界和有边界数据">处理无边界和有边界数据</h2>
-<p>任何类型的数据都是作为事件流产生的。信用卡交易事务，传感器测量，机器日志以及网站或移动应用程序上的用户交互行为，所有这些数据都生成流。</p>
-<p>数据可以作为无边界或有边界流处理。</p>
-<p><strong>无边界流</strong></p>
-<p>定义了开始但没有定义结束。它们不会在生成时终止提供数据。必须持续地处理无边界流，即必须在拉取到事件后立即处理它。无法等待所有输入数据到达后处理，因为输入是无边界的，并且在任何时间点都不会完成。处理无边界数据通常要求以特定顺序（例如事件发生的顺序）拉取事件，以便能够推断结果完整性。</p>
-<p><strong>有边界流</strong></p>
-<p>定义了开始和结束。可以在执行任何计算之前通过拉取到所有数据后处理有界流。处理有界流不需要有序拉取，因为可以随时对有界数据集进行排序。有边界流的处理也称为<strong>批处理</strong>。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g10a6ret1nj21po0emdkc.jpg" alt></p>
-<p>**Apache Flink擅长处理无边界和有边界数据集。**在事件和状态上的精确控制使得Flink运行时能在无边界流上运行任意类型的应用程序。有界流由算法和数据结构内部处理，这些算法和数据结构专门针对固定大小的数据集而设计，从而获得优秀的性能。</p>
-<h2 id="随处部署应用程序">随处部署应用程序</h2>
-<p>Apache Flink是一个分布式系统，需要计算资源才能执行应用程序。Flink与所有常见的集群资源管理器（如Hadoop YARN，Apache Mesos和Kubernetes）集成，但也可以作为独立集群运行。</p>
-<p>Flink旨在很好地适用于之前列出的每个资源管理器。这是通过特定于资源管理器的部署模式实现的，这些模式允许Flink以其惯用的方式与每个资源管理器进行交互。</p>
-<p>部署Flink应用程序时，Flink会根据应用程序配置的<strong>并行度</strong>自动识别所需资源，并从资源管理器请求它们。如果发生故障，Flink会通过请求新的资源来替换发生故障的容器。提交或控制应用程序的所有通信都通过REST调用进行。这简化了Flink在许多环境中的集成。</p>
-<h2 id="任意规模运行应用程序">任意规模运行应用程序</h2>
-<p>Flink旨在以任意规模运行有状态流式应用程序。应用程序可以并行化为数千个在集群中分布和同时执行的任务。因此，应用程序可以利用几乎无限量的CPU，内存，磁盘和网络IO。而且，Flink可以轻松维护非常大的应用程序的状态。其<strong>异步和增量检查点算法</strong>确保对延迟处理的影响最小，同时保证精确一次的状态一致性。</p>
-<p>用户报告了在其生产环境中运行的Flink应用程序的扩展数字令人印象十分深刻，例如：</p>
-<ul>
-<li>应用程序每天处理数万亿个事件</li>
-<li>应用程序维护数个TB的状态</li>
-<li>应用程序在数千个CPU核上运行</li>
-</ul>
-<h2 id="利用内存的性能">利用内存的性能</h2>
-<p>有状态的Flink应用程序针对本地状态访问进行了优化。任务状态始终驻留在<strong>内存</strong>中，或者，如果状态大小超过可用内存，则保存在<strong>访问高效的磁盘</strong>上的数据结构中。因此，任务通过访问本地（通常是内存中）状态来执行所有计算，从而产生非常低的处理延迟。Flink通过定期和异步检查点将本地状态到持久存储来保证在出现故障时的精确一次的状态一致性。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g10a61tc9oj225c0hin1k.jpg" alt></p>
-<h1>应用</h1>
-<p>Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架。</p>
-<p>Flink 在不同的抽象级别提供多个API，并为常见用例提供专用库。</p>
-<h2 id="为流应用程序构建块">为流应用程序构建块</h2>
-<p>流式计算框架构建和运行的应用程序的类型，由框架控制流（events）、状态（state）以及时间（time）的程度来定义。在下文中，我们描述了流处理应用程序的这些构建块，并解释了Flink处理他们的方法。</p>
-<h2 id="流（events）">流（events）</h2>
-<p>显然，流是流式处理的一个基本方面。然而，流可以有不同的特征，这些特征会影响流的处理方式。Flink 是一个多功能的处理框架，它可以处理任意类型的流。</p>
-<ul>
-<li><strong>有边界</strong>和<strong>无边界</strong>的流：流可以是无边界或是有边界的，如固定大小的数据集。Flink 具有处理无边界流的复杂功能，但也有专用的运算符来有效地处理有边界流。</li>
-<li><strong>实时</strong>和<strong>记录</strong>的流：所有数据都作为流生成，有两种方法可以处理数据。在生成时实时处理它或者将流持久保存到存储系统（例如文件系统或对象存储），并在之后对其进行处理。Flink 应用程序可以处理记录或实时流。</li>
-</ul>
-<h2 id="状态（state）">状态（state）</h2>
-<p>每个非凡的流式应用都是有状态的。只有对个别事件应用转换的应用程序才不需要状态。运行基本业务逻辑的任何应用程序都需要记住事件或中间结果，以便在之后的时间点访问它们，例如在收到下一个事件时或在特定持续时间之后。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g10afyrmrej20eu05x749.jpg" alt></p>
-<p>应用程序的状态在 Flink 中是一等公民。您可以通过查看 Flink 在状态处理环境（上下文context）中提供的所有功能（函数）来查看。</p>
-<ul>
-<li><strong>多状态原语</strong>：Flink为不同的数据结构提供了状态原语，如原子值(value)，列表(list)或映射(map)。开发人员可以根据函数的访问模式选择最有效的状态原语。</li>
-<li><strong>可插拔状态后端</strong>：应用程序状态由可插拔状态后端管理以及检查(checkpointed)。Flink有不同的状态后端，可以在内存或RocksDB中存储状态，RocksDB(KV DB)是一种高效的嵌入式磁盘数据存储。也可以插入自定义状态后端。</li>
-<li><strong>精确一次的状态一致性</strong>：Flink的检查点和恢复算法可确保在发生故障时应用程序状态的一致性。因此，故障是透明处理的，不会影响应用程序的正确性。</li>
-<li><strong>非常大的状态</strong>:由于其异步和增量检查点算法，Flink能够维持几个TB的应用程序状态。</li>
-<li><strong>可扩展的应用程序</strong>： Flink通过将状态重新分配给更多或更少的Worker节点来支持有状态应用程序的扩展。</li>
-</ul>
-<h2 id="时间（time）">时间（time）</h2>
-<p>时间是流式应用的另一个重要组成成分。大多数事件流都具有固定的时间语义，因为每个事件都是在特定的时间点生成的。此外，许多常见的流计算基于时间，例如窗口聚合、会话化、模式监测和基于时间的连接。流处理的一个重要方面是应用程序如何测量时间，即时间时间和处理时间之间的差异。</p>
-<p>Flink 提供了一组丰富的与时间相关的功能。</p>
-<ul>
-<li><strong>事件时间模式</strong>：使用事件时间语义处理流的应用程序根据时间的时间戳计算结果。因此，无论是否处理记录或实时的时间，事件时间处理都是准确和一致的结果。</li>
-<li><strong>水印支持</strong>：Flink使用水印来推断事件时间应用中的时间。水印也是一种灵活的机制，可以权衡取舍延迟数据和结果的完整性。</li>
-<li><strong>延迟数据处理</strong>：当在事件时间模式下使用水印处理流时，可能会发生在所有相关事件到达之前已完成计算的情况。这类事件被称为延迟事件。Flink具有多种处理延迟事件的选项，例如通过边输出重新路由它们以及更新之前已经完成的结果。</li>
-<li><strong>处理时间模式</strong>:除了事件时间模式以外，Flink还支持处理时间语义，处理时间语义的执行由处理机器的挂钟（系统）时间来触发计算。处理时间模式适用于某些具有严格的低延迟要求的应用，这些要求同时可以容忍近似结果。</li>
-</ul>
-<h2 id="分层接口API">分层接口API</h2>
-<p>Flink提供三层API。每个API在简洁性和表达性之间提供不同的权衡，并针对不同的用例。</p>
-<p><img src="https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1g10ajpzt5tj20jf05iwfb.jpg" alt></p>
-<p>最底层是ProcessFunction，它能够提供非常灵活的功能，它能够访问各种各样的State，用来注册一些timer，利用timer回调的机制能够实现一些基于事件驱动的一些应用。</p>
-<p>之上是DataStream API，最上层是SQL/Table API的一种High-level API。</p>
-<h3 id="ProcessFunctions">ProcessFunctions</h3>
-<p><a href="https://ci.apache.org/projects/flink/flink-docs-stable/dev/stream/operators/process_function.html">ProcessFunctions</a> 是Flink提供的最具表现力的功能接口。Flink 提供 ProcessFunctions 来处理来自一个或两个输入流中的单个事件或分组到一个窗口的事件。ProcessFunctions 提供对时间和状态的细粒度控制。ProcessFunction 可以任意修改其状态并注册将在未来触发回调函数的定时器。因此，ProcessFunctions 可以实现许多有状态事件驱动应用程序所需的复杂的每个事件业务逻辑。</p>
-<p>以下示例显示了 KeyedProcessFunction 对 KeyedStream，匹配 START 以及 END 事件进行操作的示例。当一个START 事件被接收时，该函数在记住其状态时间戳和并且注册四个小时的计时器。如果在计时器触发之前收到END 事件，则该函数计算事件 END 和 START 事件之间的持续时间，清除状态并返回值。否则，计时器只会触发并清除状态。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Matches keyed START and END events and computes the difference between </span></span><br><span class="line"><span class="comment"> * both elements&#x27; timestamps. The first String field is the key attribute, </span></span><br><span class="line"><span class="comment"> * the second String attribute marks START and END events.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">StartEndDuration</span></span><br><span class="line">    <span class="keyword">extends</span> <span class="title class_">KeyedProcessFunction</span>&lt;String, Tuple2&lt;String, String&gt;, Tuple2&lt;String, Long&gt;&gt; &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> ValueState&lt;Long&gt; startTime;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">open</span><span class="params">(Configuration conf)</span> &#123;</span><br><span class="line">    <span class="comment">// obtain state handle</span></span><br><span class="line">    startTime = getRuntimeContext()</span><br><span class="line">      .getState(<span class="keyword">new</span> <span class="title class_">ValueStateDescriptor</span>&lt;Long&gt;(<span class="string">&quot;startTime&quot;</span>, Long.class));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** Called for each processed event. */</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">processElement</span><span class="params">(</span></span><br><span class="line"><span class="params">      Tuple2&lt;String, String&gt; in,</span></span><br><span class="line"><span class="params">      Context ctx,</span></span><br><span class="line"><span class="params">      Collector&lt;Tuple2&lt;String, Long&gt;&gt; out)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (in.f1) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;START&quot;</span>:</span><br><span class="line">        <span class="comment">// set the start time if we receive a start event.</span></span><br><span class="line">        startTime.update(ctx.timestamp());</span><br><span class="line">        <span class="comment">// register a timer in four hours from the start event.</span></span><br><span class="line">        ctx.timerService()</span><br><span class="line">          .registerEventTimeTimer(ctx.timestamp() + <span class="number">4</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;END&quot;</span>:</span><br><span class="line">        <span class="comment">// emit the duration between start and end event</span></span><br><span class="line">        <span class="type">Long</span> <span class="variable">sTime</span> <span class="operator">=</span> startTime.value();</span><br><span class="line">        <span class="keyword">if</span> (sTime != <span class="literal">null</span>) &#123;</span><br><span class="line">          out.collect(Tuple2.of(in.f0, ctx.timestamp() - sTime));</span><br><span class="line">          <span class="comment">// clear the state</span></span><br><span class="line">          startTime.clear();</span><br><span class="line">        &#125;</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="comment">// do nothing</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** Called when a timer fires. */</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onTimer</span><span class="params">(</span></span><br><span class="line"><span class="params">      <span class="type">long</span> timestamp,</span></span><br><span class="line"><span class="params">      OnTimerContext ctx,</span></span><br><span class="line"><span class="params">      Collector&lt;Tuple2&lt;String, Long&gt;&gt; out)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Timeout interval exceeded. Cleaning up the state.</span></span><br><span class="line">    startTime.clear();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>这个例子说明了KeyedProcessFunction的表达能力，但也强调了它是一个相当冗长的接口。</code></p>
-<h3 id="DataStream-API">DataStream API</h3>
-<p><a href="https://ci.apache.org/projects/flink/flink-docs-stable/dev/datastream_api.html">DataStream API</a> 提供了许多通用流处理操作原语。如窗口，record-at-a-time转换，查询外部数据存储丰富事件原语。DataStream API 可用于 Java 和 Scala 且它是基于函数的，如 map()、reduce() 以及 aggregate() 。可以通过扩展接口或 lambda 函数来定义函数参数。</p>
-<p>以下示例展示如何对点击流进行会话化以及记录每个session的点击次数。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// a stream of website clicks</span></span><br><span class="line">DataStream&lt;Click&gt; clicks = ...</span><br><span class="line"></span><br><span class="line">DataStream&lt;Tuple2&lt;String, Long&gt;&gt; result = clicks</span><br><span class="line">  <span class="comment">// project clicks to userId and add a 1 for counting</span></span><br><span class="line">  .map(</span><br><span class="line">    <span class="comment">// define function by implementing the MapFunction interface.</span></span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">MapFunction</span>&lt;Click, Tuple2&lt;String, Long&gt;&gt;() &#123;</span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="keyword">public</span> Tuple2&lt;String, Long&gt; <span class="title function_">map</span><span class="params">(Click click)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Tuple2.of(click.userId, <span class="number">1L</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  <span class="comment">// key by userId (field 0)</span></span><br><span class="line">  .keyBy(<span class="number">0</span>)</span><br><span class="line">  <span class="comment">// define session window with 30 minute gap</span></span><br><span class="line">  .window(EventTimeSessionWindows.withGap(Time.minutes(<span class="number">30L</span>)))</span><br><span class="line">  <span class="comment">// count clicks per session. Define function as lambda function.</span></span><br><span class="line">  .reduce((a, b) -&gt; Tuple2.of(a.f0, a.f1 + b.f1));</span><br></pre></td></tr></table></figure>
-<h3 id="SQL-Table-API">SQL &amp; Table API</h3>
-<p>Flink 有两种关系化 API 特性， <a href="https://ci.apache.org/projects/flink/flink-docs-stable/dev/table/index.html">Table API 和 SQL</a>。这两个 API 都是用于批处理和流处理的统一API，即，在无边界的实时流或有边界的记录流上以相同的语义执行查询，并产生相同的结果。Table API 和 SQL 利用Apache Calicite来解析，校验以及查询优化。它们可以与 DataStream 和 DataSet API 无缝集成，并支持用户定义的标量，聚合以及表值函数。</p>
-<p>Flink的关系化API旨在简化<a href="https://flink.apache.org/usecases.html#analytics">数据分析</a>，<a href="https://flink.apache.org/usecases.html#pipelines">数据流水线和ETL应用程序的定义</a>。</p>
-<p>以下示例展示如何对点击流进行会话化以及记录每个session的点击次数。与DataStream API中的示例是相同的用例。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> userId, <span class="built_in">COUNT</span>(<span class="operator">*</span>)</span><br><span class="line"><span class="keyword">FROM</span> clicks</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> SESSION(clicktime, <span class="type">INTERVAL</span> <span class="string">&#x27;30&#x27;</span> <span class="keyword">MINUTE</span>), userId</span><br></pre></td></tr></table></figure>
-<h3 id="库（Libraries）">库（Libraries）</h3>
-<p>Flink 具有几个用于常见数据处理用例的库。这些库通常嵌入在API中，而不是完全独立的。因此，它们可以从API的所有特性中受益，并与其他库集成。</p>
-<ul>
-<li><strong>复杂事件处理（CEP）</strong>: 模式检测是事件流处理中的一个非常常见的用例。Flink的CEP库提供了一个API来指定事件模式（如正则表达式或状态机）。CEP库与Flink的DataStream API集成，以便在DataStream上评估模式。CEP库的应用包括网络***检测，业务流程监控和欺诈检测。</li>
-<li><strong>DataSet API</strong>：DataSet API是Flink用于批处理应用程序的核心API。DataSet API的原语包括 map,reduce,(outer)join,co-group和iterate。所有操作都由算法和数据结构支持，这些算法和数据结构对内存中的序列化数据进行进行操作，如果数据大小超过内存预算则溢出到磁盘。Flink的DataSet API的数据处理算法收到传统数据库运算符的启发，例如混合散列连接或外部合并排序（ hybrid hash-join or external merge-sort）。</li>
-<li><strong>Gelly</strong>：Gelly是一个可扩展的图形处理和分析库。Gelly是在DataSet API之上实现的，并与DataSet API集成在一起。因此，它受益于其可扩展且强大的操作符。Gelly具有<a href="https://ci.apache.org/projects/flink/flink-docs-stable/dev/libs/gelly/library_methods.html">内置算法</a>，如label propagation(标签传播), triangle enumeration, and page rank, 但也提供了一个自定义图算法实现的简化<a href="https://ci.apache.org/projects/flink/flink-docs-stable/dev/libs/gelly/graph_api.html">Graph API</a>。</li>
-</ul>
-<h1>操作</h1>
-<p>由于许多流应用程序设计为以最短的停机时间连续运行，因此流处理器必须提供出色的故障恢复，以及在应用程序运行时监控和维护应用程序的工具。</p>
-<p>Apache Flink 非常关注流处理的操作方面。在这里，我们将解释 Flink 的故障恢复机制，并介绍其管理和监督正在运行的应用程序的特性。</p>
-<h2 id="全天候运行应用程序">全天候运行应用程序</h2>
-<p>机器和处理故障在分布式系统中无处不在。像Flink这样的分布式流处理器必须从故障中恢复，以便能够全天候运行流应用程序。显然，这不仅意味着在故障发生后重新启动应用程序，而且还要确保其内部状态保持一致，以便应用程序可以继续处理，就像从未发生过故障一样。</p>
-<p>Flink提供了多种特性，以确保应用程序保持运行并保持一致：</p>
-<ul>
-<li><strong>一致的检查点</strong>：Flink的恢复机制基于应用程序状态的一致性检查点。如果发生故障，将重新启动应用程序并从最新检查点加载其状态。结合可重置的流源，此特性可以保证精确一次的状态一致性。</li>
-<li><strong>高效的检查点</strong>：如果应用程序保持TB级的状态，则检查应用程序的状态可能非常昂贵。Flink可以执行异步和增量检查点，以便将检查点对应用程序的延迟SLAs的影响保持在非常小的水平。</li>
-<li><strong>End-to-End精确一次</strong>：Flink为特定存储系统提供事务接收(sink)器，保证数据只写出一次，即使出现故障。</li>
-<li><strong>与集群管理器集成</strong>：Flink与集群管理器紧密集成，例如Hadoop YARN，Mesos或Kubernetes。当进程失败时，将自动启动一个新进程来接管它的工作。</li>
-<li><strong>高可用性设置</strong>：Flink具有高可用性模式特性，可消除所有单点故障。HA模式基于Apache ZooKeeper–是一种经过验证的可靠分布式协调服务。</li>
-</ul>
-<h2 id="更新、迁移、暂停和恢复应用程序">更新、迁移、暂停和恢复应用程序</h2>
-<p>需要维护为关键业务服务提供支持的流应用程序。需要修复错误，并且需要实现改进或新功能特性。但是，更新有状态流应用程序并非易事。通常，我们不能简单地停止应用程序并重新启动固定版本或改进版本，因为无法承受丢失应用程序的状态。</p>
-<p>Flink 的 Savepoints 是一个独特而强大的功能特性，可以解决更新有状态应用程序和许多其他相关挑战的问题。保存点是应用程序状态的一致快照，因此它与检查点非常相似。但是，与检查点相比，需要手动触发保存点，并且在应用程序停止时不会自动删除保存点。保存点可用于启动状态兼容的应用程序并初始化其状态。保存点可启用以下功能：</p>
-<ul>
-<li><strong>应用程序演变</strong>：保存点可用于发展应用程序。可以从从先前版本的应用程序中获取的保存点重新启动应用程序的固定或改进版本。也可以从较早的时间点（假设存在这样的保存点）启动应用程序，以修复由有缺陷的版本产生的错误结果。</li>
-<li><strong>集群迁移</strong>：使用保存点，可以将应用程序迁移（或克隆）到不同的集群。</li>
-<li><strong>Flink版本更新</strong>：可以使用保存点迁移应用程序在Flink的新版本上运行。</li>
-<li><strong>应用程序扩展</strong>：保存点可用于增加或减少应用程序的并行性。</li>
-<li><strong>A / B测试和假设情景</strong>：通过在同一保存点启动应用程序的所有版本，可以比较两个（或更多）不同版本的应用程序的性能或质量。</li>
-<li><strong>暂停和恢复</strong>：可以通过获取保存点来暂停应用程序并停止它。在以后的任何时间点，都可以从保存点恢复应用程序。</li>
-<li><strong>归档</strong>：保存点可以存档，以便能够将应用程序的状态重置为较早的时间点。</li>
-</ul>
-<h2 id="监控和控制应用程序">监控和控制应用程序</h2>
-<p>与任何其他服务一样，持续运行的流应用程序需要受到监督并集成到组织的运营（operations）基础架构（即监控和日志记录服务）中。监控有助于预测问题并提前做出反应。日志记录让我们可以依据根原因分析来调查故障。最后，控制运行应用程序的易于访问的界面也是一个重要特性。</p>
-<p>Flink 与许多常见的日志记录和监视服务已经很好地集成，并提供 REST API 来控制应用程序和查询信息。</p>
-<ul>
-<li><strong>Web UI</strong>：Flink拥有Web UI功能特性，可以检查，监视和调试正在运行的应用程序。它还可用于提交执行或取消执行。</li>
-<li><strong>Logging</strong>: Flink实现了流行的slf4j日志记录接口，并与日志框架log4j或logback集成。</li>
-<li><strong>Metrics</strong>:Flink具有复杂的度量标准系统，用于收集和报告系统和用户定义的度量标准。度量标准可以导出到几个reporters，包括JMX，Ganglia，Graphite，Prometheus，StatsD，Datadog和Slf4j。</li>
-<li><strong>REST API</strong>:Flink暴露公开提交新应用程序，获取正在运行的应用程序的保存点或取消应用程序的REST API。REST API还公开元数据、收集到的正在运行的或已完成应用程序的指标。</li>
 </ul>
 ]]></content>
       <categories>
