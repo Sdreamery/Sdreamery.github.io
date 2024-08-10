@@ -47,6 +47,34 @@
   </entry>
   
   <entry>
+    <title>Linux定时备份异常处理</title>
+    <link href="http://www.seanxia.cn/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/64d019ba.html"/>
+    <id>http://www.seanxia.cn/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/64d019ba.html</id>
+    <published>2024-07-16T16:00:00.000Z</published>
+    <updated>2024-08-10T06:57:06.485Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;问题场景&lt;/h1&gt;
+&lt;p&gt;为了&lt;code&gt;FineReport&lt;/code&gt;数据决策平台服务器的安全性，前段时间做了定时备份，使用&lt;code&gt;Linux&lt;/code&gt;的&lt;code&gt;crontab&lt;/code&gt;定时任务每天凌晨将整个&lt;code&gt;FineReport&lt;/cod</summary>
+        
+      
+    
+    
+    
+    <category term="日常问题" scheme="http://www.seanxia.cn/categories/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/"/>
+    
+    
+    <category term="Linux" scheme="http://www.seanxia.cn/tags/Linux/"/>
+    
+    <category term="定时备份" scheme="http://www.seanxia.cn/tags/%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>使用Git系统搭建GitLab</title>
     <link href="http://www.seanxia.cn/%E5%85%B6%E4%BB%96/6d60df94.html"/>
     <id>http://www.seanxia.cn/%E5%85%B6%E4%BB%96/6d60df94.html</id>
@@ -92,15 +120,15 @@
   </entry>
   
   <entry>
-    <title>流式框架Flink（二）</title>
-    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html"/>
-    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html</id>
+    <title>流式框架Flink（一）</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html</id>
     <published>2019-01-01T16:00:00.000Z</published>
-    <updated>2024-07-11T14:48:50.981Z</updated>
+    <updated>2019-08-10T13:46:34.000Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架。&lt;/p&gt;
-&lt;p&gt;我们来谈谈 Flink 的编程模型与部署。&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架和分布式处理引擎。Flink设计为运行在所有常见的集群环境中，并且以内存速度和任意规模执行计算。&lt;/p&gt;
+&lt;p&gt;官网：&lt;a href=&quot;https://flink.apache.org&quot;&gt;https://flink.apache.org&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
@@ -114,15 +142,15 @@
   </entry>
   
   <entry>
-    <title>流式框架Flink（一）</title>
-    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html"/>
-    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/31afedf9.html</id>
+    <title>流式框架Flink（二）</title>
+    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html"/>
+    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/1b90121.html</id>
     <published>2019-01-01T16:00:00.000Z</published>
-    <updated>2019-08-10T13:46:34.000Z</updated>
+    <updated>2024-07-11T14:48:50.981Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架和分布式处理引擎。Flink设计为运行在所有常见的集群环境中，并且以内存速度和任意规模执行计算。&lt;/p&gt;
-&lt;p&gt;官网：&lt;a href=&quot;https://flink.apache.org&quot;&gt;https://flink.apache.org&lt;/a&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;Apache Flink是一个用于对无边界和有边界数据流进行有状态计算的框架。&lt;/p&gt;
+&lt;p&gt;我们来谈谈 Flink 的编程模型与部署。&lt;/p&gt;</summary>
     
     
     
@@ -436,29 +464,6 @@
     <category term="流式处理" scheme="http://www.seanxia.cn/tags/%E6%B5%81%E5%BC%8F%E5%A4%84%E7%90%86/"/>
     
     <category term="Storm" scheme="http://www.seanxia.cn/tags/Storm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>消息队列Kafka</title>
-    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/efe707af.html"/>
-    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/efe707af.html</id>
-    <published>2017-10-27T16:00:00.000Z</published>
-    <updated>2019-08-10T13:46:42.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Kafka 是一个高吞吐、低延迟分布式的消息队列系统。kafka 每秒可以处理几十万条消息，它的延迟最低只有几毫秒。&lt;/p&gt;
-&lt;p&gt;官网：&lt;a href=&quot;https://kafka.apache.org&quot;&gt;https://kafka.apache.org&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://seanxia.oss-cn-shanghai.aliyuncs.com/img/hexo/7308598bgy1fzmjytyjtrj20bg091gm6.jpg&quot; alt&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-    
-    <category term="Kafka" scheme="http://www.seanxia.cn/tags/Kafka/"/>
-    
-    <category term="消息队列" scheme="http://www.seanxia.cn/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
     
   </entry>
   
