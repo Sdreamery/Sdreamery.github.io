@@ -6,7 +6,7 @@
   <link href="http://www.seanxia.cn/atom.xml" rel="self"/>
   
   <link href="http://www.seanxia.cn/"/>
-  <updated>2024-08-10T06:36:30.926Z</updated>
+  <updated>2024-08-10T06:39:30.968Z</updated>
   <id>http://www.seanxia.cn/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux定时备份异常处理</title>
+    <link href="http://www.seanxia.cn/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/64d019ba.html"/>
+    <id>http://www.seanxia.cn/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/64d019ba.html</id>
+    <published>2024-08-10T06:14:57.971Z</published>
+    <updated>2024-08-10T06:39:30.968Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;问题场景&lt;/h1&gt;
+&lt;p&gt;为了&lt;code&gt;FineReport&lt;/code&gt;数据决策平台服务器的安全性，前段时间做了定时备份，使用&lt;code&gt;Linux&lt;/code&gt;的&lt;code&gt;crontab&lt;/code&gt;定时任务每天凌晨将整个&lt;code&gt;FineReport&lt;/cod</summary>
+        
+      
+    
+    
+    
+    <category term="日常问题" scheme="http://www.seanxia.cn/categories/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/"/>
+    
+    
+    <category term="Linux" scheme="http://www.seanxia.cn/tags/Linux/"/>
+    
+    <category term="定时备份" scheme="http://www.seanxia.cn/tags/%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>记录一次生产数据库紧急恢复经历</title>
     <link href="http://www.seanxia.cn/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/f3ddb040.html"/>
     <id>http://www.seanxia.cn/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/f3ddb040.html</id>
     <published>2024-07-19T16:00:00.000Z</published>
-    <updated>2024-08-10T06:36:30.926Z</updated>
+    <updated>2024-08-10T06:39:56.204Z</updated>
     
     
       
@@ -43,34 +71,6 @@
     <category term="数据库" scheme="http://www.seanxia.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     <category term="恢复" scheme="http://www.seanxia.cn/tags/%E6%81%A2%E5%A4%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux定时备份异常处理</title>
-    <link href="http://www.seanxia.cn/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/64d019ba.html"/>
-    <id>http://www.seanxia.cn/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/64d019ba.html</id>
-    <published>2024-07-16T16:00:00.000Z</published>
-    <updated>2024-08-10T06:37:18.603Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;问题场景&lt;/h1&gt;
-&lt;p&gt;为了&lt;code&gt;FineReport&lt;/code&gt;数据决策平台服务器的安全性，前段时间做了定时备份，使用&lt;code&gt;Linux&lt;/code&gt;的&lt;code&gt;crontab&lt;/code&gt;定时任务每天凌晨将整个&lt;code&gt;FineReport&lt;/cod</summary>
-        
-      
-    
-    
-    
-    <category term="日常问题" scheme="http://www.seanxia.cn/categories/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/"/>
-    
-    
-    <category term="Linux" scheme="http://www.seanxia.cn/tags/Linux/"/>
-    
-    <category term="定时备份" scheme="http://www.seanxia.cn/tags/%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD/"/>
     
   </entry>
   
