@@ -646,7 +646,8 @@ document.addEventListener('DOMContentLoaded', function () {
   
     const handleCopy = e => {
       if (copy) {
-        btf.snackbarShow(GLOBAL_CONFIG.copy.success);
+        btf.snackbarShow("复制成功，转载请标注本文地址");
+        // btf.snackbarShow(GLOBAL_CONFIG.copy.success);
       }
       if (copyrightEbable) {
         e.preventDefault();
