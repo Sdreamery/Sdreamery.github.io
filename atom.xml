@@ -309,9 +309,9 @@
     <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
     
-    <category term="SparkStreaming" scheme="http://www.seanxia.cn/tags/SparkStreaming/"/>
-    
     <category term="流式处理" scheme="http://www.seanxia.cn/tags/%E6%B5%81%E5%BC%8F%E5%A4%84%E7%90%86/"/>
+    
+    <category term="SparkStreaming" scheme="http://www.seanxia.cn/tags/SparkStreaming/"/>
     
   </entry>
   
@@ -461,9 +461,9 @@
     <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
     
-    <category term="流式处理" scheme="http://www.seanxia.cn/tags/%E6%B5%81%E5%BC%8F%E5%A4%84%E7%90%86/"/>
-    
     <category term="Storm" scheme="http://www.seanxia.cn/tags/Storm/"/>
+    
+    <category term="流式处理" scheme="http://www.seanxia.cn/tags/%E6%B5%81%E5%BC%8F%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
