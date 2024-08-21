@@ -6,7 +6,7 @@
   <link href="http://www.seanxia.cn/atom.xml" rel="self"/>
   
   <link href="http://www.seanxia.cn/"/>
-  <updated>2024-08-10T07:22:13.465Z</updated>
+  <updated>2024-08-21T03:32:58.330Z</updated>
   <id>http://www.seanxia.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQLServer中文乱码及查询异常</title>
+    <link href="http://www.seanxia.cn/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/49955695.html"/>
+    <id>http://www.seanxia.cn/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/49955695.html</id>
+    <published>2024-08-21T05:08:06.550Z</published>
+    <updated>2024-08-21T03:32:58.330Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;记录一次工作中SQLServer查询异常的经历。&lt;/p&gt;
+&lt;p&gt;由于直连供应商那边要求使用sqlserver接收数据，故我们又在207安装了SQLServer数据库，我这边正常建表，然后导入数据，刚开始客户类型，厂家等字段使用常用字符串类型varchar，但是导入发现除数字</summary>
+        
+      
+    
+    
+    
+    <category term="日常问题" scheme="http://www.seanxia.cn/categories/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/"/>
+    
+    
+    <category term="SQLServer" scheme="http://www.seanxia.cn/tags/SQLServer/"/>
+    
+    <category term="数据库" scheme="http://www.seanxia.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="异常" scheme="http://www.seanxia.cn/tags/%E5%BC%82%E5%B8%B8/"/>
+    
+  </entry>
   
   <entry>
     <title>记录一次生产数据库紧急恢复经历</title>
@@ -38,9 +68,9 @@
     <category term="日常问题" scheme="http://www.seanxia.cn/categories/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/"/>
     
     
-    <category term="StarRocks" scheme="http://www.seanxia.cn/tags/StarRocks/"/>
-    
     <category term="数据库" scheme="http://www.seanxia.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="StarRocks" scheme="http://www.seanxia.cn/tags/StarRocks/"/>
     
     <category term="恢复" scheme="http://www.seanxia.cn/tags/%E6%81%A2%E5%A4%8D/"/>
     
@@ -442,28 +472,6 @@
     <category term="spark" scheme="http://www.seanxia.cn/tags/spark/"/>
     
     <category term="分布式计算" scheme="http://www.seanxia.cn/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>流式处理Storm</title>
-    <link href="http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/b6b65a25.html"/>
-    <id>http://www.seanxia.cn/%E5%A4%A7%E6%95%B0%E6%8D%AE/b6b65a25.html</id>
-    <published>2017-11-01T16:00:00.000Z</published>
-    <updated>2019-08-10T13:46:32.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Storm是一个免费开源、分布式、高容错的实时计算系统。Storm令持续不断的流计算变得容易，弥补了Hadoop批处理所不能满足的实时要求。&lt;/p&gt;
-&lt;p&gt;官网 &lt;a href=&quot;http://storm.apache.org&quot;&gt;http://storm.apache.org&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="大数据" scheme="http://www.seanxia.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-    
-    <category term="流式处理" scheme="http://www.seanxia.cn/tags/%E6%B5%81%E5%BC%8F%E5%A4%84%E7%90%86/"/>
-    
-    <category term="Storm" scheme="http://www.seanxia.cn/tags/Storm/"/>
     
   </entry>
   
