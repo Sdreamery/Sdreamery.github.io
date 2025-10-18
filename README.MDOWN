@@ -1,3 +1,2 @@
 我的个人博客，采用Hexo搭建，主题Next
-
-国外Github+国内Coding双线托管。
+Github托管+vercel部署。
