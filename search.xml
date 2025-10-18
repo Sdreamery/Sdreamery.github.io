@@ -336,6 +336,21 @@ picgo-plugin-pic-migrater：<img src="https://seanxia.oss-cn-shanghai.aliyuncs.c
       </tags>
   </entry>
   <entry>
+    <title>测试1</title>
+    <url>/Java/ed2a42f9.html</url>
+    <content><![CDATA[<h1>测试1</h1>
+<h2 id="测试1">测试1</h2>
+<h3 id="测试1-2">测试1</h3>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>RPC</tag>
+        <tag>Doubbo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SQLServer中文乱码及查询异常</title>
     <url>/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98/49955695.html</url>
     <content><![CDATA[<p>记录一次工作中SQLServer查询异常的经历。</p>
